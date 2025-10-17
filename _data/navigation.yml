@@ -15,8 +15,8 @@ preface:
   eng: Preface
   hin: भूमिका
   tam: முன்னுரை
-  tel: ప్రస్తావన
-  mal: ആമുഖം
+  tel: ముందుమాట
+  mal: മുഖവുര
 
 chapters:
   kan: ಅಧ್ಯಾಯಗಳು
@@ -35,9 +35,9 @@ languages:
   mal: ഭാഷകൾ
 
 about:
-  kan: ಪರಿಚಯ
+  kan: ಕುರಿತು
   eng: About
-  hin: परिचय
-  tam: அறிமுகம்
-  tel: పరిచయం
-  mal: പരിചയം
+  hin: बारे
+  tam: பற்றி
+  tel: గురించి
+  mal: കുറിച്ച്
