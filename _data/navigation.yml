@@ -1,0 +1,43 @@
+#for each translation key, specify nav text for each lang
+#by default, the url is lang/translation_key: kan/about, eng/about,...
+#home's URL is always just lang/: kan/, eng/,...
+
+home:
+  kan: ಮುಖಪುಟ
+  eng: Home
+  hin: मुख्यपृष्ठ
+  tam: முகப்பு
+  tel: ముఖపుటం
+  mal: മുഖതാൾ
+
+preface:
+  kan: ಮುನ್ನುಡಿ
+  eng: Preface
+  hin: भूमिका
+  tam: முன்னுரை
+  tel: ప్రస్తావన
+  mal: ആമുഖം
+
+chapters:
+  kan: ಅಧ್ಯಾಯಗಳು
+  eng: Chapters
+  hin: अध्याय
+  tam: அத்தியாயங்கள்
+  tel: అధ్యాయాలు
+  mal: അധ്യായങ്ങൾ
+
+languages:
+  kan: ಭಾಷೆಗಳು
+  eng: Languages
+  hin: भाषाएँ
+  tam: மொழிகள்
+  tel: భాషలు
+  mal: ഭാഷകൾ
+
+about:
+  kan: ಪರಿಚಯ
+  eng: About
+  hin: परिचय
+  tam: அறிமுகம்
+  tel: పరిచయం
+  mal: പരിചയം
