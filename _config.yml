@@ -1,0 +1,95 @@
+#basic site info: not subject to localization
+name: geetaasameekshaa
+title: Geetaasameekshaa   #localized site title is maintained separately (see below)
+description: |
+  A verse-level translation of Sri Bhagavad Geetaa in different languages. 
+  Initial Kannada translation by Dr. Shataavadhaani Udupi Ramanatha Acharya.
+  Translations from Kannada to additional languages by others.
+
+# supported languages: 3-character ISO 639-2 code as key with name in the native language and name in English as subkeys
+# used in UI to let user select translation language
+languages:
+  kan:
+    native: ಕನ್ನಡ
+    english: Kannada
+
+  eng:
+    native: English
+    english: English
+
+  hin:
+    native: हिन्दी
+    english: Hindi
+
+  tam:
+    native: தமிழ்
+    english: Tamil
+
+  tel:
+    native: తెలుగు
+    english: Telugu
+
+  mal:
+    native: മലയാളം
+    english: Malayalam
+
+
+# default language: used by root director
+default_lang: kan
+
+
+# localized site title: must do this because parts of GH Pages requires `title` by itself (see top of file)
+localized_site_title:
+  kan: ಗೀತಾಸಮೀಕ್ಷಾ
+  eng: Geetaasameekshaa
+  hin: गीतासमीक्षा
+  tam: கீதாசமீக்ஷா
+  tel: గీతాసమీక్షా
+  mal: ഗീതാസമീക്ഷാ
+
+
+# content for each language is in language-specific dir named by language code: /kan, /eng, /hin, ...
+
+defaults:
+  # any page, anywhere: use the 'default' layout
+  - scope:
+      type: pages
+    values:
+      layout: default
+
+  # default value for `lang` key for pages in language dirs: in case `lang` is omitted in a page
+  - scope:
+      path: kan
+    values:
+      lang: kan
+
+  - scope:
+      path: eng
+    values:
+      lang: eng
+
+  - scope:
+      path: hin
+    values:
+      lang: hin
+
+  - scope:
+      path: tam
+    values:
+      lang: tam
+
+  - scope:
+      path: tel
+    values:
+      lang: tel
+
+  - scope:
+      path: mal
+    values:
+      lang: mal
+
+
+#files to exclude from Jekyll processing
+exclude:
+  - LICENSE.md        #expected only in root
+  - "**/README.md"    #README.md anywere
