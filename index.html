@@ -1,0 +1,21 @@
+{% assign lang = page.lang | default: site.default_lang %}
+{% assign redirect_url = "/" | append: lang | append: "/" | relative_url %}
+
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="refresh" content="0; url={{ redirect_url }}">
+  <title>Redirecting…</title>
+  <link rel="canonical" href="{{ redirect_url }}">
+</head>
+<body>
+  <p>
+    Redirecting to: <a href="{{ redirect_url }}">{{ redirect_url }}</a>
+  </p>
+  <p>
+    <div>Click the link above if not redirected automatically.</div>
+    <div>ಮರುನಿರ್ದೇಶನ ತಾನಾಗಿಯೇ ಆಗದಿದ್ದರೆ ಮೇಲಿನ ಲಿಂಕ್‌ ಒತ್ತಿ.</div>
+  </p>
+</body>
+</html>
