@@ -1,0 +1,42 @@
+{% assign lang = page.lang | default: site.default_lang %}
+{% assign site_title = site.localized_site_title[lang] | default: site.title %}
+
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ site_title }}{% if page.title %} – {{ page.title }}{% endif %}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+</head>
+<body>
+  <header>
+    <h1 class="header">{{ site_title }}</h1>
+    <nav class="site-nav">
+      <ul>
+        {% for key, labels in site.data.navigation %}
+          {% assign label = labels[lang] | default: labels.eng %}
+          {% assign title = labels.eng %}
+          {% capture href_path %}
+            /{{ lang }}{% unless key == "home" %}/{{ key }}.html{% endunless %}
+          {% endcapture %}
+          
+          <li>
+            <a href="{{ href_path | relative_url }}" title="{{ title }}">
+              {{ label }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    {{ content }}
+  </main>
+
+  <footer>
+    <p>&copy; {{ site.time | date: "%Y" }} {{ site.author }}</p>
+  </footer>
+</body>
+</html>
