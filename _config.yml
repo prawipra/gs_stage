@@ -6,6 +6,10 @@ description: |
   Initial Kannada translation by Dr. Shataavadhaani Udupi Ramanatha Acharya.
   Translations from Kannada to additional languages by others.
 
+#prevent "directory-and-index.html per md" behavior
+#every page is localized per lang; should be only ~23 files/lang (5 navbar pages + 18 chapters)
+permalink: /:lang/:basename.html  
+
 # supported languages: 3-character ISO 639-2 code as key with name in the native language and name in English as subkeys
 # used in UI to let user select translation language
 languages:
@@ -34,7 +38,7 @@ languages:
     english: Malayalam
 
 
-# default language: used by root director
+# default language: used by root redirector
 default_lang: kan
 
 
