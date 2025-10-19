@@ -2,13 +2,13 @@
 title: Preface
 ---
 
-Narayana incarnated in India 5823 years ago as the sage Shri Veda Vyasa. Sage Vyasa made the vedas
-accessible to people, and composed the Mahabharata such that it exceeds the vedas [in influence].
-Centered around the Pandavas and written in Sanskrit, the Mahabharata is a great scripture that guides
-everyone on everything to this day.
+5823 years ago, Narayana incarnated in India as the sage Shri Veda Vyasa, who made the vedas accessible,
+and composed the Mahabharata such that it exceeds the vedas [in influence]. Centered around the Pandavas
+and written in Sanskrit, the Mahabharata is a great scripture that guides everyone on everything to this
+day.
 
 After losing in a gambling duel with the Kauravas, the Pandavas complete a period of exile and incognito
-existence according to the terms of the duel. Upon returning, they ask the Kauravas to return their kingdom.
+living according to the terms of the duel. Upon return, they ask the Kauravas to return their kingdom.
 As the Pandavas' envoy, Shri Krishna asks the Kauravas to give the Pandavas any share of the kingdom. When
 the Kauravas refuse to give even a small piece of land, war breaks out between the Pandavas and the Kauravas.
 18 days of battle ensues in Kurukshetra. Krishna himself has joined the war as Arjuna's charioteer. He has
@@ -18,7 +18,7 @@ ruled for 36 years under Krishna's leadership \[guidance].
 The Kauravas' father Dhritarashtra is blind \[literally] and thus his charioteer Sanjaya keeps him appraised
 on the strife between the Pandavas and the Kauravas. Having seen the battle in Kurukshetra for 10 days, an
 alarmed Sanjaya shares with Dhritarashtra the news of Bhishma's fall. Hearing the news, Dhritarashtra asks
-Sanjaya to extensively narrate the war's proceedings from its beginning. With Vyasa's special grace,
+Sanjaya to extensively narrate the war's proceedings from its beginning. By Vyasa's special grace,
 Sanjaya—who is a Tumburu Gandharva—adequately addresses all of Dhritarashtra’s questions and concerns, as if
 he had seen and heard everything on the battlefield, and known every thought of the warriors there. That is
 how the conversation between Arjuna and Krishna at the start of the first day of the war has emerged from
@@ -72,9 +72,9 @@ Paragraphs 2 and 3 of the Kannada text employs a mix of tenses:
 - ಏರ್ಪಡುವುದು, ಹೇಳುವನು
 - ಸೇರಿದ್ದಾನೆ, ರಕ್ಷಿಸಿದ್ದಾನೆ, ಜಯಗಳಿಸಿದ್ದಾರೆ, ನಡೆಸಿದ್ದಾರೆ, ಹೊರಹೊಮ್ಮಿದೆ
 
-Stipulating that such mixing is needed or has utility in Kannada, such mixing sticks out in English
-text and is generally considered "scholarship deficiency". So, for scholarly reasons, is it OK to
-fix a tense in the English version?
+Stipulating that such mixing is needed or has utility in Kannada, I note that similar mixing in English
+makes the text jarring and is generally considered "scholarship deficiency". So, for scholarly reasons,
+is it OK to fix a tense in the English version?
 
 If yes, the "ಕೇಳಿಕೊಳ್ಳುತ್ತಾರೆ, ಹೇಳುತ್ತಾನೆ" style fits better due to the story-telling nature of the text.
 (In fact, that tense is named "narrative tense" or "historical present tense" in English.) For
