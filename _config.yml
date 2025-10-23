@@ -1,71 +1,102 @@
-#basic site info: not subject to localization
+# basic site info: not subject to localization
 name: geetaasameekshaa
-title: Geetaasameekshaa   #localized site title is maintained separately (see below)
-description: |
-  A verse-level translation of Sri Bhagavad Geetaa in different languages. 
-  Initial Kannada translation by Dr. Shataavadhaani Udupi Ramanatha Acharya.
-  Translations from Kannada to additional languages by others.
+title: gītāsamīkṣā   #localized site title is maintained separately (see below)
+description: The Bhagavad Gita in the Bhishma Episode of Sri Veda Vyasa's Mahabharata
 
-#prevent "directory-and-index.html per md" behavior
-#every page is localized per lang; should be only ~23 files/lang (5 navbar pages + 18 chapters)
-permalink: /:lang/:basename.html  
-
-# supported languages: 3-character ISO 639-2 code as key with name in the native language and name in English as subkeys
-# used in UI to let user select translation language
+# supported languages: each subkey is a unique code across all supported languages: recommed 3-character ISO 639:2023 codes
+# native (language name in that language) and english (language name in English) subkeys used in UI
+# bcp47 used to specify html page's language (lang global attribute in HTML)
+# script (ISO15924 code) used to specify script the text is in, if different from the text's lang: used with shlokas;
+# region (ISO 3166) used to specify the region in which the language is predominant; IN for Indic languages in this app; US for english
+# xlit optional custom value to denote specific transliteration convention such as ISO 15919, IAST,...; used for shlokas in English
 languages:
   kan:
     native: ಕನ್ನಡ
     english: Kannada
+    bcp47: kan-IN
+    script: Knda
+    region: IN
 
   eng:
     native: English
     english: English
+    bcp47: eng-US
+    script: Latn
+    region: US
+    xlit: iso15919
 
   hin:
     native: हिन्दी
     english: Hindi
+    bcp47: hin-IN
+    script: Deva
+    region: IN
 
   tam:
     native: தமிழ்
     english: Tamil
+    bcp47: tam-IN
+    script: Taml
+    region: IN
 
   tel:
     native: తెలుగు
     english: Telugu
+    bcp47: tel-IN
+    script: Telu
+    region: IN
 
   mal:
     native: മലയാളം
     english: Malayalam
-
-
-# default language: used by root redirector
-default_lang: kan
+    bcp47: mal-IN
+    script: Mlym
+    region: IN
 
 
 # localized site title: must do this because parts of GH Pages requires `title` by itself (see top of file)
 localized_site_title:
   kan: ಗೀತಾಸಮೀಕ್ಷಾ
-  eng: Geetaasameekshaa
+  eng: gītāsamīkṣā
   hin: गीतासमीक्षा
   tam: கீதாசமீக்ஷா
   tel: గీతాసమీక్షా
   mal: ഗീതാസമീക്ഷാ
 
+# localized site description: must do this because parts of GH Pages has just one `description` per site
+localized_site_description:
+  kan: |
+    ಶ್ರೀ ವೇದವ್ಯಾಸರು ರಚಿಸಿದ ಮಹಾಭಾರತದ ಭೀಷ್ಮಪರ್ವದಲ್ಲಿನ ಭಗವದ್ಗೀತಾ 
+  eng: |
+    The Bhagavad Gita in the Bhishma Episode of the Mahabharata, composed by Sri Veda Vyasa
+  hin: |
+    श्री वेद व्यास द्वारा रचित महाभारत के भीष्म पर्व की भगवद् गीता
+  tam: |
+    ஸ்ரீ வேதவ்யாசர் எழுதிய மஹாபாரதத்தில் உள்ள பீஷ்ம பருவத்திலுள்ள பகவத் கீதா
+  tel: |
+    శ్రీ వేదవ్యాసుడు రచించిన మహాభారతంలోని భీష్మపర్వంలో ఉన్న భగవద్గీత
+  mal: |
+    ശ്രീ വേദവ്യാസൻ രചിച്ച മഹാഭാരതത്തിലെ ഭീഷ്മപർവത്തിൽ ഉൾപ്പെട്ട ഭാഗവദ് ഗീത
 
-# content for each language is in language-specific dir named by language code: /kan, /eng, /hin, ...
 
+# default language: used to rewrite links for missing pages
+# can't be used to define default frontmatter `lang`
+default_lang: kan
+
+# default frontmatter: each lang's content is in dir /lang as in /kan, /eng, /hin, ...
 defaults:
-  # any page, anywhere: use the 'default' layout
+  # defaults for all pages
   - scope:
+      path: ""
       type: pages
     values:
-      layout: default
+      lang: kan # can't use default_lang config's value from above
+      layout: "default" # default layout for all pages
+      permalink: /:lang/:basename.html #one html per md
 
-  # default value for `lang` key for pages in language dirs: in case `lang` is omitted in a page
-  - scope:
-      path: kan
-    values:
-      lang: kan
+  # default value for `lang` key for pages in lang dirs: no need to include `lang` again in frontmatter
+  # no need to specify anything for kan files because the only customization lang is already the default
+  # add kan scope if a key other than `lang` needs a default value
 
   - scope:
       path: eng
@@ -96,4 +127,4 @@ defaults:
 #files to exclude from Jekyll processing
 exclude:
   - LICENSE.md        #expected only in root
-  - "**/README.md"    #README.md anywere
+  - "**/README.md"    #README.md anywere (lang dirs may have their own readme)
