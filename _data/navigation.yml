@@ -1,6 +1,9 @@
-#for each translation key, specify nav text for each lang
-#by default, the url is lang/translation_key: kan/about, eng/about,...
-#home's URL is always just lang/: kan/, eng/,...
+#for each page_id: nav label for each lang; page_id is an english name uniform across all langs
+
+#home page nav link will be /lang as in /kan, /eng,...
+#nav link for other pages will be /lang/basename.html as in /kan/about.html, /eng/chapters.html
+#for maintainability: for each page_id, create a page_id.md file in each lang dir, except homepage should be page_id
+#see permalink site config for reasons
 
 home:
   kan: ಮುಖಪುಟ
