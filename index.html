@@ -1,5 +1,4 @@
-{% assign lang = page.lang | default: site.default_lang %}
-{% assign redirect_url = "/" | append: lang | append: "/" | relative_url %}
+{% assign redirect_url = "/" | append: page.lang | append: "/" | relative_url %}
 
 <!DOCTYPE html>
 <html lang="{{ lang }}">
