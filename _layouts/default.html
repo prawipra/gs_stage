@@ -1,8 +1,8 @@
-{% assign lang = page.lang | default: site.default_lang %}
-{% assign site_title = site.localized_site_title[lang] | default: site.title %}
+{% assign site_title = site.localized_site_title[page.lang] | default: site.title %}
+{% assign site_description = site.localized_site_description[page.lang] | default: site.description %}
 
 <!DOCTYPE html>
-<html lang="{{ lang }}">
+<html lang="{{ site.languages[page.lang].bcp47 }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,17 +12,17 @@
 <body>
   <header>
     <h1 class="header">{{ site_title }}</h1>
+    <p class="header">{{ site_description }}</p>
     <nav class="site-nav">
       <ul>
         {% for key, labels in site.data.navigation %}
-          {% assign label = labels[lang] | default: labels.eng %}
-          {% assign title = labels.eng %}
+          {% assign label = labels[page.lang] | default: labels.eng %}
           {% capture href_path %}
-            /{{ lang }}{% unless key == "home" %}/{{ key }}.html{% endunless %}
+            /{{ page.lang }}{% unless key == "home" %}/{{ key }}.html{% endunless %}
           {% endcapture %}
           
           <li>
-            <a href="{{ href_path | relative_url }}" title="{{ title }}">
+            <a href="{{ href_path | relative_url }}" title="{{ labels.eng }}">
               {{ label }}
             </a>
           </li>
@@ -31,8 +31,19 @@
     </nav>
   </header>
 
+  {% comment %} 
+  Customize content by including a different "sub layout" (not a Jekyll term).
+  Assume one include file for each page_id and a fixed include file for all pages with chapter content
+  Note: frontmatter chapter must be defined for pages that show a chapter translation.
+  Note: the seleced include file must exist or the build will fail; no way to fallback if file is missing
+  {% endcomment %}
+
   <main>
-    {{ content }}
+    {% if page.chapter %}
+      {% include 'chapter_content' | append: '.html' lang=page.lang chapter=page.chapter %}
+    {% else %}
+      {% include {{ page.basename | append: '.html' }} lang=page.lang %}
+    {% endif %}
   </main>
 
   <footer>
