@@ -15,7 +15,7 @@
   {% assign primary_lang = 'mul' %}
 {% else %}
   {% assign primary_lang = page.lang %}
-  {% assign title = site.navigation[basename] | default: page.title %}
+  {% assign page_title = site.navigation[basename][page.lang] | default: page.title %}
 {% endunless %}
 
 <!DOCTYPE html>
@@ -23,7 +23,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ site_title }}{% if title %} – {{ title }}{% endif %}</title>
+  <title>{{ site_title }}{% if page_title %} – {{ page_title }}{% endif %}</title>
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 </head>
 <body>
@@ -51,15 +51,15 @@
   {% comment %} 
   Customize content by including a different "sub layout" (not a Jekyll term).
   Assume one include file for each page_id and a fixed include file for all pages with chapter content
-  Note: frontmatter chapter must be defined for pages that show a chapter translation.
+  Note: `chapter` frontmatter required for pages that show a chapter translation.
   Note: the seleced include file must exist or the build will fail; no way to fallback if file is missing
   {% endcomment %}
 
   <main>
     {% if page.chapter %}
-      {% include 'chapter_content' | append: '.html' lang=page.lang chapter=page.chapter %}
+      {% include 'chapter_content' | append: '.html' lang=page.lang title=page_title chapter=page.chapter %}
     {% else %}
-      {% include {{ page.basename | append: '.html' }} lang=page.lang %}
+      {% include {{ page.basename | append: '.html' }} lang=page.lang title=page_title %}
     {% endif %}
   </main>
 
