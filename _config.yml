@@ -1,58 +1,9 @@
 # basic site info: not subject to localization
 name: geetaasameekshaa
 title: gītāsamīkṣā   #localized site title is maintained separately (see below)
-description: The Bhagavad Gita in the Bhishma Episode of Sri Veda Vyasa's Mahabharata
+description: The Bhagavad Gita in the Bhishma Book of Sri Veda Vyasa's Mahabharata
 
-# supported languages: each subkey is a unique code across all supported languages: recommed 3-character ISO 639:2023 codes
-# native (language name in that language) and english (language name in English) subkeys used in UI
-# bcp47 used to specify html page's language (lang global attribute in HTML)
-# script (ISO15924 code) used to specify script the text is in, if different from the text's lang: used with shlokas;
-# region (ISO 3166) used to specify the region in which the language is predominant; IN for Indic languages in this app; US for english
-# xlit optional custom value to denote specific transliteration convention such as ISO 15919, IAST,...; used for shlokas in English
-languages:
-  kan:
-    native: ಕನ್ನಡ
-    english: Kannada
-    bcp47: kan-IN
-    script: Knda
-    region: IN
-
-  eng:
-    native: English
-    english: English
-    bcp47: eng-US
-    script: Latn
-    region: US
-    xlit: iso15919
-
-  hin:
-    native: हिन्दी
-    english: Hindi
-    bcp47: hin-IN
-    script: Deva
-    region: IN
-
-  tam:
-    native: தமிழ்
-    english: Tamil
-    bcp47: tam-IN
-    script: Taml
-    region: IN
-
-  tel:
-    native: తెలుగు
-    english: Telugu
-    bcp47: tel-IN
-    script: Telu
-    region: IN
-
-  mal:
-    native: മലയാളം
-    english: Malayalam
-    bcp47: mal-IN
-    script: Mlym
-    region: IN
-
+# language codes are defined and explained in _data/languages.yml
 
 # localized site title: must do this because parts of GH Pages requires `title` by itself (see top of file)
 localized_site_title:
@@ -68,7 +19,7 @@ localized_site_description:
   kan: |
     ಶ್ರೀ ವೇದವ್ಯಾಸರು ರಚಿಸಿದ ಮಹಾಭಾರತದ ಭೀಷ್ಮಪರ್ವದಲ್ಲಿನ ಭಗವದ್ಗೀತಾ 
   eng: |
-    The Bhagavad Gita in the Bhishma Episode of the Mahabharata, composed by Sri Veda Vyasa
+    The Bhagavad Gita in the Bhishma Book of Sri Veda Vyasa's Mahabharata
   hin: |
     श्री वेद व्यास द्वारा रचित महाभारत के भीष्म पर्व की भगवद् गीता
   tam: |
