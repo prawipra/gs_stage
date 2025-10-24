@@ -1,5 +1,4 @@
 ---
-title: Preface
 ---
 
 5823 years ago, Narayana incarnated in India as the sage Shri Veda Vyasa, who made the vedas accessible,
