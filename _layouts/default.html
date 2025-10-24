@@ -1,12 +1,29 @@
 {% assign site_title = site.localized_site_title[page.lang] | default: site.title %}
 {% assign site_description = site.localized_site_description[page.lang] | default: site.description %}
+{% assign lang_data = site.data.languages[page.lang] %}
+
+{% comment %}
+  Chapter page's primary lang is 'mul' due to shlokas; non-chapter page's is page.lang
+  BCP 47: https://developer.mozilla.org/en-US/docs/Glossary/BCP_47_language_tag
+  RFC 5646: https://datatracker.ietf.org/doc/html/rfc5646
+
+  Chapter page's title shows chapter number; nav-linked non-chapter pages show nav label; others show page.title
+  TODO: chapter title
+{% endcomment %}
+
+{% if page.chapter %}
+  {% assign primary_lang = 'mul' %}
+{% else %}
+  {% assign primary_lang = page.lang %}
+  {% assign title = site.navigation[basename] | default: page.title %}
+{% endunless %}
 
 <!DOCTYPE html>
-<html lang="{{ site.languages[page.lang].bcp47 }}">
+<html lang="{{ primary_lang }}-{{ lang_data.script }}-{{ lang_data.region }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ site_title }}{% if page.title %} – {{ page.title }}{% endif %}</title>
+  <title>{{ site_title }}{% if title %} – {{ title }}{% endif %}</title>
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 </head>
 <body>
