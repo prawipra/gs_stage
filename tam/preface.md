@@ -37,6 +37,7 @@
 த்ரைகுண்ய வர்ஜிதமஜம் விபுமாத்யமீஶம் வந்தே பவக்ஞம் அமராஸுர ஸித்த வந்த்யம் ||
 நாராயணம் நமஸ்க்ருத்ய நரம் சைவ நரோத்தமம் |
 தேவீம் சரஸ்வதீம் வ்யாஸம் ததோ ஜயமுதீரயே ||
+{: lang="san-Taml-IN"}
 
 ### Notes and action items
 
@@ -49,11 +50,11 @@ The document title முன்னுரை is a machine translation for "Prefac
 verified.
 
 The main text is extracted using OCR and it needs to be verified. Its meaning in Kannada
-is eyeballed using machine translation to be sure there is nothing inappropriate but it
+is eyeballed using machine translation to be sure there is nothing inappropriate, but it
 is not a substitute for human verification.
 
-The section heading அழைப்பு ("invocation", substitute for ಮಂಗಳಾಚರಣೆ in the original) is
-machine translated. It should be verified.
+The section heading மங்களாசரணம் (ಮಂಗಳಾಚರಣೆ in the original) is machine transliterated.
+It should be verified.
 
 The invocation text is machine-transliterated from ISO 15919 encoding. It should be verified.
 

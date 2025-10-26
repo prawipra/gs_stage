@@ -22,12 +22,13 @@
 తెలుగు భాషలో కృష్ణుడి సందేశాలు మరియు వాటి సంక్షిప్త సమీక్ష ఈక్కడ ఉన్నాయి. కృష్ణుడి సిద్ధాంతానికి వ్యతిరేకం లేకుండా వ్రాయబడిన
 వెయ్యి అర్థాలతో కూడిన గీతకు ఇది నా అంకితం. గురు కానుక.
 
-### ప్రార్థన
+### మంగళాచరణము
 
-నారాయణం సుర గురుం జగదేక-నాథం భక్త-ప్రియం సకల లోక నమస్కృతం చ |
-త్రైగుణ్య వర్జితమజం విభుమాద్యమీశం వందే భవఘ్నం అమరాసుర సిద్ధ వంద్యం ||
-నారాయణం నమస్కృత్య నరం చైవ నరోత్తమం |
+నారాయణం సుర గురుం జగదేక-నాథం భక్త-ప్రియం సకల లోక నమస్కృతం చ |  
+త్రైగుణ్య వర్జితమజం విభుమాద్యమీశం వందే భవఘ్నం అమరాసుర సిద్ధ వంద్యం ||  
+నారాయణం నమస్కృత్య నరం చైవ నరోత్తమం |  
 దేవీం సరస్వతీం వ్యాసం తతో జయముదీరయే ||
+{: lang="san-Telu-IN"}
 
 ### Notes and action items
 
@@ -39,8 +40,8 @@ a placeholder to facilitate development.
 The document title ముందుమాట is a machine translation for "Preface" (ಮುನ್ನುಡಿ). It should be
 verified.
 
-The section heading ప్రార్థన ("invocation", substitute for ಮಂಗಳಾಚರಣೆ in the original) is
-machine translated. It should be verified.
+The section heading మంగళాచరణము (ಮಂಗಳಾಚರಣೆ in the original) is my uneducated selection. It
+should be verified.
 
 The invocation text is machine-transliterated from ISO 15919 encoding. It should be verified.
 
