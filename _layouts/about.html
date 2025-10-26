@@ -15,24 +15,80 @@
 {% assign about_data = site.data.about %}
 {% assign xlators = about_data.xlators %}
 
-{# --- lead for kan translation, and list of kan translators; all in this lang --- #}
-<p>
-    {{ about_data.kan_xlate_lang_lead[lang] }}: 
-    {% assign kan_xlators = xlators.kan[lang] %}
-    {% for xlator in kan_xlators %}
-        <strong style="white-space: pre-wrap;">{{ xlator }}</strong>
-    {% endfor %}
-</p>
+{# --- list of active, non-kan langs: reject langs where 'active' property is false and key name is not kan --- #}
+{% assign active_non_kan_langs = site.data.languages | reject: 'last.active', false | reject: 'first', 'kan' %}
 
-{# --- lead for translations from kan, in this lang --- #}
-<h3>{{ about_data.other_lang_xlators_lead[lang] }}</h3>
 
-{# --- list of non-kan langs and corresponding xlators, all in this lang --- #}
-{% for xlation_lang in xlators %}
-    {% if xlation_lang != 'kan' %}
-        {{ about_data.language_names[xlation_lang][lang] }}: 
-        {% for xlator in xlators[xlation_lang][lang] %}
+{# --- place all creds in a 3-col table to ensure alignment, with merged rows for section headings --- #}
+<table style="border-collapse: collapse;">
+
+{% assign kan_xlators = xlators.kan[lang] %}
+{% for xlator in kan_xlators %}
+    <tr>
+        {# --- Column 1: lead for kan xlation, all in this lang; shown only with first xlator --- #}
+        <td style="padding-right: 0.5em; vertical-align: top;">
+            {% if forloop.first %}
+                {{ about_data.kan_xlate_lang_lead[lang] }}
+            {% endif %}
+        </td>
+        
+        {# --- Column 2: Em Dash Separator, shown only with first xlator --- #}
+        <td style="padding-right: 0.5em; vertical-align: top;">
+            {% if forloop.first %}—{% endif %}
+        </td>
+
+        {# --- Column 3: xlator creds --- #}
+        <td style="vertical-align: top;">
             <strong style="white-space: pre-wrap;">{{ xlator }}</strong>
-        {% endfor %}
-    {% endif %}
+        </td>
+    </tr>
 {% endfor %}
+
+{# --- non-kan langs and corresponding xlators, all in this lang --- #}
+{% for xlation_pair in active_non_kan_langs %}
+
+    {# --- lead for all non-kan xlations, in this lang; once across all active non-kan langs --- #}
+    {% if forloop.first %}
+        <tr>
+            <td colspan="3">
+                <h3>{{ about_data.other_lang_xlators_lead[lang] }}</h3>
+            </td>
+        </tr>
+    {% endif %}
+
+    {# --- deconstruct key/value pair from the filter result --- #}
+    {% assign xlation_lang      = xlation_pair[0] %}
+    {% assign xlation_lang_data = xlation_pair[1] %}
+
+    {# --- xlators list for the xlation lang, in this lang --- #}
+    {% assign xlator_list = xlators[xlation_lang][lang] %}
+    
+    {% for xlator in xlator_list %}
+        {# --- empty row for vertical separation between langs --- #}
+        {% if forloop.first %}
+            <tr><td colspan="3" style="height: 0.5em;"></td></tr>
+        {% endif %}
+    
+        {# --- row for this xlator --- #}
+        <tr>
+            {# --- Column 1: lang name, shown only with first xlator --- #}
+            <td style="padding-right: 0.5em; vertical-align: top;">
+                {% if forloop.first %}
+                    {{ xlation_lang_data.name[lang] }}
+                {% endif %}
+            </td>
+            
+            {# --- Column 2: Em Dash Separator, shown only with first xlator --- #}
+            <td style="padding-right: 0.5em; vertical-align: top;">
+                {% if forloop.first %}—{% endif %}
+            </td>
+
+            {# --- Column 3: xlator creds --- #}
+            <td style="vertical-align: top;">
+                <strong style="white-space: pre-wrap;">{{ xlator }}</strong>
+            </td>
+        </tr>
+    {% endfor %}
+{% endfor %}
+
+</table>
