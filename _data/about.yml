@@ -49,55 +49,6 @@ other_lang_xlators_lead:
   mal: കന്നഡയുനിന്നുള്ള മറ്റ് പരിഭാഷകൾ
 
 
-language_names:
-  kan:
-    kan: ಕನ್ನಡ
-    eng: Kannada
-    hin: कन्नड़
-    tam: கன்னடம்
-    tel: కన్నడ
-    mal: കന്നഡ
-
-  eng:
-    kan: ಇಂಗ್ಲಿಷ್
-    eng: English
-    hin: अंग्रेज़ी
-    tam: ஆங்கிலம்
-    tel: ఆంగ్లం
-    mal: ഇംഗ്ലീഷ്
-
-  hin:
-    kan: ಹಿಂದಿ
-    eng: Hindi
-    hin: हिन्दी
-    tam: இந்தி
-    tel: హిందీ
-    mal: ഹിന്ദി
-
-  tam:
-    kan: ತಮಿಳು
-    eng: Tamil
-    hin: तमिल
-    tam: தமிழ்
-    tel: తమిళం
-    mal: തമിഴ്
-
-  tel:
-    kan: ತೆಲುಗು
-    eng: Telugu
-    hin: तेलुगु
-    tam: தெலுங்கு
-    tel: తెలుగు
-    mal: തെലുങ്ക്
-
-  mal:
-    kan: ಮಲಯಾಳಂ
-    eng: Malayalam
-    hin: मलयालम
-    tam: மலையாளம்
-    tel: మలయాళం
-    mal: മലയാളം
-
 # translators for different langs: each lang's xlator names in all supported langs
 # a lang may have multiple xlators, though all langs so far have exactly one xlator
 # any xlator credit may be multi-lined: facilitated by the '|-' block style indicator
@@ -179,7 +130,7 @@ xlators:
     kan:
       - ಶ್ರೀಮತಿ & ಶ್ರೀ ರಾಜಗೋಪಾಲಾಚಾರ್ಯ, ಕೊಯಂಬತ್ತೂರು
     eng:
-      - Smt. & Sri Rajagopalacharya, Coimbatore
+      - Mr. & Mrs. Rajagopalacharya, Coimbatore
     hin:
       - श्रीमती एवं श्री राजगोपालाचारी, कोयंबत्तूर
     tam:
@@ -225,7 +176,7 @@ webdevs_lead:
   tel: వెబ్‌సైట్ డిజైన్ మరియు నిర్మాణం
   mal: വെബ്‌സൈറ്റ് രൂപകൽപ്പനയും നിർമ്മാണവും
 
-webdev_assists:
+webdev_peeps:
   kan:
     - ಡಾ. ಸುದರ್ಶನ್ ಮೂರ್ತಿ, ಯು.ಎಸ್.ಎ
   eng:

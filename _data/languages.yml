@@ -1,9 +1,11 @@
-# supported languages: each main key is a unique code across all supported languages
-# recommed 3-character ISO 639:2023 codes: automatically makes codes unique
+# translated languages: each main key is a unique code across all supported languages
+# recommend 3-character ISO 639:2023 codes: automatically makes codes unique
 # for this project, ISO 639-3 (even 639-2) codes should suffice (all retained in 639:2023)
 # https://en.wikipedia.org/wiki/List_of_ISO_639-3_codes
 
-# for each supported language:
+# keys for Kannada and English must be kan and eng respectively: hardcoded elsewhere
+
+# for each translated language:
 # native: language name in that language
 # english: English name for the language
 # script: ISO 15924 code for the script the text is normally written in
@@ -11,19 +13,20 @@
 # xlit_extension: optional custom value to denote transliteration convention (ISO 15919, IAST,...)
 # bcp47 used to specify html page's language (lang global attribute in HTML)
 
-san:
-  native: संस्कृत
-  english: Sanskrit
-  script: Deva
-  region: IN
-  # xlit_lang_tag needed: won't be xliterating Sanskrit text in Sanskrit
-
 kan:
   native: ಕನ್ನಡ
   english: Kannada
   script: Knda
   region: IN
   xlit_lang_tag: san-Knda-IN
+  name:
+    kan: ಕನ್ನಡ
+    eng: Kannada
+    hin: कन्नड़
+    tam: கன்னடம்
+    tel: కన్నడ
+    mal: കന്നഡ
+
 
 eng:
   native: English
@@ -32,6 +35,14 @@ eng:
   region: US
   xlit_extension: iso15919
   xlit_lang_tag: san-Latn-IN-x-iso15919
+  name:
+    kan: ಇಂಗ್ಲಿಷ್
+    eng: English
+    hin: अंग्रेज़ी
+    tam: ஆங்கிலம்
+    tel: ఆంగ్లం
+    mal: ഇംഗ്ലീഷ്
+
 
 hin:
   native: हिन्दी
@@ -39,6 +50,14 @@ hin:
   script: Deva
   region: IN
   xlit_lang_tag: san-Deva-IN
+  name:
+    kan: ಹಿಂದಿ
+    eng: Hindi
+    hin: हिन्दी
+    tam: இந்தி
+    tel: హిందీ
+    mal: ഹിന്ദി
+
 
 tam:
   native: தமிழ்
@@ -46,6 +65,14 @@ tam:
   script: Taml
   region: IN
   xlit_lang_tag: san-Taml-IN
+  name:
+    kan: ತಮಿಳು
+    eng: Tamil
+    hin: तमिल
+    tam: தமிழ்
+    tel: తమిళం
+    mal: തമിഴ്
+
 
 tel:
   native: తెలుగు
@@ -53,6 +80,14 @@ tel:
   script: Telu
   region: IN
   xlit_lang_tag: san-Telu-IN
+  name:
+    kan: ತೆಲುಗು
+    eng: Telugu
+    hin: तेलुगु
+    tam: தெலுங்கு
+    tel: తెలుగు
+    mal: തെലുങ്ക്
+
 
 mal:
   native: മലയാളം
@@ -60,3 +95,10 @@ mal:
   script: Mlym
   region: IN
   xlit_lang_tag: san-Mlym-IN
+  name:
+    kan: ಮಲಯಾಳಂ
+    eng: Malayalam
+    hin: मलयालम
+    tam: மலையாளம்
+    tel: మలయాళం
+    mal: മലയാളം
