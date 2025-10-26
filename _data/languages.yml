@@ -21,7 +21,6 @@ san:
 kan:
   native: ಕನ್ನಡ
   english: Kannada
-  bcp47: kan-IN
   script: Knda
   region: IN
   xlit_lang_tag: san-Knda-IN
@@ -29,7 +28,6 @@ kan:
 eng:
   native: English
   english: English
-  bcp47: eng-US
   script: Latn
   region: US
   xlit_extension: iso15919
@@ -38,31 +36,27 @@ eng:
 hin:
   native: हिन्दी
   english: Hindi
-  bcp47: hin-IN
   script: Deva
   region: IN
-  xlit_lang_tag: san-Latn-IN-x-iso15919
+  xlit_lang_tag: san-Deva-IN
 
 tam:
   native: தமிழ்
   english: Tamil
-  bcp47: tam-IN
   script: Taml
   region: IN
-  xlit_lang_tag: san-Latn-IN-x-iso15919
+  xlit_lang_tag: san-Taml-IN
 
 tel:
   native: తెలుగు
   english: Telugu
-  bcp47: tel-IN
   script: Telu
   region: IN
-  xlit_lang_tag: san-Latn-IN-x-iso15919
+  xlit_lang_tag: san-Telu-IN
 
 mal:
   native: മലയാളം
   english: Malayalam
-  bcp47: mal-IN
   script: Mlym
   region: IN
-  xlit_lang_tag: san-Latn-IN-x-iso15919
+  xlit_lang_tag: san-Mlym-IN
