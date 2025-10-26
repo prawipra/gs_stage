@@ -1,10 +1,10 @@
 ---
 ---
 
-5823 years ago, Narayana incarnated in India as the sage Shri Veda Vyasa, who made the vedas accessible,
-and composed the Mahabharata such that it exceeds the vedas [in influence]. Centered around the Pandavas
-and written in Sanskrit, the Mahabharata is a great scripture that guides everyone on everything to this
-day.
+5823 years ago, Narayana incarnated in India as the sage Shri Veda Vyasa, who made the vedas accessible.
+He also composed the Mahabharata such that it exceeds the vedas \[in influence]. Centered around the
+Pandavas and written in Sanskrit, the Mahabharata is a great scripture that guides everyone on everything
+to this day.
 
 After losing in a gambling duel with the Kauravas, the Pandavas complete a period of exile and incognito
 living according to the terms of the duel. Upon return, they ask the Kauravas to return their kingdom.
@@ -12,16 +12,16 @@ As the Pandavas' envoy, Shri Krishna asks the Kauravas to give the Pandavas any 
 the Kauravas refuse to give even a small piece of land, war breaks out between the Pandavas and the Kauravas.
 18 days of battle ensues in Kurukshetra. Krishna himself has joined the war as Arjuna's charioteer. He has
 also advised and guided the Pandavas in the war and protected them. The Pandavas are victorious and have
-ruled for 36 years under Krishna's leadership \[guidance].
+ruled for 36 years under Krishna's leadership.
 
 The Kauravas' father Dhritarashtra is blind \[literally] and thus his charioteer Sanjaya keeps him appraised
 on the strife between the Pandavas and the Kauravas. Having seen the battle in Kurukshetra for 10 days, an
 alarmed Sanjaya shares with Dhritarashtra the news of Bhishma's fall. Hearing the news, Dhritarashtra asks
 Sanjaya to extensively narrate the war's proceedings from its beginning. By Vyasa's special grace,
-Sanjaya—who is a Tumburu Gandharva—adequately addresses all of Dhritarashtra’s questions and concerns, as if
+Sanjaya—who is a Tumburu Gandharva—adequately addresses all of Dhritarashtra’s questions and concerns as if
 he had seen and heard everything on the battlefield, and known every thought of the warriors there. That is
 how the conversation between Arjuna and Krishna at the start of the first day of the war has emerged from
-Sanjaya as the Bhagavad Gita ["ballad from the Lord"].
+Sanjaya as the Bhagavad Gita \["ballad from the Lord"].
 
 Here is a brief of Krishna's messages and their meaning in Kannada [in turn translated to English here]. The
 ballad has "tens of" \[several] interpretations, and this particular work is in service of cogitation(s)
@@ -29,10 +29,11 @@ aligned with Krishna's doctrine. It is my offering to \[my] guru(s).
 
 ### Invocation
 
-Nārāyaṇaṃ sura guruṃ jagadēka-nāthaṃ bhakta priyaṃ sakala loka namaskṛtaṃ ca |
-traiguṇya varjitamajaṃ vibhumādyamīśaṃ vande bhavaghnaṃ amarāsura siddha vandyaṃ ||
-Nārāyaṇaṃ namaskṛtya naraṃ caiva narōttamaṃ |
+Nārāyaṇaṃ sura guruṃ jagadēka-nāthaṃ bhakta priyaṃ sakala loka namaskṛtaṃ ca |  
+traiguṇya varjitamajaṃ vibhumādyamīśaṃ vande bhavaghnaṃ amarāsura siddha vandyaṃ ||  
+Nārāyaṇaṃ namaskṛtya naraṃ caiva narōttamaṃ |  
 dēvīṃ sarasvatīṃ vyāsaṃ tato jayamudīrayē ||
+{: lang="san-Latn-IN-x-iso15919"}
 
 ### Preface to English translation
 
@@ -65,7 +66,7 @@ The Kannada version says "ತುಂಬುರು ಗಂಧರ್ವನಾದ ಸ�
 Tumburu? rRelated how? In English, it looks odd to just say "Sanjaya was a Tumburu Gandharva" because I doubt
 most English readers have sufficient background to understand what that means.
 
-Paragraphs 2 and 3 of the Kannada text employs a mix of tenses:
+Paragraphs 2 and 3 of the Kannada text employ a mix of tenses:
 
 - ಕೇಳಿಕೊಳ್ಳುತ್ತಾರೆ, ಹೇಳುತ್ತಾನೆ, ತಿಳಿದುಕೊಳ್ಳುತ್ತಾನೆ, ಉತ್ತರಿಸುತ್ತಾನೆ
 - ಏರ್ಪಡುವುದು, ಹೇಳುವನು
