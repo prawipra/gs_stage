@@ -1,0 +1,59 @@
+{% comment %}
+  // REQUIRED INPUTS:
+  // include.lang:      (String) The language code (e.g., 'eng', 'kan') used for text lookup.
+  //                    (Passed from: 'lang=page.lang')
+  //
+  // include.title:     (String) The primary title to be displayed on the page. Already included in <title>
+  //                    (Passed from: 'title=page_title')
+  //
+  // USAGE EXAMPLE:
+  // {% include index.html lang=page.lang title=page_title %}
+  // --------------------------------------------------------------------------
+{% endcomment %}
+
+{# --- data for this page comes from about.yml: there is no (need for) index.yml  --- #}
+
+{% assign lang = include.lang %}
+{% assign about_data = site.data.about %}
+
+{# --- gita source and title: "gita" before source for eng  --- #}
+{% if lang == 'eng' %}
+    <h1>{{ about_data.gita[lang] }}</h1>
+    <h2>{{ about_data.gita_source[lang] }}</h2>
+{% elseif %}
+    <h2>{{ about_data.gita_source[lang] }}</h2>
+    <h1>{{ about_data.gita[lang] }}</h1>
+{% endif %}
+
+
+<p></p>
+<p></p>
+<img src="{{ '/assets/images/logo.png' | relative_url }}">
+<p></p>
+<p></p>
+
+
+{# --- lead for this lang translation --- #}
+<p>{{ about_data.xlate_lang_lead[lang] }}</p>
+
+{% assign this_lang_xlators = site.data.about.xlators[lang] %}
+
+{# --- list translator(s) for this lang, in this lang's script  --- #}
+{% assign xlators = about_data.xlators[lang][lang] %}
+{% for xlator in xlators %}
+    {# --- styling to handle multi-line credit: move to stylesheet when mature --- #}
+    <h3 style="white-space: pre-wrap;">{{ xlator }}</h3>
+{% endfor %}
+
+<p></p>
+
+{# --- non-kan only: lead and all kan translators, in this lang's script --- #}
+{% if lang != 'kan' %}
+    <p>{{ about_data.kan_xlate_lang_lead[lang] }}</p>
+
+    {% assign kan_xlators = about_data.xlators.kan[lang] %}
+    {% for xlator in kan_xlators %}
+        {# --- styling to handle multi-line credit: move to stylesheet when mature --- #}
+        <h3 style="white-space: pre-wrap;">{{ xlator }}</h3>
+    {% endfor %}
+{% endif %}
