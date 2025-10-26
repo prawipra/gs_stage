@@ -1,9 +1,8 @@
 {% assign site_title = site.localized_site_title[page.lang] | default: site.title %}
 {% assign site_description = site.localized_site_description[page.lang] | default: site.description %}
-{% assign lang_data = site.data.languages[page.lang] %}
 
 {% comment %}
-  Chapter page's primary lang is 'mul' due to shlokas; non-chapter page's is page.lang
+  Chapter page's primary lang is 'mul' due to shlokas; non-chapter page's is page.html_lang or page.lang
   BCP 47: https://developer.mozilla.org/en-US/docs/Glossary/BCP_47_language_tag
   RFC 5646: https://datatracker.ietf.org/doc/html/rfc5646
 
@@ -16,10 +15,17 @@
 {% else %}
   {% assign primary_lang = page.lang %}
   {% assign page_title = site.navigation[basename][page.lang] | default: page.title %}
-{% endunless %}
+{% endif %}
+
+{% if page.html_lang %}
+  {% assign html_lang = page.html_lang %}
+{% else %}
+  {% assign lang_data = site.data.languages[page.lang] %}
+  {% capture html_lang %}{{ primary_lang }}-{{ lang_data.script }}-{{ lang_data.region }}{% endcapture %}
+{% endif %}
 
 <!DOCTYPE html>
-<html lang="{{ primary_lang }}-{{ lang_data.script }}-{{ lang_data.region }}">
+<html lang="{{ html_lang }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -35,7 +41,7 @@
         {% for key, labels in site.data.navigation %}
           {% assign label = labels[page.lang] | default: labels.eng %}
           {% capture href_path %}
-            /{{ page.lang }}{% unless key == "home" %}/{{ key }}.html{% endunless %}
+            /{{ page.lang }}{% unless key == "index" %}/{{ key }}.html{% endunless %}
           {% endcapture %}
           
           <li>
@@ -49,8 +55,8 @@
   </header>
 
   {% comment %} 
-  Customize content by including a different "sub layout" (not a Jekyll term).
-  Assume one include file for each page_id and a fixed include file for all pages with chapter content
+  Customize content by including a different "sub layout" (not a Jekyll term) for each page type.
+  Assume one include file for each page type and a fixed include file for all pages with chapter content
   Note: `chapter` frontmatter required for pages that show a chapter translation.
   Note: the seleced include file must exist or the build will fail; no way to fallback if file is missing
   {% endcomment %}
