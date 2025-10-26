@@ -1,0 +1,38 @@
+{% comment %}
+  // REQUIRED INPUTS:
+  // include.lang:      (String) The language code (e.g., 'eng', 'kan') used for text lookup.
+  //                    (Passed from: 'lang=page.lang')
+  //
+  // include.title:     (String) The primary title to be displayed on the page. Already included in <title>
+  //                    (Passed from: 'title=page_title')
+  //
+  // USAGE EXAMPLE:
+  // {% include about.html lang=page.lang title=page_title %}
+  // --------------------------------------------------------------------------
+{% endcomment %}
+
+{% assign lang = include.lang %}
+{% assign about_data = site.data.about %}
+{% assign xlators = about_data.xlators %}
+
+{# --- lead for kan translation, and list of kan translators; all in this lang --- #}
+<p>
+    {{ about_data.kan_xlate_lang_lead[lang] }}: 
+    {% assign kan_xlators = xlators.kan[lang] %}
+    {% for xlator in kan_xlators %}
+        <strong style="white-space: pre-wrap;">{{ xlator }}</strong>
+    {% endfor %}
+</p>
+
+{# --- lead for translations from kan, in this lang --- #}
+<h3>{{ about_data.other_lang_xlators_lead[lang] }}</h3>
+
+{# --- list of non-kan langs and corresponding xlators, all in this lang --- #}
+{% for xlation_lang in xlators %}
+    {% if xlation_lang != 'kan' %}
+        {{ about_data.language_names[xlation_lang][lang] }}: 
+        {% for xlator in xlators[xlation_lang][lang] %}
+            <strong style="white-space: pre-wrap;">{{ xlator }}</strong>
+        {% endfor %}
+    {% endif %}
+{% endfor %}
