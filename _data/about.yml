@@ -1,0 +1,240 @@
+gita:
+  kan: ಭಗವದ್ಗೀತಾ
+  eng: bhagavadgītā
+  hin: भगवद्गीता
+  tam: பகவத்கீதா
+  tel: భగవద్గీతా
+  mal: ഭഗവദ്ഗീതാ
+
+
+gita_source:
+  kan: |
+    ಶ್ರೀ ವೇದವ್ಯಾಸರು ರಚಿಸಿದ ಮಹಾಭಾರತದ ಭೀಷ್ಮಪರ್ವದಲ್ಲಿನ
+  eng: |
+    From the Bhishma Book of Sri Veda Vyasa's Mahabharata
+  hin: |
+    श्री वेद व्यास द्वारा रचित महाभारत के भीष्म पर्व की
+  tam: |
+    ஸ்ரீ வேதவ்யாசர் எழுதிய மஹாபாரதத்தில் உள்ள பீஷ்ம பருவத்திலுள்ள
+  tel: |
+    శ్రీ వేదవ్యాసుడు రచించిన మహాభారతంలోని భీష్మపర్వంలో ఉన్న
+  mal: |
+    ശ്രീ വേദവ്യാസൻ രചിച്ച മഹാഭാരതത്തിലെ ഭീഷ്മപർവത്തിൽ ഉൾപ്പെട്ട
+
+
+xlate_lang_lead:
+  kan: ಕನ್ನಡ ಅನುವಾದ
+  eng: English translation (from Kannada)
+  hin: हिंदी अनुवाद (कन्नड़ से)
+  tam: தமிழ் மொழிபெயர்ப்பு (கன்னடத்திலிருந்து)
+  tel: తెలుగు అనువాదం (కన్నడ నుండి)
+  mal: മലയാള പരിഭാഷ (കന്നഡയിൽ നിന്ന്)
+
+
+kan_xlate_lang_lead:
+  kan: ಕನ್ನಡ ಅನುವಾದ # no need but eases automation
+  eng: Kannada translation
+  hin: कन्नड़ अनुवाद
+  tam: கன்னட மொழிபெயர்ப்பு
+  tel: కన్నడ అనువాదం
+  mal: കന്നഡ പരിഭാഷ
+
+
+other_lang_xlators_lead:
+  kan: ಕನ್ನಡದಿಂದ ಇತರ ಅನುವಾದಗಳು
+  eng: Other translations from Kannada
+  hin: कन्नड़ से अन्य अनुवाद
+  tam: கன்னடத்தில் இருந்து மற்ற மொழிபெயர்ப்புகள்
+  tel: కన్నడ నుండి ఇతర అనువాదాలు
+  mal: കന്നഡയുനിന്നുള്ള മറ്റ് പരിഭാഷകൾ
+
+
+language_names:
+  kan:
+    kan: ಕನ್ನಡ
+    eng: Kannada
+    hin: कन्नड़
+    tam: கன்னடம்
+    tel: కన్నడ
+    mal: കന്നഡ
+
+  eng:
+    kan: ಇಂಗ್ಲಿಷ್
+    eng: English
+    hin: अंग्रेज़ी
+    tam: ஆங்கிலம்
+    tel: ఆంగ్లం
+    mal: ഇംഗ്ലീഷ്
+
+  hin:
+    kan: ಹಿಂದಿ
+    eng: Hindi
+    hin: हिन्दी
+    tam: இந்தி
+    tel: హిందీ
+    mal: ഹിന്ദി
+
+  tam:
+    kan: ತಮಿಳು
+    eng: Tamil
+    hin: तमिल
+    tam: தமிழ்
+    tel: తమిళం
+    mal: തമിഴ്
+
+  tel:
+    kan: ತೆಲುಗು
+    eng: Telugu
+    hin: तेलुगु
+    tam: தெலுங்கு
+    tel: తెలుగు
+    mal: തെലുങ്ക്
+
+  mal:
+    kan: ಮಲಯಾಳಂ
+    eng: Malayalam
+    hin: मलयालम
+    tam: மலையாளம்
+    tel: మలయాళం
+    mal: മലയാളം
+
+# translators for different langs: each lang's xlator names in all supported langs
+# a lang may have multiple xlators, though all langs so far have exactly one xlator
+# any xlator credit may be multi-lined: facilitated by the '|-' block style indicator
+# - '|-' keeps all new lines except the last one: https://yaml-multiline.info/
+# - preserving the retained \n in HTML requires CSS style "white-space: pre-wrap"
+
+xlators:
+# upper lang key is for the translator(s) to that lang
+# lower lang keys are for the translator(s) names in different supported langs
+# this info/arrangement is needed to show all credits in any lang's about page
+
+  kan:
+    kan:
+      - |-
+        ಡಾ. ಶತಾವಧಾನಿ ಉಡುಪಿ ರಾಮನಾಥ ಆಚಾರ್ಯ
+        ವಿದ್ಯಾಸಿಂಧು
+    eng:
+      - |-
+        Dr. Shatavadhani Udupi Ramanatha Acharya
+        Vidyasindhu
+    hin:
+      - |-
+        डॉ. शतावधनि उदुपि रामनाथ आचार्य
+        विद्यासिन्धु
+    tam:
+      - |-
+        டாக்டர். ஷதாவதானி உடுபி ராமநாத ஆச்சார்யா
+        வித்யாசிந்து
+    tel:
+      - |-
+        డా. శతావధాని ఉడుపి రామనాథ్ ఆచార్య
+        విద్యాసింధు
+    mal:
+      - |-
+        ഡോ. ശതാവധാനി ഉഡുപി രാമനാത ആചാര്യ
+        വിദ്യാസിന്ദു
+
+  eng: 
+    kan:
+      - ಡಾ. ಸುದರ್ಶನ್ ಮೂರ್ತಿ, ಯು.ಎಸ್.ಎ
+    eng:
+      - Dr. Sudarshan Murthy, USA
+    hin:
+      - डॉ. सुदर्शन मूर्ति, यु.इस.ए
+    tam:
+      - டாக்டர் சுதர்சன் மூர்த்தி, யு.எஸ்.ஏ
+    tel:
+      - డా. సుదర్శన్ మూర్తి, యు.ఎస్.ఎ
+    mal:
+      - ഡോ. സുദർശൻ മൂർത്തി, യു.എസ്.എ
+
+  hin:
+    kan:
+      - |-
+        ಪ್ರೊಫೆಸರ್ ಎ.ಬಿ. ಕುಂಜಾರ್, ಬೆಂಗಳೂರು
+        ಹಿಂದಿ ವಿಶಾರದ
+    eng:
+      - |-
+        Prof. A.B. Kunjar, Bengaluru
+        Hindi Visharada
+    hin:
+      - |-
+        प्रोफेसर ए.बी. कुंजार, बैंग्लोर
+        हिंदी विशारद
+    tam:
+      - |-
+        பேராசிரியர் ஏ.பி.குஞ்ஜார், பெங்களூரு
+        இந்தி விஷாரத
+    tel:
+      - |-
+        ప్రొఫెసర్ ఎ.బి. కుంజార్, బెంగళూరు
+        హిందీ విశారద
+    mal:
+      - |-
+        പ്രൊഫസർ എ.ബി. കുഞ്ചാർ, ബെംഗളൂരു
+        ഹിന്ദി വിശാരദ
+
+  tam:
+    kan:
+      - ಶ್ರೀಮತಿ & ಶ್ರೀ ರಾಜಗೋಪಾಲಾಚಾರ್ಯ, ಕೊಯಂಬತ್ತೂರು
+    eng:
+      - Smt. & Sri Rajagopalacharya, Coimbatore
+    hin:
+      - श्रीमती एवं श्री राजगोपालाचारी, कोयंबत्तूर
+    tam:
+      - திருமதி மற்றும் திரு ராஜகோபலாச்சார்யார், கோயம்புத்தூர்
+    tel:
+      - శ్రీమతి & శ్రీ రాజగోపాలాచార్య, కొయంబత్తూరు
+    mal:
+      - ശ്രീമതി & ശ്രീ രാജഗോപാലാചാര്യ, കോയമ്പത്തൂർ
+  
+  tel:
+    kan:
+      - ವಿದ್ವಾನ್ ವಿಕ್ರಮಸಿಂಹ ಆಚಾರ್ಯ, ಬದರಿ
+    eng:
+      - Vidwan Vikramasimha Acharya, Badari
+    hin:
+      - विद्वान विक्रमसिंह आचार्य, बदरी
+    tam:
+      - வித்வான் விக்கிரமசிங்கா ஆச்சார்யா, பதரி
+    tel:
+      - విద్వాన్ విక్రమసింహ ఆచార్య, బదరి
+    mal:
+      - വിദ്വാൻ വിക്രമസിംഹ ആചാര്യ, ബദരി
+  
+  mal:
+    kan:
+      - ನರಸಿಂಹಾಚಾರ್ಯ ಸಾಮಗ, ಮಟಪಾಡಿ
+    eng:
+      - Narasimhacharya Samaga, Matapady
+    hin:
+      - नरसिम्हाचार्य सामग, मटपाडि
+    tam:
+      - நரசிம்மாச்சாரியார் சமகா, மடப்பாடி
+    tel:
+      - నరసింహాచార్య సామగ, మటపాడి
+    mal:
+      - നരസിംഹാചാര്യ സാമഗ, മടപാടി
+
+webdevs_lead:
+  kan: ವೆಬ್‌ಸೈಟ್ ವಿನ್ಯಾಸ ಮತ್ತು ನಿರ್ಮಾಣ
+  eng: Website design and construction
+  hin: वेबसाइट विन्यास और निर्माण
+  tam: வலைத்தள வடிவமைப்பு மற்றும் கட்டுமானம்
+  tel: వెబ్‌సైట్ డిజైన్ మరియు నిర్మాణం
+  mal: വെബ്‌സൈറ്റ് രൂപകൽപ്പനയും നിർമ്മാണവും
+
+webdev_assists:
+  kan:
+    - ಡಾ. ಸುದರ್ಶನ್ ಮೂರ್ತಿ, ಯು.ಎಸ್.ಎ
+  eng:
+    - Dr. Sudarshan Murthy, USA
+  hin:
+    - डॉ. सुदर्शन मूर्ति, यु.इस.ए
+  tam:
+    - டாக்டர் சுதர்சன் மூர்த்தி, யு.எஸ்.ஏ
+  tel:
+    - డా. సుదర్శన్ మూర్తి, యు.ఎస్.ఎ
+  mal:
+    - ഡോ. സുദർശൻ മൂർത്തി, യു.എസ്.എ
