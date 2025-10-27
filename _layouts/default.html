@@ -104,11 +104,13 @@
     Note: the seleced include file must exist or the build will fail; no way to fallback if file is missing
   {% endcomment %}
 
+  {% include prefix/{{name | append: ".html"}} %}
+  
   <main>
     {% if page.chapter %}
-      {% include {{ 'chapter_content' | append: '.html' }} lang: page.lang title: page_title chapter: page.chapter %}
+      {% include "chapter_content.html" lang=page.lang title=page_title chapter=page.chapter %}
     {% else %}
-      {% include {{ page.basename | append: '.html' }} lang: page.lang title: page_title %}
+      {% include {{ page.basename | append: ".html" }} lang=page.lang title=page_title %}
     {% endif %}
   </main>
 
