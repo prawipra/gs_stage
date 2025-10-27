@@ -15,12 +15,13 @@
 
 {% assign lang = include.lang %}
 {% assign about_data = site.data.about %}
+{% assign all_xlators = about_data.xlators %}
 
 {# --- gita source and title: "gita" before source for eng  --- #}
 {% if lang == 'eng' %}
     <h1>{{ about_data.gita[lang] }}</h1>
     <h2>{{ about_data.gita_source[lang] }}</h2>
-{% elseif %}
+{% else %}
     <h2>{{ about_data.gita_source[lang] }}</h2>
     <h1>{{ about_data.gita[lang] }}</h1>
 {% endif %}
@@ -33,27 +34,22 @@
 <p></p>
 
 
-{# --- lead for this lang translation --- #}
+{# --- lead for this lang xlation --- #}
 <p>{{ about_data.xlate_lang_lead[lang] }}</p>
 
-{% assign this_lang_xlators = site.data.about.xlators[lang] %}
-
-{# --- list translator(s) for this lang, in this lang's script  --- #}
-{% assign xlators = about_data.xlators[lang][lang] %}
-{% for xlator in xlators %}
+{# --- xlators for this lang, in this lang's script  --- #}
+{% for xlator in all_xlators[lang][lang] %}
     {# --- styling to handle multi-line credit: move to stylesheet when mature --- #}
     <h3 style="white-space: pre-wrap;">{{ xlator }}</h3>
 {% endfor %}
 
 <p></p>
 
-{# --- non-kan only: lead and all kan translators, in this lang's script --- #}
+{# --- if not kan, lead and all kan xlators --- #}
 {% if lang != 'kan' %}
     <p>{{ about_data.kan_xlate_lang_lead[lang] }}</p>
 
-    {% assign kan_xlators = about_data.xlators.kan[lang] %}
-    {% for xlator in kan_xlators %}
-        {# --- styling to handle multi-line credit: move to stylesheet when mature --- #}
+    {% for xlator in all_xlators.kan[lang] %}
         <h3 style="white-space: pre-wrap;">{{ xlator }}</h3>
     {% endfor %}
 {% endif %}
