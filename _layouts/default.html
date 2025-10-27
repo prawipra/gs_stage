@@ -108,7 +108,7 @@
   
   <main>
     {% if page.chapter %}
-      {% include "chapter_content.html" lang=page.lang title=page_title chapter=page.chapter %}
+      {% include chapter_content.html lang=page.lang title=page_title chapter=page.chapter %}
     {% else %}
       {% include {{ page.basename | append: ".html" }} lang=page.lang title=page_title %}
     {% endif %}
