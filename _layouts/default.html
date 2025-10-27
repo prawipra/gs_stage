@@ -54,11 +54,45 @@
     </nav>
   </header>
 
+
+  {# --- add lang-nav if more than one active lang --- #}
+  {% assign active_langs = site.data.languages | reject: 'last.active', false %}
+
+  {% if active_langs.size > 1 %}
+
+    {# strip /lang from page url: cut /eng from /eng, /eng/about.html, /eng/chapters, /eng/chapters/1.html #}
+    {% assign current_lang_prefix = "/" | append: page.lang %}
+    {% assign page_path_suffix = page.url | remove_first: current_lang_prefix %}
+
+    <nav class="lang-nav">
+      <ul>
+        {% for lang_pair in active_langs %}
+          {% assign lang_code = lang_pair[0] %}
+          {% assign lang_data = lang_pair[1] %}
+          {% capture href_path %} /{{ lang_code }}{{ page_path_suffix }} {% endcapture %}
+
+          <li>
+              {# if current lang make link text strong and further style with a class #}
+              <a href="{{ href_path | relative_url }}" title="{{ lang_data.name.eng }}">
+                {% if lang_code == page.lang %}
+                  <strong class="current-lang-link-text">{{ lang_data.name[lang_code] }}</strong>
+                {% else %}
+                  {{ lang_data.name[lang_code] }}
+                {% endif %}
+              </a>
+          </li>
+
+        {% endfor %}
+      </ul>
+    </nav>
+  {% endif %}
+
+
   {% comment %} 
-  Customize content by including a different "sub layout" (not a Jekyll term) for each page type.
-  Assume one include file for each page type and a fixed include file for all pages with chapter content
-  Note: `chapter` frontmatter required for pages that show a chapter translation.
-  Note: the seleced include file must exist or the build will fail; no way to fallback if file is missing
+    Customize content by including a different "sub layout" (not a Jekyll term) for each page type.
+    Assume one include file for each page type and a fixed include file for all pages with chapter content
+    Note: `chapter` frontmatter required for pages that show a chapter translation.
+    Note: the seleced include file must exist or the build will fail; no way to fallback if file is missing
   {% endcomment %}
 
   <main>
