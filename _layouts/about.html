@@ -51,7 +51,9 @@
     {% if forloop.first %}
         <tr>
             <td colspan="3">
-                <h3>{{ about_data.other_lang_xlators_lead[lang] }}</h3>
+                <h3 style="margin-top: 1em; margin-bottom: 0;">
+                    {{ about_data.other_lang_xlators_lead[lang] }}
+                </h3>
             </td>
         </tr>
     {% endif %}
@@ -63,13 +65,8 @@
     {# --- xlators list for the xlation lang, in this lang --- #}
     {% assign xlator_list = xlators[xlation_lang][lang] %}
     
+    {# --- one row for each xlator --- #}
     {% for xlator in xlator_list %}
-        {# --- empty row for vertical separation between langs --- #}
-        {% if forloop.first %}
-            <tr><td colspan="3" style="height: 0.5em;"></td></tr>
-        {% endif %}
-    
-        {# --- row for this xlator --- #}
         <tr>
             {# --- Column 1: lang name, shown only with first xlator --- #}
             <td style="padding-right: 0.5em; vertical-align: top;">
@@ -89,6 +86,45 @@
             </td>
         </tr>
     {% endfor %}
+
+    {# --- empty row for vertical separation between langs --- #}
+    {% if !forloop.last %}
+        <tr><td colspan="3" style="height: 0.5em;"></td></tr>
+    {% endif %}
+
 {% endfor %}
+
+
+{# --- webdev credits --- #}
+{% for peep in about_data.webdev_peeps %}
+
+    {# --- lead, before first cred --- #}
+    {% if forloop.first %}
+        <tr>
+            <td colspan="3">
+                <h3 style="margin-top: 1em; margin-bottom: 0;">
+                    {{ about_data.webdevs_lead[lang] }}
+                </h3>
+            </td>
+        </tr>
+    {% endif %}
+
+    <tr>
+        {# --- Column 1: empty --- #}
+        <td></td>
+        
+        {# --- Column 2: Em Dash Separator, shown only with first peep --- #}
+        <td style="padding-right: 0.5em; vertical-align: top;">
+            {% if forloop.first %}—{% endif %}
+        </td>
+
+        {# --- Column 3: creds --- #}
+        <td style="vertical-align: top;">
+            <strong style="white-space: pre-wrap;">{{ peep }}</strong>
+        </td>
+    </tr>
+{% endfor %}
+
+
 
 </table>
