@@ -104,15 +104,15 @@
     Note: the seleced include file must exist or the build will fail; no way to fallback if file is missing
   {% endcomment %}
 
-  {% include prefix/{{name | append: ".html"}} %}
-  
   <main>
+    {# use include though render recommended because GH Pages. Also wrap params in quotes to prevent "Invalid syntax" errors. #}
     {% if page.chapter %}
-      {% render chapter_content.html lang: "{{ page.lang }}", title: "{{ page_title }}", chapter: "{{ page.chapter }}" %}
+      {% include chapter_content.html lang="{{ page.lang }}" title="{{ page_title }}" chapter="{{ page.chapter }}" %}
     {% else %}
+      {# dynamic filename must be assigned to a variable first #}
       {% assign content_file = page.basename | append: ".html" %}
-      {% render {{ content_file }} lang: "{{ page.lang }}", title: "{{ page_title }}" %}
-    {% endif %}    
+      {% include {{ content_file }} lang="{{ page.lang }}" title="{{ page_title }}" %}
+    {% endif %}  
   </main>
 
   <footer>
