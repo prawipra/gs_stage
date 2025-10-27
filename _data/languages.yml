@@ -1,24 +1,33 @@
 # translated languages: each main key is a unique code across all supported languages
-# recommend 3-character ISO 639:2023 codes: automatically makes codes unique
+# keys for Kannada and English must be kan and eng respectively: hardcoded elsewhere
+# recommend 3-character ISO 639:2023 codes for all (other langs): automatically makes codes unique
 # for this project, ISO 639-3 (even 639-2) codes should suffice (all retained in 639:2023)
 # https://en.wikipedia.org/wiki/List_of_ISO_639-3_codes
 
-# keys for Kannada and English must be kan and eng respectively: hardcoded elsewhere
-
 # for each translated language:
-# native: language name in that language
-# english: English name for the language
+# active: optional true/false flag to denote if that lang's xlation is included; omission means active
 # script: ISO 15924 code for the script the text is normally written in
 # region: ISO 3166 code for the region in which the language is predominant; IN for Indic languages in this app; US for english
 # xlit_extension: optional custom value to denote transliteration convention (ISO 15919, IAST,...)
-# bcp47 used to specify html page's language (lang global attribute in HTML)
+# name: subkeys with the name of the lang in other langs
+
+san:
+  active: false         # not xlation lang but useful to build BCP 47 value for HTML lang attr
+  script: Deva
+  region: IN
+  name:
+    kan: ಸಂಸ್ಕೃತ
+    eng: Sanskrit
+    hin: संस्कृत
+    tam: சமஸ்கிருதம்
+    tel: సంస్కృతం
+    mal: സംസ്കൃതം
+
 
 kan:
-  native: ಕನ್ನಡ
-  english: Kannada
+  # active: true  # entry not needed: missing entry is treated as `active: true`
   script: Knda
   region: IN
-  xlit_lang_tag: san-Knda-IN
   name:
     kan: ಕನ್ನಡ
     eng: Kannada
@@ -29,12 +38,9 @@ kan:
 
 
 eng:
-  native: English
-  english: English
   script: Latn
   region: US
   xlit_extension: iso15919
-  xlit_lang_tag: san-Latn-IN-x-iso15919
   name:
     kan: ಇಂಗ್ಲಿಷ್
     eng: English
@@ -45,11 +51,8 @@ eng:
 
 
 hin:
-  native: हिन्दी
-  english: Hindi
   script: Deva
   region: IN
-  xlit_lang_tag: san-Deva-IN
   name:
     kan: ಹಿಂದಿ
     eng: Hindi
@@ -60,11 +63,8 @@ hin:
 
 
 tam:
-  native: தமிழ்
-  english: Tamil
   script: Taml
   region: IN
-  xlit_lang_tag: san-Taml-IN
   name:
     kan: ತಮಿಳು
     eng: Tamil
@@ -75,11 +75,8 @@ tam:
 
 
 tel:
-  native: తెలుగు
-  english: Telugu
   script: Telu
   region: IN
-  xlit_lang_tag: san-Telu-IN
   name:
     kan: ತೆಲುಗು
     eng: Telugu
@@ -90,11 +87,8 @@ tel:
 
 
 mal:
-  native: മലയാളം
-  english: Malayalam
   script: Mlym
   region: IN
-  xlit_lang_tag: san-Mlym-IN
   name:
     kan: ಮಲಯಾಳಂ
     eng: Malayalam
