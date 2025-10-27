@@ -108,10 +108,11 @@
   
   <main>
     {% if page.chapter %}
-      {% include chapter_content.html lang=page.lang title=page_title chapter=page.chapter %}
+      {% render chapter_content.html lang: "{{ page.lang }}", title: "{{ page_title }}", chapter: "{{ page.chapter }}" %}
     {% else %}
-      {% include {{ page.basename | append: ".html" }} lang=page.lang title=page_title %}
-    {% endif %}
+      {% assign content_file = page.basename | append: ".html" %}
+      {% render {{ content_file }} lang: "{{ page.lang }}", title: "{{ page_title }}" %}
+    {% endif %}    
   </main>
 
   <footer>
