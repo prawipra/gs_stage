@@ -38,9 +38,13 @@
     <p class="header">{{ site_description }}</p>
     <nav class="site-nav">
       <ul>
-        {% for key, labels in site.data.navigation %}
+        {% for item in site.data.navigation %}
+          {% assign key = item[0] %}
+          {% assign labels = item[1] %}
+
           {% assign label = labels[page.lang] | default: labels.eng %}
           {% capture href_path %}/{{ page.lang }}{% unless key == "index" %}/{{ key }}.html{% endunless %}{% endcapture %}
+
           {% if page.url contains href_path %}
             {% assign nav_item_class = "nav-active-item" %}
             {% assign nav_link_class = "nav-active-link" %}
