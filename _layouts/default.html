@@ -40,19 +40,24 @@
       <ul>
         {% for key, labels in site.data.navigation %}
           {% assign label = labels[page.lang] | default: labels.eng %}
-          {% capture href_path %}
-            /{{ page.lang }}{% unless key == "index" %}/{{ key }}.html{% endunless %}
-          {% endcapture %}
+          {% capture href_path %}/{{ page.lang }}{% unless key == "index" %}/{{ key }}.html{% endunless %}{% endcapture %}
+          {% if page.url contains href_path %}
+            {% assign nav_item_class = "nav-active-item" %}
+            {% assign nav_link_class = "nav-active-link" %}
+          {% else %}
+            {% assign nav_item_class = "" %}
+            {% assign nav_link_class = "" %}
+          {% endif %}
           
-          <li>
-            <a href="{{ href_path | relative_url }}" title="{{ labels.eng }}">
+          <li class="{{nav_item_class}}">
+            <a href="{{ href_path | relative_url }}" title="{{ labels.eng }}" class="{{nav_link_class}}">
               {{ label }}
             </a>
           </li>
         {% endfor %}
       </ul>
     </nav>
-  </header>
+  </header>  
 
 
   {# --- add lang-nav if more than one active lang --- #}
