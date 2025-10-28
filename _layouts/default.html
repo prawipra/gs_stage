@@ -86,7 +86,7 @@
   {% endcomment %}
 
   {% assign active_langs = site.data.languages | reject: 'last.active', false %}
-  {% assign active_langs = site.data.languages | where_exp: "item", "item.last.active != false" %}
+  {% assign active_langs = site.data.languages | where_exp: "lang", "lang.active != false" %}
 
   {% if active_langs.size > 1 %}
 
