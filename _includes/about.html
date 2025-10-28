@@ -14,11 +14,12 @@
 {% assign lang = include.lang %}
 {% assign about_data = site.data.about %}
 {% assign xlators = about_data.xlators %}
+{% assign dash_separator = "–" %}
 
 {% comment %}
     {# --- place all creds in a 3-col table to ensure alignment, with merged rows for section headings --- #}
         {# --- Column 1: lead for kan xlation, all in this lang; shown only with first xlator --- #}
-        {# --- Column 2: Em Dash Separator, shown only with first xlator --- #}
+        {# --- Column 2: Dash Separator, shown only with first xlator --- #}
         {# --- Column 3: xlator creds --- #}
 {% endcomment %}
 
@@ -34,7 +35,7 @@
         </td>
         
         <td style="padding-right: 0.5em; vertical-align: top;">
-            {% if forloop.first %}—{% endif %}
+            {% if forloop.first %}{{dash_separator}}{% endif %}
         </td>
 
         <td style="vertical-align: top;">
@@ -79,7 +80,7 @@
             </td>
             
             <td style="padding-right: 0.5em; vertical-align: top;">
-                {% if forloop.first %}—{% endif %}
+                {% if forloop.first %}{{dash_separator}}{% endif %}
             </td>
 
             <td style="vertical-align: top;">
@@ -89,7 +90,7 @@
     {% endfor %}
 
     {% if !forloop.last %}
-        <tr><td colspan="3" style="height: 0.5em;"></td></tr>
+        <tr><td colspan="3" style="height: 1em;"></td></tr>
     {% endif %}
 
 {% endfor %}
@@ -100,26 +101,20 @@
     {# --- Column 1: empty --- #}
 {% endcomment %}
 
-{% for peep in about_data.webdev_peeps %}
+{% for peep in about_data.webdev_peeps[lang] %}
     {% if forloop.first %}
         <tr>
             <td colspan="3">
                 <h3 style="margin-top: 1em; margin-bottom: 0;">
-                    {{ about_data.webdevs_lead[lang] }}
+                    {{ about_data.webdevs_lead[lang] }} : {{ about_data.prawipra[lang] }}
                 </h3>
             </td>
         </tr>
     {% endif %}
 
     <tr>
-        <td></td>
-        
-        <td style="padding-right: 0.5em; vertical-align: top;">
-            {% if forloop.first %}—{% endif %}
-        </td>
-
-        <td style="vertical-align: top;">
-            <strong style="white-space: pre-wrap;">{{ peep[lang] }}</strong>
+        <td colspan="3" style="vertical-align: top;">
+            {{dash_separator}} <strong style="white-space: pre-wrap;">{{ peep }}</strong>
         </td>
     </tr>
 {% endfor %}
