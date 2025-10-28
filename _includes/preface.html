@@ -1,0 +1,16 @@
+{% comment %}
+  // REQUIRED INPUTS:
+  // include.lang:      (String) The language code (e.g., 'eng', 'kan') used for text lookup.
+  //                    (Passed from: 'lang=page.lang')
+  //
+  // include.title:     (String) The primary title to be displayed on the page. Already included in <title>
+  //                    (Passed from: 'title=page_title')
+  //
+  // USAGE EXAMPLE:
+  // {% include preface.html lang=page.lang title=page_title %}
+  // --------------------------------------------------------------------------
+{% endcomment %}
+
+{# --- content is whatever in the triggering file --- #}
+
+{{ content }}
