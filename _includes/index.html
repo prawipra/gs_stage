@@ -13,9 +13,13 @@
   // --------------------------------------------------------------------------
 {% endcomment %}
 
+
 {% assign lang = include.lang %}
 {% assign about_data = site.data.about %}
 {% assign all_xlators = about_data.xlators %}
+
+<p>{{ "include.lang: " | append: include.lang }}</p>
+<p>{{ "lang: " | append: lang }}</p>
 
 {% comment %} "gita" before source for eng for readability {% endcomment %}
 
