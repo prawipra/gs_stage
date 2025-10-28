@@ -34,7 +34,7 @@
             {% endif %}
         </td>
         
-        <td style="padding-right: 0.5em; vertical-align: top;">
+        <td style="padding-right: 0.5em; vertical-align: middle;">
             {% if forloop.first %}{{dash_separator}}{% endif %}
         </td>
 
@@ -79,7 +79,7 @@
                 {% endif %}
             </td>
             
-            <td style="padding-right: 0.5em; vertical-align: top;">
+            <td style="padding-right: 0.5em; vertical-align: middle;">
                 {% if forloop.first %}{{dash_separator}}{% endif %}
             </td>
 
@@ -90,7 +90,7 @@
     {% endfor %}
 
     {% if !forloop.last %}
-        <tr><td colspan="3" style="height: 1em;"></td></tr>
+        <tr><td colspan="3" style="height: 2em;"></td></tr>
     {% endif %}
 
 {% endfor %}
@@ -106,7 +106,7 @@
         <tr>
             <td colspan="3">
                 <h3 style="margin-top: 1em; margin-bottom: 0;">
-                    {{ about_data.webdevs_lead[lang] }} : {{ about_data.prawipra[lang] }}
+                    {{ about_data.webdevs_lead[lang] }}: {{ about_data.prawipra[lang] }}
                 </h3>
             </td>
         </tr>
