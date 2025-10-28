@@ -88,6 +88,10 @@
   {% assign active_langs = site.data.languages | reject: 'last.active', false %}
   {% assign active_langs = site.data.languages | where_exp: "lang", "lang.active != false" %}
 
+  {% for lang in active_langs %}
+    <p>lang</p>
+  {% endfor %}
+
   {% if active_langs.size > 1 %}
 
     {% assign current_lang_prefix = "/" | append: page.lang %}
