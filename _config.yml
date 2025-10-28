@@ -44,7 +44,7 @@ defaults:
     values:
       lang: kan # can't use default_lang config's value from above
       layout: "default" # default layout for all pages
-      permalink: /:lang/:basename.html #one html per md
+      permalink: /:path/:basename.html #one html per md in the dir where the md is
 
   # default value for `lang` key for pages in lang dirs: no need to include `lang` again in frontmatter
   # no need to specify anything for kan files because the only customization lang is already the default
