@@ -101,7 +101,6 @@
 {% endcomment %}
 
 {% for peep in about_data.webdev_peeps %}
-
     {% if forloop.first %}
         <tr>
             <td colspan="3">
@@ -120,7 +119,7 @@
         </td>
 
         <td style="vertical-align: top;">
-            <strong style="white-space: pre-wrap;">{{ peep }}</strong>
+            <strong style="white-space: pre-wrap;">{{ peep[lang] }}</strong>
         </td>
     </tr>
 {% endfor %}
