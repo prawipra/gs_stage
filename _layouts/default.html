@@ -105,12 +105,12 @@
   {% endcomment %}
 
   <main>
-    {# Use include because GH Pages does not support rended. Also quote all params to prevent "Invalid syntax" errors. #}
+    {# Use include because GH Pages does not support render. Also quote all params to prevent "Invalid syntax" errors. #}
     {% if page.chapter %}
       {% include chapter_content.html lang="{{ page.lang }}" title="{{ page_title }}" chapter="{{ page.chapter }}" %}
     {% else %}
-      {# page.basename can be empty for roots (like /eng): fallback to 'index.html' #}
-      {% assign content_file = page.basename | default: "index" | append: ".html" %}
+      {# page.name is "preface.md", page.ext is ".md", result is "preface.html": fallback to 'index.html' #}
+      {% assign content_file = page.name | replace: page.ext, ".html" | default: "index.html" %}
       {% include {{ content_file }} lang="{{ page.lang }}" title="{{ page_title }}" %}
     {% endif %}
   </main>
