@@ -1,6 +1,16 @@
 {% assign site_title = site.localized_site_title[page.lang] | default: site.title %}
 {% assign site_description = site.localized_site_description[page.lang] | default: site.description %}
 
+{% comment %} 
+  Compute page_basename frm because page.basename and page.name are uavaialable but we need to know basefile
+  basename is just the name of the file without the file extension
+  - /eng/index.html -> index; /kan/preface.html -> preface
+
+  page.url is url of the generated page. In the context of a page, it will always be a .html file; never something like "/eng", "/eng/"
+{% endcomment %}
+
+{% assign page_basename = page.url | split: '/' | last | replace: '.html', '' | default: "index" %}
+
 {% comment %}
   Chapter page's primary lang is 'mul' due to shlokas; non-chapter page's is page.html_lang or page.lang
   BCP 47: https://developer.mozilla.org/en-US/docs/Glossary/BCP_47_language_tag
@@ -14,7 +24,7 @@
   {% assign primary_lang = 'mul' %}
 {% else %}
   {% assign primary_lang = page.lang %}
-  {% assign page_title = site.navigation[basename][page.lang] | default: page.title %}
+  {% assign page_title = site.navigation[page_basename][page.lang] | default: page.title %}
 {% endif %}
 
 {% if page.html_lang %}
@@ -64,12 +74,17 @@
   </header>  
 
 
-  {# --- add lang-nav if more than one active lang --- #}
+  {% comment %} 
+    Add lang-nav only if more than one active lang
+    Build nav links by replacing /lang in page url with sibling langs: /eng -> /kan, /eng/about.html -> /kan/about.html,...
+    If link is back to current lang make its text strong and further style with a class: still use a link; not span
+    Link text is lang's native name; link tooltip is lang's English name
+  {% endcomment %}
+
   {% assign active_langs = site.data.languages | reject: 'last.active', false %}
 
   {% if active_langs.size > 1 %}
 
-    {# strip /lang from page url: cut /eng from /eng, /eng/about.html, /eng/chapters, /eng/chapters/1.html #}
     {% assign current_lang_prefix = "/" | append: page.lang %}
     {% assign page_path_suffix = page.url | remove_first: current_lang_prefix %}
 
@@ -78,10 +93,9 @@
         {% for lang_pair in active_langs %}
           {% assign lang_code = lang_pair[0] %}
           {% assign lang_data = lang_pair[1] %}
-          {% capture href_path %} /{{ lang_code }}{{ page_path_suffix }} {% endcapture %}
+          {% capture href_path %}/{{ lang_code }}{{ page_path_suffix }}{% endcapture %}
 
           <li>
-              {# if current lang make link text strong and further style with a class #}
               <a href="{{ href_path | relative_url }}" title="{{ lang_data.name.eng }}">
                 {% if lang_code == page.lang %}
                   <strong class="current-lang-link-text">{{ lang_data.name[lang_code] }}</strong>
@@ -100,18 +114,19 @@
   {% comment %} 
     Customize content by including a different "sub layout" (not a Jekyll term) for each page type.
     Assume one include file for each page type and a fixed include file for all pages with chapter content
+    - index.html for index.md, preface.html for preface.md,... 
+
     Note: `chapter` frontmatter required for pages that show a chapter translation.
     Note: the seleced include file must exist or the build will fail; no way to fallback if file is missing
+
+    Use include feature because GH Pages does not support render. Also quote all params to prevent "Invalid syntax" errors.
   {% endcomment %}
 
   <main>
-    {# Use include because GH Pages does not support render. Also quote all params to prevent "Invalid syntax" errors. #}
     {% if page.chapter %}
       {% include chapter_content.html lang="{{ page.lang }}" title="{{ page_title }}" chapter="{{ page.chapter }}" %}
     {% else %}
-      {# through trial and error, page.url is the only reliably avaialable page var: page.name, page.ext are not available #}
-      {# include index.html for index.md, preface.html for preface.md,...: page.url alreaday has .html extension #}
-      {% assign content_file = page.url | split: '/' | last | default: "index.html" %}
+      {% assign content_file = page_basename | append: ".html" %}
       {% include {{ content_file }} lang="{{ page.lang }}" title="{{ page_title }}" %}
     {% endif %}
   </main>
