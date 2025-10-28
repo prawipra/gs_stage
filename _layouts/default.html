@@ -21,10 +21,12 @@
 {% endcomment %}
 
 {% if page.chapter %}
-  {% assign primary_lang = 'mul' %}
+  {% assign primary_lang = "mul" %}
+  {% assign default_chapter_title = "Chapter " | append: page.chapter %} 
+  {% assign page_title = page.title | default: default_chapter_title | default: page_basename %}
 {% else %}
   {% assign primary_lang = page.lang %}
-  {% assign page_title = site.navigation[page_basename][page.lang] | default: page.title | page_basename %}
+  {% assign page_title = page.title | default: site.navigation[page_basename][page.lang] | default: page_basename | default: "basename here" %}
 {% endif %}
 
 {% if page.html_lang %}
