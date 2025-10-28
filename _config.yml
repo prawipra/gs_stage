@@ -1,6 +1,6 @@
 # basic site info: not subject to localization
 name: geetaasameekshaa
-title: gītāsamīkṣā   #localized site title is maintained separately (see below)
+title: gītāsamīkṣā   # localized site title is maintained separately (see below)
 description: The Bhagavad Gita in the Bhishma Book of Sri Veda Vyasa's Mahabharata
 
 # language codes are defined and explained in _data/languages.yml
@@ -30,10 +30,10 @@ localized_site_description:
     # ശ്രീ വേദവ്യാസൻ രചിച്ച മഹാഭാരതത്തിലെ ഭീഷ്മപർവത്തിൽ ഉൾപ്പെട്ട ഭഗവദ്ഗീതാ
 
 
-
 # default language: used to rewrite links for missing pages
 # can't be used to define default frontmatter `lang`
 default_lang: kan
+
 
 # default frontmatter: each lang's content is in dir /lang as in /kan, /eng, /hin, ...
 defaults:
@@ -42,14 +42,13 @@ defaults:
       path: ""
       type: pages
     values:
-      lang: kan # can't use default_lang config's value from above
-      layout: "default" # default layout for all pages
-      permalink: /:path/:basename.html #one html per md in the dir where the md is
+      lang: kan                         # can't use default_lang config's value from above
+      layout: default                   # default layout for all pages
+      permalink: /:path/:basename.html  # one html per md in the dir where the md is
 
   # default value for `lang` key for pages in lang dirs: no need to include `lang` again in frontmatter
   # no need to specify anything for kan files because the only customization lang is already the default
   # add kan scope if a key other than `lang` needs a default value
-
   - scope:
       path: eng
     values:
@@ -78,5 +77,5 @@ defaults:
 
 #files to exclude from Jekyll processing
 exclude:
-  - LICENSE.md        #expected only in root
-  - "**/README.md"    #README.md anywere (lang dirs may have their own readme)
+  - LICENSE.md                      # expected only in root
+  - ["README.md", "**/README.md"]   # README.md anywere (lang dirs may have their own readme)
