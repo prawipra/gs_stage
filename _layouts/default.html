@@ -24,7 +24,7 @@
   {% assign primary_lang = 'mul' %}
 {% else %}
   {% assign primary_lang = page.lang %}
-  {% assign page_title = site.navigation[page_basename][page.lang] | default: page.title %}
+  {% assign page_title = site.navigation[page_basename][page.lang] | default: page.title | page_basename %}
 {% endif %}
 
 {% if page.html_lang %}
