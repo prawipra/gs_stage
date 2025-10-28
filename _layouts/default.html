@@ -78,13 +78,15 @@
 
 
   {% comment %} 
-    Add lang-nav only if more than one active lang
+    Add lang-nav only if more than one active lang: explicit test for active false to leave out langs
+
     Build nav links by replacing /lang in page url with sibling langs: /eng -> /kan, /eng/about.html -> /kan/about.html,...
     If link is back to current lang make its text strong and further style with a class: still use a link; not span
     Link text is lang's native name; link tooltip is lang's English name
   {% endcomment %}
 
   {% assign active_langs = site.data.languages | reject: 'last.active', false %}
+  {% assign active_langs = site.data.languages | where_exp: "item", "item.last.active != false" %}
 
   {% if active_langs.size > 1 %}
 
