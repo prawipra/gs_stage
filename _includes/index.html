@@ -8,16 +8,17 @@
   //
   // USAGE EXAMPLE:
   // {% include index.html lang=page.lang title=page_title %}
+  //
+  // Data for this page comes from about.yml: there is no (need for) index.yml
   // --------------------------------------------------------------------------
 {% endcomment %}
-
-{# --- data for this page comes from about.yml: there is no (need for) index.yml  --- #}
 
 {% assign lang = include.lang %}
 {% assign about_data = site.data.about %}
 {% assign all_xlators = about_data.xlators %}
 
-{# --- gita source and title: "gita" before source for eng  --- #}
+{% comment %} "gita" before source for eng for readability {% endcomment %}
+
 {% if lang == 'eng' %}
     <h1>{{ about_data.gita[lang] }}</h1>
     <h2>{{ about_data.gita_source[lang] }}</h2>
@@ -33,11 +34,13 @@
 <p></p>
 <p></p>
 
+{% endcomment %}
+    Lead for this lang xlation and xlators for this lang
+    if this lang is not kan, lead for the kan xlation and all kan xlators
+{% endcomment %}
 
-{# --- lead for this lang xlation --- #}
 <p>{{ about_data.xlate_lang_lead[lang] }}</p>
 
-{# --- xlators for this lang, in this lang's script  --- #}
 {% for xlator in all_xlators[lang][lang] %}
     {# --- styling to handle multi-line credit: move to stylesheet when mature --- #}
     <h3 style="white-space: pre-wrap;">{{ xlator }}</h3>
@@ -45,7 +48,6 @@
 
 <p></p>
 
-{# --- if not kan, lead and all kan xlators --- #}
 {% if lang != 'kan' %}
     <p>{{ about_data.kan_xlate_lang_lead[lang] }}</p>
 
