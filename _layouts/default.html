@@ -83,17 +83,30 @@
     Build nav links by replacing /lang in page url with sibling langs: /eng -> /kan, /eng/about.html -> /kan/about.html,...
     If link is back to current lang make its text strong and further style with a class: still use a link; not span
     Link text is lang's native name; link tooltip is lang's English name
+
+    {% assign active_langs = site.data.languages | reject: 'last.active', false %}
+
   {% endcomment %}
 
-  {% assign active_langs = site.data.languages | reject: 'last.active', false %}
-  {% assign active_langs = site.data.languages | where_exp: "lang", "lang.active != false" %}
-
-  {% for lang in active_langs %}
-    <p>lang</p>
+  {% assign active_langs = site.data.languages | where_exp: "lang", "active != false" %}
+  <p> as pairs: </p>
+  {% for active_lang_pair in active_langs %}
+    <p>{{ active_lang_pair[0] }}</p>
+    <p>{{ active_lang_pair[1] }}</p>
   {% endfor %}
 
-  {% if active_langs.size > 1 %}
+  <p> as lang: </p>
+  {% for active_lang in active_langs %}
+    <p>active_lang: {{ active_lang }}</p>
+    <p>active_lang.active: {{ active_lang.active }}</p>
+  {% endfor %}
 
+  <p>the whole active_langs: </p>
+  <p>{{ active_langs }}</p>
+
+
+  {% if active_langs.size > 1 %}
+  
     {% assign current_lang_prefix = "/" | append: page.lang %}
     {% assign page_path_suffix = page.url | remove_first: current_lang_prefix %}
 
