@@ -29,14 +29,6 @@ chapters:
   tel: అధ్యాయాలు
   mal: അധ്യായങ്ങൾ
 
-languages:
-  kan: ಭಾಷೆಗಳು
-  eng: Languages
-  hin: भाषाएँ
-  tam: மொழிகள்
-  tel: భాషలు
-  mal: ഭാഷകൾ
-
 about:
   kan: ಕುರಿತು
   eng: About
@@ -44,3 +36,12 @@ about:
   tam: பற்றி
   tel: గురించి
   mal: കുറിച്ച്
+
+# languages:
+#   kan: ಭಾಷೆಗಳು
+#   eng: Languages
+#   hin: भाषाएँ
+#   tam: மொழிகள்
+#   tel: భాషలు
+#   mal: ഭാഷകൾ
+
