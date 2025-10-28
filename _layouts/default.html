@@ -123,14 +123,16 @@
     Note: the seleced include file must exist or the build will fail; no way to fallback if file is missing
 
     Use include feature because GH Pages does not support render. Also quote all params to prevent "Invalid syntax" errors.
+
+    Using include syntax as defined here: https://jekyllrb.com/docs/includes/
   {% endcomment %}
 
   <main>
     {% if page.chapter %}
-      {% include chapter_content.html lang="{{ page.lang }}" title="{{ page_title }}" chapter="{{ page.chapter }}" %}
+      {% include chapter_content.html lang=page.lang title=page_title chapter=page.chapter %}
     {% else %}
       {% assign content_file = page_basename | append: ".html" %}
-      {% include {{ content_file }} lang="{{ page.lang }}" title="{{ page_title }}" %}
+      {% include {{ content_file }} lang=page.lang title=page_title %}
     {% endif %}
   </main>
 
