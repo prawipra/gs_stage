@@ -28,10 +28,11 @@
   {% assign default_page_title = site.data.navigation[page_basename][page.lang] %}
 {% endif %}
 
+{% assign lang_data = site.data.languages[page.lang] %}
+
 {% if page.html_lang %}
   {% assign html_lang = page.html_lang %}
 {% else %}
-  {% assign lang_data = site.data.languages[page.lang] %}
   {% capture html_lang %}{{ primary_lang }}-{{ lang_data.script }}-{{ lang_data.region }}{% endcapture %}
 {% endif %}
 
@@ -84,27 +85,12 @@
     If link is back to current lang make its text strong and further style with a class: still use a link; not span
     Link text is lang's native name; link tooltip is lang's English name
 
-    {% assign active_langs = site.data.languages | reject: 'last.active', false %}
+    TODO: fix active_langs filter; as is, it includes inactive langs; for now using a conditional continue inside for loop
 
   {% endcomment %}
 
   {% assign active_langs = site.data.languages | where_exp: "lang", "active != false" %}
-  <p> as pairs: </p>
-  {% for active_lang_pair in active_langs %}
-    <p>{{ active_lang_pair[0] }}</p>
-    <p>{{ active_lang_pair[1] }}</p>
-  {% endfor %}
-
-  <p> as lang: </p>
-  {% for active_lang in active_langs %}
-    <p>active_lang: {{ active_lang }}</p>
-    <p>active_lang.active: {{ active_lang.active }}</p>
-  {% endfor %}
-
-  <p>the whole active_langs: </p>
-  <p>{{ active_langs }}</p>
-
-
+ 
   {% if active_langs.size > 1 %}
   
     {% assign current_lang_prefix = "/" | append: page.lang %}
@@ -116,6 +102,10 @@
           {% assign lang_code = lang_pair[0] %}
           {% assign lang_data = lang_pair[1] %}
           {% capture href_path %}/{{ lang_code }}{{ page_path_suffix }}{% endcapture %}
+
+          {%if lang_data.active == false %}
+             {% continue %}
+          {% endif %}
 
           <li>
               <a href="{{ href_path | relative_url }}" title="{{ lang_data.name.eng }}">

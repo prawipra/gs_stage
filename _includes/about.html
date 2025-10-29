@@ -52,6 +52,8 @@
     {# --- Column 2: Em Dash Separator, shown only with first xlator --- #}
     {# --- Column 3: xlator creds --- #}
     {# --- empty row for vertical separation between langs --- #}
+
+    TODO: fix active_non_kan_langs filter; as is, it includes kan and inactive langs
 {% endcomment %}
 
 {% assign active_non_kan_langs = site.data.languages | reject: 'last.active', false | reject: 'first', 'kan' %}
@@ -69,6 +71,11 @@
 
     {% assign xlation_lang      = xlation_pair[0] %}
     {% assign xlation_lang_data = xlation_pair[1] %}
+
+    {%if xlation_lang == "kan" or site.data.languages[xlation_lang].active == false %}
+        {% continue %}
+    {% endif %}
+
     {% assign xlator_list = xlators[xlation_lang][lang] %}
    
     {% for xlator in xlator_list %}
