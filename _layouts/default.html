@@ -1,5 +1,5 @@
-{% assign site_title = site.localized_site_title[page.lang] | default: site.title %}
-{% assign site_description = site.localized_site_description[page.lang] | default: site.description %}
+{% assign site_title = site.data.about.site_title[page.lang] | default: site.title %}
+{% assign site_description = site.data.about.site_description[page.lang] | default: site.description %}
 
 {% comment %} 
   Compute page_basename frm because page.basename and page.name are uavaialable but we need to know basefile
@@ -46,97 +46,112 @@
   <title>{{ site_title }}{% if page_title %} – {{ page_title }}{% endif %}</title>
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 </head>
+
 <body>
   <header>
-    <h1 class="header">{{ site_title }}</h1>
-    <h5 class="header">{{ site_description }}</h5>
-    <nav class="site-nav">
-      <ul>
-        {% for item in site.data.navigation %}
-          {% assign key = item[0] %}
-          {% assign labels = item[1] %}
+    <div class="header-inner">
+      <div class="header-slot header-left" aria-hidden="true">
+        <img src="{{ '/assets/img/logo.svg' | relative_url }}" alt="left logo">
+      </div>
 
-          {% assign label = labels[page.lang] | default: labels.eng %}
-          {% capture href_path %}/{{ page.lang }}{% unless key == "index" %}/{{ key }}.html{% endunless %}{% endcapture %}
+      <div class="header-center" role="banner">
+        <h1 class="header">{{ site_title }}</h1>
+        <h5 class="header">{{ site_description }}</h5>
 
-          {% if page.url contains href_path %}
-            {% assign nav_item_class = "nav-active-item" %}
-            {% assign nav_link_class = "nav-active-link" %}
-          {% else %}
-            {% assign nav_item_class = "" %}
-            {% assign nav_link_class = "" %}
-          {% endif %}
-          
-          <li class="{{nav_item_class}}">
-            <a href="{{ href_path | relative_url }}" title="{{ labels.eng }}" class="{{nav_link_class}}">
-              {{ label }}
-            </a>
-          </li>
-        {% endfor %}
-      </ul>
-    </nav>
-  </header>  
+        <!-- primary site nav inside header center -->
+        <nav class="site-nav" aria-label="Main navigation">
+          <ul>
+            {% for item in site.data.navigation %}
+              {% assign key = item[0] %}
+              {% assign labels = item[1] %}
 
+              {% assign label = labels[page.lang] | default: labels.eng %}
+              {% capture href_path %}/{{ page.lang }}{% unless key == "index" %}/{{ key }}.html{% endunless %}{% endcapture %}
 
-  {% comment %} 
-    Add lang-nav only if more than one active lang: explicit test for active false to leave out langs
+              {% if page.url contains href_path %}
+                {% assign nav_item_class = "nav-active-item" %}
+                {% assign nav_link_class = "nav-active-link" %}
+              {% else %}
+                {% assign nav_item_class = "" %}
+                {% assign nav_link_class = "" %}
+              {% endif %}
+              
+              <li class="{{nav_item_class}}">
+                <a href="{{ href_path | relative_url }}" title="{{ labels.eng }}" class="{{nav_link_class}}">
+                  {{ label }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </nav>
 
-    Build nav links by replacing /lang in page url with sibling langs: /eng -> /kan, /eng/about.html -> /kan/about.html,...
-    If link is back to current lang make its text strong and further style with a class: still use a link; not span
-    Link text is lang's native name; link tooltip is lang's English name
+        <!-- language nav -->
+        {% comment %} 
+          Add lang-nav only if more than one active lang: explicit test for active false to leave out langs
 
-    TODO: fix active_langs filter; as is, it includes inactive langs; for now using a conditional continue inside for loop
-    - Jekyll docs: https://jekyllrb.com/docs/liquid/filters/
-  {% endcomment %}
+          Build nav links by replacing /lang in page url with sibling langs: /eng -> /kan, /eng/about.html -> /kan/about.html,...
+          If link is back to current lang make its text strong and further style with a class: still use a link; not span
+          Link text is lang's native name; link tooltip is lang's English name
 
-  {% assign active_langs = site.data.languages | reject: 'last.active', false %}
- 
-  {% if active_langs.size > 1 %}
-  
-    {% assign current_lang_prefix = "/" | append: page.lang %}
-    {% assign page_path_suffix = page.url | remove_first: current_lang_prefix %}
+          TODO: fix active_langs filter; as is, it includes inactive langs; for now using a conditional continue inside for loop
+          - Jekyll docs: https://jekyllrb.com/docs/liquid/filters/
+        {% endcomment %}
 
-    <nav class="lang-nav">
-      <ul>
-        {% for lang_pair in active_langs %}
-          {% assign lang_code = lang_pair[0] %}
-          {% assign lang_data = lang_pair[1] %}
-          {% capture href_path %}/{{ lang_code }}{{ page_path_suffix }}{% endcapture %}
+        {% assign active_langs = site.data.languages | reject: 'last.active', false %}
 
-          {%if lang_data.active == false %}
-             {% continue %}
-          {% endif %}
+        {% if active_langs.size > 1 %}
+        
+          {% assign current_lang_prefix = "/" | append: page.lang %}
+          {% assign page_path_suffix = page.url | remove_first: current_lang_prefix %}
 
-          <li>
-              <a href="{{ href_path | relative_url }}" title="{{ lang_data.name.eng }}">
-                {% if lang_code == page.lang %}
-                  <strong class="current-lang-link-text">{{ lang_data.name[lang_code] }}</strong>
-                {% else %}
-                  {{ lang_data.name[lang_code] }}
+          <nav class="lang-nav" aria-label="Language switcher">
+            <ul>
+              {% for lang_pair in active_langs %}
+                {% assign lang_code = lang_pair[0] %}
+                {% assign lang_data = lang_pair[1] %}
+
+                {%if lang_data.active == false %}
+                  {% continue %}
                 {% endif %}
-              </a>
-          </li>
 
-        {% endfor %}
-      </ul>
-    </nav>
-  {% endif %}
+                {% capture href_path %}/{{ lang_code }}{{ page_path_suffix }}{% endcapture %}
 
+                <li>
+                    <a href="{{ href_path | relative_url }}" hreflang="{{lang_code}}-{lang_data.script}-{{lang_data.region}}" title="{{ lang_data.name.eng }}">
+                      {% if lang_code == page.lang %}
+                        <strong class="current-lang-link-text">{{ lang_data.name[lang_code] }}</strong>
+                      {% else %}
+                        {{ lang_data.name[lang_code] }}
+                      {% endif %}
+                    </a>
+                </li>
 
-  {% comment %} 
-    Customize content by including a different "sub layout" (not a Jekyll term) for each page type.
-    Assume one include file for each page type and a fixed include file for all pages with chapter content
-    - index.html for index.md, preface.html for preface.md,... 
+              {% endfor %}
+            </ul>
+          </nav>
+        {% endif %}
+      </div>
 
-    Note: `chapter` frontmatter required for pages that show a chapter translation.
-    Note: the seleced include file must exist or the build will fail; no way to fallback if file is missing
-
-    Use include feature because GH Pages does not support render. Also quote all params to prevent "Invalid syntax" errors.
-
-    Using include syntax as defined here: https://jekyllrb.com/docs/includes/
-  {% endcomment %}
+      <div class="header-slot header-right" aria-hidden="true">
+        <img src="{{ '/assets/img/logo.svg' | relative_url }}" alt="right logo">
+      </div>
+    </div>
+  </header>
 
   <main>
+    {% comment %} 
+      Customize content by including a different "sub layout" (not a Jekyll term) for each page type.
+      Assume one include file for each page type and a fixed include file for all pages with chapter content
+      - index.html for index.md, preface.html for preface.md,... 
+
+      Note: `chapter` frontmatter required for pages that show a chapter translation.
+      Note: the seleced include file must exist or the build will fail; no way to fallback if file is missing
+
+      Use include feature because GH Pages does not support render. Also quote all params to prevent "Invalid syntax" errors.
+
+      Using include syntax as defined here: https://jekyllrb.com/docs/includes/
+    {% endcomment %}
+
     {% if page.chapter %}
       {% include chapter_content.html lang=page.lang title=page_title chapter=page.chapter %}
     {% else %}
@@ -145,8 +160,29 @@
     {% endif %}
   </main>
 
-  <footer>
+   <footer class="center">
     <p>&copy; {{ site.time | date: "%Y" }} {{ site.author }}</p>
+    <button class="toggle-dark" id="darkToggle" aria-pressed="false">Toggle dark</button>
   </footer>
+
+  <script>
+    (function(){
+      const btn = document.getElementById('darkToggle'), key = 'gs-dark';
+      const apply = v => {
+        document.body.classList.toggle('dark-mode', v);
+        btn.setAttribute('aria-pressed', v ? 'true' : 'false');
+      };
+      try{
+        const pref = localStorage.getItem(key);
+        if(pref !== null) apply(pref === '1');
+      }catch(e){}
+      btn.addEventListener('click', () => {
+        const is = !document.body.classList.contains('dark-mode');
+        try{ localStorage.setItem(key, is ? '1' : '0'); }catch(e){}
+        apply(is);
+      });
+    })();
+  </script>
+
 </body>
 </html>
