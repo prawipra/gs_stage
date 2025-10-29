@@ -72,7 +72,7 @@
     {% assign xlation_lang      = xlation_pair[0] %}
     {% assign xlation_lang_data = xlation_pair[1] %}
 
-    {%if xlation_lang == "kan" or site.data.languages[xlation_lang].active == false %}
+    {%if xlation_lang == "kan" or xlation_lang_data.active == false %}
         {% continue %}
     {% endif %}
 

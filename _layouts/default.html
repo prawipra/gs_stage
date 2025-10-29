@@ -86,10 +86,10 @@
     Link text is lang's native name; link tooltip is lang's English name
 
     TODO: fix active_langs filter; as is, it includes inactive langs; for now using a conditional continue inside for loop
-
+    - Jekyll docs: https://jekyllrb.com/docs/liquid/filters/
   {% endcomment %}
 
-  {% assign active_langs = site.data.languages | where_exp: "lang", "active != false" %}
+  {% assign active_langs = site.data.languages | reject: 'last.active', false %}
  
   {% if active_langs.size > 1 %}
   
