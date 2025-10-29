@@ -25,7 +25,7 @@ san:
 
 
 kan:
-  # active: true  # entry not needed: missing entry is treated as `active: true`
+  active: true  # entry not needed: missing entry is treated as `active: true`
   script: Knda
   region: IN
   name:
