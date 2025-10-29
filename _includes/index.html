@@ -20,16 +20,16 @@
 {% comment %} "gita" before source for eng for readability {% endcomment %}
 {% if lang == 'eng' %}
     <h1>{{ about_data.gita[lang] }}</h1>
-    <h3>{{ about_data.gita_source[lang] }}</h3>
+    <h4>{{ about_data.gita_source[lang] }}</h4>
 {% else %}
-    <h3>{{ about_data.gita_source[lang] }}</h3>
+    <h4>{{ about_data.gita_source[lang] }}</h4>
     <h1>{{ about_data.gita[lang] }}</h1>
 {% endif %}
 
 
 <p></p>
 <p></p>
-<img src="{{ '/assets/images/logo.png' | relative_url }}">
+<img src="{{ '/assets/images/logo.png' | relative_url }}" style="max-width: 40%; height: auto;">
 <p></p>
 <p></p>
 
@@ -47,7 +47,7 @@
 
 <p></p>
 
-{% if lang != 'kan' %}
+{% if lang != "kan" %}
     <p>{{ about_data.kan_xlate_lang_lead[lang] }}</p>
     {% for xlator in all_xlators.kan[lang] %}
         <h3 style="white-space: pre-wrap;">{{ xlator }}</h3>
