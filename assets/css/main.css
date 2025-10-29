@@ -1,0 +1,254 @@
+/* =========================
+   Text-first, multilingual, black & white
+   No webfonts; relies on system/native fonts
+   Language-driven styling via lang attribute
+   ========================= */
+
+/* --- Root variables --- */
+:root{
+  --bg: #ffffff;
+  --text: #000000;
+  --max-width: 980px;
+  --pad: 1rem;
+  --measure: 70ch;
+  --line: 1.65;
+  --scale-eng: 1.12;
+  --header-logo-size: 72px;
+  --focus-color: #000000;
+  --transition: 180ms ease;
+}
+
+/* Dark mode override (toggle with body.dark-mode) */
+body.dark-mode{
+  --bg: #0f0f0f;
+  --text: #ffffff;
+}
+
+/* Dark-mode toggle button */
+.toggle-dark{
+  background: transparent;
+  color: var(--text);
+  border: 1px solid currentColor;
+  padding: 0.35rem 0.6rem;
+  font: inherit;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* border box throughout */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+/* Accessibility: smooth scroll */
+html{ scroll-behavior: smooth; }
+
+/* --- Base / Reset --- */
+html, body { height: 100%; }
+
+body{
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 1rem; /* baseline for Indic scripts */
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  line-height: var(--line);
+  transition: background var(--transition), color var(--transition);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+/* --- Content container & measure --- */
+main{
+  max-width: min(var(--max-width), var(--measure));
+  width: calc(100% - 2 * var(--pad));
+  padding: var(--pad);
+  margin: 0 auto;
+}
+
+/* --- header with logo slots --- */
+header{
+  position: relative;
+  padding: 1rem 0 0.6rem;
+  text-align: center;
+  background: var(--bg);
+}
+
+/* Constrained inner header to align with main */
+.header-inner{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: min(var(--max-width), var(--measure));
+  width: calc(100% - 2 * var(--pad));
+  margin: 0 auto;
+  padding: 0;
+  gap: 1rem;
+}
+
+/* left/right logo slots */
+.header-slot{
+  width: var(--header-logo-size);
+  height: var(--header-logo-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* inline logos are easiest to control responsively */
+.header-slot img{ max-width: 100%; max-height: 100%; display: block; }
+
+/* center column stacks title, subtitle, nav vertically */
+.header-center{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  text-align: center;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* heading typography */
+h1.header{
+  margin: 0;
+  font-size: 1.95rem;
+  line-height: 1.05;
+  font-weight: 600;
+}
+
+h5.header{
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--text);
+}
+
+/* --- Navigation (site and language) --- */
+nav.site-nav,
+nav.lang-nav{
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin-top: 0.25rem;
+}
+
+nav.site-nav ul,
+nav.lang-nav ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+nav.site-nav a,
+nav.lang-nav a{
+  color: inherit;
+  text-decoration: none;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.95rem;
+}
+
+/* active-language marker */
+nav.lang-nav strong{ font-weight: 600; }
+
+/* --- Baseline content typography (Indic baseline) --- */
+:where(p, div, li, dd, dt, blockquote, table, td, th){
+  margin: 0 0 0.9rem 0;
+  font-size: 1rem;          /* baseline for Indic scripts */
+  color: var(--text);
+  hyphens: auto;
+  word-break: keep-all;     /* better for Indic rendering */
+}
+
+/* --- Tables --- */
+table{ border-collapse: collapse; width: 100%; margin-bottom: 0.9rem; }
+td, th{ padding: 0.35rem 0.5rem; vertical-align: top; text-align: left; }
+
+/* --- Language-driven rules (no .lang-eng required) --- */
+/* English-style scaling: prefer semantic :lang(), fallback to attribute match */
+:lang(en),
+:lang(eng),
+[lang|="en"],
+[lang|="eng"] {
+  font-size: calc(1rem * var(--scale-eng));
+  line-height: calc(var(--line) * var(--scale-eng));
+  font-family: Georgia, "Times New Roman", "Merriweather", serif;
+}
+
+/* Keep .lang-eng as an alias to avoid surprises for any edge cases */
+.lang-eng,
+.lang-eng * { /* alias so class continues to work if accidentally emitted */
+  font-size: calc(1rem * var(--scale-eng));
+  line-height: calc(var(--line) * var(--scale-eng));
+  font-family: Georgia, "Times New Roman", "Merriweather", serif;
+}
+
+/* Transliteration detection: any lang tag containing -Latn-x- */
+/* Matches san-Latn-x-IAST, kan-Latn-x-iso15919, etc. */
+[lang*="-Latn-x-"],
+[lang*="-Latn-x-"] * {
+  /* pick a diacritic-capable serif for scholarly transliteration; fall back to robust families */
+  font-family: "Gentium Plus", "Charis SIL", "Noto Serif", "Noto Sans", serif;
+  /* tuned typographic defaults for transliteration */
+  hyphens: manual;
+  font-variant-ligatures: none;
+  letter-spacing: 0;
+}
+
+/* If you need to tune transliteration blocks differently (example selector) */
+/* Example: transliterated Indic primary languages (optional) */
+[lang^="san-"][lang*="-Latn-x-"],
+[lang^="kan-"][lang*="-Latn-x-"],
+[lang^="hin-"][lang*="-Latn-x-"],
+[lang^="tel-"][lang*="-Latn-x-"] {
+  /* language-specific small tweaks can go here */
+  /* e.g., slightly increased line-height if needed */
+}
+
+/* --- Links & focus --- */
+a{
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+a:hover{ text-decoration-thickness: 2px; }
+
+a:focus, button:focus, input:focus, textarea:focus{
+  outline: 2px dashed var(--focus-color);
+  outline-offset: 3px;
+}
+
+/* --- utilities --- */
+.center{ text-align: center; }
+.small{ font-size: 0.88rem; opacity: 0.95; }
+.lead{ font-weight: 500; font-size: 1.08em; margin-bottom: 1rem; }
+
+/* bit more room on very large screens while keeping readable lines */
+@media (min-width: 1200px){
+  main{ max-width: calc(var(--max-width) + 120px); }
+}
+
+/* header responsive stacking for narrow viewports */
+@media (max-width: 640px){
+  .header-inner{
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+  }
+}
+
+/* Print rules */
+@media print{
+  body{ background: #fff; color: #000; }
+  .toggle-dark{ display: none; }
+  a{ text-decoration: none; }
+  .header-slot{ display: none; } /* hide inline header logos in print */
+}
