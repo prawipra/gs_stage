@@ -29,10 +29,10 @@ aligned with Krishna's doctrine. It is my offering to \[my] guru(s).
 
 ### Invocation
 
-Nārāyaṇaṃ sura guruṃ jagadēka-nāthaṃ bhakta priyaṃ sakala loka namaskṛtaṃ ca |  
-traiguṇya varjitamajaṃ vibhumādyamīśaṃ vande bhavaghnaṃ amarāsura siddha vandyaṃ ||  
-Nārāyaṇaṃ namaskṛtya naraṃ caiva narōttamaṃ |  
-dēvīṃ sarasvatīṃ vyāsaṃ tato jayamudīrayē ||
+Nārāyaṇaṃ sura guruṃ jagadēka-nāthaṃ bhakta priyaṃ sakala loka namaskṛtaṃ ca ।  
+traiguṇya varjitamajaṃ vibhumādyamīśaṃ vande bhavaghnaṃ amarāsura siddha vandyaṃ ॥  
+Nārāyaṇaṃ namaskṛtya naraṃ caiva narōttamaṃ ।  
+dēvīṃ sarasvatīṃ vyāsaṃ tato jayamudīrayē ॥
 {: lang="san-Latn-IN-x-iso15919"}
 
 ### Preface to English translation
