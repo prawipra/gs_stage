@@ -133,6 +133,7 @@ h5.header{
   font-size: 1.05rem;
   font-weight: 400;
   line-height: 1.15;
+  padding-top: 1rem;     /* room after title */
   color: var(--text);
 }
 
