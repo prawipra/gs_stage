@@ -77,7 +77,9 @@
               {% endif %}
               
               <li class="{{nav_item_class}}">
-                <a href="{{ href_path | relative_url }}" title="{{ labels.eng }}" class="{{nav_link_class}}">
+                <a href="{{ href_path | relative_url }}" 
+                   title="{% if page.lang != 'eng' %}{{ labels.eng }}{% endif %}"
+                   class="{{nav_link_class}}">
                   {{ label }}
                 </a>
               </li>
@@ -117,7 +119,9 @@
                 {% capture href_path %}/{{ lang_code }}{{ page_path_suffix }}{% endcapture %}
 
                 <li>
-                    <a href="{{ href_path | relative_url }}" hreflang="{{lang_code}}-{lang_data.script}-{{lang_data.region}}" title="{{ lang_data.name.eng }}">
+                    <a href="{{ href_path | relative_url }}" 
+                       hreflang="{{lang_code}}-{lang_data.script}-{{lang_data.region}}" 
+                       title="{% if lang_code != 'eng' %}{{ lang_data.name.eng }}{% endif %}">
                       {% if lang_code == page.lang %}
                         <strong class="current-lang-link-text">{{ lang_data.name[lang_code] }}</strong>
                       {% else %}
