@@ -80,7 +80,11 @@
                 <a href="{{ href_path | relative_url }}" 
                    title="{% if page.lang != 'eng' %}{{ labels.eng }}{% endif %}"
                    class="{{nav_link_class}}">
-                  {{ label }}
+                  {% if {{nav_link_class}} %}
+                    <strong>{{ label }}</strong>
+                  {% else %}
+                    {{ label }}
+                  {% endif %}
                 </a>
               </li>
             {% endfor %}
