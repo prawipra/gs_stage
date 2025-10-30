@@ -17,13 +17,17 @@
 {% assign dash_separator = "–" %}
 
 {% comment %}
-    {# --- place all creds in a 3-col table to ensure alignment, with merged rows for section headings --- #}
-        {# --- Column 1: lead for kan xlation, all in this lang; shown only with first xlator --- #}
-        {# --- Column 2: Dash Separator, shown only with first xlator --- #}
-        {# --- Column 3: xlator creds --- #}
+    Place all creds in a 3-col table to ensure alignment, with merged rows for section headings
+    Center the table and shrink to content: move to style sheet when mature
+
+    Group information with intervening section and group headings:
+    - Collapse to single column if section heading
+    - Column 1: leads and group headings
+    - Column 2: Dash Separator
+    - Column 3: Xlator creds and such
 {% endcomment %}
 
-<table style="border-collapse: collapse;">
+<table style="margin: 0 auto; width: auto">
 
 {% assign kan_xlators = xlators.kan[lang] %}
 {% for xlator in kan_xlators %}
@@ -53,6 +57,7 @@
     {# --- Column 3: xlator creds --- #}
     {# --- empty row for vertical separation between langs --- #}
 
+    TODO: cleanup comments
     TODO: fix active_non_kan_langs filter; as is, it includes kan and inactive langs
 {% endcomment %}
 
