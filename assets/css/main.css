@@ -12,7 +12,7 @@
   --pad: 1rem;
   --measure: 70ch;
   --line: 1.65;
-  --scale-eng: 1.12;
+  --scale-eng: 1.0;           /* value by trial and error */
   --header-logo-size: 72px;
   --focus-color: #000000;
   --transition: 180ms ease;
@@ -203,7 +203,7 @@ td, th{ padding: 0.35rem 0.5rem; vertical-align: top; text-align: left; }
   letter-spacing: 0;
 }
 
-/* If you need to tune transliteration blocks differently (example selector) */
+/* If we need to tune transliteration blocks differently (example selector) */
 /* Example: transliterated Indic primary languages (optional) */
 [lang^="san-"][lang*="-Latn-x-"],
 [lang^="kan-"][lang*="-Latn-x-"],
