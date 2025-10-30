@@ -17,6 +17,8 @@
 {% assign about_data = site.data.about %}
 {% assign all_xlators = about_data.xlators %}
 
+<div class="center">
+
 {% comment %} "geeta" before lead for eng for readability {% endcomment %}
 {% if lang == 'eng' %}
     <h1>{{ about_data.geetaa[lang] }}</h1>
@@ -29,7 +31,7 @@
 
 <p></p>
 <p></p>
-<img src="{{ '/assets/images/logo.png' | relative_url }}" style="max-width: 40%; height: auto;">
+<img src="{{ '/assets/images/logo.svg' | relative_url }}" style="max-width: 40%; height: auto;">
 <p></p>
 <p></p>
 
@@ -53,3 +55,5 @@
         <h3 style="white-space: pre-wrap;">{{ xlator }}</h3>
     {% endfor %}
 {% endif %}
+
+</div>
