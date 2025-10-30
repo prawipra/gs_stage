@@ -12,7 +12,7 @@
   --pad: 1rem;
   --measure: 70ch;
   --line: 1.65;
-  --scale-eng: 1.0;           /* value by trial and error */
+  --scale-eng: 1.0;           /* value by trial and error; depends on font */
   --header-logo-size: 72px;
   --focus-color: #000000;
   --transition: 180ms ease;
@@ -80,26 +80,33 @@ header{
 /* Constrained inner header to align with main */
 .header-inner{
   display: flex;
-  align-items: center;
+  align-items: flex-start; /* top-align the header slots and the center column */
   justify-content: space-between;
   max-width: min(var(--max-width), var(--measure));
   width: calc(100% - 2 * var(--pad));
   margin: 0 auto;
   padding: 0;
+  padding-top: 0.6rem;     /* room at top */
   gap: 1rem;
 }
 
-/* left/right logo slots */
+/* align logo slots  */
 .header-slot{
   width: var(--header-logo-size);
   height: var(--header-logo-size);
   display: flex;
-  align-items: center;
+  align-items: flex-start;  /* top align */
+  padding-top: 0.12rem;     /* breathing room at the top */
   justify-content: center;
 }
 
-/* inline logos are easiest to control responsively */
-.header-slot img{ max-width: 100%; max-height: 100%; display: block; }
+/* control vertical position of logos */
+.header-slot img{ 
+  display: block; 
+  max-width: 100%; 
+  max-height: 100%;
+  margin-top: 0;           /* no unwanted centering margin */
+}
 
 /* center column stacks title, subtitle, nav vertically */
 .header-center{
@@ -110,6 +117,7 @@ header{
   text-align: center;
   flex: 1 1 auto;
   min-width: 0;
+  margin-top: 0.18rem;     /* nudge content down to balance the look */
 }
 
 /* heading typography */
@@ -231,19 +239,36 @@ a:focus, button:focus, input:focus, textarea:focus{
 .small{ font-size: 0.88rem; opacity: 0.95; }
 .lead{ font-weight: 500; font-size: 1.08em; margin-bottom: 1rem; }
 
-/* bit more room on very large screens while keeping readable lines */
+
+/* more room for main content on very large screens while keeping lines readable */
 @media (min-width: 1200px){
   main{ max-width: calc(var(--max-width) + 120px); }
 }
 
-/* header responsive stacking for narrow viewports */
-@media (max-width: 640px){
-  .header-inner{
+
+/* responsive header for narrow viewports */
+@media (max-width: 640px) {
+  .header-inner {
     flex-direction: column;
     align-items: center;
     gap: 0.6rem;
+    padding-top: 0.4rem;
+  }
+
+  .header-center {
+    margin-top: 0;
+  }
+
+  .header-slot {
+    padding-top: 0;
+    align-items: center;    /* center logos inside slot */
+  }
+
+  .header-slot img {
+    margin-top: 0;
   }
 }
+
 
 /* Print rules */
 @media print{
