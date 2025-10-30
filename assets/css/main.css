@@ -261,7 +261,11 @@ a:focus, button:focus, input:focus, textarea:focus{
 
   .header-slot {
     padding-top: 0;
-    align-items: center;    /* center logos inside slot */
+    align-items: center;        /* center logos inside slot */
+  }
+
+  .header-slot--right {
+      display: none !important; /* hide right logo */
   }
 
   .header-slot img {
