@@ -68,23 +68,12 @@
               {% assign label = labels[page.lang] | default: labels.eng %}
               {% capture href_path %}/{{ page.lang }}{% unless key == "index" %}/{{ key }}.html{% endunless %}{% endcapture %}
 
-              {% if page.url contains href_path %}
-                {% assign nav_item_class = "nav-active-item" %}
-                {% assign nav_link_class = "nav-active-link" %}
-              {% else %}
-                {% assign nav_item_class = "" %}
-                {% assign nav_link_class = "" %}
-              {% endif %}
-              
-              <li class="{{nav_item_class}}">
-                <a href="{{ href_path | relative_url }}" 
+              <li>
+                <a href="{{ href_path | relative_url }}"
+                   hreflang="{{ html_lang }}"
                    title="{% if page.lang != 'eng' %}{{ labels.eng }}{% endif %}"
-                   class="{{nav_link_class}}">
-                  {% if {{nav_link_class}} %}
-                    <strong>{{ label }}</strong>
-                  {% else %}
-                    {{ label }}
-                  {% endif %}
+                   class="{% if page.url contains href_path %}current-page-url{% endif %}">
+                  {{ label }}
                 </a>
               </li>
             {% endfor %}
@@ -121,16 +110,14 @@
                 {% endif %}
 
                 {% capture href_path %}/{{ lang_code }}{{ page_path_suffix }}{% endcapture %}
+                {% capture href_lang %}{{lang_code}}-{lang_data.script}-{{lang_data.region}}{% endcapture %}
 
                 <li>
                     <a href="{{ href_path | relative_url }}" 
-                       hreflang="{{lang_code}}-{lang_data.script}-{{lang_data.region}}" 
-                       title="{% if lang_code != 'eng' %}{{ lang_data.name.eng }}{% endif %}">
-                      {% if lang_code == page.lang %}
-                        <strong class="current-lang-link-text">{{ lang_data.name[lang_code] }}</strong>
-                      {% else %}
+                       hreflang="{{ href_lang }}"
+                       title="{% if lang_code != 'eng' %}{{ lang_data.name.eng }}{% endif %}"
+                       class="{% if lang_code == page.lang %}current-page-lang{ %endif }">
                         {{ lang_data.name[lang_code] }}
-                      {% endif %}
                     </a>
                 </li>
 
