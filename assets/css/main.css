@@ -16,6 +16,26 @@
   --header-logo-size: 72px;
   --focus-color: #000000;
   --transition: 180ms ease;
+
+  /* UA-size tokens for headings (rem-based, stable relative to root) */
+  --h1-size-ua: 2rem;
+  --h2-size-ua: 1.5rem;
+  --h3-size-ua: 1.17rem;
+  --h4-size-ua: 1rem;
+  --h5-size-ua: 0.83rem;
+
+  /* Uniform heading metrics (tweak per type if desired) */
+  --h1-line-height: 1.05;
+  --h2-line-height: 1.15;
+  --h3-line-height: 1.25;
+  --h4-line-height: 1.3;
+  --h5-line-height: 1.35;
+
+  --h1-weight: 600;
+  --h2-weight: 600;
+  --h3-weight: 600;
+  --h4-weight: 600;
+  --h5-weight: 500;
 }
 
 /* Dark mode override (toggle with body.dark-mode) */
@@ -101,9 +121,9 @@ header{
 }
 
 /* control vertical position of logos */
-.header-slot img{ 
-  display: block; 
-  max-width: 100%; 
+.header-slot img{
+  display: block;
+  max-width: 100%;
   max-height: 100%;
   margin-top: 0;           /* no unwanted centering margin */
 }
@@ -121,20 +141,44 @@ header{
 }
 
 /* heading typography */
-h1.header{
+/* Use UA-size tokens for base sizes and remove default margins for headings;
+   set uniform line-height and font-weight per heading type so those metrics
+   are consistent everywhere for a given heading. */
+h1, h2, h3, h4, h5 {
   margin: 0;
-  font-size: 1.95rem;
-  line-height: 1.05;
-  font-weight: 600;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* concrete sizes and uniform metrics per heading type */
+h1 {
+  font-size: var(--h1-size-ua);
+  line-height: var(--h1-line-height);
+  font-weight: var(--h1-weight);
+}
+h2 {
+  font-size: var(--h2-size-ua);
+  line-height: var(--h2-line-height);
+  font-weight: var(--h2-weight);
+}
+h3 {
+  font-size: var(--h3-size-ua);
+  line-height: var(--h3-line-height);
+  font-weight: var(--h3-weight);
+}
+h4 {
+  font-size: var(--h4-size-ua);
+  line-height: var(--h4-line-height);
+  font-weight: var(--h4-weight);
+}
+h5 {
+  font-size: var(--h5-size-ua);
+  line-height: var(--h5-line-height);
+  font-weight: var(--h5-weight);
 }
 
 h5.header{
-  margin: 0;
-  font-size: 1.05rem;
-  font-weight: 400;
-  line-height: 1.15;
   padding-top: 1rem;     /* room after title */
-  color: var(--text);
 }
 
 /* --- Navigation (site and language) --- */
@@ -165,14 +209,17 @@ nav.lang-nav a{
   font-size: 0.95rem;
 }
 
+/* active-page marker */
+nav.site-nav a.current-page-url { font-weight: 550; }
+
 /* active-language marker */
-nav.lang-nav strong{ font-weight: 600; }
+nav.lang-nav a.current-page-lang{ font-weight: 550; }
+
 
 /* --- Baseline content typography (Indic baseline) --- */
 :where(p, div, li, dd, dt, blockquote, table, td, th){
   margin: 0 0 0.9rem 0;
   font-size: 1rem;          /* baseline for Indic scripts */
-  color: var(--text);
   hyphens: auto;
   word-break: keep-all;     /* better for Indic rendering */
 }
@@ -181,24 +228,101 @@ nav.lang-nav strong{ font-weight: 600; }
 table{ border-collapse: collapse; width: 100%; margin-bottom: 0.9rem; }
 td, th{ padding: 0.35rem 0.5rem; vertical-align: top; text-align: left; }
 
+
 /* --- Language-driven rules (no .lang-eng required) --- */
-/* English-style scaling: prefer semantic :lang(), fallback to attribute match */
+/* English: set family and line-height; scale non-heading content via :not(:is(...))
+   so headings are controlled by per-heading rules (below). */
 :lang(en),
 :lang(eng),
 [lang|="en"],
 [lang|="eng"] {
-  font-size: calc(1rem * var(--scale-eng));
-  line-height: calc(var(--line) * var(--scale-eng));
   font-family: Georgia, "Times New Roman", "Merriweather", serif;
 }
 
 /* Keep .lang-eng as an alias to avoid surprises for any edge cases */
 .lang-eng,
 .lang-eng * { /* alias so class continues to work if accidentally emitted */
-  font-size: calc(1rem * var(--scale-eng));
-  line-height: calc(var(--line) * var(--scale-eng));
   font-family: Georgia, "Times New Roman", "Merriweather", serif;
 }
+
+/* scale non-heading content in English without enumerating element types */
+:lang(en) :where(:not(:is(h1,h2,h3,h4,h5))),
+:lang(eng) :where(:not(:is(h1,h2,h3,h4,h5))),
+[lang|="en"] :where(:not(:is(h1,h2,h3,h4,h5))),
+[lang|="eng"] :where(:not(:is(h1,h2,h3,h4,h5))) {
+  font-size: calc(1rem * var(--scale-eng));
+  line-height: calc(var(--line) * var(--scale-eng));
+}
+
+/* Per-heading language-only overrides (robust: matches element-level or ancestor-level language)
+   Change only font-size (and heading-specific line-height scaled for English); these rules
+   must follow the base language block so cascade/order is clear. */
+
+/* h1 */
+h1:lang(en),
+h1:lang(eng),
+h1[lang="en"],
+h1[lang="eng"],
+:lang(en) h1,
+:lang(eng) h1,
+h1[lang="latn-x"],
+:lang("latn-x") h1 {
+  font-size: calc(var(--h1-size-ua) * var(--scale-eng));
+  line-height: calc(var(--h1-line-height) * var(--scale-eng));
+}
+
+/* h2 */
+h2:lang(en),
+h2:lang(eng),
+h2[lang="en"],
+h2[lang="eng"],
+:lang(en) h2,
+:lang(eng) h2,
+h2[lang="latn-x"],
+:lang("latn-x") h2 {
+  font-size: calc(var(--h2-size-ua) * var(--scale-eng));
+  line-height: calc(var(--h2-line-height) * var(--scale-eng));
+}
+
+/* h3 */
+h3:lang(en),
+h3:lang(eng),
+h3[lang="en"],
+h3[lang="eng"],
+:lang(en) h3,
+:lang(eng) h3,
+h3[lang="latn-x"],
+:lang("latn-x") h3 {
+  font-size: calc(var(--h3-size-ua) * var(--scale-eng));
+  line-height: calc(var(--h3-line-height) * var(--scale-eng));
+}
+
+/* h4 */
+h4:lang(en),
+h4:lang(eng),
+h4[lang="en"],
+h4[lang="eng"],
+:lang(en) h4,
+:lang(eng) h4,
+h4[lang="latn-x"],
+:lang("latn-x") h4 {
+  font-size: calc(var(--h4-size-ua) * var(--scale-eng));
+  line-height: calc(var(--h4-line-height) * var(--scale-eng));
+}
+
+/* h5 */
+h5:lang(en),
+h5:lang(eng),
+h5[lang="en"],
+h5[lang="eng"],
+:lang(en) h5,
+:lang(eng) h5,
+h5[lang="latn-x"],
+:lang("latn-x") h5 {
+  font-size: calc(var(--h5-size-ua) * var(--scale-eng));
+  line-height: calc(var(--h5-line-height) * var(--scale-eng));
+}
+
 
 /* Transliteration detection: any lang tag containing -Latn-x- */
 /* Matches san-Latn-x-IAST, kan-Latn-x-iso15919, etc. */
@@ -274,6 +398,16 @@ a:focus, button:focus, input:focus, textarea:focus{
   }
 }
 
+/* responsivs headings on very small screens */
+@media (max-width: 420px) {
+  :root {
+    --h1-size-ua: calc(var(--h1-size-ua) * 0.95);
+    --h2-size-ua: calc(var(--h2-size-ua) * 0.95);
+    --h3-size-ua: calc(var(--h3-size-ua) * 0.95);
+    --h4-size-ua: calc(var(--h4-size-ua) * 0.95);
+    --h5-size-ua: calc(var(--h5-size-ua) * 0.95);
+  }
+}
 
 /* Print rules */
 @media print{
