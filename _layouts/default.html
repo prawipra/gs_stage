@@ -78,7 +78,7 @@
   <p>site.baseurl: {{ site.baseurl }}</p>
   <p>page.url: {{ page.url }}</p>
   <p>current_path_no_baseurl: {{ current_path_no_baseurl }}</p>
-  <p>is_home_page: {{ is_home_page }}</p>
+  <p>non_nav_header_classes: {{ non_nav_header_classes | default: "empty" }} </p>
   
   <header>
     <div class="header-inner">
