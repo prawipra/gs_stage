@@ -178,7 +178,7 @@ h5 {
 }
 
 h5.header{
-  padding-top: 1rem;     /* room after title */
+  padding-top: 0.7rem;     /* room after title */
 }
 
 /* --- Navigation (site and language) --- */
@@ -360,6 +360,7 @@ a:focus, button:focus, input:focus, textarea:focus{
 }
 
 /* --- utilities --- */
+.hidden{ display: none; }
 .center{ text-align: center; }
 .small{ font-size: 0.88rem; opacity: 0.95; }
 .lead{ font-weight: 500; font-size: 1.08em; margin-bottom: 1rem; }
