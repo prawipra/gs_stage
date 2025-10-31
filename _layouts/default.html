@@ -54,6 +54,8 @@
 
   Add class "hidden" to selected header elements if the page is a lang home page
   - show only nav items; hide all other header content
+
+  Using if-else-if sequence because an or expression is too long and line breaks are an issue: taking path of least resistance
 {% endcomment %}
 
 {% assign current_path_no_baseurl = page.url | remove: site.baseurl %}
@@ -62,13 +64,14 @@
 {% assign slash_lang_slash = slash_lang | append: "/" %}
 {% assign slash_lang_slash_index = slash_lang_slash | append: "/index.html" %}
 
-{% assign is_home_page = current_path_no_baseurl == slash_lang or \
-                         current_path_no_baseurl == slash_lang_slash \
-                         current_path_no_baseurl == slash_lang_slash_index %}
-
-{% assign non_nav_header_classes = "" %}
-{% if is_home_page %}
+{% if current_path_no_baseurl == slash_lang %}
   {% assign non_nav_header_classes = "hidden" %}
+{% elsif current_path_no_baseurl == slash_lang_slash %}
+  {% assign non_nav_header_classes = "hidden" %}
+{% if current_path_no_baseurl == slash_lang_slash_index %}
+  {% assign non_nav_header_classes = "hidden" %}
+{% else %}
+  {% assign non_nav_header_classes = "" %}
 {% endif %}
 
 <body>
