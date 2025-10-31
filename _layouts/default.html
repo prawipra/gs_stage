@@ -116,7 +116,7 @@
                     <a href="{{ href_path | relative_url }}" 
                        hreflang="{{ href_lang }}"
                        title="{% if lang_code != 'eng' %}{{ lang_data.name.eng }}{% endif %}"
-                       class="{% if lang_code == page.lang %}current-page-lang{ %endif }">
+                       class="{% if lang_code == page.lang %}current-page-lang{% endif %}">
                         {{ lang_data.name[lang_code] }}
                     </a>
                 </li>
