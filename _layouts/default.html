@@ -66,13 +66,15 @@
               {% assign labels = item[1] %}
 
               {% assign label = labels[page.lang] | default: labels.eng %}
-              {% capture href_path %}/{{ page.lang }}{% unless key == "index" %}/{{ key }}.html{% endunless %}{% endcapture %}
+              {% capture href_path %}/{{ page.lang }}/{{ key }}.html{% endcapture %}
+              {% assign cleaned_href_path = href_path | strip %}
+              {% assign current_path_no_baseurl = page.url | remove: site.baseurl %}
 
               <li>
                 <a href="{{ href_path | relative_url }}"
                    hreflang="{{ html_lang }}"
                    title="{% if page.lang != 'eng' %}{{ labels.eng }}{% endif %}"
-                   class="{% if page.url contains href_path %}current-page-url{% endif %}">
+                   class="{% if current_path_no_baseurl == cleaned_href_path %}current-page-url{% endif %}">
                   {{ label }}
                 </a>
               </li>
