@@ -66,22 +66,21 @@
                          current_path_no_baseurl == lang_slash_ending_path or \
                          current_path_no_baseurl == lang_index_ending_path %}
 
+{% assign non_nav_header_classes = "" %}
 {% if is_home_page %}
-  {% assign other_header_non_nav_classes = "hidden" }
-{% else %}
-  {% assign other_header_non_nav_classes = "hidden" }                     
+  {% assign non_nav_header_classes = "hidden" %}
 {% endif %}
 
 <body>
   <header>
     <div class="header-inner">
-      <div class="header-slot header-slot--left {{ other_header_non_nav_classes }}" aria-hidden="true">
+      <div class="header-slot header-slot--left {{ non_nav_header_classes }}" aria-hidden="true">
         <img src="{{ '/assets/images/logo.svg' | relative_url }}" alt="left logo">
       </div>
 
       <div class="header-center" role="banner">
-        <h1 class="header {{ other_header_non_nav_classes }}">{{ site_title }}</h1>
-        <h5 class="header {{ other_header_non_nav_classes }}">{{ site_description }}</h5>
+        <h1 class="header {{ non_nav_header_classes }}">{{ site_title }}</h1>
+        <h5 class="header {{ non_nav_header_classes }}">{{ site_description }}</h5>
 
         <!-- primary site nav inside header center -->
         <nav class="site-nav" aria-label="Main navigation">
@@ -153,7 +152,7 @@
         {% endif %}
       </div>
 
-      <div class="header-slot header-slot--right {{ other_header_non_nav_classes }}" aria-hidden="true">
+      <div class="header-slot header-slot--right {{ non_nav_header_classes }}" aria-hidden="true">
         <img src="{{ '/assets/images/logo.svg' | relative_url }}" alt="right logo">
       </div>
     </div>
