@@ -75,14 +75,6 @@
 {% endif %}
 
 <body>
-  <p>site.baseurl: {{ site.baseurl }}</p>
-  <p>page.url: {{ page.url }}</p>
-  <p>current_path_no_baseurl: {{ current_path_no_baseurl }}</p>
-  <p>slash_lang: {{ slash_lang }}</p>
-  <p>slash_lang_slash_index_html: {{ slash_lang_slash_index_html }}</p>
-  <p>current_path_no_baseurl: {{ current_path_no_baseurl }}</p>
-  <p>non_nav_header_classes: {{ non_nav_header_classes | default: "empty" }} </p>
-  
   <header>
     <div class="header-inner">
       <div class="header-slot header-slot--left {{ non_nav_header_classes }}" aria-hidden="true">
