@@ -110,7 +110,7 @@
                 {% endif %}
 
                 {% capture href_path %}/{{ lang_code }}{{ page_path_suffix }}{% endcapture %}
-                {% capture href_lang %}{{lang_code}}-{lang_data.script}-{{lang_data.region}}{% endcapture %}
+                {% capture href_lang %}{{lang_code}}-{{lang_data.script}}-{{lang_data.region}}{% endcapture %}
 
                 <li>
                     <a href="{{ href_path | relative_url }}" 
