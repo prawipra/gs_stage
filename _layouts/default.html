@@ -58,13 +58,13 @@
 
 {% assign current_path_no_baseurl = page.url | remove: site.baseurl %}
 
-{% assign lang_ending_path = "/" | append: page.lang %}
-{% assign lang_slash_ending_path = lang_prefix | append: "/" %}
-{% assign lang_index_ending_path = lang_prefix | append: "/index.html" %}
+{% assign slash_lang = "/" | append: page.lang %}
+{% assign slash_lang_slash = slash_lang | append: "/" %}
+{% assign slash_lang_slash_index = slash_lang_slash | append: "/index.html" %}
 
-{% assign is_home_page = current_path_no_baseurl == lang_ending_path or \
-                         current_path_no_baseurl == lang_slash_ending_path or \
-                         current_path_no_baseurl == lang_index_ending_path %}
+{% assign is_home_page = current_path_no_baseurl == slash_lang or \
+                         current_path_no_baseurl == slash_lang_slash \
+                         current_path_no_baseurl == slash_lang_slash_index %}
 
 {% assign non_nav_header_classes = "" %}
 {% if is_home_page %}
@@ -72,6 +72,11 @@
 {% endif %}
 
 <body>
+  <p>site.baseurl: {{ site.baseurl }}</p>
+  <p>page.url: {{ page.url }}</p>
+  <p>current_path_no_baseurl: {{ current_path_no_baseurl }}</p>
+  <p>is_home_page: {{ is_home_page }}</p>
+  
   <header>
     <div class="header-inner">
       <div class="header-slot header-slot--left {{ non_nav_header_classes }}" aria-hidden="true">
