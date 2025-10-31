@@ -47,16 +47,41 @@
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 </head>
 
+{% comment %}
+  Test if this is a lang home page: used later to hide some header elements
+  - Remove site baseurl from current page path and test if result is a possible ending for lang's home page
+  - Current page path with baseurl removed is also used later in styling site-nav
+
+  Add class "hidden" to selected header elements if the page is a lang home page
+  - show only nav items; hide all other header content
+{% endcomment %}
+
+{% assign current_path_no_baseurl = page.url | remove: site.baseurl %}
+
+{% assign lang_ending_path = "/" | append: page.lang %}
+{% assign lang_slash_ending_path = lang_prefix | append: "/" %}
+{% assign lang_index_ending_path = lang_prefix | append: "/index.html" %}
+
+{% assign is_home_page = current_path_no_baseurl == lang_ending_path or \
+                         current_path_no_baseurl == lang_slash_ending_path or \
+                         current_path_no_baseurl == lang_index_ending_path %}
+
+{% if is_home_page %}
+  {% assign other_header_non_nav_classes = "hidden" }
+{% else %}
+  {% assign other_header_non_nav_classes = "hidden" }                     
+{% endif %}
+
 <body>
   <header>
     <div class="header-inner">
-      <div class="header-slot header-slot--left" aria-hidden="true">
+      <div class="header-slot header-slot--left {{ other_header_non_nav_classes }}" aria-hidden="true">
         <img src="{{ '/assets/images/logo.svg' | relative_url }}" alt="left logo">
       </div>
 
       <div class="header-center" role="banner">
-        <h1 class="header">{{ site_title }}</h1>
-        <h5 class="header">{{ site_description }}</h5>
+        <h1 class="header {{ other_header_non_nav_classes }}">{{ site_title }}</h1>
+        <h5 class="header {{ other_header_non_nav_classes }}">{{ site_description }}</h5>
 
         <!-- primary site nav inside header center -->
         <nav class="site-nav" aria-label="Main navigation">
@@ -68,7 +93,6 @@
               {% assign label = labels[page.lang] | default: labels.eng %}
               {% capture href_path %}/{{ page.lang }}/{{ key }}.html{% endcapture %}
               {% assign cleaned_href_path = href_path | strip %}
-              {% assign current_path_no_baseurl = page.url | remove: site.baseurl %}
 
               <li>
                 <a href="{{ href_path | relative_url }}"
@@ -129,7 +153,7 @@
         {% endif %}
       </div>
 
-      <div class="header-slot header-slot--right" aria-hidden="true">
+      <div class="header-slot header-slot--right {{ other_header_non_nav_classes }}" aria-hidden="true">
         <img src="{{ '/assets/images/logo.svg' | relative_url }}" alt="right logo">
       </div>
     </div>
