@@ -62,13 +62,13 @@
 
 {% assign slash_lang = "/" | append: page.lang %}
 {% assign slash_lang_slash = slash_lang | append: "/" %}
-{% assign slash_lang_slash_index = slash_lang_slash | append: "/index.html" %}
+{% assign slash_lang_slash_index_html = slash_lang_slash | append: "index.html" %}
 
 {% if current_path_no_baseurl == slash_lang %}
   {% assign non_nav_header_classes = "hidden" %}
 {% elsif current_path_no_baseurl == slash_lang_slash %}
   {% assign non_nav_header_classes = "hidden" %}
-{% elsif current_path_no_baseurl == slash_lang_slash_index %}
+{% elsif current_path_no_baseurl == slash_lang_slash_index_html %}
   {% assign non_nav_header_classes = "hidden" %}
 {% else %}
   {% assign non_nav_header_classes = "" %}
@@ -77,6 +77,9 @@
 <body>
   <p>site.baseurl: {{ site.baseurl }}</p>
   <p>page.url: {{ page.url }}</p>
+  <p>current_path_no_baseurl: {{ current_path_no_baseurl }}</p>
+  <p>slash_lang: {{ slash_lang }}</p>
+  <p>slash_lang_slash_index_html: {{ slash_lang_slash_index_html }}</p>
   <p>current_path_no_baseurl: {{ current_path_no_baseurl }}</p>
   <p>non_nav_header_classes: {{ non_nav_header_classes | default: "empty" }} </p>
   
