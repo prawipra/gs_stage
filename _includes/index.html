@@ -22,10 +22,10 @@
 {% comment %} "geeta" before lead for eng for readability {% endcomment %}
 {% if lang == 'eng' %}
     <h1>{{ about_data.geetaa[lang] }}</h1>
-    <h4>{{ about_data.geetaa_lead[lang] }}</h4>
+    <h5 style="padding-top: 07rem">{{ about_data.geetaa_lead[lang] }}</h5>
 {% else %}
-    <h4>{{ about_data.geetaa_lead[lang] }}</h4>
-    <h1>{{ about_data.geetaa[lang] }}</h1>
+    <h5>{{ about_data.geetaa_lead[lang] }}</h5>
+    <h1 style="padding-top: 07rem">{{ about_data.geetaa[lang] }}</h1>
 {% endif %}
 
 
@@ -46,8 +46,6 @@
 {% for xlator in all_xlators[lang][lang] %}
     <h3 style="white-space: pre-wrap;">{{ xlator }}</h3>
 {% endfor %}
-
-<p></p>
 
 {% if lang != "kan" %}
     <p>{{ about_data.kan_xlate_lang_lead[lang] }}</p>
