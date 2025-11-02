@@ -35,13 +35,17 @@
 <p></p>
 <p></p>
 
+<h1>{{ about_data.site_title[lang] }}</h1>
+
 {% comment %}
     Lead for this lang xlation and xlators for this lang
     if this lang is not kan, lead for the kan xlation and all kan xlators
     inline styling to handle multi-line credit: move to stylesheet when mature
 {% endcomment %}
 
-<p style="margin-bottom: 0.2rem">{{ about_data.xlate_lang_lead[lang] }}</p>
+<p style="margin-top: 1rem; margin-bottom: 0.2rem">
+    {{ about_data.xlate_lang_lead[lang] }}
+</p>
 
 {% for xlator in all_xlators[lang][lang] %}
     <h3 style="white-space: pre-wrap;">{{ xlator }}</h3>
