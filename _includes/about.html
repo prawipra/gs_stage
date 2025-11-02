@@ -100,30 +100,30 @@
             </td>
         </tr>
     {% endfor %}
-
-    {% if !forloop.last %}
-        <tr><td colspan="3" style="height: 4em;"></td></tr>
-    {% endif %}
-
 {% endfor %}
 
-{% comment %}
-    {# --- webdev credits --- #}
-    {# --- lead, before first cred --- #}
-    {# --- Column 1: empty --- #}
+    <tr>
+        <td colspan="3" style="height: 1.5rem;"></td>
+    </tr>
+
+
+{% comment %} Website credit {% endcomment %}
+
+    <tr>
+        <td colspan="3">
+            {{ about_data.webdevs_lead[lang] }}: 
+            <h3 style="margin-top: 1em; margin-bottom: 0;">
+                {{ about_data.prawipra[lang] }}
+            </h3>
+        </td>
+    </tr>
+
+{% comment %} 
+    webdev people credits, one row per person, single column; dash prefix each cred
+    TODO: might need additional data and corresponding change in logic here
 {% endcomment %}
 
 {% for peep in about_data.webdev_peeps[lang] %}
-    {% if forloop.first %}
-        <tr>
-            <td colspan="3">
-                <h3 style="margin-top: 1em; margin-bottom: 0;">
-                    {{ about_data.webdevs_lead[lang] }}: {{ about_data.prawipra[lang] }}
-                </h3>
-            </td>
-        </tr>
-    {% endif %}
-
     <tr>
         <td colspan="3" style="vertical-align: top;">
             {{dash_separator}} <strong style="white-space: pre-wrap;">{{ peep }}</strong>
