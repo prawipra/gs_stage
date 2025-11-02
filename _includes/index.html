@@ -41,14 +41,16 @@
     inline styling to handle multi-line credit: move to stylesheet when mature
 {% endcomment %}
 
-<p>{{ about_data.xlate_lang_lead[lang] }}</p>
+<p style="margin-bottom: 0.2rem">{{ about_data.xlate_lang_lead[lang] }}</p>
 
 {% for xlator in all_xlators[lang][lang] %}
     <h3 style="white-space: pre-wrap;">{{ xlator }}</h3>
 {% endfor %}
 
+<p></p>
+
 {% if lang != "kan" %}
-    <p>{{ about_data.kan_xlate_lang_lead[lang] }}</p>
+    <p style="margin-bottom: 0.2rem">{{ about_data.kan_xlate_lang_lead[lang] }}</p>
     {% for xlator in all_xlators.kan[lang] %}
         <h3 style="white-space: pre-wrap;">{{ xlator }}</h3>
     {% endfor %}
