@@ -48,14 +48,14 @@
 </head>
 
 {% comment %}
-  Test if this is a lang home page: used later to hide some header elements
+  Test if this is a lang home page
   - Remove site baseurl from current page path and test if result is a possible ending for lang's home page
   - Current page path with baseurl removed is also used later in styling site-nav
+  - Using if-else-if sequence because an or expression is too long and line breaks are an issue: taking path of least resistance
 
-  Add class "hidden" to selected header elements if the page is a lang home page
-  - show only nav items; hide all other header content
+  On lang index page: show only nav items; hide all other header content
 
-  Using if-else-if sequence because an or expression is too long and line breaks are an issue: taking path of least resistance
+  TODO: is it really necessary to test for page.url being /lang and /lang/ for index page?
 {% endcomment %}
 
 {% assign current_path_no_baseurl = page.url | remove: site.baseurl %}
@@ -64,100 +64,105 @@
 {% assign slash_lang_slash = slash_lang | append: "/" %}
 {% assign slash_lang_slash_index_html = slash_lang_slash | append: "index.html" %}
 
+{% assign not_index_page = true %}
 {% if current_path_no_baseurl == slash_lang %}
-  {% assign non_nav_header_classes = "hidden" %}
+  {% assign not_index_page = false %}
 {% elsif current_path_no_baseurl == slash_lang_slash %}
-  {% assign non_nav_header_classes = "hidden" %}
+  {% assign not_index_page = false %}
 {% elsif current_path_no_baseurl == slash_lang_slash_index_html %}
-  {% assign non_nav_header_classes = "hidden" %}
-{% else %}
-  {% assign non_nav_header_classes = "" %}
+  {% assign not_index_page = false %}
 {% endif %}
 
 <body>
   <header>
-    <div class="header-inner">
-      <div class="header-slot header-slot--left {{ non_nav_header_classes }}" aria-hidden="true">
-        <img src="{{ '/assets/images/logo.svg' | relative_url }}" alt="left logo">
+    {% if not_index_page %}
+    <div class="header-top">
+      <div class="header-inner">
+        <div class="header-slot header-slot--left" aria-hidden="true">
+          <img src="{{ '/assets/images/logo.svg' | relative_url }}" alt="left logo">
+        </div>
+
+        <div class="header-center" role="banner">
+          <h1 class="header">{{ site_title }}</h1>
+          <h5 class="header">{{ site_description }}</h5>
+        </div>
+
+        <div class="header-slot header-slot--right" aria-hidden="true">
+          <img src="{{ '/assets/images/logo.svg' | relative_url }}" alt="right logo">
+        </div>
       </div>
+    </div>
+    {% endif %}
 
-      <div class="header-center" role="banner">
-        <h1 class="header {{ non_nav_header_classes }}">{{ site_title }}</h1>
-        <h5 class="header {{ non_nav_header_classes }}">{{ site_description }}</h5>
+    <div class="header-bottom"> 
+      <!-- site nav -->
+      <nav class="site-nav" aria-label="Main navigation">
+        <ul>
+          {% for item in site.data.navigation %}
+            {% assign key = item[0] %}
+            {% assign labels = item[1] %}
 
-        <!-- primary site nav inside header center -->
-        <nav class="site-nav" aria-label="Main navigation">
+            {% assign label = labels[page.lang] | default: labels.eng %}
+            {% capture href_path %}/{{ page.lang }}/{{ key }}.html{% endcapture %}
+            {% assign cleaned_href_path = href_path | strip %}
+
+            <li>
+              <a href="{{ href_path | relative_url }}"
+                  hreflang="{{ html_lang }}"
+                  title="{% if page.lang != 'eng' %}{{ labels.eng }}{% endif %}"
+                  class="{% if current_path_no_baseurl == cleaned_href_path %}current-page-url{% endif %}">
+                {{ label }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+
+      <!-- languages nav -->
+      {% comment %} 
+        Add lang-nav only if more than one active lang: explicit test for active false to leave out langs
+
+        Build nav links by replacing /lang in page url with sibling langs: /eng -> /kan, /eng/about.html -> /kan/about.html,...
+        If link is back to current lang make its text strong and further style with a class: still use a link; not span
+        Link text is lang's native name; link tooltip is lang's English name
+
+        TODO: fix active_langs filter; as is, it includes inactive langs; for now using a conditional continue inside for loop
+        - Jekyll docs: https://jekyllrb.com/docs/liquid/filters/
+      {% endcomment %}
+
+      {% assign active_langs = site.data.languages | reject: 'last.active', false %}
+
+      {% if active_langs.size > 1 %}
+      
+        {% assign current_lang_prefix = "/" | append: page.lang %}
+        {% assign page_path_suffix = page.url | remove_first: current_lang_prefix %}
+
+        <nav class="lang-nav" aria-label="Language switcher">
           <ul>
-            {% for item in site.data.navigation %}
-              {% assign key = item[0] %}
-              {% assign labels = item[1] %}
+            {% for lang_pair in active_langs %}
+              {% assign lang_code = lang_pair[0] %}
+              {% assign lang_data = lang_pair[1] %}
 
-              {% assign label = labels[page.lang] | default: labels.eng %}
-              {% capture href_path %}/{{ page.lang }}/{{ key }}.html{% endcapture %}
-              {% assign cleaned_href_path = href_path | strip %}
+              {%if lang_data.active == false %}
+                {% continue %}
+              {% endif %}
+
+              {% capture href_path %}/{{ lang_code }}{{ page_path_suffix }}{% endcapture %}
+              {% capture href_lang %}{{lang_code}}-{{lang_data.script}}-{{lang_data.region}}{% endcapture %}
 
               <li>
-                <a href="{{ href_path | relative_url }}"
-                   hreflang="{{ html_lang }}"
-                   title="{% if page.lang != 'eng' %}{{ labels.eng }}{% endif %}"
-                   class="{% if current_path_no_baseurl == cleaned_href_path %}current-page-url{% endif %}">
-                  {{ label }}
-                </a>
+                  <a href="{{ href_path | relative_url }}" 
+                      hreflang="{{ href_lang }}"
+                      title="{% if lang_code != 'eng' %}{{ lang_data.name.eng }}{% endif %}"
+                      class="{% if lang_code == page.lang %}current-page-lang{% endif %}">
+                      {{ lang_data.name[lang_code] }}
+                  </a>
               </li>
+
             {% endfor %}
           </ul>
         </nav>
-
-        <!-- language nav -->
-        {% comment %} 
-          Add lang-nav only if more than one active lang: explicit test for active false to leave out langs
-
-          Build nav links by replacing /lang in page url with sibling langs: /eng -> /kan, /eng/about.html -> /kan/about.html,...
-          If link is back to current lang make its text strong and further style with a class: still use a link; not span
-          Link text is lang's native name; link tooltip is lang's English name
-
-          TODO: fix active_langs filter; as is, it includes inactive langs; for now using a conditional continue inside for loop
-          - Jekyll docs: https://jekyllrb.com/docs/liquid/filters/
-        {% endcomment %}
-
-        {% assign active_langs = site.data.languages | reject: 'last.active', false %}
-
-        {% if active_langs.size > 1 %}
-        
-          {% assign current_lang_prefix = "/" | append: page.lang %}
-          {% assign page_path_suffix = page.url | remove_first: current_lang_prefix %}
-
-          <nav class="lang-nav" aria-label="Language switcher">
-            <ul>
-              {% for lang_pair in active_langs %}
-                {% assign lang_code = lang_pair[0] %}
-                {% assign lang_data = lang_pair[1] %}
-
-                {%if lang_data.active == false %}
-                  {% continue %}
-                {% endif %}
-
-                {% capture href_path %}/{{ lang_code }}{{ page_path_suffix }}{% endcapture %}
-                {% capture href_lang %}{{lang_code}}-{{lang_data.script}}-{{lang_data.region}}{% endcapture %}
-
-                <li>
-                    <a href="{{ href_path | relative_url }}" 
-                       hreflang="{{ href_lang }}"
-                       title="{% if lang_code != 'eng' %}{{ lang_data.name.eng }}{% endif %}"
-                       class="{% if lang_code == page.lang %}current-page-lang{% endif %}">
-                        {{ lang_data.name[lang_code] }}
-                    </a>
-                </li>
-
-              {% endfor %}
-            </ul>
-          </nav>
-        {% endif %}
-      </div>
-
-      <div class="header-slot header-slot--right {{ non_nav_header_classes }}" aria-hidden="true">
-        <img src="{{ '/assets/images/logo.svg' | relative_url }}" alt="right logo">
-      </div>
+      {% endif %}
     </div>
   </header>
 
