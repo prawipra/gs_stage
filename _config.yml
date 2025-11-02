@@ -51,5 +51,6 @@ defaults:
 
 #files to exclude from Jekyll processing
 exclude:
-  - LICENSE.md                      # expected only in root
-  - ["README.md", "**/README.md"]   # README.md anywere (lang dirs may have their own readme)
+  - LICENSE.md      # expected only in root
+  - README.md       # expected in root
+  - "**/README.md"  # in any subdir: lang dirs may have own readme
