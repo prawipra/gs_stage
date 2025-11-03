@@ -32,21 +32,32 @@
 
 {% for chapter in (1..18) %}
     {% if forloop.first %}
+
+    {% assign number_head_eng = phrases_data.number.eng %}
+    {% assign title_head_eng = phrases_data.title.eng %}
+    {% assign verses_head_eng = phrases_data.shlokas.eng %}
+
+    {% assign number_head_lang = phrases_data.number[lang] | default: number_head_eng | default: "Number" %}
+    {% assign title_head_lang = phrases_data.title[lang] | default: phrase_verses_eng | default: "Title" %}
+    {% assign verses_head_lang = phrases_data.shlokas[lang] | default: phrase_verses_eng | default: "Verses" %}
+
     <tr>
-        <th style="padding-right: 0.5em; vertical-align: top;">
-            {{ phrases_data.number[lang] | default: phrases_data.number.eng | default: "Number" }}
+        <th style="padding-right: 0.5em; vertical-align: top;"
+            title="{% if number_head_eng != number_head_lang %}{{ number_eng }}{% endif %}">
+            {{ number_head_lang }}
         </th>
         
-        <th style="padding-right: 0.5em; vertical-align: top;">
-            {{ phrases_data.title[lang] | default: phrases_data.title.eng | default: "Title" }}
+        <th style="padding-right: 0.5em; vertical-align: top;"
+            title="{% if title_head_eng != title_head_lang %}{{ title_head_eng }}{% endif %}">
+            {{ title_head_lang }}
         </th>
 
-        <th style="vertical-align: top;">
-            {{ phrases_data.shlokas[lang] | default: phrases_data.shlokas.eng | default: "Verses" }}
+        <th style="vertical-align: top;"
+            title="{% if verses_head_eng != verses_head_lang %}{{ verses_head_eng }}{% endif %}">
+            {{ verses_head_lang }}
         </th>
     </tr>
     {% endif %}
-
 
     {% assign number_eng = chapter %}
     {% assign title_eng = chapters_data[chapter].title.eng %}
