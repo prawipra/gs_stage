@@ -12,8 +12,16 @@
 {% endcomment %}
 
 {% assign lang = include.lang %}
-{% assign chapters_data = site.data.chapters %}
-{% assign phrases_data = site.data.phrases %}
+
+{% comment %}
+    href_lang is value of hreflang attr for links to actual chapter content.
+    It is always in multiple languages because those pages contain shloka text and meaning texts.
+
+    All links to chapter content have the same href_lang
+{% endcomment %}
+
+{% assign lang_data = site.data.languages[lang] %}
+{% capture href_lang %}mul-{{lang_data.script}}-{{lang_data.region}}{% endcapture %}
 
 {% comment %}
     A 3-column "table of contents" with one row for each chapter
@@ -26,7 +34,10 @@
     Prefer verse count from data; use a well-known count if verse count not in data
 {% endcomment %}
 
+{% assign chapters_data = site.data.chapters %}
+{% assign phrases_data = site.data.phrases %}
 {% assign default_verses = "47, 72, 43, 42, 29, 47, 30, 28, 34, 42, 55, 20, 35, 27, 20, 24, 28, 78" | split: ", " %}
+
 
 <table style="margin: 0 auto; width: auto">
 
@@ -69,14 +80,17 @@
     {% assign verses_col = chapters_data[chapter].verses[lang] | default: verses_eng | default: default_verses[chapter-1] %}
 
     <tr>
-        <td style="padding-right: 0.5em; vertical-align: top;" 
+        <td style="padding-right: 0.5em; vertical-align: top;"
             title="{% if number_eng != number_col %}{{ number_eng }}{% endif %}">
             {{ number_col }}
         </td>
         
-        <td style="padding-right: 0.5em; vertical-align: top;" 
-            title="{% if title_eng != title_col %}{{ title_eng }}{% endif %}">
-            {{ title_col  }}
+        <td style="padding-right: 0.5em; vertical-align: top;">
+            <a href="{{ chapter | append: '.html' | relative_url }}"
+               hreflang="{{ href_lang }}"
+               title="{% if title_eng != title_col %}{{ title_eng }}{% endif %}">
+                {{ title_col  }}
+            </a>
         </td>
 
         <td style="vertical-align: top;" 
