@@ -1,0 +1,49 @@
+# for each translation key, record a translation in different languages
+
+number:
+  kan: ಸಂಖ್ಯೆ
+  eng: Number
+  hin: संख्या
+  tam: எண்
+  tel: సంఖ్య
+  mal: നമ്പർ
+
+number_brief:
+  kan: ಸಂ.
+  eng: No.
+  hin: 
+  tam: 
+  tel: 
+  mal: 
+
+title:
+  kan: ಶೀರ್ಷಿಕೆ
+  eng: Title
+  hin: शीर्षक
+  tam: தலைப்பு
+  tel: శీర్షిక
+  mal: തലക്കെട്ട്
+
+chapter:
+  kan: ಅಧ್ಯಾಯ
+  eng: Chapter
+  hin: अध्याय
+  tam: அத்தியாயம்
+  tel: అధ్యాయం
+  mal: അദ്ധ്യായം
+
+shlokas:
+  kan: ಶ್ಲೋಕಗಳು
+  eng: Verses
+  hin: छंदों
+  tam: வசனங்கள்
+  tel: శ్లోకాలు
+  mal: വാക്യങ്ങൾ
+
+spoke:
+  kan:
+  eng:
+  hin:
+  tam:
+  tel:
+  mal:
