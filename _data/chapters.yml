@@ -1,0 +1,452 @@
+# Each main key is chapter number
+# for each chapter, define: chapter number, verse count, and title in different languages
+
+1:
+  number:
+    kan: ೧
+    eng: 1
+    hin: १
+    tam: ௧
+    tel: ౧
+    mal: ൧
+  verses:
+    kan: ೪೭
+    eng: 47
+    hin: ४७
+    tam: ௪௭
+    tel: ౪౭
+    mal: ൪൭
+  title:
+    iso: arjunaviṣādayōgaḥ
+    kan: ಅರ್ಜುನವಿಷಾದಯೋಗಃ
+    eng: Arjuna's Despondency
+    hin: अर्जुनविषादयोगः
+    tam: அர்ஜுனவிஷாதயோகம்
+    tel: అర్జునవిషాదయోగః
+    mal: അർജുനവിഷാദയോഗഃ
+
+2:
+  number:
+    kan: ೨
+    eng: 2
+    hin: २
+    tam: ௨
+    tel: ౨
+    mal: ൨
+  verses:
+    kan: ೭೨
+    eng: 72
+    hin: ७२
+    tam: ௭௨
+    tel: ౭౨
+    mal: ൭൨
+  title:
+    iso: sāṅkhyayōgaḥ
+    kan: ಸಾಂಖ್ಯಯೋಗಃ
+    eng: Path of Knowledge
+    hin: सांख्ययोगः
+    tam: ஸாங்஖்யயோகஃ
+    tel: సాంఖ్యయోగః
+    mal: സാങ്ക്യയോഗഃ
+    
+3:
+  number:
+    kan: ೩
+    eng: 3
+    hin: ३
+    tam: ௩
+    tel: ౩
+    mal: ൩
+  verses:
+    kan: ೪೩
+    eng: 43
+    hin: ४३
+    tam: ௪௩
+    tel: ౪౩
+    mal: ൪൩
+  title:
+    iso: karmayōgaḥ
+    kan: ಕರ್ಮಯೋಗಃ
+    eng: The Yoga of Action
+    hin: कर्मयोगः
+    tam: கர்மயோகஃ
+    tel: కర్మయోగః
+    mal: കര്‍മ്മയോഗഃ
+
+
+4:
+  number:
+    kan: ೪
+    eng: 4
+    hin: ४
+    tam: ௪
+    tel: ౪
+    mal: ൪
+  verses:
+    kan: ೪೨
+    eng: 42
+    hin: ४२
+    tam: ௪௨
+    tel: ౪౨
+    mal: ൪൨
+  title:
+    iso: jñānakarmasamnyāsayogaḥ
+    kan: ಜ್ಞಾನಕರ್ಮಸಂನ್ಯಾಸಯೋಗಃ
+    eng: Renunciating Action through Knowledge
+    hin: ज्ञानकर्मसंन्यासयोगः
+    tam: ஞானகர்மசன்னியாசயோகம்
+    tel: జ్ఞానకర్మసంన్యాసయోగః
+    mal: ജ്ഞാനകര്‍മസംന്യാസയോഗഃ
+
+5:
+  number:
+    kan: ೫
+    eng: 5
+    hin: ५
+    tam: ௫
+    tel: ౫
+    mal: ൫
+  verses:
+    kan: ೨೯
+    eng: 29
+    hin: २९
+    tam: ௨௯
+    tel: ౨౯
+    mal: ൨൯
+  title:
+    iso: karmasaṁnyāsayōgaḥ
+    kan: ಕರ್ಮಸಂನ್ಯಾಸಯೋಗಃ
+    eng: Renunciation and Action
+    hin: कर्मसंन्यासयोगः
+    tam: கர்மஸந்நியாஸயோகஃ
+    tel: కర్మసంన్యాసయోగః
+    mal: കർമസംന്യാസയോഗഃ
+
+6:
+  number:
+    kan: ೬
+    eng: 6
+    hin: ६
+    tam: ௬
+    tel: ౬
+    mal: ൬
+  verses:
+    kan: ೪೭
+    eng: 47
+    hin: ४७
+    tam: ௪௭
+    tel: ౪౭
+    mal: ൪൭
+  title:
+    iso: dhyāna-yogaḥ
+    kan: ಧ್ಯಾನಯೋಗಃ
+    eng: The Yoga of Meditation
+    hin: ध्यानयोगः
+    tam: தியானயோகம்
+    tel: ధ్యానయోగః
+    mal: ധ്യാനയോഗഃ
+
+7:
+  number:
+    kan: ೭
+    eng: 7
+    hin: ७
+    tam: ௭
+    tel: ౭
+    mal: ൭
+  verses:
+    kan: ೩೦
+    eng: 30
+    hin: ३०
+    tam: ௩௦
+    tel: ౩౦
+    mal: ൩൦
+  title:
+    iso: jñāna-vijñāna-yogaḥ
+    kan: ಜ್ಞಾನವಿಜ್ಞಾನಯೋಗಃ
+    eng: Knowledge and Realized Knowledge
+    hin: ज्ञानविज्ञानयोगः
+    tam: ஞானவிஞானயோகம்
+    tel: జ్ఞానవిజ్ఞానయోగః
+    mal: ജ്ഞാനവിജ്ഞാനയോഗഃ
+
+8:
+  number:
+    kan: ೮
+    eng: 8
+    hin: ८
+    tam: ௮
+    tel: ౮
+    mal: ൮
+  verses:
+    kan: ೨೮
+    eng: 28
+    hin: २८
+    tam: ௨௮
+    tel: ౨౮
+    mal: ൨൮
+  title:
+    iso: akṣara-brahma-yogaḥ
+    kan: ಅಕ್ಷರಬ್ರಹ್ಮಯೋಗಃ
+    eng: The Imperishable Absolute
+    hin: अक्षरब्रह्मयोगः
+    tam: அக்‌ஷரப்ரஹ்மயோகம்
+    tel: అక్షరబ్రహ్మయోగః
+    mal: അക്ഷരബ്രഹ്മയോഗഃ
+
+9:
+  number:
+    kan: ೯
+    eng: 9
+    hin: ९
+    tam: ௯
+    tel: ౯
+    mal: ൯
+  verses:
+    kan: ೩೪
+    eng: 34
+    hin: ३४
+    tam: ௩௪
+    tel: ౩౪
+    mal: ൩൪
+  title:
+    iso: rāja-vidyā-rāja-guhya-yogaḥ
+    kan: ರಾಜವಿದ್ಯಾ ರಾಜಗುಹ್ಯಯೋಗಃ
+    eng: The Royal Knowledge and Royal Secret
+    hin: राजविद्या राजगुह्ययोगः
+    tam: ராஜவித்த்யா ராஜ குஹ்ய யோகம்
+    tel: రాజవిద్యా రాజగుహ్యయోగః
+    mal: രാജവിദ്യാ രാജഗുഹ്യയോഗഃ
+
+10:
+  number:
+    kan: ೧೦
+    eng: 10
+    hin: १०
+    tam: ௧௦
+    tel: ౧౦
+    mal: ൧൦
+  verses:
+    kan: ೪೨
+    eng: 42
+    hin: ४२
+    tam: ௪௨
+    tel: ౪౨
+    mal: ൪൨
+  title:
+    iso: vibhūti-yogaḥ
+    kan: ವಿಭೂತಿಯೋಗಃ
+    eng: The Yoga of Divine Glories
+    hin: विभूति योगः
+    tam: விபூதியோகம்
+    tel: విభూతియోగః
+    mal: വിപൂതിയോഗഃ
+
+11:
+  number:
+    kan: ೧೧
+    eng: 11
+    hin: ११
+    tam: ௧௧
+    tel: ౧౧
+    mal: ൧൧
+  verses:
+    kan: ೫೫
+    eng: 55
+    hin: ५५
+    tam: ௫௫
+    tel: ౫౫
+    mal: ൫൫
+  title:
+    iso: viśvarūpa-darśana-yogaḥ
+    kan: ವಿಶ್ವರೂಪದರ್ಶನಯೋಗಃ
+    eng: The Vision of the Universal Form
+    hin: विश्वरूपदर्शनयोगः
+    tam: விஸ்வரூபதர்சனயோகம்
+    tel: విశ్వరూపదర్శనయోగః
+    mal: വിശ്വരൂപദർശനയോഗഃ
+
+12:
+  number:
+    kan: ೧೨
+    eng: 12
+    hin: १२
+    tam: ௧௨
+    tel: ౧౨
+    mal: ൧൨
+  verses:
+    kan: ೨೦
+    eng: 20
+    hin: २०
+    tam: ௨௦
+    tel: ౨౦
+    mal: ൨൦
+  title:
+    iso: bhakti-yogaḥ
+    kan: ಭಕ್ತಿಯೋಗಃ
+    eng: The Yoga of Devotion
+    hin: भक्ति योगः
+    tam: பக்தியோகம்
+    tel: భక్తియోగః
+    mal: ഭക്തിയോഗഃ
+
+13:
+  number:
+    kan: ೧೩
+    eng: 13
+    hin: १३
+    tam: ௧௩
+    tel: ౧౩
+    mal: ൧൩
+  verses:
+    kan: ೩೫
+    eng: 35
+    hin: ३५
+    tam: ௩௫
+    tel: ౩౫
+    mal: ൩൫
+  title:
+    iso: kṣetra-kṣetrajña-vibhāga-yogaḥ
+    kan: ಕ್ಷೇತ್ರಕ್ಷೇತ್ರಜ್ಞವಿಭಾಗಯೋಗಃ
+    eng: The Field and the Knower of the Field
+    hin: क्षेत्र-क्षेत्रज्ञ विभागयोगः
+    tam: க்ஷேத்ர க்ஷேத்ரஜ்ஞ விக்ஷேப யோகம்
+    tel: క్షేత్రక్షేత్రజ్ఞ విభాగయోగః
+    mal: ക്ഷേത്രക്ഷേത്രജ്ഞ വിഭാഗയോഗഃ
+
+14:
+  number:
+    kan: ೧೪
+    eng: 14
+    hin: १४
+    tam: ௧௪
+    tel: ౧౪
+    mal: ൧൪
+  verses:
+    kan: ೨೭
+    eng: 27
+    hin: २७
+    tam: ௨௭
+    tel: ౨౭
+    mal: ൨൭
+  title:
+    iso: guṇa-traya-vibhāga-yogaḥ
+    kan: ಗುಣತ್ರಯವಿಭಾಗಯೋಗಃ
+    eng: The Division of the Three Gunas
+    hin: गुणत्रयविभागयोगः
+    tam: குணத் த்ரய வி஭ாக யோகம்
+    tel: గుణత్రయ విభాగయోగః
+    mal: ഗുണത്രയ വിഭാഗയോഗഃ
+
+15:
+  number:
+    kan: ೧೫
+    eng: 15
+    hin: १५
+    tam: ௧௫
+    tel: ౧౫
+    mal: ൧൫
+  verses:
+    kan: ೨೦
+    eng: 20
+    hin: २०
+    tam: ௨௦
+    tel: ౨౦
+    mal: ൨൦
+  title:
+    iso: pūrṇa-prakṛti-vibhṛti-yogaḥ
+    kan: ಪೂರ್ಣಪ್ರಕೃತಿವಿಭೃತಿ ಯೋಗ
+    eng: The Yoga of the Supreme Person
+    hin: पुरुषोत्तमयोगः
+    tam: புருஷோத்தமயோகம்
+    tel: పురుషోత్తమయోగః
+    mal: പുരുഷോത്തമയോഗഃ
+
+16:
+  number:
+    kan: ೧೬
+    eng: 16
+    hin: १६
+    tam: ௧௬
+    tel: ౧౬
+    mal: ൧൬
+  verses:
+    kan: ೨೪
+    eng: 24
+    hin: २४
+    tam: ௨௪
+    tel: ౨౪
+    mal: ൨൪
+  title:
+    iso: daiva-asura-sampad-vibhāga-yogaḥ
+    kan: ದೈವಾಸುರಸಂಪದ್ವಿಭಾಗಯೋಗ
+    eng: The Division between the Divine and the Demonic
+    hin: दैवासुरसम्पत्तिविभागयोगः
+    tam: தெய்வஅசுர பண்புகள் பிரிவு யோகம்
+    tel: దైవాసురసంపత్ విభాగయోగః
+    mal: ദൈവ അസുര വിഭജയോഗഃ
+
+17:
+  number:
+    kan: ೧೭
+    eng: 17
+    hin: १७
+    tam: ௧௭
+    tel: ౧౭
+    mal: ൧൭
+  verses:
+    kan: ೨೮
+    eng: 28
+    hin: २८
+    tam: ௨௮
+    tel: ౨౮
+    mal: ൨൮
+  title:
+    iso: śraddhā-traya-vibhāga-yogaḥ
+    kan: ಶ್ರದ್ಧಾತ್ರಯವಿಭಾಗಯೋಗಃ
+    eng: The Division of the Threefold Faith
+    hin: श्रद्धात्रयविभागयोगः
+    tam: ஸ்ரத்தா த்ரய வி஭ாக யோகம்
+    tel: శ్రద్ధాత్రయ విభాగయోగః
+    mal: ശ്രദ്ദാത്രയ വിഭാഗയോഗഃ
+
+18:
+  number:
+    kan: ೧೮
+    eng: 18
+    hin: १८
+    tam: ௧௮
+    tel: ౧౮
+    mal: ൧൮
+  verses:
+    kan: ೭೮
+    eng: 78
+    hin: ७८
+    tam: ௭௮
+    tel: ౭౮
+    mal: ൭൮
+  title:
+    iso: mokṣa-saṇyāsa-yogaḥ
+    kan: ಮೋಕ್ಷಸನ್ಯಾಸಯೋಗಃ
+    eng: The Yoga of Liberation by Renunciation
+    hin: मोक्षसंन्यासयोगः
+    tam: மோக்ஷ சன்னியாஸ யோகம்
+    tel: మోక్ష సంన్యాసయోగః
+    mal: മോക്ഷസന്ന്യാസയോഗഃ
+
+phrases:
+  chapter:
+    kan: ೧
+    eng: 1
+    hin: १
+    tam: ௧
+    tel: ౧
+    mal: ൧
+  spoke:
+    kan: ೧
+    eng: 1
+    hin: १
+    tam: ௧
+    tel: ౧
+    mal: ൧
+
