@@ -1,0 +1,82 @@
+{% comment %}
+  // REQUIRED INPUTS:
+  // include.lang:      (String) The language code (e.g., 'eng', 'kan') used for text lookup.
+  //                    (Passed from: 'lang=page.lang')
+  //
+  // include.title:     (String) The primary title to be displayed on the page. Already included in <title>
+  //                    (Passed from: 'title=page_title')
+  //
+  // USAGE EXAMPLE:
+  // {% include chapters.html lang=page.lang title=page_title %}
+  // --------------------------------------------------------------------------
+{% endcomment %}
+
+{% assign lang = include.lang %}
+{% assign chapters_data = site.data.chapters %}
+{% assign phrases_data = site.data.phrases %}
+
+{% comment %}
+    A 3-column "table of contents" with one row for each chapter
+    - chapter number, chapter title, number of verses
+    - write each col in current lang, including numbers
+    - fallback to eng content if lang content unavailable
+    - fallback to context-sensitive fixed content if eng content unavailable
+
+    Always write 18 rows: one per chapter
+    Prefer verse count from data; use a well-known count if verse count not in data
+{% endcomment %}
+
+{% assign default_verses = "47, 72, 43, 42, 29, 47, 30, 28, 34, 42, 55, 20, 35, 27, 20, 24, 28, 78" | split: ", " %}
+
+<table style="margin: 0 auto; width: auto">
+
+{% for chapter in [1..18] %}
+    {% if forloop.first %}
+    <tr>
+        <th style="padding-right: 0.5em; vertical-align: top;">
+            {{ phrases_data.number[lang] | default: phrases_data.number.eng | default: "Number" }}
+        </th>
+        
+        <th style="padding-right: 0.5em; vertical-align: top;">
+            {{ phrases_data.title[lang] | default: phrases_data.title.eng | default: "Title" }}
+        </th>
+
+        <th style="vertical-align: top;">
+            {{ phrases_data.shlokas[lang] | default: phrases_data.shlokas.eng | default: "Verses" }}
+        </th>
+    </tr>
+    {% endif %}
+
+    {% if lang == "eng" %}
+        {% assign number_tip = "" %}
+        {% assign title_tip = "" %} 
+        {% assign verses_tip = "" %} 
+    {% else %}
+        {% assign number_tip = chapter %}
+        {% assign title_tip = chapters_data[chapter].title.eng %}
+        {% assign verses_tip = chapters_data[chapter].verses.eng %}
+    {% endif %}
+
+    {% assign number_col = chapters_data[chapter].number[lang] | default: chapter %}
+    {% assign title_col = chapters_data[chapter].title[lang] | default: chapters_data[chapter].title.eng | default: "Chapter " | append: chapter  %}
+    {% assign verses_col = chapters_data[chapter].verses[lang] | default: chapters_data[chapter].verses.eng | default: default_verses[chapter-1] %}
+
+    <tr>
+        <td style="padding-right: 0.5em; vertical-align: top;" 
+            title="{% if number_tip != number_col %} {{ number_tip }} {% endif }">
+            {{ number_col }}
+        </td>
+        
+        <td style="padding-right: 0.5em; vertical-align: top;" 
+            title="{% if title_tip != title_col %} {{ title_tip }} {% endif }">
+            {{ title_col  }}
+        </td>
+
+        <td style="vertical-align: top;" 
+            title="{% if verses_tip != verses_col %} {{ verses_tip }} {% endif }">
+            {{ verses_col }}
+        </td>
+    </tr>
+{% endfor %}
+
+</table>
