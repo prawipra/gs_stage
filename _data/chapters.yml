@@ -17,6 +17,7 @@
     tel: ౪౭
     mal: ൪൭
   title:
+    san: अर्जुनविषादयोगः
     iso: arjunaviṣādayōgaḥ
     kan: ಅರ್ಜುನವಿಷಾದಯೋಗಃ
     eng: Arjuna's Despondency
@@ -41,6 +42,7 @@
     tel: ౭౨
     mal: ൭൨
   title:
+    san: सांख्ययोगः
     iso: sāṅkhyayōgaḥ
     kan: ಸಾಂಖ್ಯಯೋಗಃ
     eng: Path of Knowledge
@@ -65,6 +67,7 @@
     tel: ౪౩
     mal: ൪൩
   title:
+    san: कर्मयोगः
     iso: karmayōgaḥ
     kan: ಕರ್ಮಯೋಗಃ
     eng: The Yoga of Action
@@ -90,11 +93,12 @@
     tel: ౪౨
     mal: ൪൨
   title:
+    san: ज्ञानकर्मसंयासयोगः
     iso: jñānakarmasamnyāsayogaḥ
     kan: ಜ್ಞಾನಕರ್ಮಸಂನ್ಯಾಸಯೋಗಃ
     eng: Renunciating Action through Knowledge
     hin: ज्ञानकर्मसंन्यासयोगः
-    tam: ஞானகர்மசன்னியாசயோகம்
+    tam: ஞானகர்மசன்னியாசயோகம்ஃ
     tel: జ్ఞానకర్మసంన్యాసయోగః
     mal: ജ്ഞാനകര്‍മസംന്യാസയോഗഃ
 
@@ -114,6 +118,7 @@
     tel: ౨౯
     mal: ൨൯
   title:
+    san: कर्मसंयासयोगः
     iso: karmasaṁnyāsayōgaḥ
     kan: ಕರ್ಮಸಂನ್ಯಾಸಯೋಗಃ
     eng: Renunciation and Action
@@ -138,13 +143,14 @@
     tel: ౪౭
     mal: ൪൭
   title:
-    iso: dhyāna-yogaḥ
-    kan: ಧ್ಯಾನಯೋಗಃ
-    eng: The Yoga of Meditation
-    hin: ध्यानयोगः
-    tam: தியானயோகம்
-    tel: ధ్యానయోగః
-    mal: ധ്യാനയോഗഃ
+    san: आत्मसंयासयोगः
+    iso: ātmasaṁyamayōgaḥ
+    kan: ಆತ್ಮಸಂಯಮಯೋಗಃ
+    eng: Mastering Self through Meditation
+    hin: आत्मसंयमयोगः
+    tam: ஆத்மஸஂயமயோகஃ
+    tel: ఆత్మసంయమయోగః
+    mal: ആത്മസംയമയോഗഃ
 
 7:
   number:
@@ -162,11 +168,12 @@
     tel: ౩౦
     mal: ൩൦
   title:
-    iso: jñāna-vijñāna-yogaḥ
+    san: ज्ञानविज्ञानयोगः
+    iso: jñānavijñānayōgaḥ
     kan: ಜ್ಞಾನವಿಜ್ಞಾನಯೋಗಃ
-    eng: Knowledge and Realized Knowledge
+    eng: Knowledge and Wisdom
     hin: ज्ञानविज्ञानयोगः
-    tam: ஞானவிஞானயோகம்
+    tam: ஜ்ஞானவிஜ்ஞானயோகஃ
     tel: జ్ఞానవిజ్ఞానయోగః
     mal: ജ്ഞാനവിജ്ഞാനയോഗഃ
 
@@ -186,11 +193,12 @@
     tel: ౨౮
     mal: ൨൮
   title:
-    iso: akṣara-brahma-yogaḥ
+    san: अक्षरब्रह्मयोगः
+    iso: akṣaraparabrahmayōgaḥ
     kan: ಅಕ್ಷರಬ್ರಹ್ಮಯೋಗಃ
-    eng: The Imperishable Absolute
+    eng: The Eternal, The Supreme
     hin: अक्षरब्रह्मयोगः
-    tam: அக்‌ஷரப்ரஹ்மயோகம்
+    tam: அக்‌ஷரப்ரஹ்மயோகம்ஃ
     tel: అక్షరబ్రహ్మయోగః
     mal: അക്ഷരബ്രഹ്മയോഗഃ
 
@@ -210,13 +218,14 @@
     tel: ౩౪
     mal: ൩൪
   title:
-    iso: rāja-vidyā-rāja-guhya-yogaḥ
-    kan: ರಾಜವಿದ್ಯಾ ರಾಜಗುಹ್ಯಯೋಗಃ
-    eng: The Royal Knowledge and Royal Secret
-    hin: राजविद्या राजगुह्ययोगः
-    tam: ராஜவித்த்யா ராஜ குஹ்ய யோகம்
-    tel: రాజవిద్యా రాజగుహ్యయోగః
-    mal: രാജവിദ്യാ രാജഗുഹ്യയോഗഃ
+    san: राजविद्याराजगुह्ययोगः
+    iso: rājavidyārājaguhyayōgaḥ
+    kan: ರಾಜವಿದ್ಯಾರಾಜಗುಹ್ಯಯೋಗಃ
+    eng: Secrets of Kingly Knowledge
+    hin: राजविद्याराजगुह्ययोगः
+    tam: ராஜவித்யாராஜகுஹ்யயோகஃ
+    tel: రాజవిద్యారాజగుహ్యయోగః
+    mal: രാജവിദ്യാരാജഗുഹ്യയോഗഃ
 
 10:
   number:
@@ -234,11 +243,12 @@
     tel: ౪౨
     mal: ൪൨
   title:
-    iso: vibhūti-yogaḥ
+    san: विभूतियोगः
+    iso: vibhūtiyōgaḥ
     kan: ವಿಭೂತಿಯೋಗಃ
-    eng: The Yoga of Divine Glories
-    hin: विभूति योगः
-    tam: விபூதியோகம்
+    eng: Divine Glory Manifested
+    hin: विभूतियोगः
+    tam: விபூதியோகஃ
     tel: విభూతియోగః
     mal: വിപൂതിയോഗഃ
 
@@ -258,11 +268,12 @@
     tel: ౫౫
     mal: ൫൫
   title:
-    iso: viśvarūpa-darśana-yogaḥ
+    san: विश्वरूपदर्शनयोगः
+    iso: viśvarūpadarśanayōgaḥ
     kan: ವಿಶ್ವರೂಪದರ್ಶನಯೋಗಃ
-    eng: The Vision of the Universal Form
+    eng: All of Divinity at Once
     hin: विश्वरूपदर्शनयोगः
-    tam: விஸ்வரூபதர்சனயோகம்
+    tam: விஶ்வரூபதர்ஶநயோகஃ
     tel: విశ్వరూపదర్శనయోగః
     mal: വിശ്വരൂപദർശനയോഗഃ
 
@@ -282,11 +293,12 @@
     tel: ౨౦
     mal: ൨൦
   title:
-    iso: bhakti-yogaḥ
+    san: भक्तियोगः
+    iso: bhaktiyōgaḥ
     kan: ಭಕ್ತಿಯೋಗಃ
-    eng: The Yoga of Devotion
-    hin: भक्ति योगः
-    tam: பக்தியோகம்
+    eng: Path of Devotion
+    hin: भक्तियोगः
+    tam: பக்தியோகஃ
     tel: భక్తియోగః
     mal: ഭക്തിയോഗഃ
 
@@ -306,13 +318,14 @@
     tel: ౩౫
     mal: ൩൫
   title:
-    iso: kṣetra-kṣetrajña-vibhāga-yogaḥ
+    san: क्षेत्रक्षेत्रज्ञविभागयोगः
+    iso: kṣetrakṣetrajñavibhāgayōgaḥ
     kan: ಕ್ಷೇತ್ರಕ್ಷೇತ್ರಜ್ಞವಿಭಾಗಯೋಗಃ
-    eng: The Field and the Knower of the Field
-    hin: क्षेत्र-क्षेत्रज्ञ विभागयोगः
-    tam: க்ஷேத்ர க்ஷேத்ரஜ்ஞ விக்ஷேப யோகம்
-    tel: క్షేత్రక్షేత్రజ్ఞ విభాగయోగః
-    mal: ക്ഷേത്രക്ഷേത്രജ്ഞ വിഭാഗയോഗഃ
+    eng: Knowable and the Knower
+    hin: क्षेत्रक्षेत्रज्ञविभागयोगः
+    tam: க்ஷேத்ரக்ஷேத்ரஞ்விபாகயோகஃ
+    tel: క్షేత్రక్షేత్రజ్ఞవిభాగయోగః
+    mal: ക്ഷേത്രക്ഷേത്രജ്ഞവിഭാഗയോഗഃ
 
 14:
   number:
@@ -330,13 +343,14 @@
     tel: ౨౭
     mal: ൨൭
   title:
-    iso: guṇa-traya-vibhāga-yogaḥ
+    san: गुणत्रयविभागयोगः
+    iso: guṇatrayavibhāgayōgaḥ
     kan: ಗುಣತ್ರಯವಿಭಾಗಯೋಗಃ
-    eng: The Division of the Three Gunas
+    eng: The Three Traits
     hin: गुणत्रयविभागयोगः
-    tam: குணத் த்ரய வி஭ாக யோகம்
-    tel: గుణత్రయ విభాగయోగః
-    mal: ഗുണത്രയ വിഭാഗയോഗഃ
+    tam: குணத்ரயவிபாகயோகஃ
+    tel: గుణత్రయవిభాగయోగః
+    mal: ഗുണത്രയവിഭാഗയോഗഃ
 
 15:
   number:
@@ -354,11 +368,12 @@
     tel: ౨౦
     mal: ൨൦
   title:
-    iso: pūrṇa-prakṛti-vibhṛti-yogaḥ
-    kan: ಪೂರ್ಣಪ್ರಕೃತಿವಿಭೃತಿ ಯೋಗ
+    san: पुरुषोत्तमयोगः
+    iso: puruṣōttamayōgaḥ
+    kan: ಪುರುಷೋತ್ತಮಯೋಗಃ
     eng: The Yoga of the Supreme Person
     hin: पुरुषोत्तमयोगः
-    tam: புருஷோத்தமயோகம்
+    tam: புருஷோத்தமயோகஃ
     tel: పురుషోత్తమయోగః
     mal: പുരുഷോത്തമയോഗഃ
 
@@ -378,13 +393,14 @@
     tel: ౨౪
     mal: ൨൪
   title:
-    iso: daiva-asura-sampad-vibhāga-yogaḥ
+    san: दैवासुरसम्पद्विभागयोगः
+    iso: daivāsurasampadvibhāgayōgaḥ
     kan: ದೈವಾಸುರಸಂಪದ್ವಿಭಾಗಯೋಗ
     eng: The Division between the Divine and the Demonic
     hin: दैवासुरसम्पत्तिविभागयोगः
-    tam: தெய்வஅசுர பண்புகள் பிரிவு யோகம்
-    tel: దైవాసురసంపత్ విభాగయోగః
-    mal: ദൈവ അസുര വിഭജയോഗഃ
+    tam: தைவாசுரஸம்பத்விபாகயோகஃ
+    tel: దైవాసురసంపద్విభాగయోగః
+    mal: ദൈവാസുരസമ്പദ്വിഭാഗയോഗഃ
 
 17:
   number:
@@ -402,13 +418,14 @@
     tel: ౨౮
     mal: ൨൮
   title:
-    iso: śraddhā-traya-vibhāga-yogaḥ
+    san: श्रद्धात्रयविभागयोगः
+    iso: śraddhātrayavibhāgayōgaḥ
     kan: ಶ್ರದ್ಧಾತ್ರಯವಿಭಾಗಯೋಗಃ
-    eng: The Division of the Threefold Faith
+    eng: Causes and Effects
     hin: श्रद्धात्रयविभागयोगः
-    tam: ஸ்ரத்தா த்ரய வி஭ாக யோகம்
-    tel: శ్రద్ధాత్రయ విభాగయోగః
-    mal: ശ്രദ്ദാത്രയ വിഭാഗയോഗഃ
+    tam: ஷ்ரத்தாத்ரயவிபாகயோகஃ
+    tel: శ్రద్ధాత్రయవిభాగయోగః
+    mal: ശ്രദ്ദാത്രയവിഭാഗയോഗഃ
 
 18:
   number:
@@ -426,27 +443,11 @@
     tel: ౭౮
     mal: ൭൮
   title:
-    iso: mokṣa-saṇyāsa-yogaḥ
-    kan: ಮೋಕ್ಷಸನ್ಯಾಸಯೋಗಃ
-    eng: The Yoga of Liberation by Renunciation
+    san: मोक्षसंन्यासयोगः
+    iso: mōkṣasaṁnyāsayōgaḥ
+    kan: ಮೋಕ್ಷಸಂನ್ಯಾಸಯೋಗಃ
+    eng: Liberation through Renunciation
     hin: मोक्षसंन्यासयोगः
-    tam: மோக்ஷ சன்னியாஸ யோகம்
-    tel: మోక్ష సంన్యాసయోగః
-    mal: മോക്ഷസന്ന്യാസയോഗഃ
-
-phrases:
-  chapter:
-    kan: ೧
-    eng: 1
-    hin: १
-    tam: ௧
-    tel: ౧
-    mal: ൧
-  spoke:
-    kan: ೧
-    eng: 1
-    hin: १
-    tam: ௧
-    tel: ౧
-    mal: ൧
-
+    tam: மோட்சஸந்நியாஸயோகஃ
+    tel: మోక్షసంన్యాసయోగః
+    mal: മോക്ഷസംന്യാസയോഗഃ
