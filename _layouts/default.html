@@ -2,27 +2,35 @@
 {% assign site_description = site.data.about.site_description[page.lang] | default: site.description %}
 
 {% comment %} 
-  Compute page_basename frm because page.basename and page.name are uavaialable but we need to know basefile
+  Compute page_basename because page.basename and page.name are uavaialable but we need to know basefile
   basename is just the name of the file without the file extension
   - /eng/index.html -> index; /kan/preface.html -> preface
+
+  Also determine the chapter the page's basename corresponds to
+  - basename is a number for chapter pages: 1, 2, 3,...18
+  - pages not for a chapter don't have basename that is exactly a number: index, preface about,...
+  - set chapter number 0 if page is not for a chapter
 
   page.url is url of the generated page. In the context of a page, it will always be a .html file; never something like "/eng", "/eng/"
 {% endcomment %}
 
 {% assign page_basename = page.url | split: '/' | last | replace: '.html', '' | default: "index" %}
+{% assign chapter_number = page_basename | times: 1 | default: 0 %}
 
 {% comment %}
   Chapter page's primary lang is 'mul' due to shlokas; non-chapter page's is page.html_lang or page.lang
   BCP 47: https://developer.mozilla.org/en-US/docs/Glossary/BCP_47_language_tag
   RFC 5646: https://datatracker.ietf.org/doc/html/rfc5646
 
-  Chapter page's title shows chapter number; nav-linked non-chapter pages show nav label; others show page.title
-  TODO: chapter title
+  page title: prefer frontmatter; else chapter page title shows chapter number; nav-linked non-chapter pages show nav label
 {% endcomment %}
 
-{% if page.chapter %}
+{% if chapter_number %}
   {% assign primary_lang = "mul" %}
-  {% assign default_page_title = "Chapter " | append: page.chapter %}
+  {% assign localized_chapter_number = site.data.chapters[chapter_number].number[page.lang] %}
+  {% capture default_page_title %}
+    {{ site.data.phrases.chapter[page.lang] | default: "Chapter" }} {{ localized_chapter_number }}
+  {% endcapture %}
 {% else %}
   {% assign primary_lang = page.lang %}
   {% assign default_page_title = site.data.navigation[page_basename][page.lang] %}
@@ -172,16 +180,15 @@
       Assume one include file for each page type and a fixed include file for all pages with chapter content
       - index.html for index.md, preface.html for preface.md,... 
 
-      Note: `chapter` frontmatter required for pages that show a chapter translation.
       Note: the seleced include file must exist or the build will fail; no way to fallback if file is missing
 
-      Use include feature because GH Pages does not support render. Also quote all params to prevent "Invalid syntax" errors.
+      Use include feature because GH Pages does not support render.
 
       Using include syntax as defined here: https://jekyllrb.com/docs/includes/
     {% endcomment %}
 
-    {% if page.chapter %}
-      {% include chapter_content.html lang=page.lang title=page_title chapter=page.chapter %}
+    {% if chapter_number %}
+      {% include chapter_content.html lang=page.lang title=page_title chapter=chapter_number %}
     {% else %}
       {% assign content_file = page_basename | append: ".html" %}
       {% include {{ content_file }} lang=page.lang title=page_title %}
