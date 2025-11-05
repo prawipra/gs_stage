@@ -11,7 +11,9 @@
   - pages not for a chapter don't have basename that is exactly a number: index, preface about,...
   - set chapter number 0 if page is not for a chapter
 
-  page.url is url of the generated page. In the context of a page, it will always be a .html file; never something like "/eng", "/eng/"
+  Notes: 
+  - must test chapter_number explicitly for != 0, > 0 etc.
+  - page.url is url of generated page. In the context of a page, it is always be a .html file; never something like "/eng", "/eng/"
 {% endcomment %}
 
 {% assign page_basename = page.url | split: '/' | last | replace: '.html', '' | default: "index" %}
@@ -25,11 +27,11 @@
   page title: prefer frontmatter; else chapter page title shows chapter number; nav-linked non-chapter pages show nav label
 {% endcomment %}
 
-{% if chapter_number %}
+{% if chapter_number > 0 %}
   {% assign primary_lang = "mul" %}
   {% assign localized_chapter_number = site.data.chapters[chapter_number].number[page.lang] %}
   {% capture default_page_title %}
-    {{ site.data.phrases.chapter[page.lang] | default: "Chapter" }} {{ chapter_number }}
+    {{ site.data.phrases.chapter[page.lang] | default: "Chapter" }} {{ localized_chapter_number }}
   {% endcapture %}
 {% else %}
   {% assign primary_lang = page.lang %}
@@ -187,7 +189,7 @@
       Using include syntax as defined here: https://jekyllrb.com/docs/includes/
     {% endcomment %}
 
-    {% if chapter_number %}
+    {% if chapter_number > 0 %}
       {% include chapter_content.html lang=page.lang title=page_title chapter=chapter_number %}
     {% else %}
       {% assign content_file = page_basename | append: ".html" %}
