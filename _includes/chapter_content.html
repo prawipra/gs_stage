@@ -6,11 +6,13 @@
   // include.title:     (String) The primary title to be displayed on the page. Already included in <title>
   //                    (Passed from: 'title=page_title')
   //
-  // include.chapter:   (number) The chapter number to show.
-  //                    (Passed from: 'chapter=page.chapter')
+  // include.chapter:   (Number) The chapter number for which content is to be presented.
+  //                    (Passed from: 'chapter=chapter_number')
   //
   // USAGE EXAMPLE:
-  // {% include chapter_content.html lang=page.lang title=page_title chapter=page.chapter %}
+  // {% include chapter_content.html lang=page.lang title=page_title chapter=chapter_number %}
+  //
+  // Data for this page comes from the chapter's localized data file
   // --------------------------------------------------------------------------
 {% endcomment %}
 
