@@ -29,7 +29,7 @@
   {% assign primary_lang = "mul" %}
   {% assign localized_chapter_number = site.data.chapters[chapter_number].number[page.lang] %}
   {% capture default_page_title %}
-    {{ site.data.phrases.chapter[page.lang] | default: "Chapter" }} {{ localized_chapter_number }}
+    {{ site.data.phrases.chapter[page.lang] | default: "Chapter" }} {{ chapter_number }}
   {% endcapture %}
 {% else %}
   {% assign primary_lang = page.lang %}
