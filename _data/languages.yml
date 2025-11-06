@@ -87,6 +87,7 @@ tel:
 
 
 mal:
+  active: false
   script: Mlym
   region: IN
   name:
