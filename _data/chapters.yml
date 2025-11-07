@@ -1,5 +1,5 @@
 # Each main key is chapter number
-# for each chapter, define: chapter number, verse count, and title in different languages
+# for each chapter, define: chapter number, number in words, verse count, and title in different languages
 
 1:
   number:
@@ -9,6 +9,13 @@
     tam: ௧
     tel: ౧
     mal: ൧
+  number_in_words:
+    kan: ಒಂದು
+    eng: one
+    hin: एक
+    tam: ஒன்று
+    tel: ఒకటి
+    mal: ഒന്നു
   verses:
     kan: ೪೭
     eng: 47
@@ -34,6 +41,13 @@
     tam: ௨
     tel: ౨
     mal: ൨
+  number_in_words:
+    kan: ಎರಡು
+    eng: two
+    hin: दो
+    tam: இரண்டு
+    tel: రెండు
+    mal: രണ്ട്
   verses:
     kan: ೭೨
     eng: 72
@@ -50,7 +64,7 @@
     tam: ஸாங்஖்யயோகஃ
     tel: సాంఖ్యయోగః
     mal: സാങ്ക്യയോഗഃ
-    
+
 3:
   number:
     kan: ೩
@@ -59,6 +73,13 @@
     tam: ௩
     tel: ౩
     mal: ൩
+  number_in_words:
+    kan: ಮೂರು
+    eng: three
+    hin: तीन
+    tam: மூன்று
+    tel: మూడు
+    mal: മൂന്ന്
   verses:
     kan: ೪೩
     eng: 43
@@ -76,7 +97,6 @@
     tel: కర్మయోగః
     mal: കര്‍മ്മയോഗഃ
 
-
 4:
   number:
     kan: ೪
@@ -85,6 +105,13 @@
     tam: ௪
     tel: ౪
     mal: ൪
+  number_in_words:
+    kan: ನಾಲ್ಕು
+    eng: four
+    hin: चार
+    tam: நான்கு
+    tel: నాలుగు
+    mal: നാല്
   verses:
     kan: ೪೨
     eng: 42
@@ -110,6 +137,13 @@
     tam: ௫
     tel: ౫
     mal: ൫
+  number_in_words:
+    kan: ಐದು
+    eng: five
+    hin: पाँच
+    tam: ஐந்து
+    tel: ఐదు
+    mal: അഞ്ച്
   verses:
     kan: ೨೯
     eng: 29
@@ -135,6 +169,13 @@
     tam: ௬
     tel: ౬
     mal: ൬
+  number_in_words:
+    kan: ಆರು
+    eng: six
+    hin: छह
+    tam: ஆறு
+    tel: ఆరు
+    mal: ആറ്
   verses:
     kan: ೪೭
     eng: 47
@@ -160,6 +201,13 @@
     tam: ௭
     tel: ౭
     mal: ൭
+  number_in_words:
+    kan: ಏಳು
+    eng: seven
+    hin: सात
+    tam: ஏழு
+    tel: ఏడు
+    mal: ഏഴ്
   verses:
     kan: ೩೦
     eng: 30
@@ -185,6 +233,13 @@
     tam: ௮
     tel: ౮
     mal: ൮
+  number_in_words:
+    kan: ಎಂಟು
+    eng: eight
+    hin: आठ
+    tam: எட்டு
+    tel: ఎనిమిది
+    mal: எട്ട്
   verses:
     kan: ೨೮
     eng: 28
@@ -210,12 +265,19 @@
     tam: ௯
     tel: ౯
     mal: ൯
+  number_in_words:
+    kan: ಒಂಬತ್ತು
+    eng: nine
+    hin: नौ
+    tam: ஒன்பது
+    tel: తొమ్మిది
+    mal: ഒമ്പത്
   verses:
     kan: ೩೪
     eng: 34
     hin: ३४
     tam: ௩௪
-    tel: ౩౪
+    tel: ౩೪
     mal: ൩൪
   title:
     san: राजविद्याराजगुह्ययोगः
@@ -235,6 +297,13 @@
     tam: ௧௦
     tel: ౧౦
     mal: ൧൦
+  number_in_words:
+    kan: ಹತ್ತು
+    eng: ten
+    hin: दस
+    tam: பத்து
+    tel: పది
+    mal: പത്ത്
   verses:
     kan: ೪೨
     eng: 42
@@ -260,6 +329,13 @@
     tam: ௧௧
     tel: ౧౧
     mal: ൧൧
+  number_in_words:
+    kan: ಹನ್ನೊಂದು
+    eng: eleven
+    hin: ग्यारह
+    tam: பதினொன்று
+    tel: పదకొండు
+    mal: പതിനൊന്ന്
   verses:
     kan: ೫೫
     eng: 55
@@ -285,6 +361,13 @@
     tam: ௧௨
     tel: ౧౨
     mal: ൧൨
+  number_in_words:
+    kan: ಹನ್ನೆರಡು
+    eng: twelve
+    hin: बारह
+    tam: பன்னிரண்டு
+    tel: పన్నెండు
+    mal: പന്ത്രണ്ട്
   verses:
     kan: ೨೦
     eng: 20
@@ -297,7 +380,7 @@
     iso: bhaktiyōgaḥ
     kan: ಭಕ್ತಿಯೋಗಃ
     eng: Path of Devotion
-    hin: भक्तियोगः
+    hin: भक्ति योगः
     tam: பக்தியோகஃ
     tel: భక్తియోగః
     mal: ഭക്തിയോഗഃ
@@ -310,6 +393,13 @@
     tam: ௧௩
     tel: ౧౩
     mal: ൧൩
+  number_in_words:
+    kan: ಹದಿಮೂರು
+    eng: thirteen
+    hin: तेरह
+    tam: பதின்மூன்று
+    tel: పదమూడు
+    mal: പതിമൂന്ന്
   verses:
     kan: ೩೫
     eng: 35
@@ -323,7 +413,7 @@
     kan: ಕ್ಷೇತ್ರಕ್ಷೇತ್ರಜ್ಞವಿಭಾಗಯೋಗಃ
     eng: Knowable and the Knower
     hin: क्षेत्रक्षेत्रज्ञविभागयोगः
-    tam: க்ஷேத்ரக்ஷேத்ரஞ்விபாகயோகஃ
+    tam: க்ஷேத்ரக்ஷேത்ரஞ்விபாகயோகஃ
     tel: క్షేత్రక్షేత్రజ్ఞవిభాగయోగః
     mal: ക്ഷേത്രക്ഷേത്രജ്ഞവിഭാഗയോഗഃ
 
@@ -335,6 +425,13 @@
     tam: ௧௪
     tel: ౧౪
     mal: ൧൪
+  number_in_words:
+    kan: ಹದಿನಾಲ್ಕು
+    eng: fourteen
+    hin: चौदह
+    tam: பதினான்கு
+    tel: పద్నాలుగు
+    mal: പതിനാലു
   verses:
     kan: ೨೭
     eng: 27
@@ -360,6 +457,13 @@
     tam: ௧௫
     tel: ౧౫
     mal: ൧൫
+  number_in_words:
+    kan: ಹದಿನೈದು
+    eng: fifteen
+    hin: पंद्रह
+    tam: பதினைந்து
+    tel: పదిహేను
+    mal: പതിനഞ്ച്
   verses:
     kan: ೨೦
     eng: 20
@@ -385,6 +489,13 @@
     tam: ௧௬
     tel: ౧౬
     mal: ൧൬
+  number_in_words:
+    kan: ಹದಿನಾರು
+    eng: sixteen
+    hin: सोलह
+    tam: பதினாறு
+    tel: పదినారు
+    mal: പതിനാറ്
   verses:
     kan: ೨೪
     eng: 24
@@ -399,7 +510,7 @@
     eng: The Division between the Divine and the Demonic
     hin: दैवासुरसम्पत्तिविभागयोगः
     tam: தைவாசுரஸம்பத்விபாகயோகஃ
-    tel: దైవాసురసంపద్విభాగయోగః
+    tel: దైన్వాసురసంపద్విభాగయోగః
     mal: ദൈവാസുരസമ്പദ്വിഭാഗയോഗഃ
 
 17:
@@ -410,6 +521,13 @@
     tam: ௧௭
     tel: ౧౭
     mal: ൧൭
+  number_in_words:
+    kan: ಹದಿನೇಳು
+    eng: seventeen
+    hin: सत्रह
+    tam: பதினேழு
+    tel: పదినెలుగు
+    mal: പതിനേഴു
   verses:
     kan: ೨೮
     eng: 28
@@ -435,6 +553,13 @@
     tam: ௧௮
     tel: ౧౮
     mal: ൧൮
+  number_in_words:
+    kan: ಹದಿನೆಂಟು
+    eng: eighteen
+    hin: अठारह
+    tam: பதினெட்டு
+    tel: పద్దెనిమిది
+    mal: പതിനെട്ട്
   verses:
     kan: ೭೮
     eng: 78
@@ -451,3 +576,4 @@
     tam: மோட்சஸந்நியாஸயோகஃ
     tel: మోక్షసంన్యాసయోగః
     mal: മോക്ഷസംന്യാസയോഗഃ
+    

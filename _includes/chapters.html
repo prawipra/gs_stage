@@ -30,8 +30,11 @@
     - fallback to eng content if lang content unavailable
     - fallback to context-sensitive fixed content if eng content unavailable
 
+    Show "number in words" as title, because the Vyasa original does not include chapter "titles"
+    - chapter titles commonly seen (karmayoga, etc.) are later introductions
+
     Always write 18 rows: one per chapter
-    Prefer verse count from data; use a well-known count if verse count not in data
+    Prefer verse count from data; use well-known count if verse count not in data
 {% endcomment %}
 
 {% assign chapters_data = site.data.chapters %}
@@ -44,21 +47,14 @@
 {% for chapter in (1..18) %}
     {% if forloop.first %}
 
-    {% assign number_head_eng = phrases_data.number.eng %}
-    {% assign title_head_eng = phrases_data.title.eng %}
+    {% assign title_head_eng = phrases_data.chapter.eng %}
     {% assign verses_head_eng = phrases_data.shlokas.eng %}
 
-    {% assign number_head_lang = phrases_data.number[lang] | default: number_head_eng | default: "Number" %}
-    {% assign title_head_lang = phrases_data.title[lang] | default: phrase_verses_eng | default: "Title" %}
-    {% assign verses_head_lang = phrases_data.shlokas[lang] | default: phrase_verses_eng | default: "Verses" %}
+    {% assign title_head_lang = phrases_data.chapter[lang] | default: title_head_eng | default: "Chapter" %}
+    {% assign verses_head_lang = phrases_data.shlokas[lang] | default: verses_head_eng | default: "Verses" %}
 
     <tr>
-        <th style="padding-right: 0.5em; vertical-align: top;"
-            title="{% if number_head_eng != number_head_lang %}{{ number_head_eng }}{% endif %}">
-            {{ number_head_lang }}
-        </th>
-        
-        <th style="padding-right: 0.5em; vertical-align: top;"
+        <th colspan=2 style="padding-right: 0.5em; vertical-align: top; text-align: center;"
             title="{% if title_head_eng != title_head_lang %}{{ title_head_eng }}{% endif %}">
             {{ title_head_lang }}
         </th>
@@ -71,18 +67,18 @@
     {% endif %}
 
     {% assign number_eng = chapter %}
-    {% assign title_eng = chapters_data[chapter].title.eng %}
+    {% assign title_eng = chapters_data[chapter].number_in_words.eng %}
     {% assign verses_eng = chapters_data[chapter].verses.eng %}
     {% assign literal_chapter_number_eng = "Chapter " | append: chapter %}
 
     {% assign number_col = chapters_data[chapter].number[lang] | default: chapter %}
-    {% assign title_col = chapters_data[chapter].title[lang] | default: title_eng | default: literal_chapter_number_eng  %}
+    {% assign title_col = chapters_data[chapter].number_in_words[lang] | default: title_eng | default: literal_chapter_number_eng  %}
     {% assign verses_col = chapters_data[chapter].verses[lang] | default: verses_eng | default: default_verses[chapter-1] %}
 
     <tr>
-        <td style="padding-right: 0.5em; vertical-align: top;"
+        <td style="padding-right: 0.5em; vertical-align: top; text-align: right;"
             title="{% if number_eng != number_col %}{{ number_eng }}{% endif %}">
-            {{ number_col }}
+            {{ number_col }}.
         </td>
         
         {% capture href_path %}/{{ page.lang }}/{{ chapter }}.html{% endcapture %}
@@ -95,7 +91,7 @@
             </a>
         </td>
 
-        <td style="vertical-align: top;" 
+        <td style="vertical-align: top; text-align: center;"
             title="{% if verses_eng != verses_col %}{{ verses_eng }}{% endif %}">
             {{ verses_col }}
         </td>
