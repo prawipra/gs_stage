@@ -11,7 +11,7 @@
     mal: ൧
   number_in_words:
     kan: ಒಂದು
-    eng: one
+    eng: One
     hin: एक
     tam: ஒன்று
     tel: ఒకటి
@@ -43,7 +43,7 @@
     mal: ൨
   number_in_words:
     kan: ಎರಡು
-    eng: two
+    eng: Two
     hin: दो
     tam: இரண்டு
     tel: రెండు
@@ -75,7 +75,7 @@
     mal: ൩
   number_in_words:
     kan: ಮೂರು
-    eng: three
+    eng: Three
     hin: तीन
     tam: மூன்று
     tel: మూడు
@@ -107,7 +107,7 @@
     mal: ൪
   number_in_words:
     kan: ನಾಲ್ಕು
-    eng: four
+    eng: Four
     hin: चार
     tam: நான்கு
     tel: నాలుగు
@@ -139,7 +139,7 @@
     mal: ൫
   number_in_words:
     kan: ಐದು
-    eng: five
+    eng: Five
     hin: पाँच
     tam: ஐந்து
     tel: ఐదు
@@ -171,7 +171,7 @@
     mal: ൬
   number_in_words:
     kan: ಆರು
-    eng: six
+    eng: Six
     hin: छह
     tam: ஆறு
     tel: ఆరు
@@ -203,7 +203,7 @@
     mal: ൭
   number_in_words:
     kan: ಏಳು
-    eng: seven
+    eng: Seven
     hin: सात
     tam: ஏழு
     tel: ఏడు
@@ -235,7 +235,7 @@
     mal: ൮
   number_in_words:
     kan: ಎಂಟು
-    eng: eight
+    eng: Eight
     hin: आठ
     tam: எட்டு
     tel: ఎనిమిది
@@ -267,7 +267,7 @@
     mal: ൯
   number_in_words:
     kan: ಒಂಬತ್ತು
-    eng: nine
+    eng: Nine
     hin: नौ
     tam: ஒன்பது
     tel: తొమ్మిది
@@ -299,7 +299,7 @@
     mal: ൧൦
   number_in_words:
     kan: ಹತ್ತು
-    eng: ten
+    eng: Ten
     hin: दस
     tam: பத்து
     tel: పది
@@ -331,7 +331,7 @@
     mal: ൧൧
   number_in_words:
     kan: ಹನ್ನೊಂದು
-    eng: eleven
+    eng: Eleven
     hin: ग्यारह
     tam: பதினொன்று
     tel: పదకొండు
@@ -363,7 +363,7 @@
     mal: ൧൨
   number_in_words:
     kan: ಹನ್ನೆರಡು
-    eng: twelve
+    eng: Twelve
     hin: बारह
     tam: பன்னிரண்டு
     tel: పన్నెండు
@@ -395,7 +395,7 @@
     mal: ൧൩
   number_in_words:
     kan: ಹದಿಮೂರು
-    eng: thirteen
+    eng: Thirteen
     hin: तेरह
     tam: பதின்மூன்று
     tel: పదమూడు
@@ -427,7 +427,7 @@
     mal: ൧൪
   number_in_words:
     kan: ಹದಿನಾಲ್ಕು
-    eng: fourteen
+    eng: Fourteen
     hin: चौदह
     tam: பதினான்கு
     tel: పద్నాలుగు
@@ -459,7 +459,7 @@
     mal: ൧൫
   number_in_words:
     kan: ಹದಿನೈದು
-    eng: fifteen
+    eng: Fifteen
     hin: पंद्रह
     tam: பதினைந்து
     tel: పదిహేను
@@ -491,7 +491,7 @@
     mal: ൧൬
   number_in_words:
     kan: ಹದಿನಾರು
-    eng: sixteen
+    eng: Sixteen
     hin: सोलह
     tam: பதினாறு
     tel: పదినారు
@@ -523,7 +523,7 @@
     mal: ൧൭
   number_in_words:
     kan: ಹದಿನೇಳು
-    eng: seventeen
+    eng: Seventeen
     hin: सत्रह
     tam: பதினேழு
     tel: పదినెలుగు
@@ -555,7 +555,7 @@
     mal: ൧൮
   number_in_words:
     kan: ಹದಿನೆಂಟು
-    eng: eighteen
+    eng: Eighteen
     hin: अठारह
     tam: பதினெட்டு
     tel: పద్దెనిమిది
