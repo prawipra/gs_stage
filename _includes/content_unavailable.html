@@ -23,8 +23,10 @@
 
 {% if lang != "eng" or localized_msg == empty or localized_msg == nil %}
 <p>
-  {% assign eng_msg_suffix = site.data.languages[lang].name.eng | defaut: "language with code " | append: lang %}
-  {% assign eng_msg = "This content is unavailable in " | append: eng_msg_suffix %}
-  {{ eng_msg }}.
+  {% assign eng_msg_suffix = site.data.languages[lang].name.eng %}
+  {% if eng_msg_suffix == empty or eng_msg_suffix == nil %}
+    {% assign eng_msg_suffix = "language with code " | append: lang %}
+  {% endif %}
+  This content is unavailable in {{ eng_msg_suffix }}.
 </p>
 {% endif %}
