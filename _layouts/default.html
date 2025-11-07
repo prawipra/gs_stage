@@ -8,7 +8,7 @@
 
   Also determine the chapter the page's basename corresponds to
   - basename is a number for chapter pages: 1, 2, 3,...18
-  - pages not for a chapter don't have basename that is exactly a number: index, preface about,...
+  - pages not for a chapter don't have basename that is exactly a number: index, preface, about,...
   - set chapter number 0 if page is not for a chapter
 
   Notes: 
@@ -182,14 +182,23 @@
       Assume one include file for each page type and a fixed include file for all pages with chapter content
       - index.html for index.md, preface.html for preface.md,... 
 
-      Note: the seleced include file must exist or the build will fail; no way to fallback if file is missing
+      Include an info page if page.lang is inactive. Might replace with a redirect in future,
+      probably to site.default_lang. However, not redirecting makes code simpler, reduces user
+      surprise and still permits user to choose the alternative lang to in which to view this page.
+
+      Note: It is better to not generate pages for inactive langs but showing the info page is still
+      useful for when the lang is to be made inactive without removing lang content.
+
+      Note: the selected include file must exist or the build will fail; no way to fallback if file is missing
 
       Use include feature because GH Pages does not support render.
 
       Using include syntax as defined here: https://jekyllrb.com/docs/includes/
     {% endcomment %}
 
-    {% if chapter_number > 0 %}
+    {% if site.data.languages[page.lang].active == false %}
+      {% include content_unavailable.html lang=page.lang title=page_title %}
+    {% elsif chapter_number > 0 %}
       {% include chapter_content.html lang=page.lang title=page_title chapter=chapter_number %}
     {% else %}
       {% assign content_file = page_basename | append: ".html" %}

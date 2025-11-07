@@ -1,0 +1,29 @@
+{% comment %}
+  // REQUIRED INPUTS:
+  // include.lang:      (String) The language code (e.g., 'eng', 'kan') used for text lookup.
+  //                    (Passed from: 'lang=page.lang')
+  //
+  // include.title:     (String) The primary title to be displayed on the page. Already included in <title>
+  //                    (Passed from: 'title=page_title')
+  //
+  // USAGE EXAMPLE:
+  // {% include inactive_lang.html lang=page.lang title=page_title %}
+  //
+  // --------------------------------------------------------------------------
+{% endcomment %}
+
+{% assign lang = include.lang %}
+{% assign localized_msg = site.data.phrases.content_unavailable[lang] %}
+
+{% if localized_msg != empty %}
+<p>
+  {{ localized_msg }}.
+</p>
+
+{% if lang != "eng" or localized_msg == empty or localized_msg == nil %}
+<p>
+  {% assign eng_msg_suffix = site.data.languages[lang].name.eng | defaut: "language with code " | append: lang %}
+  {% assign eng_msg = "This content is unavailable in " | append: eng_msg_suffix %}
+  {{ eng_msg }}.
+</p>
+{% endif %}

@@ -47,3 +47,14 @@ spoke:
   tam:
   tel:
   mal:
+
+# localized message to show when a lang page is unavailable
+# The localized message should correspond to the eng message
+# do NOT include a terminating period: it is automatically included when message is shown
+content_unavailable:
+  kan: ಈ ವಿಷಯ ಕನ್ನಡದಲ್ಲಿ ಲಭ್ಯವಿಲ್ಲ
+  eng: This content is unavailable in English
+  hin: इस सूचना हिंदी में उप्लब्ध नही
+  tam: இந்த உள்ளடக்கம் தமிழில் கிடைக்கவில்லை
+  tel: ఈ విషయం తెలుగులో అందుబాటులో లేదు
+  mal: ഈ ഉള്ളടക്കം മലയാളത്തിൽ ലഭ്യമല്ല
