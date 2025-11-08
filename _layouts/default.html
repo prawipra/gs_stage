@@ -1,6 +1,6 @@
 {% assign page_lang = page.lang %}
 {% assign page_lang_data = site.data.languages[page_lang] %}
-{% assign page_lang_active = page_lang_data.active != false %}
+{% assign page_lang_active = page_lang_data.active | default: true %}
 
 {% assign site_title = site.data.about.site_title[page_lang] | default: site.title %}
 {% assign site_description = site.data.about.site_description[page_lang] | default: site.description %}
