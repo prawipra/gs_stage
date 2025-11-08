@@ -16,17 +16,19 @@
 {% assign localized_msg = site.data.phrases.content_unavailable[lang] %}
 
 {% if localized_msg != empty %}
-<p>
-  {{ localized_msg }}.
-</p>
+  {% assign this_lang_data = site.data.languages[lang] %}
+  <p lang="{{ lang }}-{{ this_lang_data.script }}-{{ this_lang_data.region }}">
+    {{ localized_msg }}.
+  </p>
 {% endif %}
 
 {% if lang != "eng" or localized_msg == empty or localized_msg == nil %}
-<p>
-  {% assign eng_msg_suffix = site.data.languages[lang].name.eng %}
-  {% if eng_msg_suffix == empty or eng_msg_suffix == nil %}
-    {% assign eng_msg_suffix = "language with code " | append: lang %}
-  {% endif %}
-  This content is unavailable in {{ eng_msg_suffix }}.
-</p>
+  {% assign eng_lang_data = site.data.languages.eng %}
+  <p lang="eng-{{ eng_lang_data.script }}-{{ eng_lang_data.region }}">
+    {% assign eng_msg_suffix = site.data.languages[lang].name.eng %}
+    {% if eng_msg_suffix == empty or eng_msg_suffix == nil %}
+      {% assign eng_msg_suffix = "language with code " | append: lang %}
+    {% endif %}
+    This content is unavailable in {{ eng_msg_suffix }}.
+  </p>
 {% endif %}
