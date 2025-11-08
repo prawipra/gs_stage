@@ -1,5 +1,17 @@
-{% assign site_title = site.data.about.site_title[page.lang] | default: site.title %}
-{% assign site_description = site.data.about.site_description[page.lang] | default: site.description %}
+{% comment %} 
+  Fallback to site's default lang if this page's lang is inactive
+  TODO: check assumption that the default lang is active
+{% endcomment %}
+
+{% if site.data.languages[page.lang] == false %}
+  {% assign page_lang = site.default_lang %}
+{% else %}
+  {% assign page_lang = page.lang %}
+{% endif %}
+
+{% assign page_lang_data = site.data.languages[page_lang] %}
+{% assign site_title = site.data.about.site_title[page_lang] | default: site.title %}
+{% assign site_description = site.data.about.site_description[page_lang] | default: site.description %}
 
 {% comment %} 
   Compute page_basename because page.basename and page.name are uavaialable but we need to know basefile
@@ -20,7 +32,7 @@
 {% assign chapter_number = page_basename | times: 1 | default: 0 %}
 
 {% comment %}
-  Chapter page's primary lang is 'mul' due to shlokas; non-chapter page's is page.html_lang or page.lang
+  Chapter page's primary lang is 'mul' due to shlokas; non-chapter page's is page.html_lang or page_lang
   BCP 47: https://developer.mozilla.org/en-US/docs/Glossary/BCP_47_language_tag
   RFC 5646: https://datatracker.ietf.org/doc/html/rfc5646
 
@@ -29,21 +41,19 @@
 
 {% if chapter_number > 0 %}
   {% assign primary_lang = "mul" %}
-  {% assign localized_chapter_number = site.data.chapters[chapter_number].number[page.lang] %}
+  {% assign localized_chapter_number = site.data.chapters[chapter_number].number[page_lang] %}
   {% capture default_page_title %}
-    {{ site.data.phrases.chapter[page.lang] | default: "Chapter" }} {{ localized_chapter_number }}
+    {{ site.data.phrases.chapter[page_lang] | default: "Chapter" }} {{ localized_chapter_number }}
   {% endcapture %}
 {% else %}
-  {% assign primary_lang = page.lang %}
-  {% assign default_page_title = site.data.navigation[page_basename][page.lang] %}
+  {% assign primary_lang = page_lang %}
+  {% assign default_page_title = site.data.navigation[page_basename][page_lang] %}
 {% endif %}
-
-{% assign lang_data = site.data.languages[page.lang] %}
 
 {% if page.html_lang %}
   {% assign html_lang = page.html_lang %}
 {% else %}
-  {% capture html_lang %}{{ primary_lang }}-{{ lang_data.script }}-{{ lang_data.region }}{% endcapture %}
+  {% capture html_lang %}{{ primary_lang }}-{{ page_lang_data.script }}-{{ page_lang_data.region }}{% endcapture %}
 {% endif %}
 
 {% assign page_title = page.title | default: default_page_title | default: page_basename %}
@@ -70,7 +80,7 @@
 
 {% assign current_path_no_baseurl = page.url | remove: site.baseurl %}
 
-{% assign slash_lang = "/" | append: page.lang %}
+{% assign slash_lang = "/" | append: page_lang %}
 {% assign slash_lang_slash = slash_lang | append: "/" %}
 {% assign slash_lang_slash_index_html = slash_lang_slash | append: "index.html" %}
 
@@ -112,14 +122,14 @@
             {% assign key = item[0] %}
             {% assign labels = item[1] %}
 
-            {% assign label = labels[page.lang] | default: labels.eng %}
-            {% capture href_path %}/{{ page.lang }}/{{ key }}.html{% endcapture %}
+            {% assign label = labels[page_lang] | default: labels.eng %}
+            {% capture href_path %}/{{ page_lang }}/{{ key }}.html{% endcapture %}
             {% assign cleaned_href_path = href_path | strip %}
 
             <li>
               <a href="{{ href_path | relative_url }}"
                   hreflang="{{ html_lang }}"
-                  title="{% if page.lang != 'eng' %}{{ labels.eng }}{% endif %}"
+                  title="{% if label != labels.eng %}{{ labels.eng }}{% endif %}"
                   class="{% if current_path_no_baseurl == cleaned_href_path %}current-page-url{% endif %}">
                 {{ label }}
               </a>
@@ -147,21 +157,21 @@
 
       {% if active_langs.size > 1 %}
       
-        {% assign current_lang_prefix = "/" | append: page.lang %}
+        {% assign current_lang_prefix = "/" | append: page_lang %}
         {% assign page_path_suffix = page.url | remove_first: current_lang_prefix %}
 
         <nav class="lang-nav" aria-label="Language switcher">
           <ul>
             {% for lang_pair in active_langs %}
               {% assign lang_code = lang_pair[0] %}
-              {% assign lang_data = lang_pair[1] %}
+              {% assign page_lang_data = lang_pair[1] %}
 
-              {%if lang_data.active == false %}
+              {%if page_lang_data.active == false %}
                 {% continue %}
               {% endif %}
 
               {% capture href_path %}/{{ lang_code }}{{ page_path_suffix }}{% endcapture %}
-              {% capture a_lang %}{{ lang_code }}-{{lang_data.script}}-{{lang_data.region}}{% endcapture %}
+              {% capture a_lang %}{{ lang_code }}-{{page_lang_data.script}}-{{page_lang_data.region}}{% endcapture %}
               {% if chapter_number > 0 %}
                 {% assign href_lang = a_lang | replace_first: lang_code, "mul" %}
               {% else %}
@@ -172,9 +182,9 @@
                   <a href="{{ href_path | relative_url }}" 
                       lang="{{ a_lang }}"
                       hreflang="{{ href_lang }}"
-                      title="{% if lang_code != 'eng' %}{{ lang_data.name.eng }}{% endif %}"
-                      class="{% if lang_code == page.lang %}current-page-lang{% endif %}">
-                      {{ lang_data.name[lang_code] }}
+                      title="{% if lang_code != 'eng' %}{{ page_lang_data.name.eng }}{% endif %}"
+                      class="{% if lang_code == page_lang %}current-page-lang{% endif %}">
+                      {{ page_lang_data.name[lang_code] }}
                   </a>
               </li>
 
@@ -191,7 +201,7 @@
       Assume one include file for each page type and a fixed include file for all pages with chapter content
       - index.html for index.md, preface.html for preface.md,... 
 
-      Include an info page if page.lang is inactive. Might replace with a redirect in future,
+      Include an info page if page_lang is inactive. Might replace with a redirect in future,
       probably to site.default_lang. However, not redirecting makes code simpler, reduces user
       surprise and still permits user to choose the alternative lang to in which to view this page.
 
@@ -205,13 +215,13 @@
       Using include syntax as defined here: https://jekyllrb.com/docs/includes/
     {% endcomment %}
 
-    {% if site.data.languages[page.lang].active == false %}
-      {% include content_unavailable.html lang=page.lang title=page_title %}
+    {% if page_lang_data.active == false %}
+      {% include content_unavailable.html lang=page_lang title=page_title %}
     {% elsif chapter_number > 0 %}
-      {% include chapter_content.html lang=page.lang title=page_title chapter=chapter_number %}
+      {% include chapter_content.html lang=page_lang title=page_title chapter=chapter_number %}
     {% else %}
       {% assign content_file = page_basename | append: ".html" %}
-      {% include {{ content_file }} lang=page.lang title=page_title %}
+      {% include {{ content_file }} lang=page_lang title=page_title %}
     {% endif %}
   </main>
 
