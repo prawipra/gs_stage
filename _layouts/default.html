@@ -164,14 +164,14 @@
           <ul>
             {% for lang_pair in active_langs %}
               {% assign lang_code = lang_pair[0] %}
-              {% assign page_lang_data = lang_pair[1] %}
+              {% assign lang_data = lang_pair[1] %}
 
-              {%if page_lang_data.active == false %}
+              {%if lang_data.active == false %}
                 {% continue %}
               {% endif %}
 
               {% capture href_path %}/{{ lang_code }}{{ page_path_suffix }}{% endcapture %}
-              {% capture a_lang %}{{ lang_code }}-{{page_lang_data.script}}-{{page_lang_data.region}}{% endcapture %}
+              {% capture a_lang %}{{ lang_code }}-{{lang_data.script}}-{{lang_data.region}}{% endcapture %}
               {% if chapter_number > 0 %}
                 {% assign href_lang = a_lang | replace_first: lang_code, "mul" %}
               {% else %}
@@ -182,9 +182,9 @@
                   <a href="{{ href_path | relative_url }}" 
                       lang="{{ a_lang }}"
                       hreflang="{{ href_lang }}"
-                      title="{% if lang_code != 'eng' %}{{ page_lang_data.name.eng }}{% endif %}"
+                      title="{% if lang_code != 'eng' %}{{ lang_data.name.eng }}{% endif %}"
                       class="{% if lang_code == page_lang %}current-page-lang{% endif %}">
-                      {{ page_lang_data.name[lang_code] }}
+                      {{ lang_data.name[lang_code] }}
                   </a>
               </li>
 
