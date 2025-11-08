@@ -1,15 +1,7 @@
-{% comment %} 
-  Fallback to site's default lang if this page's lang is inactive
-  TODO: check assumption that the default lang is active
-{% endcomment %}
-
-{% if site.data.languages[page.lang].active == false %}
-  {% assign page_lang = site.default_lang %}
-{% else %}
-  {% assign page_lang = page.lang %}
-{% endif %}
-
+{% assign page_lang = page.lang %}
 {% assign page_lang_data = site.data.languages[page_lang] %}
+{% assign page_lang_active = page_lang_data.active != false %}
+
 {% assign site_title = site.data.about.site_title[page_lang] | default: site.title %}
 {% assign site_description = site.data.about.site_description[page_lang] | default: site.description %}
 
@@ -73,7 +65,8 @@
   - Current page path with baseurl removed is also used later in styling site-nav
   - Using if-else-if sequence because an or expression is too long and line breaks are an issue: taking path of least resistance
 
-  On lang index page: show only nav items; hide all other header content
+  If inactive lang: show only lang nav items; hide all other header content
+  On index page: show only nav items; hide all other header content
 
   TODO: is it really necessary to test for page.url being /lang and /lang/ for index page?
 {% endcomment %}
@@ -95,7 +88,7 @@
 
 <body>
   <header>
-    {% if not_index_page %}
+    {% if page_lang_active and not_index_page %}
     <div class="header-top">
       <div class="header-inner">
         <div class="header-slot header-slot--left" aria-hidden="true">
@@ -115,6 +108,7 @@
     {% endif %}
 
     <div class="header-bottom"> 
+      {% if page_lang_active %}
       <!-- site nav -->
       <nav class="site-nav" aria-label="Main navigation">
         <ul>
@@ -137,6 +131,7 @@
           {% endfor %}
         </ul>
       </nav>
+      {% endif %}
 
       <!-- languages nav -->
       {% comment %} 
@@ -215,7 +210,7 @@
       Using include syntax as defined here: https://jekyllrb.com/docs/includes/
     {% endcomment %}
 
-    {% if page_lang_data.active == false %}
+    {% if page_lang_inactive %}
       {% include content_unavailable.html lang=page_lang title=page_title %}
     {% elsif chapter_number > 0 %}
       {% include chapter_content.html lang=page_lang title=page_title chapter=chapter_number %}
