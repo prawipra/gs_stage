@@ -136,6 +136,9 @@
         If link is back to current lang make its text strong and further style with a class: still use a link; not span
         Link text is lang's native name; link tooltip is lang's English name
 
+        a_lang: lang attr of a lang link necessarily corresponds to that lang: lang-script-region
+        href_lang: same as a_lang except for chapter pages which are of the form: mul-script-region
+
         TODO: fix active_langs filter; as is, it includes inactive langs; for now using a conditional continue inside for loop
         - Jekyll docs: https://jekyllrb.com/docs/liquid/filters/
       {% endcomment %}
@@ -158,10 +161,16 @@
               {% endif %}
 
               {% capture href_path %}/{{ lang_code }}{{ page_path_suffix }}{% endcapture %}
-              {% capture href_lang %}{{lang_code}}-{{lang_data.script}}-{{lang_data.region}}{% endcapture %}
+              {% capture a_lang %}{{ lang_code }}-{{lang_data.script}}-{{lang_data.region}}{% endcapture %}
+              {% if chapter_number > 0 %}
+                {% assign href_lang = a_lang | replace_first: lang_code, "mul" %}
+              {% else %}
+                {% assign href_lang = a_lang  %}
+              {% endif %}
 
               <li>
                   <a href="{{ href_path | relative_url }}" 
+                      lang="{{ a_lang }}"
                       hreflang="{{ href_lang }}"
                       title="{% if lang_code != 'eng' %}{{ lang_data.name.eng }}{% endif %}"
                       class="{% if lang_code == page.lang %}current-page-lang{% endif %}">
