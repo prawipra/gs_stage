@@ -3,7 +3,7 @@
   TODO: check assumption that the default lang is active
 {% endcomment %}
 
-{% if site.data.languages[page.lang] == false %}
+{% if site.data.languages[page.lang].active == false %}
   {% assign page_lang = site.default_lang %}
 {% else %}
   {% assign page_lang = page.lang %}
