@@ -210,7 +210,7 @@
       Using include syntax as defined here: https://jekyllrb.com/docs/includes/
     {% endcomment %}
 
-    {% if page_lang_inactive %}
+    {% if page_lang_active == false %}
       {% include content_unavailable.html lang=page_lang title=page_title %}
     {% elsif chapter_number > 0 %}
       {% include chapter_content.html lang=page_lang title=page_title chapter=chapter_number %}
