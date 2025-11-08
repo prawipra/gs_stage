@@ -31,7 +31,9 @@
   page title: prefer frontmatter; else chapter page title shows chapter number; nav-linked non-chapter pages show nav label
 {% endcomment %}
 
-{% if chapter_number > 0 %}
+{% if page_lang_active == false %}
+  {% comment %} nothing to do {% endcomment %}
+{% elsif chapter_number > 0 %}
   {% assign primary_lang = "mul" %}
   {% assign localized_chapter_number = site.data.chapters[chapter_number].number[page_lang] %}
   {% capture default_page_title %}
@@ -42,13 +44,19 @@
   {% assign default_page_title = site.data.navigation[page_basename][page_lang] %}
 {% endif %}
 
-{% if page.html_lang %}
+{% if page_lang_active == false %}
+  {% assign html_lang = "mul" %}
+{% elsif page.html_lang %}
   {% assign html_lang = page.html_lang %}
 {% else %}
   {% capture html_lang %}{{ primary_lang }}-{{ page_lang_data.script }}-{{ page_lang_data.region }}{% endcapture %}
 {% endif %}
 
-{% assign page_title = page.title | default: default_page_title | default: page_basename %}
+{% if page_lang_active == false %}
+  {% assign page_title = "Content Unavailable" %}
+{% else %}
+  {% assign page_title = page.title | default: default_page_title | default: page_basename %}
+{% endif %}
 
 <!DOCTYPE html>
 <html lang="{{ html_lang }}">
