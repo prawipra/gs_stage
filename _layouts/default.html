@@ -59,7 +59,7 @@
   {% assign page_title = "Content Unavailable" %}
 {% else %}
   {% assign page_title = page.title | default: default_page_title | default: page_basename %}
-  {% capture this_lang_attr %}{{ page_lang }}-{{ page_lang_data.script }}-{{ page_lang_data.region }}{% endcapture %}
+  {% capture page_lang_attr %}{{ page_lang }}-{{ page_lang_data.script }}-{{ page_lang_data.region }}{% endcapture %}
   {% capture eng_lang_attr %}eng-{{ eng_lang_data.script }}-{{ eng_lang_data.region }}{% endcapture %}
   {% capture iso_lang_attr %}san-{{ san_lang_data.script }}-{{ san_lang_data.region }}-x-{{ eng_lang_data.xlit_extension }}{% endcapture %}
 {% endif %}
