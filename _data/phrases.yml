@@ -1,4 +1,4 @@
-# for each translation key, record a translation in different languages
+# for each translation key, record a transcription/translation in different languages
 
 number:
   kan: ಸಂಖ್ಯೆ
@@ -7,14 +7,6 @@ number:
   tam: எண்
   tel: సంఖ్య
   mal: നമ്പർ
-
-number_brief:
-  kan: ಸಂ.
-  eng: No.
-  hin: 
-  tam: 
-  tel: 
-  mal: 
 
 title:
   kan: ಶೀರ್ಷಿಕೆ
@@ -41,12 +33,12 @@ shlokas:
   mal: വാക്യങ്ങൾ
 
 spoke:
-  kan:
-  eng:
-  hin:
-  tam:
-  tel:
-  mal:
+  kan: ಉವಾಚ
+  eng: spoke
+  hin: उवाच
+  tam: உவாச
+  tel: ఉవాచ
+  mal: ഉവാച
 
 # localized message to show when a lang page is unavailable
 # The localized message should correspond to the eng message
