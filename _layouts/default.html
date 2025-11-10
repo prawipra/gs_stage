@@ -110,15 +110,15 @@
         </div>
 
         {% if site_title == site.title %}
-          site_title_lang = iso_lang_attr
+          {% assign site_title_lang = iso_lang_attr %}
         {% else %}
-          site_title_lang = page_lang_attr
+          {% assign site_title_lang = page_lang_attr %}
         {% endif %}
 
         {% if site_description == site.description %}
-          site_descr_lang = eng_lang_attr
+          {% assign site_descr_lang = eng_lang_attr %}
         {% else %}
-          site_descr_lang = page_lang_attr
+          {% assign site_descr_lang = page_lang_attr %}
         {% endif %}
 
         <div class="header-center" role="banner">
