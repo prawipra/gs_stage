@@ -2,6 +2,9 @@
 {% assign page_lang_data = site.data.languages[page_lang] %}
 {% assign page_lang_active = page_lang_data.active %}
 
+{% assign eng_lang_data = site.data.languages.eng %}
+{% assign san_lang_data = site.data.languages.san %}
+
 {% assign site_title = site.data.about.site_title[page_lang] | default: site.title %}
 {% assign site_description = site.data.about.site_description[page_lang] | default: site.description %}
 
@@ -56,6 +59,9 @@
   {% assign page_title = "Content Unavailable" %}
 {% else %}
   {% assign page_title = page.title | default: default_page_title | default: page_basename %}
+  {% capture this_lang_attr %}{{ page_lang }}-{{ page_lang_data.script }}-{{ page_lang_data.region }}{% endcapture %}
+  {% capture eng_lang_attr %}eng-{{ eng_lang_data.script }}-{{ eng_lang_data.region }}{% endcapture %}
+  {% capture iso_lang_attr %}san-{{ san_lang_data.script }}-{{ san_lang_data.region }}-x-{{ eng_lang_data.xlit_extension }}{% endcapture %}
 {% endif %}
 
 <!DOCTYPE html>
@@ -103,9 +109,21 @@
           <img src="{{ '/assets/images/logo.svg' | relative_url }}" alt="left logo">
         </div>
 
+        {% if site_title == site.title %}
+          site_title_lang = iso_lang_attr
+        {% else %}
+          site_title_lang = page_lang_attr
+        {% endif %}
+
+        {% if site_description == site.description %}
+          site_descr_lang = eng_lang_attr
+        {% else %}
+          site_descr_lang = page_lang_attr
+        {% endif %}
+
         <div class="header-center" role="banner">
-          <h1 class="header">{{ site_title }}</h1>
-          <h5 class="header">{{ site_description }}</h5>
+          <h1 lang="{{ site_title_lang }}" class="header">{{ site_title }}</h1>
+          <h5 lang="{{ site_descr_lang }}" class="header">{{ site_description }}</h5>
         </div>
 
         <div class="header-slot header-slot--right" aria-hidden="true">
@@ -128,10 +146,19 @@
             {% capture href_path %}/{{ page_lang }}/{{ key }}.html{% endcapture %}
             {% assign cleaned_href_path = href_path | strip %}
 
+            {% if label == labels.eng %}
+              {% assign label_title = "" %}
+              {% assign label_lang = eng_lang_attr %}
+            {% else %}
+              {% assign label_title = labels.eng %}
+              {% assign label_lang = page_lang_attr %}
+            {% endif %}
+
             <li>
               <a href="{{ href_path | relative_url }}"
+                  lang="{{ label_lang }}"
                   hreflang="{{ html_lang }}"
-                  title="{% if label != labels.eng %}{{ labels.eng }}{% endif %}"
+                  title="{{ label_title }}"
                   class="{% if current_path_no_baseurl == cleaned_href_path %}current-page-url{% endif %}">
                 {{ label }}
               </a>
