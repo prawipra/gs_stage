@@ -5,7 +5,7 @@
 {% assign site_title = site.data.about.site_title[page_lang] | default: site.title %}
 {% assign site_description = site.data.about.site_description[page_lang] | default: site.description %}
 
-{% comment %} 
+{% comment %}
   Compute page_basename because page.basename and page.name are uavaialable but we need to know basefile
   basename is just the name of the file without the file extension
   - /eng/index.html -> index; /kan/preface.html -> preface
@@ -199,6 +199,15 @@
   </header>
 
   <main>
+    <p>
+      <div>page.lang: {{ page.lang }}</div>
+      <div>page_lang: {{ page_lang }}</div>
+      <div>site.data.languages[page.lang]: {{ site.data.languages[page.lang] }}</div>
+      <div>site.data.languages[page_lang]: {{ site.data.languages[page_lang] }}</div>
+      <div>page_lang_active: {{ page_lang_active }}</div>
+      page_lang_data: 
+      <div>{{ page_lang_data }}</div>
+    </p>
     {% comment %} 
       Customize content by including a different "sub layout" (not a Jekyll term) for each page type.
       Assume one include file for each page type and a fixed include file for all pages with chapter content
