@@ -1,6 +1,6 @@
 {% assign page_lang = page.lang %}
 {% assign page_lang_data = site.data.languages[page_lang] %}
-{% assign page_lang_active = page_lang_data.active | default: true %}
+{% assign page_lang_active = page_lang_data.active %}
 
 {% assign site_title = site.data.about.site_title[page_lang] | default: site.title %}
 {% assign site_description = site.data.about.site_description[page_lang] | default: site.description %}
@@ -96,7 +96,7 @@
 
 <body>
   <header>
-    {% if page_lang_active and not_index_page %}
+    {% if page_lang_active != false and not_index_page %}
     <div class="header-top">
       <div class="header-inner">
         <div class="header-slot header-slot--left" aria-hidden="true">
@@ -116,7 +116,7 @@
     {% endif %}
 
     <div class="header-bottom"> 
-      {% if page_lang_active %}
+      {% if page_lang_active != false %}
       <!-- site nav -->
       <nav class="site-nav" aria-label="Main navigation">
         <ul>
