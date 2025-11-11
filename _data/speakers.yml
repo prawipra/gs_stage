@@ -1,0 +1,56 @@
+# for each shloka with a designated speaker: show translation key for the speaker's name
+# key for shlokas: chapter.verse. e.g., 1.1, 8.3,...
+# xliterations of speaker names follows the verse-speaker index
+
+1.1: dhritarashtra
+1.2: sanjaya
+2.4: arjuna
+3.1: arjuna
+3.3: bhagavan
+4.4: arjuna
+4.5: bhagavan
+5.1: arjuna
+5.2: bhagavan
+6.37: arjuna
+6.40: bhagavan
+8.1: arjuna
+8.3: bhagavan
+10.12: arjuna
+10.19: bhagavan
+11.1: arjuna
+11.5: bhagavan
+11.32: bhagavan
+11.47: bhagavan
+11.51: arjuna
+11.52: bhagavan
+
+
+# xliterations of speaker names follows
+
+arjuna:
+  kan: ಅರ್ಜುನ
+  eng: Arjuna
+  hin: अर्जुन
+  tam: அர்ஜுன
+  tel: అర్జున
+
+bhagavan:
+  kan: ಭಗವಾನ್
+  eng: Bhagavan
+  hin: भगवान्
+  tam: பகவான்
+  tel: భగవాన్
+
+dhritarashtra:
+  kan: ಧೃತರಾಷ್ಟ್ರ
+  eng: Dhritarashtra
+  hin: धृतराष्ट्र
+  tam: திருதராஷ்டிர
+  tel: ధృతరాష్ట్ర
+  
+sanjaya:
+  kan: ಸಂಜಯ
+  eng: Sanjaya
+  hin: सञ्जय
+  tam: சஞ்சய
+  tel: సంజయ
