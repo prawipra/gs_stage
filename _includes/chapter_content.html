@@ -37,7 +37,6 @@
 {% assign meaning_data = site.data.meanings[lang][meaning_file_key] %}
 
 
-
 <h2 style="padding-bottom: 2rem; text-align: center;">{{ include.title }}</h2>
 
 <table style="margin: 0 auto; width: auto">
@@ -86,11 +85,9 @@
       <td lang="" class="verse-content" style="vertical-align: top; white-space: pre-wrap;">{{ verse_content }}</td>
     </tr>
 
-  {% if meaning_data[verse_number] %}
     <tr class="verse-meaning">
       <td lang="" colspan="2">{{ meaning_data[verse_number] }}</td>
     </tr>
-  {% endif %}
 
 {% endfor %}
 
