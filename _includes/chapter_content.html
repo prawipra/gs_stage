@@ -39,21 +39,17 @@
 
 <h2 style="padding-bottom: 2rem; text-align: center;">{{ include.title }}</h2>
 
-<p>
-  speaker_data: {{ speaker_data }}
-</p>
-
 <table style="margin: 0 auto; width: auto">
 
 {% for kv_pair_top in verse_data %}
   {% assign verse_number = kv_pair_top[0] %}  {% comment %} verse number: 1, 2, 3,... {% endcomment %}
   {% assign verse_content = kv_pair_top[1] %} {% comment %} verse content {% endcomment %}
 
-  {% capture c_dot_v %}{{ chapter }}.{{ verse_number }}{% endcapture %}
-  {% assign speaker_key = speaker_data[c_dot_v] %}
+  {% capture c_dash_v %}{{ chapter }}_{{ verse_number }}{% endcapture %}
+  {% assign speaker_key = speaker_data[c_dash_v] %}
 
   <tr class="debug">
-    <td>c_dot_v: {{ c_dot_v }}</td>
+    <td>c_dash_v: {{ c_dash_v }}</td>
     <td>speaker_key: {{ speaker_key }}</td>
   </tr>
 
