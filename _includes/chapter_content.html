@@ -19,14 +19,6 @@
 {% assign lang = include.lang %}
 {% assign chapter = include.chapter %}
 
-{% assign verse_file_key = "v" | append: chapter %}
-{% assign verse_data = site.data[lang][verse_file_key] %}
-
-{% assign meaning_file_key = "m" | append: chapter %}
-{% assign meaning_data = site.data.meanings[lang][meaning_file_key] %}
-
-{% assign speaker_data = site.data.speakers %}
-
 {% assign page_lang_data = site.data.languages[lang] %}
 {% assign eng_lang_data = site.data.languages.eng %}
 
@@ -35,6 +27,16 @@
 
 {% assign eng_phrase_spoke = site.data.phrases.spoke.eng | default: "spoke" %}
 {% assign phrase_spoke = site.data.phrases.spoke[lang] | default: eng_phrase_spoke %}
+
+{% assign speaker_data = site.data.speakers %}
+
+{% assign verse_file_key = "v" | append: chapter %}
+{% assign verse_data = site.data[lang][verse_file_key] %}
+
+{% assign meaning_file_key = "m" | append: chapter %}
+{% assign meaning_data = site.data.meanings[lang][meaning_file_key] %}
+
+
 
 <h2 style="text-align: center;">{{ include.title }}</h2>
 
@@ -79,7 +81,7 @@
 
     <tr id="{{ verse_number_and_id }}" class="verse-container">
       <td lang="" class="verse-number" style="vertical-align: top;">{{ verse_number_and_id }}</td>
-      <td lang="" class="verse-content" style="vertical-align: top;">{{ verse_content }}</td>
+      <td lang="" class="verse-content" style="vertical-align: top; white-space: pre-wrap;">{{ verse_content }}</td>
     </tr>
 
   {% if meaning_data[verse_number] and verse_number_and_id == verse_number %}
