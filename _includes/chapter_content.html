@@ -45,11 +45,11 @@
   {% assign verse_number = kv_pair_top[0] %}  {% comment %} verse number: 1, 2, 3,... {% endcomment %}
   {% assign verse_content = kv_pair_top[1] %} {% comment %} verse content {% endcomment %}
 
-  {% capture c_dot_v %}/{{ chapter }}.{{ verse_number }}{% endcapture %}
+  {% capture c_dot_v %}{{ chapter }}.{{ verse_number }}{% endcapture %}
   {% assign speaker_key = speaker_data[c_dot_v] %}
 
   {% if speaker_key %}
-    {% assign speaker_name = speaker_data[c_dot_v][speaker_key] %}
+    {% assign speaker_name = speaker_data[speaker_key][lang] %}
     {% if speaker_name %}
       {% assign speaker_name_lang = san_xlit_lang_attr %}
     {% else %}
