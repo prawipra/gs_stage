@@ -36,7 +36,9 @@
 {% assign eng_phrase_spoke = site.data.phrases.spoke.eng | default: "spoke" %}
 {% assign phrase_spoke = site.data.phrases.spoke[lang] | default: eng_phrase_spoke %}
 
-<h2>{{ include.title }}</h2>
+<h2 style="text-align: center;">{{ include.title }}</h2>
+
+<table style="margin: 0 auto; width: auto">
 
 {% for kv_pair_top in verse_data %}
   {% assign verse_number = kv_pair_top[0] %}  {% comment %} verse number: 1, 2, 3,... {% endcomment %}
@@ -55,21 +57,37 @@
       {% assign phrase_spoke = eng_phrase_spoke %}
     {% endif %}
 
-    <p class="verse-speaker">
-      <span lang="">{{ speaker_name }}</span>
-      <span lang="">{{ phrase_spoke }}</span>
-    </p>
+    <tr class="verse-speaker">
+      <td colspan="2">
+        <span lang="">{{ speaker_name }}</span>
+        <span lang="">{{ phrase_spoke }}</span>
+      </td>
+    </tr>
   {% endif %}
 
-  <div class="verse-text">
-    <div lang="" class="verse-number">{{ verse_number }}</div>
-    <div lang="" class="verse-content">{{ verse_content }}</div>
-  </div>
+  {% comment %}
+    print verse-number, id, and meaning only if whole verse number
+    - second half of a verse has v.5 format number
+    - second half of a verse is part of a verse sequence
+  {% endcomment %}
 
-  {% if meaning_data[verse_number] %}
-  <p lang="" class="verse-meaning">
-    meaning_data[verse_number]
-  </p>
+  {% if verse_number contains ".5" %}
+    {% assign verse_number_and_id = "" %}
+  {% else %}
+    {% assign verse_number_and_id = verse_number %}
+  {% endif %}
+
+    <tr id="{{ verse_number_and_id }}" class="verse-container">
+      <td lang="" class="verse-number" style="vertical-align: top;">{{ verse_number_and_id }}</td>
+      <td lang="" class="verse-content" style="vertical-align: top;">{{ verse_content }}</td>
+    </tr>
+
+  {% if meaning_data[verse_number] and verse_number_and_id == verse_number %}
+    <tr class="verse-meaning">
+      <td lang="" colspan="2">{{ meaning_data[verse_number] }}</td>
+    </tr>
   {% endif %}
 
 {% endfor %}
+
+</table>
