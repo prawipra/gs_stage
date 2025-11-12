@@ -71,12 +71,14 @@
     print verse-number, id, and meaning only if whole verse number
     - second half of a verse has v.5 format number
     - second half of a verse is part of a verse sequence
+    - use floor because Jekyll on GH Pages does not support contains
   {% endcomment %}
 
-  {% if verse_number contains ".5" %}
-    {% assign verse_number_and_id = "" %}
-  {% else %}
+  {% assign verse_number_floor = verse_number | floor %}
+  {% if verse_number_floor == verse_number %}
     {% assign verse_number_and_id = verse_number %}
+  {% else %}
+    {% assign verse_number_and_id = "" %}
   {% endif %}
 
     <tr id="{{ verse_number_and_id }}" class="verse-container">
