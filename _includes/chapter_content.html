@@ -42,7 +42,7 @@
 <table style="margin: 0 auto; width: auto">
 
 {% for kv_pair_top in verse_data %}
-  {% assign verse_number = kv_pair_top[0] | times 1 %} {% comment %} get verse number as an actual number: 1, 27.5 {% endcomment %}
+  {% assign verse_number = kv_pair_top[0] | times: 1 %} {% comment %} get verse number as an actual number: 1, 27.5 {% endcomment %}
   {% assign verse_content = kv_pair_top[1] %}
 
   {% capture c_dot_v %}{{ chapter }}.{{ verse_number }}{% endcapture %}  {% comment %} c_dot_v is a string {% endcomment %}
