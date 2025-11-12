@@ -38,7 +38,7 @@
 
 
 
-<h2 style="text-align: center;">{{ include.title }}</h2>
+<h2 style="padding-bottom: 2rem; text-align: center;">{{ include.title }}</h2>
 
 <table style="margin: 0 auto; width: auto">
 
@@ -82,11 +82,11 @@
   {% endif %}
 
     <tr id="{{ verse_number_and_id }}" class="verse-container">
-      <td lang="" class="verse-number" style="vertical-align: top;">{{ verse_number_and_id }}</td>
+      <td lang="" class="verse-number" style="font-size: 1.5rem; font-weight: 500; vertical-align: top;">{{ verse_number_and_id }}</td>
       <td lang="" class="verse-content" style="vertical-align: top; white-space: pre-wrap;">{{ verse_content }}</td>
     </tr>
 
-  {% if meaning_data[verse_number] and verse_number_and_id == verse_number %}
+  {% if meaning_data[verse_number] %}
     <tr class="verse-meaning">
       <td lang="" colspan="2">{{ meaning_data[verse_number] }}</td>
     </tr>
