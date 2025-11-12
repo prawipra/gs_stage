@@ -1,30 +1,30 @@
 # for each shloka with a designated speaker: show translation key for the speaker's name
-# key for shlokas: chapter_verse. e.g., 1_1, 8_3,...
-# use c_v instead of c.v to make keys string (c.v would be numeric and mismatched in code)
+# key for shlokas: "chapter.verse". e.g., "1.1", "8.3",...
+# c.v keys must be quoted to force the YAML parser to treat them as strings
+
 # xliterations of speaker names follows the verse-speaker index
 
-"1_1": dhritarashtra
-1_2: sanjaya
-2_4: arjuna
-3_1: arjuna
-3_3: bhagavan
-4_4: arjuna
-4_5: bhagavan
-5_1: arjuna
-5_2: bhagavan
-6_37: arjuna
-6_40: bhagavan
-8_1: arjuna
-8_3: bhagavan
-10_12: arjuna
-10_19: bhagavan
-11_1: arjuna
-11_5: bhagavan
-11_32: bhagavan
-11_47: bhagavan
-11_51: arjuna
-11_52: bhagavan
-
+"1.1": dhritarashtra
+"1.2": sanjaya
+"2.4": arjuna
+"3.1": arjuna
+"3.3": bhagavan
+"4.4": arjuna
+"4.5": bhagavan
+"5.1": arjuna
+"5.2": bhagavan
+"6.37": arjuna
+"6.40": bhagavan
+"8.1": arjuna
+"8.3": bhagavan
+"10.12": arjuna
+"10.19": bhagavan
+"11.1": arjuna
+"11.5": bhagavan
+"11.32": bhagavan
+"11.47": bhagavan
+"11.51": arjuna
+"11.52": bhagavan
 
 # xliterations of speaker names follows
 
