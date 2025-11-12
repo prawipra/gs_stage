@@ -3,7 +3,7 @@
 # use c_v instead of c.v to make keys string (c.v would be numeric and mismatched in code)
 # xliterations of speaker names follows the verse-speaker index
 
-1_1: dhritarashtra
+"1_1": dhritarashtra
 1_2: sanjaya
 2_4: arjuna
 3_1: arjuna
