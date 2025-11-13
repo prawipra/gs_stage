@@ -41,49 +41,6 @@
 
 <table style="margin: 0 auto; width: auto">
 
-{% for meaning in meaning_data %}
-  <tr class="debug">
-    <td></td>
-    <td>{{ meaning }}</td>
-  </tr>
-
-  {% break %}
-{% endfor %}
-
-{% for kv_pair_meaning in meaning_data %}
-  {% assign v_num = kv_pair_meaning[0] %}
-  {% assign v_meaning = kv_pair_meaning[1] %}
-
-  <tr class="debug">
-    <td>{{ v_num }}</td>
-    <td>{{ v_meaning }}</td>
-  </tr>
-
-  {% break %}
-{% endfor %}
-
-{% for kv_pair_meaning in meaning_data %}
-  {% assign v_num = kv_pair_meaning[0] %}
-
-  <tr class="debug">
-    <td>{{ v_num }}</td>
-    <td>{{ meaning_data[v_num] }}</td>
-  </tr>
-
-  {% break %}
-{% endfor %}
-
-{% for kv_pair_meaning in meaning_data %}
-  {% assign v_num = kv_pair_meaning[0] | to_integer %}
-
-  <tr class="debug">
-    <td>{{ v_num }}</td>
-    <td>{{ meaning_data[v_num] }}</td>
-  </tr>
-
-  {% break %}
-{% endfor %}
-
 {% for kv_pair_top in verse_data %}
   {% assign verse_number = kv_pair_top[0] %} {% comment %} verse_number is string type {% endcomment %}
   {% assign verse_content = kv_pair_top[1] %}
@@ -120,18 +77,24 @@
   {% if verse_number_part_count == 1 %}
     {% assign verse_number_output = verse_number | to_integer %}
   {% else %}
-    {% assign verse_number_output = ""verse_number"" %}
+    {% assign verse_number_output = "" %}
   {% endif %}
 
     <tr id="{{ verse_number_output }}" class="verse-container">
-      <td lang="" class="verse-number" style="font-size: 1.5rem; font-weight: 500; vertical-align: top; text-align: right;">{{ verse_number_output }}</td>
-      <td lang="" class="verse-content" style="vertical-align: top; white-space: pre-wrap;">{{ verse_content }}</td>
+      <td lang="" class="verse-number" 
+          style="font-size: 1.5rem; font-weight: 500; vertical-align: top; text-align: right;">
+          {{ verse_number_output }}
+      </td>
+      <td lang="" class="verse-content" style="vertical-align: top; white-space: pre-wrap;">
+        {{ verse_content }}
+      </td>
     </tr>
 
     {% comment %} a leading partial verse does not have meaning {% endcomment %}
-    {% if verse_number_output != "" %}
+    {% if meaning_data[verse_number_output] and verse_number_output != "" %}
       <tr class="verse-meaning">
-        <td lang="" colspan="2">{{ meaning_data[verse_number_output] }}</td>
+        <td></td>
+        <td lang="">{{ meaning_data[verse_number_output] }}</td>
       </tr>
     {% endif %}
 
