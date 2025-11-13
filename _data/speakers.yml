@@ -2,7 +2,7 @@
 # key for shlokas is hierarchical: chapter.verse
 # chapter and verse keys must be whole numbers, and must not be quoted 
 
-# xliterations of speaker names follows the verse-speaker index
+# xliterations of speaker names follows the speaker index
 
 1:
   1: dhritarashtra
