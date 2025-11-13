@@ -41,17 +41,48 @@
 
 <table style="margin: 0 auto; width: auto">
 
-  <tr class="debug 1">
-    <td colspan="2">meaning_data[2]: {{ meaning_data[2] }}</td>
-  </tr>
-  <tr class="debug 2">
-    <td colspan="2">meaning_data["2"]: {{ meaning_data["2"] }}</td>
+{% for meaning in meaning_data %}
+  <tr class="debug">
+    <td></td>
+    <td>{{ meaning }}</td>
   </tr>
 
-  {% assign x = 2 %}
-  <tr class="debug 3">
-    <td colspan="2">meaning_data[x]: {{ meaning_data[x] }}</td>
+  {% break %}
+{% endfor %}
+
+{% for kv_pair_meaning in meaning_data %}
+  {% assign v_num = kv_pair_meaning[0] %}
+  {% assign v_meaning = kv_pair_meaning[1] %}
+
+  <tr class="debug">
+    <td>{{ v_num }}</td>
+    <td>{{ v_meaning }}</td>
   </tr>
+
+  {% break %}
+{% endfor %}
+
+{% for kv_pair_meaning in meaning_data %}
+  {% assign v_num = kv_pair_meaning[0] %}
+
+  <tr class="debug">
+    <td>{{ v_num }}</td>
+    <td>{{ meaning_data[v_num] }}</td>
+  </tr>
+
+  {% break %}
+{% endfor %}
+
+{% for kv_pair_meaning in meaning_data %}
+  {% assign v_num = kv_pair_meaning[0] | to_integer %}
+
+  <tr class="debug">
+    <td>{{ v_num }}</td>
+    <td>{{ meaning_data[v_num] }}</td>
+  </tr>
+
+  {% break %}
+{% endfor %}
 
 {% for kv_pair_top in verse_data %}
   {% assign verse_number = kv_pair_top[0] %} {% comment %} verse_number is string type {% endcomment %}
