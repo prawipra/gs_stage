@@ -36,7 +36,7 @@
 {% assign meaning_file_key = "m" | append: chapter_int %}
 {% assign meaning_data = site.data[lang][meaning_file_key] %}
 
-<table style="margin: 0 auto; width: auto">
+<table style="margin: 0 auto; width: auto; max-width: 600px">
 
 {% for kv_pair_top in verse_data %}
   {% assign verse_number = kv_pair_top[0] %} {% comment %} verse_number is string type {% endcomment %}
@@ -66,7 +66,6 @@
     print verse-number, id, and meaning only if whole verse number
     - second half of a verse has v.5 format number
     - second half of a verse is part of a verse sequence
-    - use floor because Jekyll on GH Pages does not support contains
   {% endcomment %}
 
   {% assign verse_number_part_count = verse_number | split: "." | size %}
