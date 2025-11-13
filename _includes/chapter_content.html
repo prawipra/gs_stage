@@ -48,6 +48,11 @@
     <td colspan="2">meaning_data["2"]: {{ meaning_data["2"] }}</td>
   </tr>
 
+  {% assign x = 2 %}
+  <tr class="debug 3">
+    <td colspan="2">meaning_data[x]: {{ meaning_data[x] }}</td>
+  </tr>
+
 {% for kv_pair_top in verse_data %}
   {% assign verse_number = kv_pair_top[0] %} {% comment %} verse_number is string type {% endcomment %}
   {% assign verse_content = kv_pair_top[1] %}
