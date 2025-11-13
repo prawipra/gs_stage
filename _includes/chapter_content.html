@@ -41,11 +41,16 @@
 
 <table style="margin: 0 auto; width: auto">
 
+  <tr class="debug">
+    <td>
+    </td>
+  </tr>
+
 {% for kv_pair_top in verse_data %}
-  {% assign verse_number = kv_pair_top[0] | times: 1 %} {% comment %} get verse number as an actual number: 1, 27.5 {% endcomment %}
+  {% assign verse_number = kv_pair_top[0] %} {% comment %} verse_number is string type {% endcomment %}
   {% assign verse_content = kv_pair_top[1] %}
 
-  {% capture c_dot_v %}{{ chapter }}.{{ verse_number }}{% endcapture %}  {% comment %} c_dot_v is a string {% endcomment %}
+  {% capture c_dot_v %}{{ chapter }}.{{ verse_number }}{% endcapture %}
   {% assign speaker_key = speaker_data[c_dot_v] %}
 
   {% if speaker_key %}
@@ -73,20 +78,22 @@
     - use floor because Jekyll on GH Pages does not support contains
   {% endcomment %}
 
-  {% assign verse_number_and_id = verse_number | floor %}
-  {% if verse_number_and_id != verse_number %}
-    {% assign verse_number_and_id = "" %}
+  {% assign verse_number_part_count = verse_number | split: "." | size %}
+  {% if verse_number_part_count == 1 %}
+    {% assign verse_number_output = verse_number | to_integer %}
+  {% else %}
+    {% assign verse_number_output = ""verse_number"" %}
   {% endif %}
 
-    <tr id="{{ verse_number_and_id }}" class="verse-container">
-      <td lang="" class="verse-number" style="font-size: 1.5rem; font-weight: 500; vertical-align: top;">{{ verse_number_and_id }}</td>
+    <tr id="{{ verse_number_output }}" class="verse-container">
+      <td lang="" class="verse-number" style="font-size: 1.5rem; font-weight: 500; vertical-align: top; text-align: right;">{{ verse_number_output }}</td>
       <td lang="" class="verse-content" style="vertical-align: top; white-space: pre-wrap;">{{ verse_content }}</td>
     </tr>
 
     {% comment %} a leading partial verse does not have meaning {% endcomment %}
-    {% if meaning_data[verse_number] and verse_number_and_id == verse_number %}
+    {% if verse_number_output != "" %}
       <tr class="verse-meaning">
-        <td lang="" colspan="2">{{ meaning_data[verse_number] }}</td>
+        <td lang="" colspan="2">{{ meaning_data[verse_number_output] }}</td>
       </tr>
     {% endif %}
 
