@@ -36,9 +36,6 @@
 {% assign meaning_file_key = "m" | append: chapter %}
 {% assign meaning_data = site.data[lang][meaning_file_key] %}
 
-
-<h2 style="padding-bottom: 2rem; text-align: center;">{{ include.title }}</h2>
-
 <table style="margin: 0 auto; width: auto">
 
 {% for kv_pair_top in verse_data %}
@@ -58,7 +55,7 @@
       {% assign phrase_spoke = eng_phrase_spoke %}
     {% endif %}
 
-    <tr class="verse-speaker">
+    <tr class="verse-speaker" style="font-weight: 500;">
       <td colspan="2">
         <span lang="">{{ speaker_name }}</span>
         <span lang="">{{ phrase_spoke }}</span>
@@ -81,7 +78,7 @@
   {% endif %}
 
     <tr id="{{ verse_number_output }}" class="verse-container">
-      <td lang="" class="verse-number" 
+      <td lang="" class="verse-number"
           style="font-size: 1.5rem; font-weight: 500; vertical-align: top; text-align: right;">
           {{ verse_number_output }}
       </td>

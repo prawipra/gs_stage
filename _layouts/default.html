@@ -247,11 +247,15 @@
 
     {% if page_lang_active == false %}
       {% include content_unavailable.html lang=page_lang title=page_title %}
-    {% elsif chapter_number > 0 %}
-      {% include chapter_content.html lang=page_lang title=page_title chapter=chapter_number %}
     {% else %}
-      {% assign content_file = page_basename | append: ".html" %}
-      {% include {{ content_file }} lang=page_lang title=page_title %}
+      <h2 class="center" style="padding-bottom: 2rem;">{{ page_title }}</h2>
+
+      {% if chapter_number > 0 %}
+        {% include chapter_content.html lang=page_lang title=page_title chapter=chapter_number %}
+      {% else %}
+        {% assign content_file = page_basename | append: ".html" %}
+        {% include {{ content_file }} lang=page_lang title=page_title %}
+      {% endif %}
     {% endif %}
   </main>
 
