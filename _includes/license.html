@@ -22,8 +22,7 @@
 {% assign about_data = site.data.about %}
 
 <p style="margin-bottom: 0.25rem">
-    {{ about_data[artifact][lang] }}:
-    &copy; {{ site.time | date: "%Y" }}
+    {{ about_data[artifact][lang] }} &copy; {{ site.time | date: "%Y" }}
     {{ about_data[owner][lang] }}. {{ about_data.all_rights_reserved[lang] }}.
 
     <div>
