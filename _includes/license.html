@@ -19,23 +19,22 @@
 {% assign lang = include.lang %}
 {% assign artifact = include.artifact %}
 {% assign owner = include.owner %}
-
 {% assign about_data = site.data.about %}
 
-<p>
-    {{ about_data[artifact][lang] }}: 
+<p style="margin-bottom: 0.25rem">
+    {{ about_data[artifact][lang] }}:
     &copy; {{ site.time | date: "%Y" }}
     {{ about_data[owner][lang] }}. {{ about_data.all_rights_reserved[lang] }}.
 
     <div>
-        {{ about_data.license[lang] }}: 
-        <a href="{{ about_data.grants[artifact].license_url }}">
-            {{ about_data.grants[artifact].license }}
-        </a>
         {% assign img_style = about_data.cc_images.style %}
+        {{ about_data.license[lang] }}: 
         {% for image in about_data.grants[artifact].images %}
             <img src="{{ about_data.cc_images.src[image] }}"style="{{ img_style }}">
         {% endfor %}
+        <a href="{{ about_data.grants[artifact].license_url }}">
+            {{ about_data.grants[artifact].license }}
+        </a>
     </div>
 </p>
 

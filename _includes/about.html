@@ -133,9 +133,11 @@
 
 </table>
 
-<p id="legal">{{ about_data.common_cc_license_statement[lang] }}</p>
+<div id="notice" class="notice" style="padding-top: 2rem;">
+    <strong>{{ about_data.common_cc_license_statement[lang] }}:</strong>
+    {{ about_data.common_cc_license_statement[lang] }}
+</div>
+
 {% include license.html lang=page_lang artifact="translations" owner="sura" %}
+
 {% include license.html lang=page_lang artifact="website" owner="prawipra" %}
-
-
-
