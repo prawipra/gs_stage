@@ -307,18 +307,27 @@ grants:
   translations:
     license: CC BY-NC-ND 4.0
     license_url: https://creativecommons.org/licenses/by-nc-nd/4.0/
-    images: [cc, by, nc, nd]
+    cc_terms: [cc, by, nc, nd]
   website:
     license: CC BY-NC-SA 4.0
     license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/
-    images: [cc, by, nc, sa]
+    cc_terms: [cc, by, nc, sa]
 
-cc_images:
-  src:
-    cc: https://mirrors.creativecommons.org/presskit/icons/cc.svg
-    by: https://mirrors.creativecommons.org/presskit/icons/by.svg
-    nc: https://mirrors.creativecommons.org/presskit/icons/nc.svg
-    nd: https://mirrors.creativecommons.org/presskit/icons/nd.svg
-    sa: https://mirrors.creativecommons.org/presskit/icons/sa.svg
-  style: |
-    max-width:1em; max-height:1em; margin-left:.2em;
+cc_terms:
+  cc: 
+    description: Creative Commons
+    img_src: https://mirrors.creativecommons.org/presskit/icons/cc.svg
+#   img_style: # add img specific style to override default img_style
+  by: 
+    description: Attribution
+    img_src: https://mirrors.creativecommons.org/presskit/icons/by.svg
+  nc: 
+    description: Non-commerical
+    img_src: https://mirrors.creativecommons.org/presskit/icons/nc.svg
+  nd: 
+    description: No Derivatives
+    img_src: https://mirrors.creativecommons.org/presskit/icons/nd.svg
+  sa: 
+    description: Share Alike
+    img_src: https://mirrors.creativecommons.org/presskit/icons/sa.svg
+  img_style: "max-width:1em; max-height:1em; margin-left:.2em;"
