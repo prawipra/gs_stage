@@ -191,13 +191,35 @@ xlators:
     mal:
       - നരസിംഹാചാര്യ സാമഗ, മടപാടി
 
-webdevs_lead:
+website_lead:
   kan: ವೆಬ್‌ಸೈಟ್ ವಿನ್ಯಾಸ ಮತ್ತು ನಿರ್ಮಾಣ
   eng: Website design and construction
   hin: वेबसाइट विन्यास और निर्माण
   tam: வலைத்தள வடிவமைப்பு மற்றும் கட்டுமானம்
   tel: వెబ్‌సైట్ డిజైన్ మరియు నిర్మాణం
   mal: വെബ്‌സൈറ്റ് രൂപകൽപ്പനയും നിർമ്മാണവും
+
+# webdev_peeps:
+#  kan:
+#     - ಡಾ. ಸುದರ್ಶನ್ ಮೂರ್ತಿ, ಯು.ಎಸ್.ಎ
+#   eng:
+#     - Dr. Sudarshan Murthy, USA
+#   hin:
+#     - डॉ. सुदर्शन मूर्ति, यु.इस.ए
+#   tam:
+#     - டாக்டர் சுதர்சன் மூர்த்தி, யு.எஸ்.ஏ
+#   tel:
+#     - డా. సుదర్శన్ మూర్తి, యు.ఎస్.ఎ
+#   mal:
+#     - ഡോ. സുദർശൻ മൂർത്തി, യു.എസ്.എ
+
+sura:
+  kan: ಡಾ. ಶತಾವಧಾನಿ ಉಡುಪಿ ರಾಮನಾಥ ಆಚಾರ್ಯ
+  eng: Dr. Shatavadhani Udupi Ramanatha Acharya
+  hin: डॉ. शतावधनि उदुपि रामनाथ आचार्य
+  tam: டாக்டர். ஷதாவதானி உடுபி ராமநாத ஆச்சார்யா
+  tel: డా. శతావధాని ఉడుపి రామనాథ్ ఆచార్య
+  mal: ഡോ. ശതാവധാനി ഉഡുപി രാമനാത ആചാര്യ
 
 prawipra:
   kan: ಪ್ರಾಣ ವಿಠಲ ಪ್ರಕಾಶನ
@@ -207,16 +229,89 @@ prawipra:
   tel: ప్రాణ విఠల ప్రకాశన
   mal: പ്രാണ വിതല പ്രകാശന
 
-webdev_peeps:
-# kan:
-#   - ಡಾ. ಸುದರ್ಶನ್ ಮೂರ್ತಿ, ಯು.ಎಸ್.ಎ
-# eng:
-#   - Dr. Sudarshan Murthy, USA
-# hin:
-#   - डॉ. सुदर्शन मूर्ति, यु.इस.ए
-# tam:
-#   - டாக்டர் சுதர்சன் மூர்த்தி, யு.எஸ்.ஏ
-# tel:
-#   - డా. సుదర్శన్ మూర్తి, యు.ఎస్.ఎ
-# mal:
-#   - ഡോ. സുദർശൻ മൂർത്തി, യു.എസ്.എ
+common_cc_license_statement:
+  kan: |
+    ಈ ಸೈಟ್‌ನ ವಿನ್ಯಾಸ ಮತ್ತು ಕಾರ್ಯಾನ್ವಯ, ಹಾಗೂ ಇಲ್ಲಿ ಪ್ರದರ್ಶಿಸಿದ ಅನುವಾದಗಳು 
+    ಮತ್ತು ಇತರ ಪಠ್ಯ, ಎಲ್ಲವೂ ಕ್ರಿಯೇಟಿವ್ ಕಾಮನ್ಸ್ ಪರವಾನಿಗೆಯಡಿ ಹಂಚಲ್ಪಟ್ಟಿವೆ.
+
+  eng: |
+    This site's design and implementation as well as the translations and other
+    text presented are all distributed under a Creative Commons license.
+
+  hin: |
+    इस साइट का डिजाइन और कार्यान्वयन, तथा यहाँ प्रदर्शित अनुवाद और
+    अन्य पाठ, सभी क्रिएटिव कॉमन्स लाइसेंस के तहत वितरित किए गए हैं।
+    
+  tam: |
+    இந்த சைட்‑இன் வடிவமைப்பு மற்றும் செயலாக்கம், மற்றும் இங்கு 
+    காண்பிக்கப்பட்ட மொழிபெயர்ப்புகள் மற்றும் பிற உரைகள் 
+    அனைத்தும் கிரியேட்டிவ் காமன்ஸ் உரிமையின் கீழ் பகிரப்படுகின்றன.    
+
+  tel: |
+    ఈ సైట్ డిజైన్ మరియు అమలు, అలాగే ఇక్కడ చూపించిన అనువాదాలు మరియు
+    ఇతర పాఠ్యాలు అన్నీ క్రియేటివ్ కామన్స్ లైసెన్స్ కింద పంపిణీ చేయబడ్డాయి.
+
+
+  mal: |
+    ഈ സൈറ്റ്‌ന്റെ രൂപകൽപ്പനയും നടപ്പാക്കലും, ഇവിടെ പ്രദർശിപ്പിച്ച
+    വിവർത്തനങ്ങളും മറ്റ് പാഠ്യങ്ങളും എല്ലാം ക്രിയേറ്റീവ് കോമൺസ്
+    ലൈസൻസിന്റെ കീഴിലാണ് വിതരണം ചെയ്യപ്പെടുന്നത്.
+
+all_rights_reserved:
+  kan:
+    - ಎಲ್ಲಾ ಹಕ್ಕುಗಳು ಮೀಸಲಾಗಿವೆ
+  eng:
+    - All rights reserved
+  hin:
+    - सभी अधिकार सुरक्षित
+  tam:
+    - அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை
+  tel:
+    - అన్ని హక్కులు నిల్వ చేయబడ్డవి
+  mal:
+    - എല്ലാ അവകാശങ്ങളും സംരക്ഷിച്ചിരിക്കുന്നു
+
+translations:
+  kan: ಅನುವಾದಗಳು
+  eng: Translations
+  hin: अनुवादों
+  tam: மொழிபெயர்ப்புகள்
+  tel: అనువాదాలు
+  mal: വിവർത്തനങ്ങൾ
+
+website:
+  kan: ವೆಬ್‌ಸೈಟ್
+  eng: Website
+  hin: वेबसाइट
+  tam: வலைத்தள
+  tel: వెబ్‌సైట్
+  mal: വെബ്‌സൈറ്റ്
+
+license:
+  kan: ಪರವಾನಿಗೆ
+  eng: License
+  hin: परवाना
+  tam: அனுமதி
+  tel: అనుమతి
+  mal: അനുമതി
+
+grants:
+  translations:
+    license: CC BY-NC-ND 4.0
+    license_url: https://creativecommons.org/licenses/by-nc-nd/4.0/
+    images: [cc, by, nc, nd]
+  website:
+    license: CC BY-NC-SA 4.0
+    license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/
+    images: [cc, by, nc, sa]
+
+cc_images:
+  src:
+    cc: https://mirrors.creativecommons.org/presskit/icons/cc.svg
+    by: https://mirrors.creativecommons.org/presskit/icons/by.svg
+    nc: https://mirrors.creativecommons.org/presskit/icons/nc.svg
+    nd: https://mirrors.creativecommons.org/presskit/icons/nd.svg
+    sa: https://mirrors.creativecommons.org/presskit/icons/sa.svg
+  style: |
+    max-width:1em; max-height:1em; margin-left:.2em;
+
