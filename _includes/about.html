@@ -111,7 +111,7 @@
 
     <tr>
         <td colspan="3" style="vertical-align: top;">
-            {{ about_data.webdevs_lead[lang] }}: 
+            {{ about_data.website_lead[lang] }}: 
             <strong>
                 {{ about_data.prawipra[lang] }}
             </strong>
@@ -132,3 +132,10 @@
 {% endfor %}
 
 </table>
+
+<p id="legal">{{ about_data.common_cc_license_statement[lang] }}</p>
+{% include license.html lang=page_lang artifact="translations" owner="sura" %}
+{% include license.html lang=page_lang artifact="website" owner="prawipra" %}
+
+
+
