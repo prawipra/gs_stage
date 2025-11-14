@@ -266,7 +266,7 @@
 
         {% assign default_eng_label = "All rights reserved" %}
         {% assign eng_label = about_data.all_rights_reserved.eng %}
-        {% assign rights_label = about_data.all_rights_reserved[page_lang] | default: eng_label : default: default_eng_label %}
+        {% assign rights_label = about_data.all_rights_reserved[page_lang] | default: eng_label | default: default_eng_label %}
         {% if rights_label == eng_label or label == default_eng_label %}
           {% assign label_lang = eng_lang_attr %}
         {% else %}
