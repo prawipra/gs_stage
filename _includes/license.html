@@ -36,7 +36,7 @@
         {% for term in about_data.grants[artifact].cc_terms %}
             <img src="{{ about_data.cc_terms[term].img_src }}" 
                  style="{{ about_data.cc_terms[term].img_style | default: default_img_style }}"
-                 title="{{ about_data.cc_terms[term].description }}">
+                 title="{{ about_data.cc_terms[term].description.eng }}">
         {% endfor %}
     </div>
 

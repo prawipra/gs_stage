@@ -318,7 +318,7 @@ cc_terms:
   cc:
     img_src: https://mirrors.creativecommons.org/presskit/icons/cc.svg
 #   img_style: # add img specific style to override default img_style
-    enumerate: false
+    enumerate: false # false means omit description from list of term descriptions; no point to describing CC
     description:
       kan: ಸೃಜನಾ ಸಾಮೂಹಿಕ
       eng: Creative Commons
