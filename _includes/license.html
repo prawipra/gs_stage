@@ -21,11 +21,11 @@
 {% assign owner = include.owner %}
 {% assign about_data = site.data.about %}
 
-<p style="margin-bottom: 0.25rem">
+<p style="margin-top: 1rem; margin-bottom: 0.25rem;">
     {{ about_data[artifact][lang] }} &copy; {{ site.time | date: "%Y" }}
     {{ about_data[owner][lang] }}. {{ about_data.all_rights_reserved[lang] }}.
 
-    <div style="display: flex; align-items: center;">
+    <div style="display: flex; align-items: center; margin-bottom: 0.25rem;">
         {{ about_data.distribution_license[lang] }}:&nbsp;
         <a href="{{ about_data.grants[artifact].license_url }}">
             {{ about_data.grants[artifact].license }}
