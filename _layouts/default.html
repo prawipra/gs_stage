@@ -5,8 +5,9 @@
 {% assign eng_lang_data = site.data.languages.eng %}
 {% assign san_lang_data = site.data.languages.san %}
 
-{% assign site_title = site.data.about.site_title[page_lang] | default: site.title %}
-{% assign site_description = site.data.about.site_description[page_lang] | default: site.description %}
+{% assign about_data = site.data.about %}
+{% assign site_title = about_data.site_title[page_lang] | default: site.title %}
+{% assign site_description = about_data.site_description[page_lang] | default: site.description %}
 
 {% comment %}
   Compute page_basename because page.basename and page.name are uavaialable but we need to know basefile
@@ -260,7 +261,24 @@
   </main>
 
    <footer class="center">
-    <p>&copy; {{ site.time | date: "%Y" }} {{ site.author }}</p>
+    <p>
+        {% capture href_path %}/{{ page_lang }}/about.html#legal{% endcapture %}
+
+        {% assign default_eng_label = "All rights reserved" %}
+        {% assign eng_label = about_data.all_rights_reserved.eng %}
+        {% assign rights_label = about_data.all_rights_reserved[page_lang] | default: eng_label : default: default_eng_label %}
+        {% if rights_label == eng_label or label == default_eng_label %}
+          {% assign label_lang = eng_lang_attr %}
+        {% else %}
+            {% assign label_lang = page_lang_attr %}
+        {% endif %}
+
+        <a href="{{ href_path | relative_url }}"
+            lang="{{ label_lang }}"
+            hreflang="{{ html_lang }}">
+          &copy; {{ site.time | date: "%Y" }} {{ rights_label }}.
+        </a>
+    </p>
     <button class="toggle-dark" id="darkToggle" aria-pressed="false">Toggle dark</button>
   </footer>
 
