@@ -261,13 +261,15 @@
   </main>
 
    <footer class="center">
+    
+    {% if page_basename != "about" %} {% comment %} omit copyright info from about page  {% endcomment %}
     <p>
         {% capture href_path %}/{{ page_lang }}/about.html#notice{% endcapture %}
 
-        {% assign default_eng_label = "All rights reserved" %}
-        {% assign eng_label = about_data.all_rights_reserved.eng %}
+        {% assign default_rights_label = "All rights reserved" %}
+        {% assign eng_rights_label = about_data.all_rights_reserved.eng %}
         {% assign rights_label = about_data.all_rights_reserved[page_lang] | default: eng_label | default: default_eng_label %}
-        {% if rights_label == eng_label or label == default_eng_label %}
+        {% if rights_label == eng_rights_label or label == default_rights_label %}
           {% assign label_lang = eng_lang_attr %}
         {% else %}
             {% assign label_lang = page_lang_attr %}
@@ -279,6 +281,8 @@
           &copy; {{ site.time | date: "%Y" }} {{ rights_label }}.
         </a>
     </p>
+    {% endif %}
+
     <button class="toggle-dark" id="darkToggle" aria-pressed="false">Toggle dark</button>
   </footer>
 
