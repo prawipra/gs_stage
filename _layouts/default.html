@@ -263,8 +263,8 @@
   </main>
 
    <footer class="center">
-    
-    {% if page_basename != "about" %} {% comment %} omit copyright info from about page  {% endcomment %}
+    {% comment %} add copyright info to all but the about page  {% endcomment %}
+    {% if page_basename != "about" %}
     <p>
         {% capture href_path %}/{{ page_lang }}/about.html#notice{% endcapture %}
 
