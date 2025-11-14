@@ -25,15 +25,16 @@
     {{ about_data[artifact][lang] }} &copy; {{ site.time | date: "%Y" }}
     {{ about_data[owner][lang] }}. {{ about_data.all_rights_reserved[lang] }}.
 
-    <div>
+    <div style="display: flex; align-items: center;">
         {% assign img_style = about_data.cc_images.style %}
-        {{ about_data.license[lang] }}: 
-        {% for image in about_data.grants[artifact].images %}
-            <img src="{{ about_data.cc_images.src[image] }}"style="{{ img_style }}">
-        {% endfor %}
+        {{ about_data.license[lang] }}:&nbsp;
         <a href="{{ about_data.grants[artifact].license_url }}">
             {{ about_data.grants[artifact].license }}
         </a>
+        &nbsp;
+        {% for image in about_data.grants[artifact].images %}
+            <img style="vertical-align:auto" src="{{ about_data.cc_images.src[image] }}"style="{{ img_style }}">
+        {% endfor %}
     </div>
 </p>
 
