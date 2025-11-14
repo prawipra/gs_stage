@@ -229,6 +229,14 @@ prawipra:
   tel: ప్రాణ విఠల ప్రకాశన
   mal: പ്രാണ വിതല പ്രകാശന
 
+notice:
+  kan: ಸೂಚನೆ
+  eng: Notice
+  hin: सूचना
+  tam: அறிவிப்பு
+  tel: సూచన
+  mal: അറിയിപ്പ്
+
 common_cc_license_statement:
   kan: |
     ಈ ಸೈಟ್‌ನ ವಿನ್ಯಾಸ ಮತ್ತು ಕಾರ್ಯಾನ್ವಯ, ಹಾಗೂ ಇಲ್ಲಿ ಪ್ರದರ್ಶಿಸಿದ ಅನುವಾದಗಳು 
@@ -314,4 +322,3 @@ cc_images:
     sa: https://mirrors.creativecommons.org/presskit/icons/sa.svg
   style: |
     max-width:1em; max-height:1em; margin-left:.2em;
-
