@@ -26,7 +26,7 @@
     {{ about_data[owner][lang] }}. {{ about_data.all_rights_reserved[lang] }}.
 
     <div style="display: flex; align-items: center;">
-        {{ about_data.license[lang] }}:&nbsp;
+        {{ about_data.distribution_license[lang] }}:&nbsp;
         <a href="{{ about_data.grants[artifact].license_url }}">
             {{ about_data.grants[artifact].license }}
         </a>
@@ -37,6 +37,14 @@
             <img src="{{ about_data.cc_terms[term].img_src }}" 
                  style="{{ about_data.cc_terms[term].img_style | default: default_img_style }}"
                  title="{{ about_data.cc_terms[term].description }}">
+        {% endfor %}
+    </div>
+
+    <div>
+        {% for term in about_data.grants[artifact].cc_terms %}
+            {% if enumerate != false %}
+                {{ term.description[lang] }}.&nbsp;
+            {% endif %}
         {% endfor %}
     </div>
 </p>

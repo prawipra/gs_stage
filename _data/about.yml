@@ -295,13 +295,13 @@ website:
   tel: వెబ్‌సైట్
   mal: വെബ്‌സൈറ്റ്
 
-license:
-  kan: ಪರವಾನಿಗೆ
-  eng: License
-  hin: परवाना
-  tam: அனுமதி
-  tel: అనుమతి
-  mal: അനുമതി
+distribution_license:
+  kan: ವಿತರಣಾ ಪರವಾನಗಿ
+  eng: Distribution license
+  hin: वितरण परवाना
+  tam: விநியோக அனுமதி
+  tel: పంపిణీ అనుమతి
+  mal: വിതരണ അനുമതി
 
 grants:
   translations:
@@ -314,20 +314,52 @@ grants:
     cc_terms: [cc, by, nc, sa]
 
 cc_terms:
-  cc: 
-    description: Creative Commons
+  img_style: "max-width:1em; max-height:1em; margin-left:.2em;" # default img_style; override in any term if required
+  cc:
     img_src: https://mirrors.creativecommons.org/presskit/icons/cc.svg
 #   img_style: # add img specific style to override default img_style
+    enumerate: false
+    description:
+      kan: ಸೃಜನಾ ಸಾಮೂಹಿಕ
+      eng: Creative Commons
+      hin: सर्जनात्मक सामूहिक
+      tam: படைப்பு கூட்டு
+      tel: సృజనా సమిష్టి
+      mal: സൃഷ്ടിപരം കൂട്ടായ
   by: 
-    description: Attribution
     img_src: https://mirrors.creativecommons.org/presskit/icons/by.svg
+    description:
+      kan: ಕರ್ತೃ ಗುರುತು ಕಡ್ಡಾಯ
+      eng: Attribution required
+      hin: कर्ता उल्लेख आवश्यक
+      tam: உருவாக்குநரை குறிப்பிடுதல் கட்டாயம்
+      tel: కర్త గుర్తింపు తప్పనిసరి
+      mal: സൃഷ്ടിച്ച വ്യക്തിയെ തിരിച്ചറിവ്
   nc: 
-    description: Non-commerical
     img_src: https://mirrors.creativecommons.org/presskit/icons/nc.svg
+    description:
+      kan: ವಾಣಿಜ್ಯಕ್ಕಲ್ಲ
+      eng: No commerical use
+      hin: व्यावसायिक उपयोग वर्जित
+      tam: வணிகத்திற்கு அல்ல
+      tel: వాణిజ్యానికి కాదు
+      mal: വാണിജ്യപരമായതല്ല
   nd: 
-    description: No Derivatives
     img_src: https://mirrors.creativecommons.org/presskit/icons/nd.svg
+    description:
+      kan: ಪರಿವರ್ತನೆ ವಿತರಿಸುವಂತಿಲ್ಲ
+      eng: No distributing derivatives
+      hin: परिवर्तनों का वितरण निषेध
+      tam: மாற்றங்களை பகிரக்கூடாது
+      tel: పరివర్తనాల పంపిణీ నిషేధం
+      mal: പരിവർത്തനങ്ങൾ പങ്കുവെക്കരുത്
   sa: 
-    description: Share Alike
     img_src: https://mirrors.creativecommons.org/presskit/icons/sa.svg
-  img_style: "max-width:1em; max-height:1em; margin-left:.2em;"
+    description:
+      kan: ಇದೇ ಶರತ್ತುಗಳಲ್ಲಿ ವಿತರಣೆ
+      eng: Distribute under same terms
+      hin: इन्हीं शर्तों पर वितरण
+      tam: இதே நிபந்தனைகளில் பகிர்வு
+      tel: ఇదే నిబంధనల్లో పంపిణీ
+      mal: ഇതേ നിബന്ധനകളിൽ വിതരണം
+  
