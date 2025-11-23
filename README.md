@@ -11,7 +11,7 @@ Transliteration between languages are primarily performed using [Aksharamukha Co
 Verses are transliterated from Kannada to other languages. That is, Kannada is always the source. Transliteration to Latin ("romanized") uses [IAST scheme](https://www.aksharamukha.com/roman).
 
 Aksharamukha transliteration results are post-processed to fix the following issues:
-- In YAML keys, replace danda mark with period. E.g., the key 27.5 is transliterated as 27।5. Replacing the danda with a period restores the original key.
+
 - Indent the verse text to match the source
 
 ### Transliteration options
@@ -21,6 +21,10 @@ Only the options mentioned hereunder are enabled for transliteration from Kannad
 #### Devanagari
 
 - Use Anusvara to nasalize (पञ्चगङ्गा → पंचगंगा)
+
+Transliteration results are also post-processed to fix the following issues:
+
+- In YAML keys, replace danda mark with period. E.g., the key 27.5 is transliterated as 27।5. Replacing the danda with a period restores the original key.
 
 #### Telugu
 
