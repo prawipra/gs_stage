@@ -25,15 +25,16 @@ Sanjaya as the Bhagavad Gita \["ballad from the Lord"].
 
 Here is a brief of Krishna's messages and their meaning in Kannada [in turn translated to English here]. The
 ballad has "tens of" \[several] interpretations, and this particular work is in service of cogitation(s)
-aligned with Krishna's doctrine. It is my offering to \[my] guru(s).
+aligned with Krishna's doctrine. It is my offering to \[my] guru(s). I have also provided this work in
+multiple languages.
 
 ### Invocation
 
-Nārāyaṇaṃ sura guruṃ jagadēka-nāthaṃ bhakta priyaṃ sakala loka namaskṛtaṃ ca ।  
-traiguṇya varjitamajaṃ vibhumādyamīśaṃ vande bhavaghnaṃ amarāsura siddha vandyaṃ ॥  
-Nārāyaṇaṃ namaskṛtya naraṃ caiva narōttamaṃ ।  
-dēvīṃ sarasvatīṃ vyāsaṃ tato jayamudīrayē ॥
-{: lang="san-Latn-IN-x-iso15919"}
+nārāyaṇaṃ sura-guruṃ jagadeka-nāthaṃ bhakta-priyaṃ sakala-loka-namaskṛtaṃ ca ।  
+traiguṇya-varjjitamajaṃ vibhumādyamīśaṃ vande bhavaghnaṃ amarāsura-siddha-vandyam ॥  
+nārāyaṇaṃ namaskṛtya naraṃ caiva narottamam ।  
+devīṃ sarasvatīṃ vyāsaṃ tato jayamudīraye ॥
+{: lang="san-Latn-IN-x-IAST"}
 
 ### Preface to English translation
 
@@ -53,12 +54,10 @@ Where it is necessary to pick a number, the translation uses the number that is 
 context. Or, if the context permits, it uses the singular and adds a parenthetical plural modifier. The last
 sentence in the main text exemplifies.
 
-Lastly, this translation transliterates Indic text (in Sanskrit, Kannada, and such) using the ISO 15919:2001
-standard. Some Indic text is only transliterated but not translated. The invocation text in the preceding
+Lastly, this translation transliterates Indic text (in Sanskrit, Kannada, and such) using the
+[IAST scheme](https://en.wikipedia.org/wiki/International_Alphabet_of_Sanskrit_Transliteration).
+Some Indic text is only transliterated but not translated. The invocation text in the preceding
 section is an example.
-
-- ISO 15919 – Wikipedia (overview): <https://en.wikipedia.org/wiki/ISO_15919>
-- ISO 15919:2001 – Official ISO page: <https://www.iso.org/standard/28333.html>
 
 ### Discussion (only for development)
 
