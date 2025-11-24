@@ -17,7 +17,7 @@
 {% endcomment %}
 
 {% assign lang = include.lang %}
-{% assign chapter_int = include.chapter %}
+{% assign chapter_number = include.chapter %}
 
 {% assign page_lang_data = site.data.languages[lang] %}
 {% assign eng_lang_data = site.data.languages.eng %}
@@ -25,15 +25,15 @@
 {% capture san_xlit_lang_attr %}san-{{ page_lang_data.script }}-{{ page_lang_data.region }}{% endcapture %}
 {% capture san_xlit_eng_attr %}eng-{{ eng_lang_data.script }}-{{ eng_lang_data.region }}{% endcapture %}
 
-{% assign eng_phrase_uwacha = site.data.phrases.uwacha.eng | default: "spoke" %}
-{% assign phrase_uwacha = site.data.phrases.uwacha[lang] | default: eng_phrase_uwacha %}
+{% assign eng_phrase_uwacha = site.data.phrases.uwacha.eng | default: "says" %}
+{% assign lang_phrase_uwacha = site.data.phrases.uwacha[lang] | default: eng_phrase_uwacha %}
 
 {% assign speaker_data = site.data.speakers %}
 
-{% assign verse_file_key = "v" | append: chapter_int %}
+{% assign verse_file_key = "v" | append: chapter_number %}
 {% assign verse_data = site.data[lang][verse_file_key] %}
 
-{% assign meaning_file_key = "m" | append: chapter_int %}
+{% assign meaning_file_key = "m" | append: chapter_number %}
 {% assign meaning_data = site.data[lang][meaning_file_key] %}
 
 <table style="margin: 0 auto; width: auto; max-width: 600px">
@@ -43,7 +43,7 @@
   {% assign verse_number_int = verse_number | to_integer %}
   {% assign verse_content = kv_pair_top[1] %}
 
-  {% assign speaker_key = speaker_data[chapter_int][verse_number_int] %}
+  {% assign speaker_key = speaker_data[chapter_number][verse_number_int] %}
   {% if speaker_key %}
     {% assign speaker_name = speaker_data[speaker_key][lang] %}
     {% if speaker_name %}
@@ -51,13 +51,13 @@
     {% else %}
       {% assign speaker_name = speaker_key | capitalize %}
       {% assign speaker_name_lang = san_xlit_eng_attr %}
-      {% assign phrase_uwacha = eng_phrase_uwacha %}
+      {% assign lang_phrase_uwacha = eng_phrase_uwacha %}
     {% endif %}
 
     <tr class="verse-speaker" style="font-weight: 500;">
       <td colspan="2">
         <span lang="">{{ speaker_name }}</span>
-        <span lang="">{{ phrase_uwacha }}</span>
+        <span lang="">{{ lang_phrase_uwacha }}</span>
       </td>
     </tr>
   {% endif %}
@@ -94,3 +94,12 @@
 {% endfor %}
 
 </table>
+
+{% comment %} 
+  print chapter end phrase: default layout prints the chapter begin phrase (before title)
+{% endcomment %}
+<h2 lang="" class="center" style="padding-top: 2rem;">
+  {{ site.data.phrases.iti[lang] }}
+  {{ site.data.chapters[chapter_number].adhyaaha[lang] }}
+</h2>
+

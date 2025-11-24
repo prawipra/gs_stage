@@ -250,7 +250,15 @@
       {% include content_unavailable.html lang=page_lang title=page_title %}
     {% else %}
       {% if not_index_page %}
-      <h2 class="center" style="padding-bottom: 2rem;">{{ page_title }}</h2>
+        <h2 class="center" style="padding-bottom: 2rem;">
+        {% if chapter_number > 0 %}
+          <span lang="" style="display: block;">
+            {{ site.data.phrases.atha[page_lang] }}
+            {{ site.data.chapters[chapter_number].adhyaaha[page_lang] }}
+          </span>
+        {% endif %}
+          <span style="display: block;">{{ page_title }}</span>
+        </h2>
       {% endif %}
       
       {% if chapter_number > 0 %}
