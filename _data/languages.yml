@@ -23,7 +23,6 @@ san:
     tel: సంస్కృతం
     mal: സംസ്കൃതം
 
-
 kan:
   active: true  # entry not needed: missing entry is treated as `active: true`
   script: Knda
@@ -36,11 +35,10 @@ kan:
     tel: కన్నడ
     mal: കന്നഡ
 
-
 eng:
   script: Latn
   region: US
-  xlit_extension: iso15919
+  xlit_extension: IAST
   name:
     kan: ಇಂಗ್ಲಿಷ್
     eng: English
@@ -49,7 +47,6 @@ eng:
     tel: ఆంగ్లం
     mal: ഇംഗ്ലീഷ്
 
-
 hin:
   script: Deva
   region: IN
@@ -57,10 +54,9 @@ hin:
     kan: ಹಿಂದಿ
     eng: Hindi
     hin: हिन्दी
-    tam: இந்தி
+    tam: ஹிந்தி³
     tel: హిందీ
     mal: ഹിന്ദി
-
 
 tam:
   script: Taml
@@ -73,7 +69,6 @@ tam:
     tel: తమిళం
     mal: തമിഴ്
 
-
 tel:
   script: Telu
   region: IN
@@ -84,7 +79,6 @@ tel:
     tam: தெலுங்கு
     tel: తెలుగు
     mal: തെലുങ്ക്
-
 
 mal:
   active: false
