@@ -32,13 +32,29 @@ shlokas:
   tel: శ్లోకాలు
   mal: വാക്യങ്ങൾ
 
-spoke:
+uwacha:
   kan: ಉವಾಚ
-  eng: spoke
+  eng: says
   hin: उवाच
   tam: உவாச
   tel: ఉవాచ
   mal: ഉവാച
+
+atha:
+  kan: अथ
+  eng: atha
+  hin: अथ
+  tam: அத²
+  tel: అథ
+  mal: അഥ
+
+iti:
+  kan: ಇತಿ
+  eng: iti
+  hin: इति
+  tam: இதி
+  tel: ఇతి
+  mal: ഇതി
 
 # localized message to show when a lang page is unavailable
 # The localized message should correspond to the eng message
