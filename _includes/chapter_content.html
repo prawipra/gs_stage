@@ -25,8 +25,8 @@
 {% capture san_xlit_lang_attr %}san-{{ page_lang_data.script }}-{{ page_lang_data.region }}{% endcapture %}
 {% capture san_xlit_eng_attr %}eng-{{ eng_lang_data.script }}-{{ eng_lang_data.region }}{% endcapture %}
 
-{% assign eng_phrase_spoke = site.data.phrases.spoke.eng | default: "spoke" %}
-{% assign phrase_spoke = site.data.phrases.spoke[lang] | default: eng_phrase_spoke %}
+{% assign eng_phrase_uwacha = site.data.phrases.uwacha.eng | default: "spoke" %}
+{% assign phrase_uwacha = site.data.phrases.uwacha[lang] | default: eng_phrase_uwacha %}
 
 {% assign speaker_data = site.data.speakers %}
 
@@ -51,13 +51,13 @@
     {% else %}
       {% assign speaker_name = speaker_key | capitalize %}
       {% assign speaker_name_lang = san_xlit_eng_attr %}
-      {% assign phrase_spoke = eng_phrase_spoke %}
+      {% assign phrase_uwacha = eng_phrase_uwacha %}
     {% endif %}
 
     <tr class="verse-speaker" style="font-weight: 500;">
       <td colspan="2">
         <span lang="">{{ speaker_name }}</span>
-        <span lang="">{{ phrase_spoke }}</span>
+        <span lang="">{{ phrase_uwacha }}</span>
       </td>
     </tr>
   {% endif %}
