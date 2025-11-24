@@ -1,5 +1,7 @@
 # Each main key is chapter number
-# for each chapter, define: chapter number, number in words, verse count, and title in different languages
+# for each chapter, define: chapter number, number in words, verse count, and the "adhyaaha" phrase in different languages
+# - use language appropriate avagraha character in "adhyaaha" phrases
+# - encoded the eng phrase for "adhyaaha" in IAST scheme
 
 1:
   number:
@@ -23,15 +25,14 @@
     tam: ௪௭
     tel: ౪౭
     mal: ൪൭
-  title:
-    san: अर्जुनविषादयोगः
-    iso: arjunaviṣādayōgaḥ
-    kan: ಅರ್ಜುನವಿಷಾದಯೋಗಃ
-    eng: Arjuna's Despondency
-    hin: अर्जुनविषादयोगः
-    tam: அர்ஜுனவிஷாதயோகம்
-    tel: అర్జునవిషాదయోగః
-    mal: അർജുനവിഷാദയോഗഃ
+  adhyaaha:
+    kan: ಪ್ರಥಮೋಽಧ್ಯಾಯಃ
+    eng: prathamo'dhyāyaḥ
+    hin: प्रथमोऽध्यायः
+    tam: ப்ரத²மோ(அ)த்⁴யாய꞉
+         ப்ரத²மோ௝த்⁴யாய꞉
+    tel: ప్రథమోఽధ్యాయః
+    mal: പ്രഥമോഽധ്യായഃ
 
 2:
   number:
@@ -55,15 +56,13 @@
     tam: ௭௨
     tel: ౭౨
     mal: ൭൨
-  title:
-    san: सांख्ययोगः
-    iso: sāṅkhyayōgaḥ
-    kan: ಸಾಂಖ್ಯಯೋಗಃ
-    eng: Path of Knowledge
-    hin: सांख्ययोगः
-    tam: ஸாங்஖்யயோகஃ
-    tel: సాంఖ్యయోగః
-    mal: സാങ്ക്യയോഗഃ
+  adhyaaha:
+    kan: ದ್ವಿತೀಯೋಽಧ್ಯಾಯಃ
+    eng: dvitīyo'dhyāyaḥ
+    hin: द्वितीयोऽध्यायः
+    tam: த்³விதீயோ(அ)த்⁴யாய꞉
+    tel: ద్వితీయోఽధ్యాయః
+    mal: ദ്വിതീയോഽധ്യായഃ
 
 3:
   number:
@@ -87,15 +86,13 @@
     tam: ௪௩
     tel: ౪౩
     mal: ൪൩
-  title:
-    san: कर्मयोगः
-    iso: karmayōgaḥ
-    kan: ಕರ್ಮಯೋಗಃ
-    eng: The Yoga of Action
-    hin: कर्मयोगः
-    tam: கர்மயோகஃ
-    tel: కర్మయోగః
-    mal: കര്‍മ്മയോഗഃ
+  adhyaaha:
+    kan: ತೃತೀಯೋಽಧ್ಯಾಯಃ
+    eng: tṛtīyo'dhyāyaḥ
+    hin: तृतीयोऽध्यायः
+    tam: த்ருʼதீயோ(அ)த்⁴யாய꞉
+    tel: తృతీయోఽధ్యాయః
+    mal: തൃതീയോഽധ്യായഃ
 
 4:
   number:
@@ -119,15 +116,13 @@
     tam: ௪௨
     tel: ౪౨
     mal: ൪൨
-  title:
-    san: ज्ञानकर्मसंयासयोगः
-    iso: jñānakarmasamnyāsayogaḥ
-    kan: ಜ್ಞಾನಕರ್ಮಸಂನ್ಯಾಸಯೋಗಃ
-    eng: Renunciating Action through Knowledge
-    hin: ज्ञानकर्मसंन्यासयोगः
-    tam: ஞானகர்மசன்னியாசயோகம்ஃ
-    tel: జ్ఞానకర్మసంన్యాసయోగః
-    mal: ജ്ഞാനകര്‍മസംന്യാസയോഗഃ
+  adhyaaha:
+    kan: ಚತುರ್ಥೋಽಧ್ಯಾಯಃ
+    eng: caturtho'dhyāyaḥ
+    hin: चतुर्थोऽध्यायः
+    tam: சதுர்தோ²(அ)த்⁴யாய꞉
+    tel: చతుర్థోఽధ్యాయః
+    mal: ചതുർഥോഽധ്യായഃ
 
 5:
   number:
@@ -151,15 +146,13 @@
     tam: ௨௯
     tel: ౨౯
     mal: ൨൯
-  title:
-    san: कर्मसंयासयोगः
-    iso: karmasaṁnyāsayōgaḥ
-    kan: ಕರ್ಮಸಂನ್ಯಾಸಯೋಗಃ
-    eng: Renunciation and Action
-    hin: कर्मसंन्यासयोगः
-    tam: கர்மஸந்நியாஸயோகஃ
-    tel: కర్మసంన్యాసయోగః
-    mal: കർമസംന്യാസയോഗഃ
+  adhyaaha:
+    kan: ಪಂಚಮೋಽಧ್ಯಾಯಃ
+    eng: pañcamo'dhyāyaḥ
+    hin: पंचमोऽध्यायः
+    tam: பஞ்சமோ(அ)த்⁴யாய꞉
+    tel: పంచమోఽధ్యాయః
+    mal: പഞ്ചമോഽധ്യായഃ
 
 6:
   number:
@@ -183,15 +176,13 @@
     tam: ௪௭
     tel: ౪౭
     mal: ൪൭
-  title:
-    san: आत्मसंयासयोगः
-    iso: ātmasaṁyamayōgaḥ
-    kan: ಆತ್ಮಸಂಯಮಯೋಗಃ
-    eng: Mastering Self through Meditation
-    hin: आत्मसंयमयोगः
-    tam: ஆத்மஸஂயமயோகஃ
-    tel: ఆత్మసంయమయోగః
-    mal: ആത്മസംയമയോഗഃ
+  adhyaaha:
+    kan: ಷಷ್ಠೋಽಧ್ಯಾಯಃ
+    eng: ṣaṣṭho'dhyāyaḥ
+    hin: षष्ठोऽध्यायः
+    tam: ஷஷ்டோ²(அ)த்⁴யாய꞉
+    tel: షష్ఠోఽధ్యాయః
+    mal: ഷഷ്ഠോഽധ്യായഃ
 
 7:
   number:
@@ -215,15 +206,13 @@
     tam: ௩௦
     tel: ౩౦
     mal: ൩൦
-  title:
-    san: ज्ञानविज्ञानयोगः
-    iso: jñānavijñānayōgaḥ
-    kan: ಜ್ಞಾನವಿಜ್ಞಾನಯೋಗಃ
-    eng: Knowledge and Wisdom
-    hin: ज्ञानविज्ञानयोगः
-    tam: ஜ்ஞானவிஜ்ஞானயோகஃ
-    tel: జ్ఞానవిజ్ఞానయోగః
-    mal: ജ്ഞാനവിജ്ഞാനയോഗഃ
+  adhyaaha:
+    kan: ಸಪ್ತಮೋಽಧ್ಯಾಯಃ
+    eng: saptamo'dhyāyaḥ
+    hin: सप्तमोऽध्यायः
+    tam: செப்தமோ²(அ)த்⁴யாய꞉
+    tel: సప్తమోఽధ్యాయః
+    mal: സപ്തമോഽധ്യായഃ
 
 8:
   number:
@@ -239,7 +228,7 @@
     hin: आठ
     tam: எட்டு
     tel: ఎనిమిది
-    mal: எട്ട്
+    mal: എട്ട്
   verses:
     kan: ೨೮
     eng: 28
@@ -247,15 +236,13 @@
     tam: ௨௮
     tel: ౨౮
     mal: ൨൮
-  title:
-    san: अक्षरब्रह्मयोगः
-    iso: akṣaraparabrahmayōgaḥ
-    kan: ಅಕ್ಷರಬ್ರಹ್ಮಯೋಗಃ
-    eng: The Eternal, The Supreme
-    hin: अक्षरब्रह्मयोगः
-    tam: அக்‌ஷரப்ரஹ்மயோகம்ஃ
-    tel: అక్షరబ్రహ్మయోగః
-    mal: അക്ഷരബ്രഹ്മയോഗഃ
+  adhyaaha:
+    kan: ಅಷ್ಟಮೋಽಧ್ಯಾಯಃ
+    eng: aṣṭamo'dhyāyaḥ
+    hin: अष्टमोऽध्यायः
+    tam: அஷ்டமோ²(அ)த்⁴யாய꞉
+    tel: అష్టమోఽధ్యాయః
+    mal: അഷ്ടമോഽധ്യായഃ
 
 9:
   number:
@@ -279,15 +266,13 @@
     tam: ௩௪
     tel: ౩೪
     mal: ൩൪
-  title:
-    san: राजविद्याराजगुह्ययोगः
-    iso: rājavidyārājaguhyayōgaḥ
-    kan: ರಾಜವಿದ್ಯಾರಾಜಗುಹ್ಯಯೋಗಃ
-    eng: Secrets of Kingly Knowledge
-    hin: राजविद्याराजगुह्ययोगः
-    tam: ராஜவித்யாராஜகுஹ்யயோகஃ
-    tel: రాజవిద్యారాజగుహ్యయోగః
-    mal: രാജവിദ്യാരാജഗുഹ്യയോഗഃ
+  adhyaaha:
+    kan: ನವಮೋಽಧ್ಯಾಯಃ
+    eng: navamo'dhyāyaḥ
+    hin: नवमोऽध्यायः
+    tam: நவமோ²(அ)த்⁴யாய꞉
+    tel: నవమోఽధ్యాయః
+    mal: നവമോഽധ്യായഃ
 
 10:
   number:
@@ -311,15 +296,13 @@
     tam: ௪௨
     tel: ౪౨
     mal: ൪൨
-  title:
-    san: विभूतियोगः
-    iso: vibhūtiyōgaḥ
-    kan: ವಿಭೂತಿಯೋಗಃ
-    eng: Divine Glory Manifested
-    hin: विभूतियोगः
-    tam: விபூதியோகஃ
-    tel: విభూతియోగః
-    mal: വിപൂതിയോഗഃ
+  adhyaaha:
+    kan: ದಶಮೋಽಧ್ಯಾಯಃ
+    eng: daśamo'dhyāyaḥ
+    hin: दशमोऽध्यायः
+    tam: தசமோ²(அ)த்⁴யாய꞉
+    tel: దశమోఽధ్యాయః
+    mal: ദശമോഽധ്യായഃ
 
 11:
   number:
@@ -343,15 +326,13 @@
     tam: ௫௫
     tel: ౫౫
     mal: ൫൫
-  title:
-    san: विश्वरूपदर्शनयोगः
-    iso: viśvarūpadarśanayōgaḥ
-    kan: ವಿಶ್ವರೂಪದರ್ಶನಯೋಗಃ
-    eng: All of Divinity at Once
-    hin: विश्वरूपदर्शनयोगः
-    tam: விஶ்வரூபதர்ஶநயோகஃ
-    tel: విశ్వరూపదర్శనయోగః
-    mal: വിശ്വരൂപദർശനയോഗഃ
+  adhyaaha:
+    kan: ಏಕಾದಶೋಽಧ್ಯಾಯಃ
+    eng: ekādaśo'dhyāyaḥ
+    hin: एकादशोऽध्यायः
+    tam: ஏகாதசோ²(அ)த்⁴யாய꞉
+    tel: ఏకాదశోఽధ్యాయః
+    mal: ഏകാദശോഽധ്യായഃ
 
 12:
   number:
@@ -375,15 +356,13 @@
     tam: ௨௦
     tel: ౨౦
     mal: ൨൦
-  title:
-    san: भक्तियोगः
-    iso: bhaktiyōgaḥ
-    kan: ಭಕ್ತಿಯೋಗಃ
-    eng: Path of Devotion
-    hin: भक्ति योगः
-    tam: பக்தியோகஃ
-    tel: భక్తియోగః
-    mal: ഭക്തിയോഗഃ
+  adhyaaha:
+    kan: ದ್ವಾದಶೋಽಧ್ಯಾಯಃ
+    eng: dvādaśo'dhyāyaḥ
+    hin: द्वादशोऽध्यायः
+    tam: த்வாதசோ²(அ)த்⁴யாய꞉
+    tel: ద్వాదశోఽధ్యాయః
+    mal: ദ്വാദശോഽധ്യായഃ
 
 13:
   number:
@@ -407,15 +386,13 @@
     tam: ௩௫
     tel: ౩౫
     mal: ൩൫
-  title:
-    san: क्षेत्रक्षेत्रज्ञविभागयोगः
-    iso: kṣetrakṣetrajñavibhāgayōgaḥ
-    kan: ಕ್ಷೇತ್ರಕ್ಷೇತ್ರಜ್ಞವಿಭಾಗಯೋಗಃ
-    eng: Knowable and the Knower
-    hin: क्षेत्रक्षेत्रज्ञविभागयोगः
-    tam: க்ஷேத்ரக்ஷேത்ரஞ்விபாகயோகஃ
-    tel: క్షేత్రక్షేత్రజ్ఞవిభాగయోగః
-    mal: ക്ഷേത്രക്ഷേത്രജ്ഞവിഭാഗയോഗഃ
+  adhyaaha:
+    kan: ತ್ರಯೋದಶೋಽಧ್ಯಾಯಃ
+    eng: trayodaśo'dhyāyaḥ
+    hin: त्रयोदशोऽध्यायः
+    tam: த்ரயோதசோ²(அ)த்⁴யாய꞉
+    tel: త్రయోదశోఽధ్యాయః
+    mal: ത്രയോദശോഽധ്യായഃ
 
 14:
   number:
@@ -439,15 +416,13 @@
     tam: ௨௭
     tel: ౨౭
     mal: ൨൭
-  title:
-    san: गुणत्रयविभागयोगः
-    iso: guṇatrayavibhāgayōgaḥ
-    kan: ಗುಣತ್ರಯವಿಭಾಗಯೋಗಃ
-    eng: The Three Traits
-    hin: गुणत्रयविभागयोगः
-    tam: குணத்ரயவிபாகயோகஃ
-    tel: గుణత్రయవిభాగయోగః
-    mal: ഗുണത്രയവിഭാഗയോഗഃ
+  adhyaaha:
+    kan: ಚತುರ್ದಶೋಽಧ್ಯಾಯಃ
+    eng: caturdaśo'dhyāyaḥ
+    hin: चतुर्दशोऽध्यायः
+    tam: சதுர்தசோ(அ)த்⁴யாய꞉
+    tel: చతుర్దశోఽధ్యాయః
+    mal: ചതുര്ദശോഽധ്യായഃ
 
 15:
   number:
@@ -471,15 +446,13 @@
     tam: ௨௦
     tel: ౨౦
     mal: ൨൦
-  title:
-    san: पुरुषोत्तमयोगः
-    iso: puruṣōttamayōgaḥ
-    kan: ಪುರುಷೋತ್ತಮಯೋಗಃ
-    eng: The Yoga of the Supreme Person
-    hin: पुरुषोत्तमयोगः
-    tam: புருஷோத்தமயோகஃ
-    tel: పురుషోత్తమయోగః
-    mal: പുരുഷോത്തമയോഗഃ
+  adhyaaha:
+    kan: ಪಂಚದಶೋಽಧ್ಯಾಯಃ
+    eng: pañcadaśo'dhyāyaḥ
+    hin: पञ्चदशोऽध्यायः
+    tam: பஞ்சதசோ²(அ)த்⁴யாய꞉
+    tel: పంచదశోఽధ్యాయః
+    mal: പഞ്ചദശോഽധ്യായഃ
 
 16:
   number:
@@ -503,15 +476,13 @@
     tam: ௨௪
     tel: ౨౪
     mal: ൨൪
-  title:
-    san: दैवासुरसम्पद्विभागयोगः
-    iso: daivāsurasampadvibhāgayōgaḥ
-    kan: ದೈವಾಸುರಸಂಪದ್ವಿಭಾಗಯೋಗ
-    eng: The Division between the Divine and the Demonic
-    hin: दैवासुरसम्पत्तिविभागयोगः
-    tam: தைவாசுரஸம்பத்விபாகயோகஃ
-    tel: దైన్వాసురసంపద్విభాగయోగః
-    mal: ദൈവാസുരസമ്പദ്വിഭാഗയോഗഃ
+  adhyaaha:
+    kan: ಷೋಡಶೋಽಧ್ಯಾಯಃ
+    eng: ṣoḍaśo'dhyāyaḥ
+    hin: षोडशोऽध्यायः
+    tam: ஷோடசோ²(அ)த்⁴யாய꞉
+    tel: షోడశోఽధ్యాయః
+    mal: ഷോഡശോഽധ്യായഃ
 
 17:
   number:
@@ -535,15 +506,13 @@
     tam: ௨௮
     tel: ౨౮
     mal: ൨൮
-  title:
-    san: श्रद्धात्रयविभागयोगः
-    iso: śraddhātrayavibhāgayōgaḥ
-    kan: ಶ್ರದ್ಧಾತ್ರಯವಿಭಾಗಯೋಗಃ
-    eng: Causes and Effects
-    hin: श्रद्धात्रयविभागयोगः
-    tam: ஷ்ரத்தாத்ரயவிபாகயோகஃ
-    tel: శ్రద్ధాత్రయవిభాగయోగః
-    mal: ശ്രദ്ദാത്രയവിഭാഗയോഗഃ
+  adhyaaha:
+    kan: ಸಪ್ತದಶೋಽಧ್ಯಾಯಃ
+    eng: saptadaśo'dhyāyaḥ
+    hin: सप्तदशोऽध्यायः
+    tam: ஸப்ததசோ²(அ)த்⁴யாய꞉
+    tel: సప్తదశోఽధ్యాయః
+    mal: സപ്തദശോഽധ്യായഃ
 
 18:
   number:
@@ -567,13 +536,10 @@
     tam: ௭௮
     tel: ౭౮
     mal: ൭൮
-  title:
-    san: मोक्षसंन्यासयोगः
-    iso: mōkṣasaṁnyāsayōgaḥ
-    kan: ಮೋಕ್ಷಸಂನ್ಯಾಸಯೋಗಃ
-    eng: Liberation through Renunciation
-    hin: मोक्षसंन्यासयोगः
-    tam: மோட்சஸந்நியாஸயோகஃ
-    tel: మోక్షసంన్యాసయోగః
-    mal: മോക്ഷസംന്യാസയോഗഃ
-    
+  adhyaaha:
+    kan: ಅಷ್ಟಾದಶೋಽಧ್ಯಾಯಃ
+    eng: aṣṭādaśo'dhyāyaḥ
+    hin: अष्टादशोऽध्यायः
+    tam: அஷ்டாதசோ²(அ)த்⁴யாய꞉
+    tel: అష్టాదశోఽధ్యాయః
+    mal: അഷ്ടാദശോഽധ്യായഃ
