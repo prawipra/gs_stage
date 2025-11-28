@@ -2,6 +2,10 @@
 # for each chapter, define: chapter number, number in words, verse count, and the "adhyaaha" phrase in different languages
 # - use language appropriate avagraha character in "adhyaaha" phrases
 # - encoded the eng phrase for "adhyaaha" in IAST scheme
+# optionally include an "end_announcement" for each chapter
+# - printed after "iti ...adhyaaha"
+# - presently used only with Chapter 18, but nothing prevents such end announcements
+#   after other chapters
 
 1:
   number:
@@ -32,6 +36,7 @@
     tam: ப்ரத²மோ(அ)த்⁴யாய꞉
     tel: ప్రథమోఽధ్యాయః
     mal: പ്രഥമോഽധ്യായഃ
+# end_announcement:
 
 2:
   number:
@@ -542,3 +547,29 @@
     tam: அஷ்டாதசோ²(அ)த்⁴யாய꞉
     tel: అష్టాదశోఽధ్యాయః
     mal: അഷ്ടാദശോഽധ്യായഃ
+  end_announcement:
+    kan: >-
+      ಶ್ರೀ ವೇದವ್ಯಾಸರು ರಚಿಸಿದ ಲಕ್ಷಶ್ಲೋಕದ ಶ್ರೀ ಮಹಾಭಾರತಸಂಹಿತೆಯ ಭೀಷ್ಮಮಹಾಪರ್ವದಲ್ಲಿನ
+      ಶ್ರೀಕೃಷ್ಣಾರ್ಜುನ ಸಂವಾದರೂಪವಾದ ಭಗವದ್ಗೀತಾ ಅವಾಂತರಪರ್ವದಲ್ಲಿ ೨೫ರಿಂದ ೪೨ ಅಧ್ಯಾಯಗಳಿವು.
+
+    eng: >-
+      These are Chapters 25 to 42, presented in the form of a dialogue between  
+      Sri Krishna and Arjuna, in the Avantara Parva part of Bhishma Maha Parva
+      of the 100,000-verse long Sri Mahabharata Samhita composed by Sri Vedavyasa.
+      
+    hin: >-
+      श्री वेदव्यास जी ने रचे हुए लाख श्लोकों की महाभारत संहिता के भीष्म पर्व में आयाहुवा श्रीकृष्णार्जुन
+      संवादरूपी भगवद्गीता के अवांतरपर्व में आयी हुई की००००-० अध्यायों समाप्ति हुई।
+
+    tam: >-
+      ஸ்ரீ வேதவ்யாசர் ரசித்த லக்ஷ ஸ்லோகம் உள்ள ஸ்ரீ மகாபாரத ஸம்ஹிதை,
+      ஸ்ரீ கிருஷ்ணார்ஜுன சம்வாத ரூபமான பகவத் கீதை உப பர்வங்களின்
+      அத்தியாயங்கள் முடிவடைந்தது.
+
+    tel: >-
+      శ్రీ వేదవ్యాస రచనము చేసిన లక్ష శ్లోకముయొక్క శ్రీ మహాభారత  సంహితంలోని  భీష్మ
+      మహాపర్వంలో శ్రీకృష్ణుని సంవాదం భగవద్గీత అవాంతర పర్వములో 25 నుండి 42 వరకు
+      అధ్యాయములు.
+
+    mal: >-
+
