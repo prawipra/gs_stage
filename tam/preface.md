@@ -38,24 +38,3 @@
 நாராயணம்ʼ நமஸ்க்ருʼத்ய நரம்ʼ சைவ நரோத்தமம் ।  
 தே³வீம்ʼ ஸரஸ்வதீம்ʼ வ்யாஸம்ʼ ததோ ஜயமுதீ³ரயே ॥
 {: lang="san-Taml-IN"}
-
-### Notes and action items
-
-This document is a placeholder and is used only as an example for website development. It
-is used because the translation provided is presently unusable (possibly due to encoding,
-font, and other issues). There is no representation or intention that this document in its
-present form is anything other than a placeholder to facilitate development.
-
-The document title முன்னுரை is a machine translation for "Preface" (ಮುನ್ನುಡಿ). It should be
-verified.
-
-The main text is extracted using OCR and it needs to be verified. Its meaning in Kannada
-is eyeballed using machine translation to be sure there is nothing inappropriate, but it
-is not a substitute for human verification.
-
-The section heading மங்களாசரணம் (ಮಂಗಳಾಚರಣೆ in the original) is machine transliterated.
-It should be verified.
-
-The invocation text is machine-transliterated from ISO 15919 encoding. It should be verified.
-
-**All verifications should be done by a human expert. Machine verification does not suffice.**
