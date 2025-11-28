@@ -24,25 +24,8 @@
 
 ### మంగళాచరణము
 
-నారాయణం సుర-గురుం జగదేక-నాథం భక్త-ప్రియం సకల-లోక-నమస్కృతం చ ।
-త్రైగుణ్య-వర్జ్జితమజం విభుమాద్యమీశం వందే భవఘ్నం అమరాసుర-సిద్ధ-వంద్యం ॥
-నారాయణం నమస్కృత్య నరం చైవ నరోత్తమం ।
+నారాయణం సుర-గురుం జగదేక-నాథం భక్త-ప్రియం సకల-లోక-నమస్కృతం చ ।  
+త్రైగుణ్య-వర్జ్జితమజం విభుమాద్యమీశం వందే భవఘ్నం అమరాసుర-సిద్ధ-వంద్యం ॥  
+నారాయణం నమస్కృత్య నరం చైవ నరోత్తమం ।  
 దేవీం సరస్వతీం వ్యాసం తతో జయముదీరయే ॥
 {: lang="san-Telu-IN"}
-
-### Notes and action items
-
-This document is a placeholder and is used only as an example for website development. It
-is used because the Telugu translation of the original Kannada work has some gaps. There is
-no representation or intention that this document in its present form is anything other than
-a placeholder to facilitate development.
-
-The document title ముందుమాట is a machine translation for "Preface" (ಮುನ್ನುಡಿ). It should be
-verified.
-
-The section heading మంగళాచరణము (ಮಂಗಳಾಚರಣೆ in the original) is my uneducated selection. It
-should be verified.
-
-The invocation text is machine-transliterated from ISO 15919 encoding. It should be verified.
-
-**All verifications should be done by a human expert. Machine verification does not suffice.**
