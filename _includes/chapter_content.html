@@ -103,3 +103,12 @@
   {{ site.data.chapters[chapter_number].adhyaaha[lang] }}
 </h3>
 
+{% comment %} announce chapter end, if announcement exists {% endcomment %}
+{% assign end_announcement = site.data.chapters[chapter_number].end_announcement[lang] %}
+{% if end_announcement %}
+<p>
+  end_announcement
+</p>
+{% endif %}
+
+
