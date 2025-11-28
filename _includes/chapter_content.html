@@ -106,7 +106,7 @@
 {% comment %} announce chapter end, if announcement exists {% endcomment %}
 {% assign end_announcement = site.data.chapters[chapter_number].end_announcement[lang] %}
 {% if end_announcement %}
-<p>
+<p lang="" class="center" style="margin-top: 1rem;">
   {{ end_announcement }}
 </p>
 {% endif %}
