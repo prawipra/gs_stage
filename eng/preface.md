@@ -1,32 +1,34 @@
 ---
 ---
 
-5823 years ago, Narayana incarnated in India as the sage Shri Veda Vyasa, who made the vedas accessible.
-He also composed the Mahabharata such that it exceeds the vedas \[in influence]. Centered around the
-Pandavas and written in Sanskrit, the Mahabharata is a great scripture that guides everyone on everything
-to this day.
+Narayana incarnated in India 5823 years ago as the sage Shri Veda Vyasa, who uplifted the vedas.
+He also composed the Mahabharata such that it exceeds the vedas in comprehension. Centered around the
+five Pandavas and written in Sanskrit, the Mahabharata is a great scripture that guides everyone
+on everything to this day.
 
 After losing a gambling duel to the Kauravas, the Pandavas complete a period of exile and incognito
 living according to the terms of the duel. Upon return, they ask the Kauravas to return their kingdom.
-As the Pandavas' envoy, Shri Krishna asks the Kauravas to give the Pandavas any share of the kingdom.
-When the Kauravas refuse to give even a small piece of land, war breaks out between the two sides. 18
-days of battle ensues in Kurukshetra. Krishna himself has joined the war as Arjuna's charioteer. He has
-also advised and guided the Pandavas in the war and protected them. The Pandavas are victorious and have
-ruled for 36 years under Krishna's leadership.
+As the Pandavas' envoy, Shri Krishna advised the Kauravas to give the Pandavas any share of the kingdom.
+When the Kauravas refuse to give even a small piece of land, war breaks out between the Pandavas and the
+Kauravas. 18 days of battle ensues in Kurukshetra. Krishna himself has joined the war as Arjuna's
+charioteer. He has also advised and guided the Pandavas in warfare and protected them. The Pandavas
+are victorious and have ruled for 36 years under Krishna's guidance.
 
-The Kauravas' father Dhritarashtra is blind \[literally] and thus his charioteer Sanjaya keeps him appraised
-on the strife between the Pandavas and the Kauravas. Having seen the battle in Kurukshetra for 10 days, an
-alarmed Sanjaya shares with Dhritarashtra the news of Bhishma's fall. Hearing the news, Dhritarashtra asks
-Sanjaya to extensively narrate the war's proceedings from its beginning. By Vyasa's special grace,
-Sanjaya—who is a Tumburu Gandharva—adequately addresses all of Dhritarashtra’s questions and concerns as if
-he had seen and heard everything on the battlefield, and known every thought of the warriors there. That is
-how the conversation between Arjuna and Krishna at the start of the first day of the war has emerged from
-Sanjaya as the Bhagavad Gita \["ballad from the Lord"].
+The Kauravas' father Dhritarashtra is blind \[literally] and thus keeps himself appraised on the strife
+between the Pandavas and the Kauravas through his charioteer Sanjaya. Having seen the battle in Kurukshetra
+for 10 days, an alarmed Sanjaya shares with Dhritarashtra the news of Bhishma's fall. Hearing the news,
+Dhritarashtra asks Sanjaya to extensively narrate the war's proceedings from its beginning. By Vyasa's
+special grace, Sanjaya—who is Tumburu the Gandharva—adequately addresses all of Dhritarashtra’s questions
+and concerns as if he had seen and heard everything on the battlefield, and known every thought of the
+warriors there. That is how the conversation between Arjuna and Krishna at the start of the first day of
+the war has emerged from Sanjaya as the Bhagavad Geetaa \["ballad from the Lord"].
 
-Here is a brief of Krishna's messages and their meaning in Kannada [in turn translated to English here].
-The ballad has "tens of" \[several] interpretations, and this particular work is in service of cogitations
-aligned with Krishna's doctrine. It is my offering to \[my] guru(s). I have also provided this work in
-multiple languages.
+Here are Krishna's messages and a brief "sameekshe" \[summary] of them in Kannada [in turn translated to
+English here]. The Geetaa has several interpretations, and this particular work is in service of cogitation
+that is not opposed to Krishna's doctrine. It is my offering and tribute to \[my] guru(s).
+
+I have also provided translations of Geetasameekshaa in multiple languages. My heartfelt salutations to the
+the elder translators who cooperated in this sameekshe.
 
 ### Invocation
 
@@ -45,37 +47,12 @@ within bracket marks as exemplifed in the main text of this preface.
 
 Structurally and conventionally, Kannada text tends to be in the passive voice and often lacks articles
 (a, an, the); at times even referents. It is also common to use singular number where English text is
-likely to use plural. This translation strives to use the active voice but is often forced to use the
-passive voice in order to preserve the original sense or flow. The translation also adds articles and
-referents if they are neeeded or are helpful. Such additions are either directly in the main text or
-are shown as editorial notes.
-
-Where it is necessary to pick a number, the translation uses the number that is more appropriate for
-the context. Or, if the context permits, it uses the singular and adds a parenthetical plural modifier.
+likely to use plural. This translation brings forth the voice and the number in the Geetaa to preserve
+the original sense or flow. The translation also adds articles and referents if they are neeeded or are
+helpful. Such additions are either directly in the main text or are shown as editorial notes.
 
 Lastly, this translation transliterates Sanskrit verses and other similar formal text using the
 [IAST scheme](https://en.wikipedia.org/wiki/International_Alphabet_of_Sanskrit_Transliteration).
 The invocation text in the preceding section is an example. However, in running text, proper nouns and
 other frequently-used Indic words are informally transliterated in English using spellings that are
 common for those words in India. For example, Narayana, Pandavas, Bhishma, and veda.
-
-### Discussion (only for development)
-
-The Kannada version says "ತುಂಬುರು ಗಂಧರ್ವನಾದ ಸಂಜಯನು...". What does "ತುಂಬುರು ಗಂಧರ್ವ" mean: a gandharva related to
-Tumburu? rRelated how? In English, it looks odd to just say "Sanjaya was a Tumburu Gandharva" because I doubt
-most English readers have sufficient background to understand what that means.
-
-Paragraphs 2 and 3 of the Kannada text employ a mix of tenses/styles:
-
-- ಕೇಳಿಕೊಳ್ಳುತ್ತಾರೆ, ಹೇಳುತ್ತಾನೆ, ತಿಳಿದುಕೊಳ್ಳುತ್ತಾನೆ, ಉತ್ತರಿಸುತ್ತಾನೆ
-- ಏರ್ಪಡುವುದು, ಹೇಳುವನು
-- ಸೇರಿದ್ದಾನೆ, ರಕ್ಷಿಸಿದ್ದಾನೆ, ಜಯಗಳಿಸಿದ್ದಾರೆ, ನಡೆಸಿದ್ದಾರೆ, ಹೊರಹೊಮ್ಮಿದೆ
-
-Stipulating that such mixing is needed or has utility in Kannada, I note that similar mixing in English
-makes the text jarring and is generally considered "scholarly deficient". So, for scholarly reasons,
-is it OK to fix a tense in the English version?
-
-If yes, the "ಕೇಳಿಕೊಳ್ಳುತ್ತಾರೆ, ಹೇಳುತ್ತಾನೆ" style fits better due to the story-telling nature of the text.
-(In fact, that tense is named "narrative tense" or "historical present tense" in English.) For
-example, treat "ನಡೆಸಿದ್ದಾರೆ" as if it says "ನಡೆಸುತ್ತಾರೆ", and thus translate "೩೬ ವರ್ಷಗಳ ಕಾಲ ರಾಜ್ಯಭಾರ ನಡೆಸಿದ್ದಾರೆ"
-as "rule for 36 years", instead of "have ruled for 36 years".
