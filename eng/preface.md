@@ -6,11 +6,11 @@ He also composed the Mahabharata such that it exceeds the vedas \[in influence].
 Pandavas and written in Sanskrit, the Mahabharata is a great scripture that guides everyone on everything
 to this day.
 
-After losing in a gambling duel with the Kauravas, the Pandavas complete a period of exile and incognito
+After losing a gambling duel to the Kauravas, the Pandavas complete a period of exile and incognito
 living according to the terms of the duel. Upon return, they ask the Kauravas to return their kingdom.
-As the Pandavas' envoy, Shri Krishna asks the Kauravas to give the Pandavas any share of the kingdom. When
-the Kauravas refuse to give even a small piece of land, war breaks out between the Pandavas and the Kauravas.
-18 days of battle ensues in Kurukshetra. Krishna himself has joined the war as Arjuna's charioteer. He has
+As the Pandavas' envoy, Shri Krishna asks the Kauravas to give the Pandavas any share of the kingdom.
+When the Kauravas refuse to give even a small piece of land, war breaks out between the two sides. 18
+days of battle ensues in Kurukshetra. Krishna himself has joined the war as Arjuna's charioteer. He has
 also advised and guided the Pandavas in the war and protected them. The Pandavas are victorious and have
 ruled for 36 years under Krishna's leadership.
 
@@ -23,8 +23,8 @@ he had seen and heard everything on the battlefield, and known every thought of 
 how the conversation between Arjuna and Krishna at the start of the first day of the war has emerged from
 Sanjaya as the Bhagavad Gita \["ballad from the Lord"].
 
-Here is a brief of Krishna's messages and their meaning in Kannada [in turn translated to English here]. The
-ballad has "tens of" \[several] interpretations, and this particular work is in service of cogitation(s)
+Here is a brief of Krishna's messages and their meaning in Kannada [in turn translated to English here].
+The ballad has "tens of" \[several] interpretations, and this particular work is in service of cogitations
 aligned with Krishna's doctrine. It is my offering to \[my] guru(s). I have also provided this work in
 multiple languages.
 
@@ -40,7 +40,7 @@ devīṃ sarasvatīṃ vyāsaṃ tato jayamudīraye ॥
 
 This English translation strives to preserve the sense of the text in the original Kannada work as well
 as preserve the voice of the original's author. The translation includes editorial notes where necessary
-(but only sparingly) to clarify context or convey "natural English expressions". The notes are shown
+(but sparingly) to clarify context or to convey "natural English expressions". The notes are shown
 within bracket marks as exemplifed in the main text of this preface.
 
 Structurally and conventionally, Kannada text tends to be in the passive voice and often lacks articles
@@ -50,14 +50,14 @@ passive voice in order to preserve the original sense or flow. The translation a
 referents if they are neeeded or are helpful. Such additions are either directly in the main text or
 are shown as editorial notes.
 
-Where it is necessary to pick a number, the translation uses the number that is more appropriate for the
-context. Or, if the context permits, it uses the singular and adds a parenthetical plural modifier. The last
-sentence in the main text exemplifies.
+Where it is necessary to pick a number, the translation uses the number that is more appropriate for
+the context. Or, if the context permits, it uses the singular and adds a parenthetical plural modifier.
 
-Lastly, this translation transliterates Indic text (in Sanskrit, Kannada, and such) using the
+Lastly, this translation transliterates Sanskrit verses and other similar formal text using the
 [IAST scheme](https://en.wikipedia.org/wiki/International_Alphabet_of_Sanskrit_Transliteration).
-Some Indic text is only transliterated but not translated. The invocation text in the preceding
-section is an example.
+The invocation text in the preceding section is an example. However, in running text, proper nouns and
+other frequently-used Indic words are informally transliterated in English using spellings that are
+common for those words in India. For example, Narayana, Pandavas, Bhishma, and veda.
 
 ### Discussion (only for development)
 
@@ -65,14 +65,14 @@ The Kannada version says "ತುಂಬುರು ಗಂಧರ್ವನಾದ ಸ�
 Tumburu? rRelated how? In English, it looks odd to just say "Sanjaya was a Tumburu Gandharva" because I doubt
 most English readers have sufficient background to understand what that means.
 
-Paragraphs 2 and 3 of the Kannada text employ a mix of tenses:
+Paragraphs 2 and 3 of the Kannada text employ a mix of tenses/styles:
 
 - ಕೇಳಿಕೊಳ್ಳುತ್ತಾರೆ, ಹೇಳುತ್ತಾನೆ, ತಿಳಿದುಕೊಳ್ಳುತ್ತಾನೆ, ಉತ್ತರಿಸುತ್ತಾನೆ
 - ಏರ್ಪಡುವುದು, ಹೇಳುವನು
 - ಸೇರಿದ್ದಾನೆ, ರಕ್ಷಿಸಿದ್ದಾನೆ, ಜಯಗಳಿಸಿದ್ದಾರೆ, ನಡೆಸಿದ್ದಾರೆ, ಹೊರಹೊಮ್ಮಿದೆ
 
 Stipulating that such mixing is needed or has utility in Kannada, I note that similar mixing in English
-makes the text jarring and is generally considered "scholarship deficiency". So, for scholarly reasons,
+makes the text jarring and is generally considered "scholarly deficient". So, for scholarly reasons,
 is it OK to fix a tense in the English version?
 
 If yes, the "ಕೇಳಿಕೊಳ್ಳುತ್ತಾರೆ, ಹೇಳುತ್ತಾನೆ" style fits better due to the story-telling nature of the text.
