@@ -108,7 +108,6 @@
 
 
 {% comment %} Website credit {% endcomment %}
-
     <tr>
         <td colspan="3" style="vertical-align: top;">
             {{ about_data.website_lead[lang] }}: 
@@ -130,6 +129,17 @@
         </td>
     </tr>
 {% endfor %}
+
+{% comment %} Typesetting credit {% endcomment %}
+    <tr>
+        <td colspan="3" style="vertical-align: top;">
+            {{ about_data.kan_typesetting_lead[lang] }}: 
+            <strong>
+                {{ about_data.kan_typesetting_creds[lang] }}
+            </strong>
+        </td>
+    </tr>
+
 
 </table>
 
