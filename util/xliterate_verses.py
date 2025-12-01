@@ -90,6 +90,39 @@ def _fix_devanagari_keys_in_yaml_file(yml_path):
     return count
 
 
+def _fix_iast_dandas_in_yaml_file(yml_path):
+    """
+    Replace ASCII pipe sequences used as danda markers:
+    - ' ||' -> ' ॥'
+    - ' |'  -> ' ।'
+    Operates in-place, UTF-8, preserves line endings.
+    Returns number of replacements made (sum of both).
+    """
+    yml_path = Path(yml_path)
+    try:
+        with yml_path.open("r", encoding="utf-8", newline="") as fh:
+            text = fh.read()
+    except Exception as exc:
+        print(f"Could not read {yml_path} for IAST danda fix: {exc}", file=sys.stderr)
+        return 0
+
+    # Replace double first, then single to avoid turning " ||" into " ।|" etc.
+    new_text, count_double = re.subn(r"\s\|\|", " ॥", text)
+    new_text, count_single = re.subn(r"\s\|", " ।", new_text)
+    total = count_double + count_single
+
+    if total > 0:
+        try:
+            with yml_path.open("w", encoding="utf-8", newline="") as fh:
+                fh.write(new_text)
+            print(f"Replaced {total} IAST danda marker(s) in {yml_path}")
+        except Exception as exc:
+            print(f"Failed to write IAST fixes to {yml_path}: {exc}", file=sys.stderr)
+            return 0
+
+    return total
+
+
 def do_xliterate_file(input_lang, output_lang, in_file_path, out_file_path, temp_dir):
     """
     Parameters:
@@ -158,9 +191,14 @@ def do_xliterate_file(input_lang, output_lang, in_file_path, out_file_path, temp
         print(f"Found {intermediate_txt_out} but it is empty (0 bytes); not copying to {out_path}")
         return
 
-    # Fix Devanagari keys in the intermediate result (UTF-8)
+    # Clean the intermediate result
+    # - Devanagari: fix yaml keys for second part of verses
+    # - IAST: fix ASCII pipe danda markers
     if output_lang == "Devanagari":
         _fix_devanagari_keys_in_yaml_file(intermediate_txt_out)
+    elif output_lang == "IAST":
+        _fix_iast_dandas_in_yaml_file(intermediate_txt_out)
+
 
     # Ensure destination directory exists
     out_path.parent.mkdir(parents=True, exist_ok=True)
