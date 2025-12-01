@@ -3,6 +3,8 @@ name: geetaasameekshaa
 title: gītāsamīkṣā   
 description: The Bhagavad Gita in the Bhishma Book of Sri Veda Vyasa's Mahabharata
 
+baseurl: ""   # site deployed to a domain/sub-domain
+
 # default language: used to rewrite links for missing pages
 # language codes are described in _data/languages.yml
 # can't be used to define default frontmatter `lang`
