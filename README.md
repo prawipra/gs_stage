@@ -38,3 +38,5 @@ Transliteration results are also post-processed to fix the following issues:
 
 - Anusvara to nasal (gaṃgā → gaṅgā)
 - Use dandas
+
+Transliteration results are also post-processed to replace ASCII pipe marks with Devanagari danda marks.
