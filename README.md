@@ -26,6 +26,10 @@ Transliteration results are also post-processed to fix the following issues:
 
 - In YAML keys, replace danda mark with period. E.g., the key 27.5 is transliterated as 27।5. Replacing the danda with a period restores the original key.
 
+#### Tamil
+
+- Use dandas
+
 #### Telugu
 
 - Use dandas
