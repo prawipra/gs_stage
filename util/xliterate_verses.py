@@ -92,29 +92,46 @@ def _fix_devanagari_keys_in_yaml_file(yml_path):
 
 def _fix_iast_dandas_in_yaml_file(yml_path):
     """
-    Replace ASCII pipe sequences used as danda markers:
-    - ' ||' -> ' ॥'
-    - ' |'  -> ' ।'
-    Operates in-place, UTF-8, preserves line endings.
-    Returns number of replacements made (sum of both).
+    Replace ASCII pipe sequences used as danda markers while preserving YAML block headers.
+
+    Replacements (performed on non-header lines):
+    - " ||" -> " ॥"
+    - " |"  -> " ।"
+
+    The function skips lines that are YAML block scalar headers (e.g., "1: |-", "chapter: |").
+    Operates in-place using UTF-8 and preserves existing line endings.
+    Returns the total number of replacements made.
     """
     yml_path = Path(yml_path)
     try:
         with yml_path.open("r", encoding="utf-8", newline="") as fh:
-            text = fh.read()
+            lines = fh.readlines()
     except Exception as exc:
         print(f"Could not read {yml_path} for IAST danda fix: {exc}", file=sys.stderr)
         return 0
 
-    # Replace double first, then single to avoid turning " ||" into " ।|" etc.
-    new_text, count_double = re.subn(r"\s\|\|", " ॥", text)
-    new_text, count_single = re.subn(r"\s\|", " ।", new_text)
-    total = count_double + count_single
+    out_lines = []
+    total = 0
+
+    for line in lines:
+        # Skip YAML block scalar headers like "key: |", "key: |-", "key: |+"
+        if line.rstrip().endswith((': |', ': |-', ': |+')):
+            out_lines.append(line)
+            continue
+
+        # Count double-bar occurrences first; single-bar count should exclude those
+        count_double = line.count(" ||")
+        count_single = line.count(" |") - count_double
+        total += (count_double + max(0, count_single))
+
+        # Replace double-bar first, then single-bar
+        new_line = line.replace(" ||", " ॥").replace(" |", " ।")
+        out_lines.append(new_line)
 
     if total > 0:
         try:
             with yml_path.open("w", encoding="utf-8", newline="") as fh:
-                fh.write(new_text)
+                fh.writelines(out_lines)
             print(f"Replaced {total} IAST danda marker(s) in {yml_path}")
         except Exception as exc:
             print(f"Failed to write IAST fixes to {yml_path}: {exc}", file=sys.stderr)
