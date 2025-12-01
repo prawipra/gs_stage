@@ -54,3 +54,4 @@ exclude:
   - LICENSE.md      # expected only in root
   - README.md       # expected in root
   - "**/README.md"  # in any subdir: lang dirs may have own readme
+  - "util"          # util contains useful scripts and such for site prep, etc.
