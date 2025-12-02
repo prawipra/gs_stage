@@ -25,8 +25,8 @@ warriors there. That is how the conversation between Arjuna and Krishna at the s
 the war has emerged from Sanjaya as the Bhagavad Geetaa \["ballad from the Lord"].
 
 Here are Krishna's messages and a brief "sameekshe" \[summary] of them in Kannada [in turn translated to
-English here]. The Geetaa has several interpretations, and this particular work is in service of cogitation
-that is not opposed to Krishna's doctrine. It is my offering and tribute to \[my] guru(s).
+English here]. The Geetaa has tens of interpretations, and this particular work is in service of cogitation
+that is not opposed to Krishna's doctrine. It is my offering and tribute to \[my] gurus.
 
 I have also provided translations of Geetasameekshaa in multiple languages. My heartfelt salutations to the
 the elder translators who cooperated in this sameekshe.
