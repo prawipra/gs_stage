@@ -4,12 +4,32 @@ layout:
 
 {% assign redirect_url = "/" | append: page.lang | append: "/" | relative_url %}
 
+{% comment %}
+  Make the page title a pipe-delimited string of site titles in all active lang titles
+  - apps that create a page thumbnail will likely show this string in the thumbnail, which is
+    more meaningful for the app user than showing "Redirecting..."
+
+  Start with an empty array of values and push into it site titles for active langs.
+  Join the final array of active titles to get the required pipe-delimited string.
+  Assume all langs under site_title are actually in site.data.languages
+{% endcomment %}
+{% assign active_titles_array = "" | split: "," %}
+
+{% for kv_pair in site.data.about.site_title %}
+  {% assign lang = kv_pair[0] %}
+  {% assign title = kv_pair[1] %}
+
+  {% if site.languages[lang].active != false %}
+    {% assign active_titles_array = active_titles_array | push: title %}
+  {% endif %}
+{% endfor %}
+
 <!DOCTYPE html>
-<html lang="{{ lang }}">
+<html lang="mul">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="refresh" content="0; url={{ redirect_url }}">
-  <title>Redirecting…</title>
+  <title>{{ active_titles_array | join: " | " }}</title>
   <link rel="canonical" href="{{ redirect_url }}">
 </head>
 <body>
