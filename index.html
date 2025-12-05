@@ -11,16 +11,20 @@ layout:
 
   Start with an empty array of values and push into it site titles for active langs.
   Join the final array of active titles to get the required pipe-delimited string.
-  Assume all langs under site_title are actually in site.data.languages
+  Look up langs from site.data.languaages in site.data.about.site_title because
+  looking up the other way somehow fails to detect inactive langs
 {% endcomment %}
 {% assign active_titles_array = "" | split: "," %}
 
-{% for kv_pair in site.data.about.site_title %}
-  {% assign lang = kv_pair[0] %}
-  {% assign title = kv_pair[1] %}
+{% for lang in site.data.languages %}
+  {% assign lang_code = lang[0] %}
+  {% assign lang_data = lang[1] %}
 
-  {% if site.languages[lang].active != false %}
-    {% assign active_titles_array = active_titles_array | push: title %}
+  {%if lang_data.active != false %}
+    {% assign title = site.data.about.site_title[lang_code] | default: "" %}
+    {% if title != "" %}
+      {% assign active_titles_array = active_titles_array | push: title %}
+    {% endif %}
   {% endif %}
 {% endfor %}
 
