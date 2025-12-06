@@ -41,8 +41,18 @@ layout:
     Redirecting to: <a href="{{ redirect_url }}">{{ redirect_url }}</a>
   </p>
   <p>
-    <div lang="">Click the link above if not redirected automatically.</div>
-    <div lang="">ಮರುನಿರ್ದೇಶನ ತಾನಾಗಿಯೇ ಆಗದಿದ್ದರೆ ಮೇಲಿನ ಲಿಂಕ್‌ ಒತ್ತಿ.</div>
+  {% comment %} message to click if auto redirection fails {% endcomment %}
+  {% for lang in site.data.languages %}
+    {% assign lang_code = lang[0] %}
+    {% assign lang_data = lang[1] %}
+
+    {%if lang_data.active != false %}
+      {% assign msg = site.data.phrases.click_if_not_auto_directed[lang_code] | default: "" %}
+      {% if msg != "" %}
+        <div lang="">{{ msg }}</div>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
   </p>
 </body>
 </html>
