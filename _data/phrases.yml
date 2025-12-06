@@ -56,6 +56,17 @@ iti:
   tel: ఇతి
   mal: ഇതി
 
+# localized message to show on root redirector
+# The localized message should correspond to the eng message
+# do NOT include a terminating period: it is automatically included when message is shown
+click_if_not_auto_directed:
+  kan: ಮರುನಿರ್ದೇಶನ ತಾನಾಗಿಯೇ ಆಗದಿದ್ದರೆ ಮೇಲಿನ ಲಿಂಕ್‌ ಒತ್ತಿ
+  eng: Click the link above if not redirected automatically
+  hin: पुनर्निर्देशन स्वयं नहीं हुआ तो ऊपर दिए गए लिंक दबाइये
+  tam: தானாகவே திருப்பிவிடப்படவில்லை என்றால், மேலே உள்ள இணைப்பைக் கிளிக் செய்யவும்
+  tel: స్వయంచాలకంగా దారి మళ్లించబడకపోతే, పైన ఉన్న లింక్‌ను క్లిక్ చేయండి
+  mal: സ്വയമേവ റീഡയറക്‌ട് ചെയ്‌തില്ലെങ്കിൽ, മുകളിലുള്ള ലിങ്കിൽ ക്ലിക്കുചെയ്യുക
+
 # localized message to show when a lang page is unavailable
 # The localized message should correspond to the eng message
 # do NOT include a terminating period: it is automatically included when message is shown
