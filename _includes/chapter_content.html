@@ -36,6 +36,28 @@
 {% assign meaning_file_key = "m" | append: chapter_number %}
 {% assign meaning_data = site.data[lang][meaning_file_key] %}
 
+<!-- chapter navigation buttons -->
+{% if chapter_number != 1 %}
+{% assign nav_link = chapter_number | minus: 1 | append: ".html" | relative_url %}
+<a id="chapterNavBtnPrevious" class="chapter-nav-btn" 
+   href="{{ nav_link }}"
+   hreflang="mul"
+   title="Previous">
+   ≺
+</a>
+{% endif %}
+
+{% if chapter_number != 18 %}
+{% assign nav_link = chapter_number | plus: 1 | append: ".html" | relative_url %}
+<a id="chapterNavBtnNext" class="chapter-nav-btn" 
+   href="{{ nav_link }}"
+   hreflang="mul"
+   title="Next">
+  ≻
+</a>
+{% endif %}
+
+
 <table style="margin: 0 auto; width: auto; max-width: 600px">
 
 {% for kv_pair_top in verse_data %}
