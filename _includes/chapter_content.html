@@ -36,8 +36,8 @@
 {% assign meaning_file_key = "m" | append: chapter_number %}
 {% assign meaning_data = site.data[lang][meaning_file_key] %}
 
-<!-- chapter navigation buttons -->
-{% if chapter_number != 1 %}
+{% comment %} chapter navigation {% endcomment %}
+{% if chapter_number > 1 %}
 {% assign prev_chapter_html = chapter_number | minus: 1 | append: ".html" %}
 {% capture nav_link %}{{ lang }}/{{ prev_chapter_html }}{% endcapture %}
 <a id="chapterNavBtnPrevious" class="chapter-nav-btn" 
@@ -46,9 +46,11 @@
    title="{{ site.data.phrases.previous_chapter[lang] | default: 'Previous chapter' }}">
    ≺
 </a>
+{% elsif %}
+<span id="chapterNavBtnPrevious" class="chapter-nav-btn disabled">≺</span>
 {% endif %}
 
-{% if chapter_number != 18 %}
+{% if chapter_number < 18 %}
 {% assign next_chapter_html = chapter_number | plus: 1 | append: ".html" %}
 {% capture nav_link %}{{ lang }}/{{ next_chapter_html }}{% endcapture %}
 <a id="chapterNavBtnNext" class="chapter-nav-btn" 
@@ -57,9 +59,12 @@
    title="{{ site.data.phrases.next_chapter[lang] | default: 'Next chapter' }}">
   ≻
 </a>
+{% elsif %}
+<span id="chapterNavBtnNext" class="chapter-nav-btn disabled">≻</span>
 {% endif %}
 
 
+{% comment %} chapter content {% endcomment %}
 <table style="margin: 0 auto; width: auto; max-width: 600px">
 
 {% for kv_pair_top in verse_data %}
