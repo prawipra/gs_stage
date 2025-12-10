@@ -46,7 +46,7 @@
    title="{{ site.data.phrases.previous_chapter[lang] | default: 'Previous chapter' }}">
    ≺
 </a>
-{% elsif %}
+{% else %}
 <span id="chapterNavBtnPrevious" class="chapter-nav-btn disabled">≺</span>
 {% endif %}
 
@@ -59,7 +59,7 @@
    title="{{ site.data.phrases.next_chapter[lang] | default: 'Next chapter' }}">
   ≻
 </a>
-{% elsif %}
+{% else %}
 <span id="chapterNavBtnNext" class="chapter-nav-btn disabled">≻</span>
 {% endif %}
 
