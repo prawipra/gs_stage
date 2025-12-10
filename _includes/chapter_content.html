@@ -39,9 +39,9 @@
 {% comment %} chapter navigation {% endcomment %}
 {% if chapter_number > 1 %}
 {% assign prev_chapter_html = chapter_number | minus: 1 | append: ".html" %}
-{% capture nav_link %}{{ lang }}/{{ prev_chapter_html }}{% endcapture %}
+{% capture nav_link %}./{{ prev_chapter_html }}{% endcapture %}
 <a id="chapterNavBtnPrevious" class="chapter-nav-btn" 
-   href="{{ nav_link | relative_url }}"
+   href="{{ nav_link }}"
    hreflang="mul"
    title="{{ site.data.phrases.previous_chapter[lang] | default: 'Previous chapter' }}">
    ≺
@@ -52,9 +52,9 @@
 
 {% if chapter_number < 18 %}
 {% assign next_chapter_html = chapter_number | plus: 1 | append: ".html" %}
-{% capture nav_link %}{{ lang }}/{{ next_chapter_html }}{% endcapture %}
+{% capture nav_link %}./{{ next_chapter_html }}{% endcapture %}
 <a id="chapterNavBtnNext" class="chapter-nav-btn" 
-   href="{{ nav_link | relative_url }}"
+   href="{{ nav_link }}"
    hreflang="mul"
    title="{{ site.data.phrases.next_chapter[lang] | default: 'Next chapter' }}">
   ≻

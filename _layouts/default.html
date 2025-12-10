@@ -71,7 +71,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ site_title }}{% if page_title %} – {{ page_title }}{% endif %}</title>
-  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <link rel="stylesheet" href="../assets/css/main.css">
 </head>
 
 {% comment %}
@@ -107,7 +107,7 @@
     <div class="header-top">
       <div class="header-inner">
         <div class="header-slot header-slot--left" aria-hidden="true">
-          <img src="{{ '/assets/images/logo.svg' | relative_url }}" alt="left logo">
+          <img src="../assets/images/logo.svg" alt="left logo">
         </div>
 
         {% if site_title == site.title %}
@@ -128,7 +128,7 @@
         </div>
 
         <div class="header-slot header-slot--right" aria-hidden="true">
-          <img src="{{ '/assets/images/logo.svg' | relative_url }}" alt="right logo">
+          <img src="../assets/images/logo.svg" alt="right logo">
         </div>
       </div>
     </div>
