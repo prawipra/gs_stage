@@ -81,10 +81,10 @@
             {{ number_col }}.
         </td>
         
-        {% capture href_path %}/{{ page.lang }}/{{ chapter }}.html{% endcapture %}
+        {% capture href_path %}./{{ chapter }}.html{% endcapture %}
 
         <td style="padding-right: 0.5em; vertical-align: top;">
-            <a href="{{ href_path | relative_url }}"
+            <a href="{{ href_path }}"
                hreflang="{{ href_lang }}"
                title="{% if title_eng != title_col %}{{ title_eng }}{% endif %}">
                 {{ title_col  }}

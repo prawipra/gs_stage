@@ -201,7 +201,7 @@
                 {% continue %}
               {% endif %}
 
-              {% capture href_path %}/{{ lang_code }}{{ page_path_suffix }}{% endcapture %}
+              {% capture href_path %}../{{ lang_code }}{{ page_path_suffix }}{% endcapture %}
               {% capture a_lang %}{{ lang_code }}-{{lang_data.script}}-{{lang_data.region}}{% endcapture %}
               {% if chapter_number > 0 %}
                 {% assign href_lang = a_lang | replace_first: lang_code, "mul" %}
@@ -210,7 +210,7 @@
               {% endif %}
 
               <li>
-                  <a href="{{ href_path | relative_url }}" 
+                  <a href="{{ href_path }}" 
                       lang="{{ a_lang }}"
                       hreflang="{{ href_lang }}"
                       title="{% if lang_code != 'eng' %}{{ lang_data.name.eng }}{% endif %}"
@@ -285,9 +285,7 @@
             {% assign label_lang = page_lang_attr %}
         {% endif %}
 
-        <a href="{{ href_path | relative_url }}"
-            lang="{{ label_lang }}"
-            hreflang="{{ html_lang }}">
+        <a href="./about.html#notice" lang="{{ label_lang }}" hreflang="{{ html_lang }}">
           &copy; {{ site.time | date: "%Y" }} {{ rights_label }}.
         </a>
     </p>
