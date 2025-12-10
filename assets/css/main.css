@@ -303,6 +303,10 @@ tbody tr:nth-child(2n) { background: rgba(0,0,0,0.015); }
     z-index: 9999;
 }
 
+a.chapter-nav-btn {
+  text-decoration: none;
+}
+
 .chapter-nav-btn:hover {
     background: rgba(0, 0, 0, 0.85);   /* Darker on hover */
 }
