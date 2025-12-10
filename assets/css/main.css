@@ -286,6 +286,40 @@ tbody td:nth-child(2) a:focus { text-decoration: underline; }
 /* Subtle zebra fallback for long lists (optional but gentle) */
 tbody tr:nth-child(2n) { background: rgba(0,0,0,0.015); }
 
+/* Chapter navigation */
+.chapter-nav-btn {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;                    /* Bigger for visibility */
+    font-weight: bold;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);   /* High-contrast dark backdrop */
+    border: 2px solid white;
+    padding: 10px 12px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.chapter-nav-btn:hover {
+    background: rgba(0, 0, 0, 0.85);   /* Darker on hover */
+}
+
+.chapter-nav-btn.disabled {
+    opacity: 0.3;
+    cursor: not-allowed; /* A big somewhat ugly No Parking type of cursor */
+}
+
+#chapterNavBtnPrevious {
+    left: 12px;
+}
+
+#chapterNavBtnNext {
+    right: 12px;
+}
+
 
 /* --- Language-driven rules (no .lang-eng required) --- */
 /* English: set family and line-height; scale non-heading content via :not(:is(...))
