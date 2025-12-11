@@ -53,7 +53,7 @@
   <span id="chapterNavBtnPrevious" class="chapter-nav-btn disabled">≺</span>
 {% endif %}
 
-{% if chapter_number < 18 %}
+{% if chapter_number != 18 %}
   {% assign next_chapter_number = chapter_number | plus: 1 %}
   {% capture next_chapter_link %}./{{ next_chapter_number }}.html{% endcapture %}
   <a id="chapterNavBtnNext" class="chapter-nav-btn" 
