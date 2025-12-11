@@ -56,11 +56,10 @@
 {% if chapter_number < 18 %}
   {% assign next_chapter_number = chapter_number | plus: 1 %}
   {% capture next_chapter_link %}./{{ next_chapter_number }}.html{% endcapture %}
-  {% capture next_chapter_title %}Next Chapter{% endcapture %}
   <a id="chapterNavBtnNext" class="chapter-nav-btn" 
     href="{{ next_chapter_link }}"
     hreflang="mul"
-    title="{{ next_chapter_title }}">
+    title="Next chapter">
     ≻
   </a>
 {% else %}
