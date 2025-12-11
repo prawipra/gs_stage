@@ -39,9 +39,8 @@
   {% comment %} nothing to do {% endcomment %}
 {% elsif chapter_number > 0 %}
   {% assign primary_lang = "mul" %}
-  {% assign localized_chapter_number = site.data.chapters[chapter_number].number[page_lang] %}
   {% capture default_page_title %}
-    {{ site.data.phrases.chapter[page_lang] | default: "Chapter" }} {{ localized_chapter_number }}
+    {% include localized_chapter_title.html lang=page_lang chapter=chapter_number %}
   {% endcapture %}
 {% else %}
   {% assign primary_lang = page_lang %}

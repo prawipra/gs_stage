@@ -1,0 +1,21 @@
+{% comment %}
+  // REQUIRED INPUTS:
+  // include.lang:      (String) The language code (e.g., 'eng', 'kan') used for text lookup.
+  //                    (Passed from: 'lang=page.lang')
+  //
+  // include.chapter:   (Number) The chapter number for which title is to be printed.
+  //                    (Passed from: 'chapter=chapter_number')
+  //
+  // USAGE EXAMPLE:
+  // {% include print_chapter_title.html lang=page.lang chapter=chapter_number %}
+  //
+  // Print the phrase "Chapter #" localized in the specified language
+  // Data for this page comes from the chapter's localized data file
+  // --------------------------------------------------------------------------
+{% endcomment %}
+
+{% assign lang = include.lang %}
+{% assign chapter_number = include.chapter %}
+
+{% assign localized_chapter_number = site.data.chapters[chapter_number].number[lang] | default: chapter_number %}
+{{ site.data.phrases.chapter[lang] | default: "Chapter" }} {{ localized_chapter_number }}
