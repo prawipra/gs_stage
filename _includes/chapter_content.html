@@ -49,20 +49,22 @@
     title="{{ prev_chapter_title }}">
     ≺
   </a>
+{% else %}
+  <span id="chapterNavBtnPrevious" class="chapter-nav-btn disabled">≺</span>
 {% endif %}
 
-{% if chapter_number != 18 %}
+{% if chapter_number < 18 %}
   {% assign next_chapter_number = chapter_number | plus: 1 %}
   {% capture next_chapter_link %}./{{ next_chapter_number }}.html{% endcapture %}
-  {% capture next_chapter_title %}
-    {% include localized_chapter_title.html lang=page_lang chapter=next_chapter_number %}
-  {% endcapture %}
+  {% capture next_chapter_title %}Next Chapter{% endcapture %}
   <a id="chapterNavBtnNext" class="chapter-nav-btn" 
     href="{{ next_chapter_link }}"
     hreflang="mul"
     title="{{ next_chapter_title }}">
     ≻
   </a>
+{% else %}
+  <span id="chapterNavBtnNext" class="chapter-nav-btn disabled">≻</span>
 {% endif %}
 
 
