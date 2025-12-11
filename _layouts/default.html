@@ -87,17 +87,10 @@
 
 {% assign current_path_no_baseurl = page.url | remove: site.baseurl %}
 
-{% assign slash_lang = "/" | append: page_lang %}
-{% assign slash_lang_slash = slash_lang | append: "/" %}
-{% assign slash_lang_slash_index_html = slash_lang_slash | append: "index.html" %}
-
-{% assign not_index_page = true %}
-{% if current_path_no_baseurl == slash_lang %}
+{% if page_basename == "index" %}
   {% assign not_index_page = false %}
-{% elsif current_path_no_baseurl == slash_lang_slash %}
-  {% assign not_index_page = false %}
-{% elsif current_path_no_baseurl == slash_lang_slash_index_html %}
-  {% assign not_index_page = false %}
+{% else %}
+  {% assign not_index_page = true %}
 {% endif %}
 
 <body>
