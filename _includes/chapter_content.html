@@ -40,10 +40,12 @@
 {% if chapter_number > 1 %}
 {% assign prev_chapter_number = chapter_number | minus: 1 %}
 {% capture prev_nav_link %}./{{ prev_chapter_number }}.html{% endcapture %}
+{% capture prev_nav_title %}{% include localized_chapter_title.html lang=page_lang chapter=prev_chapter_number %}{% endcapture %}
+
 <a id="chapterNavBtnPrevious" class="chapter-nav-btn" 
    href="{{ prev_nav_link }}"
    hreflang="mul"
-   title="{{ site.data.phrases.previous_chapter[lang] | default: 'Previous chapter' }}">
+   title="{{ prev_nav_title }}">
    ≺
 </a>
 {% else %}
@@ -53,10 +55,12 @@
 {% if chapter_number < 18 %}
 {% assign next_chapter_number = chapter_number | plus: 1 %}
 {% capture next_nav_link %}./{{ next_chapter_number }}.html{% endcapture %}
+{% capture next_nav_title %}{% include localized_chapter_title.html lang=page_lang chapter=next_chapter_number %}{% endcapture %}
+
 <a id="chapterNavBtnNext" class="chapter-nav-btn" 
    href="{{ next_nav_link }}"
    hreflang="mul"
-   title="{{ site.data.phrases.next_chapter[lang] | default: 'Next chapter' }}">
+   title="{{ next_nav_title }}">
   ≻
 </a>
 {% else %}
