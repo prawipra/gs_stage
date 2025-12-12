@@ -16,8 +16,9 @@
 
 {% comment %} 
   intentionally not creating local vars such as lang and chapter_number for include params
-  - just an educated guess but it seems shared variable names might end up impacting data 
-    type in the caller
+  - shared var name changes data type of any var of the same name in the caller, even though 
+    no actual type change is made here
 {% endcomment %}
+
 {% assign localized_chapter_number = site.data.chapters[include.chapter].number[include.lang] | default: include.chapter %}
 {{ site.data.phrases.chapter[include.lang] | default: "Chapter" }} {{ localized_chapter_number }}
