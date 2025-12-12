@@ -41,7 +41,7 @@
 {% assign prev_chapter_number = chapter_number | minus: 1 %}
 {% capture prev_nav_link %}./{{ prev_chapter_number }}.html{% endcapture %}
 <a id="chapterNavBtnPrevious" class="chapter-nav-btn" 
-   href="{{ nav_link }}"
+   href="{{ prev_nav_link }}"
    hreflang="mul"
    title="{{ site.data.phrases.previous_chapter[lang] | default: 'Previous chapter' }}">
    ≺
@@ -54,7 +54,7 @@
 {% assign next_chapter_number = chapter_number | plus: 1 %}
 {% capture next_nav_link %}./{{ next_chapter_number }}.html{% endcapture %}
 <a id="chapterNavBtnNext" class="chapter-nav-btn" 
-   href="{{ nav_link }}"
+   href="{{ next_nav_link }}"
    hreflang="mul"
    title="{{ site.data.phrases.next_chapter[lang] | default: 'Next chapter' }}">
   ≻
