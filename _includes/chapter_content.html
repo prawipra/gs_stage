@@ -38,8 +38,8 @@
 
 {% comment %} chapter navigation {% endcomment %}
 {% if chapter_number > 1 %}
-{% assign prev_chapter_html = chapter_number | minus: 1 | append: ".html" %}
-{% capture nav_link %}./{{ prev_chapter_html }}{% endcapture %}
+{% assign prev_chapter_number = chapter_number | minus: 1 %}
+{% capture prev_nav_link %}./{{ prev_chapter_number }}.html{% endcapture %}
 <a id="chapterNavBtnPrevious" class="chapter-nav-btn" 
    href="{{ nav_link }}"
    hreflang="mul"
@@ -51,8 +51,8 @@
 {% endif %}
 
 {% if chapter_number < 18 %}
-{% assign next_chapter_html = chapter_number | plus: 1 | append: ".html" %}
-{% capture nav_link %}./{{ next_chapter_html }}{% endcapture %}
+{% assign next_chapter_number = chapter_number | plus: 1 %}
+{% capture next_nav_link %}./{{ next_chapter_number }}.html{% endcapture %}
 <a id="chapterNavBtnNext" class="chapter-nav-btn" 
    href="{{ nav_link }}"
    hreflang="mul"
