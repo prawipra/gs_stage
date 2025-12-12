@@ -38,32 +38,29 @@
 
 {% comment %} chapter navigation {% endcomment %}
 {% if chapter_number > 1 %}
-  {% assign prev_chapter_number = chapter_number | minus: 1 %}
-  {% capture prev_chapter_link %}./{{ prev_chapter_number }}.html{% endcapture %}
-  {% capture prev_chapter_title %}
-    {% include localized_chapter_title.html lang=page_lang chapter=prev_chapter_number %}
-  {% endcapture %}
-  <a id="chapterNavBtnPrevious" class="chapter-nav-btn" 
-    href="{{ prev_chapter_link }}"
-    hreflang="mul"
-    title="{{ prev_chapter_title }}">
-    ≺
-  </a>
+{% assign prev_chapter_html = chapter_number | minus: 1 | append: ".html" %}
+{% capture nav_link %}./{{ prev_chapter_html }}{% endcapture %}
+<a id="chapterNavBtnPrevious" class="chapter-nav-btn" 
+   href="{{ nav_link }}"
+   hreflang="mul"
+   title="{{ site.data.phrases.previous_chapter[lang] | default: 'Previous chapter' }}">
+   ≺
+</a>
 {% else %}
-  <span id="chapterNavBtnPrevious" class="chapter-nav-btn disabled">≺</span>
+<span id="chapterNavBtnPrevious" class="chapter-nav-btn disabled">≺</span>
 {% endif %}
 
-{% if chapter_number != 18 %}
-  {% assign next_chapter_number = chapter_number | plus: 1 %}
-  {% capture next_chapter_link %}./{{ next_chapter_number }}.html{% endcapture %}
-  <a id="chapterNavBtnNext" class="chapter-nav-btn" 
-    href="{{ next_chapter_link }}"
-    hreflang="mul"
-    title="Next chapter">
-    ≻
-  </a>
+{% if chapter_number < 18 %}
+{% assign next_chapter_html = chapter_number | plus: 1 | append: ".html" %}
+{% capture nav_link %}./{{ next_chapter_html }}{% endcapture %}
+<a id="chapterNavBtnNext" class="chapter-nav-btn" 
+   href="{{ nav_link }}"
+   hreflang="mul"
+   title="{{ site.data.phrases.next_chapter[lang] | default: 'Next chapter' }}">
+  ≻
+</a>
 {% else %}
-  <span id="chapterNavBtnNext" class="chapter-nav-btn disabled">≻</span>
+<span id="chapterNavBtnNext" class="chapter-nav-btn disabled">≻</span>
 {% endif %}
 
 
