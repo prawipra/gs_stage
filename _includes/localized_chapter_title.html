@@ -16,8 +16,14 @@
 
 {% comment %} 
   intentionally not creating local vars such as lang and chapter_number for include params
-  - shared var name changes data type of any var of the same name in the caller, even though 
+  - shared var name can change data type of a var of the same name in the caller, even though 
     no actual type change is made here
+  - e.g., if chapter_number is a number in caller; a local chapter_number here assigned from 
+    include.chapter is string which also makes chapter_number in caller a string and later 
+    arithmetic ops on that var in the caller will fail
+  - the include use in chapter_content.html has this situation
+  - we could force a local chapter_number here to be a number using a times: 1 op here, if that is 
+    really required, but no such need in this case
 {% endcomment %}
 
 {% assign localized_chapter_number = site.data.chapters[include.chapter].number[include.lang] | default: include.chapter %}
