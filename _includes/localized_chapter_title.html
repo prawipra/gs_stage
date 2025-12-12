@@ -14,8 +14,10 @@
   // --------------------------------------------------------------------------
 {% endcomment %}
 
-{% assign lang = include.lang %}
-{% assign chapter_number = include.chapter %}
-
-{% assign localized_chapter_number = site.data.chapters[chapter_number].number[lang] | default: chapter_number %}
-{{ site.data.phrases.chapter[lang] | default: "Chapter" }} {{ localized_chapter_number }}
+{% comment %} 
+  intentionally not creating local vars such as lang and chapter_number for include params
+  - just an educated guess but it seems shared variable names might end up impacting data 
+    type in the caller
+{% endcomment %}
+{% assign localized_chapter_number = site.data.chapters[include.chapter].number[include.lang] | default: include.chapter %}
+{{ site.data.phrases.chapter[include.lang] | default: "Chapter" }} {{ localized_chapter_number }}
