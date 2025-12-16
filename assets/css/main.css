@@ -7,15 +7,27 @@
 /* --- Root variables --- */
 :root{
   --bg: #ffffff;
+  --bg-emphasis: #e6e6e6;   /* distinguish from --bg */
   --text: #000000;
+
+  --border-color-light: rgba(0,0,0,0.1);
+  --border-color-strong: rgba(0,0,0,0.25);
+  
+  --focus-color: #000000;
+
   --max-width: 980px;
   --pad: 1rem;
   --measure: 70ch;
   --line: 1.65;
   --scale-eng: 1.0;           /* value by trial and error; depends on font */
   --header-logo-size: 72px;
-  --focus-color: #000000;
   --transition: 180ms ease;
+
+  /* 
+    horizontal offset for chapter navs: -3rem if vw < --max-width; else 6rem set in media query
+    experimentally determined, works well enough
+  */
+  --chapter-nav-btn-horizontal-offset: -3rem;
 
   /* UA-size tokens for headings (rem-based, stable relative to root) */
   --h1-size-ua: 2rem;
@@ -41,7 +53,13 @@
 /* Dark mode override (toggle with body.dark-mode) */
 body.dark-mode{
   --bg: #0f0f0f;
+  --bg-emphasis: #2a2a2a;
   --text: #ffffff;
+
+  --border-color-light: rgba(255,255,255,0.15);
+  --border-color-strong: rgba(255,255,255,0.35);
+
+  --focus-color: #ffffff;
 }
 
 /* Dark-mode toggle button */
@@ -226,19 +244,8 @@ nav.lang-nav{
   margin-top: 0.25rem;
 }
 
-nav.site-nav ul,
-nav.lang-nav ul{
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
 nav.site-nav a,
-nav.lang-nav a{
+nav.lang-nav a {
   color: inherit;
   text-decoration: none;
   padding: 0.2rem 0.5rem;
@@ -251,6 +258,149 @@ nav.site-nav a.current-page-url { font-weight: 550; }
 /* active-language marker */
 nav.lang-nav a.current-page-lang{ font-weight: 550; }
 
+
+/* lang-nav management: 
+    - two lang nav menus: a horizontal and a vertical
+    - the last horizontal item is an "expansion item/wrapper" which includes expansion label and the vertical menu
+    - progressively hide one/more horizontal items at different breakpoints: experimentally determined
+    - progressively show items in the vertical menu: as if we move items from horizontal to vertical
+    - show expansion label when any item is removed from horizontal menu
+    - show vertical menu when the expansion label receives focus: click or tab in
+    - vertical menu auto hides when the expansion element loses focus
+*/
+
+nav.site-nav ul,
+nav.lang-nav .lang-nav-horizontal {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* expansion wrapper: anchor the vertical menu */
+.lang-nav-expansion {
+  position: relative;
+}
+
+/* expansion label hidden by default, shown at first breakpoint */
+.lang-nav-expansion-label { 
+  display: none;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
+  background-color: var(--bg-emphasis);
+  border-radius: 4px;              /* pill background */
+  line-height: 0.6;
+}
+
+.lang-nav-expansion-label:hover {
+  outline: 3px solid var(--focus-color);
+}
+
+/* expansion label content */
+.lang-nav-expansion-label::before {
+  content: "⏷";                   /* chevron down */
+}
+
+/* vertical menu: hidden by default, overlay dropdown when shown */
+.lang-nav-expansion .lang-nav-vertical {
+  display: none;                  /* baseline hidden */
+  list-style: none;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin: 0;
+  padding: 0.15rem 0.25rem;
+  position: absolute;             /* overlay, not reflow */
+  top: calc(100% + 0.1rem);       /* directly below the label */
+  left: 0;                        /* left edge same as the label */
+  width: max-content;             /* dropdown width fits content */
+  max-width: 90vw;                /* safety cap on very small screens */
+  z-index: 100;
+  background: var(--bg-emphasis);
+  border: 1px solid var(--border-color-light);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15); /* soft shadow */
+}
+
+/* vertical lang menu items: left-justified items, hidden by default */
+.lang-nav-expansion .lang-nav-vertical li {
+  display: none;
+  margin: 0;
+  padding: 0;
+  align-self: flex-start;
+  text-align: left;
+}
+
+/* reveal the vertical menu while the expansion wrapper has focus */
+.lang-nav-expansion:focus-within .lang-nav-vertical {
+  display: flex;
+}
+
+
+/* 
+  progressively hide and show language items by DOM position
+  - at each breakpoint hide one or more items in the horizontal lang menu
+    and show the corresponding items in the vertical lang menu
+
+  how many items to hide at each breakpoint is determined experimentally
+  - depends on the width needed, which depends on the language name and font
+
+  nth-last-of-type(2) is the second-from-last item
+  - in horizontal menu, last item is expansion label: so start hiding from second-from-last item
+  - vertical menu has no expansion label: so start showing from last item
+
+  show the expansion label when the first horizontal item is removed
+*/
+
+@media (max-width: 480px) {
+  /* show expansion label: need to do just at the first breakpoint */
+  .lang-nav-expansion-label { display: inline-block; }
+
+  /* hide the first set of horizontal items */
+  .lang-nav-horizontal li:nth-last-of-type(2) { display: none; }
+
+  /* show the first set of vertical items if expansion wrapper has focus */
+  .lang-nav-expansion:focus-within .lang-nav-vertical 
+    li:nth-last-of-type(1) { display: list-item; }
+}
+
+@media (max-width: 375px) {
+  .lang-nav-horizontal li:nth-last-of-type(3) { display: none; }
+  .lang-nav-expansion:focus-within .lang-nav-vertical 
+    li:nth-last-of-type(2) { display: list-item; }
+}
+
+@media (max-width: 320px) {
+  .lang-nav-horizontal li:nth-last-of-type(4) { display: none; }
+  .lang-nav-expansion:focus-within .lang-nav-vertical 
+    li:nth-last-of-type(3) { display: list-item; }
+}
+
+/* 
+  when viewport is so narrow that the label itself wraps
+  - hide entire horizontal menu and show entire vertical menu
+    avoid showing just one orphan-looking horizontal lang item
+  - change label to "languages" icon and restyle to match
+*/
+@media (max-width: 230px) {
+  .lang-nav-horizontal li { display: none; }
+  .lang-nav-expansion:focus-within .lang-nav-vertical li { display: list-item; }
+
+  .lang-nav-expansion-label::before {
+    content: "🌐";                  /* languages icon; TODO: replace with monochrome SVG */
+  }
+
+  .lang-nav-expansion-label { 
+    background-color: var(--bg);     /* no bg emphasis */
+    border-radius: 0px;              /* no pill background */
+  }
+
+  .lang-nav-expansion-label:hover {
+    outline: none;
+  }
+}
 
 /* --- Baseline content typography (Indic baseline) --- */
 :where(p, div, li, dd, dt, blockquote, table, td, th){
@@ -286,42 +436,84 @@ tbody td:nth-child(2) a:focus { text-decoration: underline; }
 /* Subtle zebra fallback for long lists (optional but gentle) */
 tbody tr:nth-child(2n) { background: rgba(0,0,0,0.015); }
 
+
 /* Chapter navigation */
 .chapter-nav-btn {
-    position: fixed;
-    top: 85%;
-    transform: translateY(-50%);
-    font-size: 18px;                    /* Bigger for visibility */
-    font-weight: bold;
-    color: white;
-    background: rgba(0, 0, 0, 0.6);   /* High-contrast dark backdrop */
-    border: 2px solid white;
-    padding: 10px 12px;
-    border-radius: 50%;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    cursor: pointer;
-    z-index: 9999;
+  position: fixed;
+  top: 60vh;          /* a bit past viewport center */
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--text);
+  background: var(--bg-emphasis);
+  padding: 10px 12px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  border: 1px solid var(--border-color-light);
+  cursor: pointer;
+  z-index: 9999;
+  transition: background var(--transition), color var(--transition);
 }
 
-a.chapter-nav-btn {
-  text-decoration: none;
+/* on narrower viewports (width), shrink nav buttons */
+@media (max-width: 600px) {
+  .chapter-nav-btn {
+    font-size: 1rem;
+    padding: 6px 8px;
+  }
 }
 
-.chapter-nav-btn:hover {
-    background: rgba(0, 0, 0, 0.85);   /* Darker on hover */
+/* on shorter viewports (height), place nav btns as low as possible */
+@media (max-height: 400px) {
+  .chapter-nav-btn {
+    top: auto;
+    bottom: 1rem;
+  }
 }
 
-.chapter-nav-btn.disabled {
-    opacity: 0.3;
-    cursor: not-allowed; /* A big somewhat ugly No Parking type of cursor */
+/* 
+  adjust horizontal offset for wider viewport: experimentally determined based on vw
+  hardcoded 980px because media query can's use vars
+  the actual value used should match value of var --max-width
+*/
+@media (min-width: 980px) {
+  :root {
+    --chapter-nav-btn-horizontal-offset: 6rem;
+  }
 }
 
+/* 
+  horizontal position: at least 10px past safe distance from viewport edges
+  - max ensures buttons don't go off screen
+*/
 #chapterNavBtnPrevious {
-    left: 12px;
+  left: max(
+    calc(env(safe-area-inset-left, 0px) + 10px),
+    calc(50% - (var(--max-width) / 2) + var(--chapter-nav-btn-horizontal-offset))
+  );
 }
 
 #chapterNavBtnNext {
-    right: 12px;
+  right: max(
+    calc(env(safe-area-inset-right, 0px) + 10px), 
+    calc(50% - (var(--max-width) / 2) + var(--chapter-nav-btn-horizontal-offset))
+  );
+}
+
+/* highlight on hover and focus, but only if enabled */
+.chapter-nav-btn:not(.disabled):hover,
+.chapter-nav-btn:not(.disabled):focus {
+  outline: 3px solid var(--focus-color);
+}
+
+/* dim if disabled */
+.chapter-nav-btn.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* don't look like a link */
+a.chapter-nav-btn {
+  text-decoration: none;
 }
 
 
@@ -495,7 +687,7 @@ a:focus, button:focus, input:focus, textarea:focus{
   }
 }
 
-/* responsivs headings on very small screens */
+/* responsive headings on very small screens */
 @media (max-width: 420px) {
   :root {
     --h1-size-ua: calc(var(--h1-size-ua) * 0.95);
