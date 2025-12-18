@@ -41,7 +41,7 @@
     {% continue %}
   {% endif %}
 
-  {% capture href_path %}../{{ lang_code }}{{ include.basename }}.html{% endcapture %}
+  {% capture href_path %}../{{ lang_code }}/{{ include.basename }}.html{% endcapture %}
   {% capture a_lang %}{{ lang_code }}-{{lang_data.script}}-{{lang_data.region}}{% endcapture %}
   {% if chapter_number_lni_inc > 0 %}
     {% assign href_lang = a_lang | replace_first: lang_code, "mul" %}
