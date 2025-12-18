@@ -71,6 +71,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ site_title }}{% if page_title %} – {{ page_title }}{% endif %}</title>
   <link rel="stylesheet" href="../assets/css/main.css">
+  <script src="../assets/js/main.js" defer></script>
 </head>
 
 {% comment %}
@@ -161,55 +162,39 @@
 
       <!-- languages nav -->
       {% comment %} 
-        Add lang-nav only if more than one active lang: explicit test for active false to leave out langs
-
-        Build nav links by replacing /lang in page url with sibling langs: /eng -> /kan, /eng/about.html -> /kan/about.html,...
-        If link is back to current lang make its text strong and further style with a class: still use a link; not span
-        Link text is lang's native name; link tooltip is lang's English name
-
-        a_lang: lang attr of a lang link necessarily corresponds to that lang: lang-script-region
-        href_lang: same as a_lang except for chapter pages which are of the form: mul-script-region
-
+        Add lang-nav only if more than one active lang
         TODO: fix active_langs filter; as is, it includes inactive langs; for now using a conditional continue inside for loop
         - Jekyll docs: https://jekyllrb.com/docs/liquid/filters/
+
+        lang_nav structure: horizontal nav and a vertical nav
+        Horiziontal nav has active langs plus an item as "expansion wrapper"
+        Expansion wrapper starts with an "expansion label" that conditionally appears
+        The wrapper then contains another ul with one li for each active lang
+
+        The HTML for lang nav items is captured once and printed twice
+        An include file builds the lang nav items which is captured into a var for reuse
+
+        lang nav structure is managed in CSS, save for one UI need which is managed with JS
       {% endcomment %}
 
       {% assign active_langs = site.data.languages | reject: 'last.active', false %}
-
       {% if active_langs.size > 1 %}
       
         {% assign current_lang_prefix = "/" | append: page_lang %}
         {% assign page_path_suffix = page.url | remove_first: current_lang_prefix %}
 
+        {% capture lang_nav_items %}
+          {% include lang_nav_items.html lang=page_lang langs=active_langs basename=page_basename %}
+        {% endcapture %}
+
         <nav class="lang-nav" aria-label="Language switcher">
-          <ul>
-            {% for lang_pair in active_langs %}
-              {% assign lang_code = lang_pair[0] %}
-              {% assign lang_data = lang_pair[1] %}
-
-              {%if lang_data.active == false %}
-                {% continue %}
-              {% endif %}
-
-              {% capture href_path %}../{{ lang_code }}{{ page_path_suffix }}{% endcapture %}
-              {% capture a_lang %}{{ lang_code }}-{{lang_data.script}}-{{lang_data.region}}{% endcapture %}
-              {% if chapter_number > 0 %}
-                {% assign href_lang = a_lang | replace_first: lang_code, "mul" %}
-              {% else %}
-                {% assign href_lang = a_lang  %}
-              {% endif %}
-
-              <li>
-                  <a href="{{ href_path }}" 
-                      lang="{{ a_lang }}"
-                      hreflang="{{ href_lang }}"
-                      title="{% if lang_code != 'eng' %}{{ lang_data.name.eng }}{% endif %}"
-                      class="{% if lang_code == page_lang %}current-page-lang{% endif %}">
-                      {{ lang_data.name[lang_code] }}
-                  </a>
-              </li>
-
-            {% endfor %}
+          <ul class="lang-nav-horizontal">
+            {{ lang_nav_items }}
+            <li class="lang-nav-expansion">
+              <label class="lang-nav-expansion-label" tabindex="0" role="button" data-open="false"></label>
+              <ul class="lang-nav-vertical">
+                {{ lang_nav_items }} {% comment %}repeat lang nav items{% endcomment %}
+              </ul>
           </ul>
         </nav>
       {% endif %}

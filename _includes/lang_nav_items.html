@@ -1,0 +1,61 @@
+{% comment %}
+  // REQUIRED INPUTS:
+  // include.lang:      (String) Current page's lang code.
+  //                    (Passed from: 'lang=page_lang')
+  //
+  // include.langs:     (String) key_value pairs for langs for which nav items are to be printed
+  //                    (Passed from: 'langs=active_langs')
+  //
+  // include.basename:  (String) Basename of current page: index, preface, chapters, about, 1, 2,...
+  //                    (Passed from: 'basename=page_basename')
+  //
+  // USAGE EXAMPLE:
+  // {% include lang_nav_items.html lang=page_lang langs=active_langs basename=page_basename %}
+  // -------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} 
+  Print list items (li) that go inside an HTML list (ul)
+  li items correspond to langs in include.langs: no filter applied except for inactive langs
+
+  Build nav links by climbing in to the sibling dir for the lang and there to include.basename
+  - index -> ../kan/index.html, ../eng/index.html, ...
+
+  If linked lang is current lang, mark it with a class
+  Link text is lang's native name; link tooltip is lang's English name
+
+  a_lang: lang attr of a lang link necessarily corresponds to that lang: lang-script-region
+  href_lang: same as a_lang except for chapter pages which are of the form: mul-script-region
+
+  chapter_number_lni_inc is a local var with chapter number guaranteed to be a number
+  - if passed in as an include.x var, the number in the caller turns to a string here
+{% endcomment %}
+
+{% assign chapter_number_lni_inc = include.basename | times: 1 | default: 0 %}
+
+{% for lang_pair in include.langs %}
+  {% assign lang_code = lang_pair[0] %}
+  {% assign lang_data = lang_pair[1] %}
+
+  {%if lang_data.active == false %}
+    {% continue %}
+  {% endif %}
+
+  {% capture href_path %}../{{ lang_code }}{{ include.basename }}.html{% endcapture %}
+  {% capture a_lang %}{{ lang_code }}-{{lang_data.script}}-{{lang_data.region}}{% endcapture %}
+  {% if chapter_number_lni_inc > 0 %}
+    {% assign href_lang = a_lang | replace_first: lang_code, "mul" %}
+  {% else %}
+    {% assign href_lang = a_lang  %}
+  {% endif %}
+
+  <li>
+    <a href="{{ href_path }}" 
+       lang="{{ a_lang }}"
+       hreflang="{{ href_lang }}"
+       title="{% if lang_code != 'eng' %}{{ lang_data.name.eng }}{% endif %}"
+       class="{% if lang_code == include.lang %}current-page-lang{% endif %}">
+       {{ lang_data.name[lang_code] }}
+    </a>
+  </li>
+{% endfor %}
