@@ -289,20 +289,20 @@ nav.lang-nav .lang-nav-horizontal {
 .lang-nav-expansion-label { 
   display: none;
   cursor: pointer;
-  font-weight: 600;
+  font-size: 0.8rem;               /* set based on content */
   padding: 0.25rem 0.6rem;
   background-color: var(--bg-emphasis);
   border-radius: 4px;              /* pill background */
   line-height: 0.6;
 }
 
-.lang-nav-expansion-label:hover {
-  outline: 3px solid var(--focus-color);
-}
-
 /* expansion label content */
 .lang-nav-expansion-label::before {
-  content: "⏷";                   /* chevron down */
+  content: "▼";   /* U+25BC down-pointing triangle; widely supported */
+}
+
+.lang-nav-expansion-label:hover {
+  outline: 3px solid var(--focus-color);
 }
 
 /* vertical menu: hidden by default, overlay dropdown when shown */
