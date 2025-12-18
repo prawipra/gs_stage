@@ -5,24 +5,56 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// configure the expansion label to access vertical language menu
+// configure expansion label to close vertical lang menu with mouse and kbd
 function setupExpansionLabel() {
   const label = document.querySelector('.lang-nav-expansion-label');
-  if (!label) return; // early exit if label not present
+  if (!label) return;
 
-  label.addEventListener('click', () => {
-    if (label.dataset.open === 'true') {
-      label.blur();
-      label.dataset.open = 'false';
-    } else {
-      label.focus();
-      label.dataset.open = 'true';
-    }
+  // ensure label can get focus
+  if (!label.hasAttribute('tabindex')) {
+    label.setAttribute('tabindex', '0');
+  }
+
+  // initialize tracking flags
+  label.dataset.open = 'false';
+  label.setAttribute('aria-expanded', 'false');
+
+  // track when label gains and loses focus
+  label.addEventListener('focus', () => {
+    label.dataset.open = 'true';
+    label.setAttribute('aria-expanded', 'true');
   });
 
-  label.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && label.parentElement.matches(':focus-within')) {
+  label.addEventListener('blur', () => {
+    label.dataset.open = 'false';
+    label.setAttribute('aria-expanded', 'false');
+  });
+
+  // helper to toggle the focus on/off the label
+  function toggleFocus() {
+    if (label.dataset.open === 'true') {
       label.blur();
+    } else {
+      label.focus();
+    }
+  }
+
+  // toggle on pointerdown (click/tap/pen)
+  label.addEventListener('pointerdown', (event) => {
+    event.preventDefault(); // stop automatic focus
+    toggleFocus();
+  });
+
+  // accessibility: manage focus when certain keys are pressed
+  // close on Esc; toggle on Enter and Space
+  label.addEventListener('keydown', (event) => {
+    const within = label.parentElement.matches(':focus-within');
+
+    if (event.key === 'Escape' && within) {
+      label.blur(); // no need to prevent default
+    } else if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault(); // prevent scrolling or accidental form submit
+      toggleFocus();
     }
   });
 }
