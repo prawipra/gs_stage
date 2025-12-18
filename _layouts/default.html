@@ -171,10 +171,17 @@
         Expansion wrapper starts with an "expansion label" that conditionally appears
         The wrapper then contains another ul with one li for each active lang
 
+        lang attr for expansion label is set to the ISO-690-2 code "zxx" which
+        stands for “no linguistic content; not applicable.” This value excludes
+        label from any alng-specific styling for its container.
+        zxx: https://en.wikipedia.org/wiki/ISO_639:z
+
+        The custom property data-open in the expansion label is required to manage UI.
+
         The HTML for lang nav items is captured once and printed twice
         An include file builds the lang nav items which is captured into a var for reuse
 
-        lang nav structure is managed in CSS, save for one UI need which is managed with JS
+        lang nav behavior is managed mostly in CSS, save for one UI need which is managed with JS
       {% endcomment %}
 
       {% assign active_langs = site.data.languages | reject: 'last.active', false %}
@@ -191,7 +198,9 @@
           <ul class="lang-nav-horizontal">
             {{ lang_nav_items }}
             <li class="lang-nav-expansion">
-              <label class="lang-nav-expansion-label" tabindex="0" role="button" data-open="false"></label>
+              <label lang="zxx" class="lang-nav-expansion-label" 
+                     tabindex="0" role="button" data-open="false">
+              </label>
               <ul class="lang-nav-vertical">
                 {{ lang_nav_items }} {% comment %}repeat lang nav items{% endcomment %}
               </ul>
