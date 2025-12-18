@@ -289,11 +289,17 @@ nav.lang-nav .lang-nav-horizontal {
 .lang-nav-expansion-label { 
   display: none;
   cursor: pointer;
-  font-size: 0.8rem;               /* set based on content */
   padding: 0.25rem 0.6rem;
   background-color: var(--bg-emphasis);
   border-radius: 4px;              /* pill background */
-  line-height: 0.6;
+  
+  /* 
+    !important: styling applies independent of lang-attr styling
+    - lang attr of label is explicitly set to zxx, but somehow that seems to not help
+    - could move the lang(eng) rules above in this sheet but that adds a lot of noise
+  */
+  font-size: 0.8rem !important; /* set based on content */
+  line-height: 0.6 !important;
 }
 
 /* expansion label content */
