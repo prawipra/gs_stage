@@ -266,27 +266,15 @@
     </p>
     {% endif %}
 
-    <button class="toggle-dark" id="darkToggle" aria-pressed="false">Toggle dark</button>
+    <div id="displayModeControls">
+      <span id="modeStatus"></span>
+      <span class="pipe">|</span>
+      <button id="modeSwitch"></button>
+      <span class="pipe">|</span>
+      <button id="modeSystem"></button>
+    </div>
+    
   </footer>
-
-  <script>
-    (function(){
-      const btn = document.getElementById('darkToggle'), key = 'gs-dark';
-      const apply = v => {
-        document.body.classList.toggle('dark-mode', v);
-        btn.setAttribute('aria-pressed', v ? 'true' : 'false');
-      };
-      try{
-        const pref = localStorage.getItem(key);
-        if(pref !== null) apply(pref === '1');
-      }catch(e){}
-      btn.addEventListener('click', () => {
-        const is = !document.body.classList.contains('dark-mode');
-        try{ localStorage.setItem(key, is ? '1' : '0'); }catch(e){}
-        apply(is);
-      });
-    })();
-  </script>
 
 </body>
 </html>

@@ -649,6 +649,34 @@ a:focus, button:focus, input:focus, textarea:focus{
 }
 
 
+/* Display mode management */
+#displayModeControls {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+#displayModeControls button {
+  all: unset;
+  cursor: pointer;
+  font-size: 0.85rem;
+  text-decoration: underline;
+}
+
+#displayModeControls button:hover {
+  text-decoration: none;
+}
+
+#modeStatus {
+  font-size: 0.85rem;
+}
+
+#displayModeControls .pipe {
+  margin: 0 0.25rem;
+  color: inherit;
+}
+
+
 /* --- utilities --- */
 .hidden{ display: none; }
 .center{ text-align: center; }
