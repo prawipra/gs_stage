@@ -36,7 +36,7 @@
   --h4-size-ua: 1rem;
   --h5-size-ua: 0.83rem;
 
-  /* Uniform heading metrics (tweak per type if desired) */
+  /* Uniform heading metrics */
   --h1-line-height: 1.05;
   --h2-line-height: 1.15;
   --h3-line-height: 1.25;
@@ -50,7 +50,7 @@
   --h5-weight: 500;
 }
 
-/* Dark mode override (toggle with body.dark-mode) */
+/* Dark mode override */
 body.dark-mode{
   --bg: #0f0f0f;
   --bg-emphasis: #2a2a2a;
@@ -62,7 +62,7 @@ body.dark-mode{
   --focus-color: #ffffff;
 }
 
-/* Dark-mode toggle button */
+/* Dark-mode toggle */
 .toggle-dark{
   background: transparent;
   color: var(--text);
@@ -237,7 +237,7 @@ h5.header{
 
 /* --- Navigation (site and language) --- */
 nav.site-nav,
-nav.lang-nav{
+nav.lang-nav {
   display: flex;
   justify-content: center;
   padding: 0;
@@ -252,15 +252,15 @@ nav.lang-nav a {
   font-size: 0.95rem;
 }
 
-/* active-page marker */
-nav.site-nav a.current-page-url { font-weight: 550; }
-
-/* active-language marker */
-nav.lang-nav a.current-page-lang{ font-weight: 550; }
-
+/* active-page, active-lang markers: bold but shrink the space around */
+nav.site-nav a.current-page-url,
+nav.lang-nav a.current-page-lang { 
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
 
 /* lang-nav management: 
-    - two lang nav menus: a horizontal and a vertical
+    - two lang nav menus: horizontal and vertical
     - the last horizontal item is an "expansion item/wrapper" which includes expansion label and the vertical menu
     - progressively hide one/more horizontal items at different breakpoints: experimentally determined
     - progressively show items in the vertical menu: as if we move items from horizontal to vertical
@@ -275,7 +275,7 @@ nav.lang-nav .lang-nav-horizontal {
   margin: 0;
   padding: 0;
   display: flex;
-  gap: 0.5rem;
+  gap: 0.4rem;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -286,34 +286,37 @@ nav.lang-nav .lang-nav-horizontal {
 }
 
 /* expansion label hidden by default, shown at first breakpoint */
-.lang-nav-expansion-label { 
+.lang-nav-expansion-label {
   display: none;
   cursor: pointer;
-  padding: 0.25rem 0.6rem;
+  padding: 0.2rem 0.45rem;
   background-color: var(--bg-emphasis);
-  border-radius: 4px;              /* pill background */
+  border-radius: 2px;              /* pill background */
   
   /* 
     !important: styling applies independent of lang-attr styling
-    - lang attr of label is explicitly set to zxx, but somehow that seems to not help
+    - lang attr of label is explicitly set to zxx in HTML, but that seems to not help
     - could move the lang(eng) rules above in this sheet but that adds a lot of noise
+
+    The properties below are set based on content: must review with change in lang list, order
   */
-  font-size: 0.8rem !important; /* set based on content */
+  font-size: 0.75rem !important;
   line-height: 0.6 !important;
+  margin-left: 0.5rem !important; /* extra space on left */
 }
 
-/* expansion label content */
+/* expansion label content: use only widely-supported chars */
 .lang-nav-expansion-label::before {
-  content: "▼";   /* U+25BC down-pointing triangle; widely supported */
+  content: "▼";   /* U+25BC down-pointing triangle */
 }
 
 .lang-nav-expansion-label:hover {
   outline: 3px solid var(--focus-color);
 }
 
-/* vertical menu: hidden by default, overlay dropdown when shown */
+/* vertical menu: hidden by default */
 .lang-nav-expansion .lang-nav-vertical {
-  display: none;                  /* baseline hidden */
+  display: none;
   list-style: none;
   flex-direction: column;
   gap: 0.15rem;
@@ -327,21 +330,21 @@ nav.lang-nav .lang-nav-horizontal {
   /* let the menu grow toward left edge of screen: fits long native names without obscuring them */
   position: absolute;       /* overlay, not reflow */
   top: calc(100% + 0.1rem); /* directly below the label */
-  right: 0;                 /* align right edge of menu with label */
+  right: 0;                 /* align right edge of menu with label's */
   width: max-content;       /* menu width fits content */
   max-width: 90vw;          /* safety cap on very small screens */
 }
 
-/* vertical lang menu items: left-justified items, hidden by default */
+/* vertical lang menu items: left-justified items,  */
 .lang-nav-expansion .lang-nav-vertical li {
-  display: none;
+  display: none;            /* hidden by default, shown as vw narrows */
+  text-align: left;         /* left justified */
+  align-self: flex-start;
   margin: 0;
   padding: 0;
-  align-self: flex-start;
-  text-align: left;
 }
 
-/* reveal the vertical menu while the expansion wrapper has focus */
+/* show the vertical menu when the expansion wrapper has focus */
 .lang-nav-expansion:focus-within .lang-nav-vertical {
   display: flex;
 }
@@ -360,40 +363,115 @@ nav.lang-nav .lang-nav-horizontal {
   - vertical menu contains no expansion label: so start showing from last item
 
   show the expansion label when the first horizontal item is removed
+
+  Also adjust horizontal items' size, spacing, etc. so the narrower space is used well
+  - the goal is to show as many horizontal nav items as possible while being readable
 */
 
-@media (max-width: 375px) {
-  /* show expansion label: need to do just at the first breakpoint */
-  .lang-nav-expansion-label { display: inline-block; }
-
-  /* hide the first set of horizontal items */
-  .lang-nav-horizontal li:nth-last-of-type(2) { display: none; }
-
-  /* show the first set of vertical items if expansion wrapper has focus */
-  .lang-nav-expansion:focus-within .lang-nav-vertical 
-    li:nth-last-of-type(1) { display: list-item; }
+/* tighten space and size */
+@media (max-width: 350px) {
+  nav.lang-nav .lang-nav-horizontal a {
+    font-size: 0.9rem !important;
+    padding: 0.15rem 0.35rem !important;
+  }
 }
 
-@media (max-width: 345px) {
+/* further tighten space and size */
+@media (max-width: 335px) {
+  nav.lang-nav .lang-nav-horizontal a {
+    font-size: 0.9rem !important;
+    padding: 0.12rem 0.3rem !important;
+  }
+}
+
+/* even further tighten space and size */
+@media (max-width: 319px) {
+  nav.lang-nav .lang-nav-horizontal a {
+    font-size: 0.85rem !important;
+    padding: 0.12rem 0.2rem !important;
+  }
+}
+
+/* hide one lang, show expansion label; there is no space to relax */
+@media (max-width: 295px) {
+  .lang-nav-horizontal li:nth-last-of-type(2) { display: none; }
+  .lang-nav-expansion:focus-within .lang-nav-vertical 
+    li:nth-last-of-type(1) { display: list-item; }
+
+  nav.lang-nav .lang-nav-expansion-label { display: inline-block; }
+}
+
+/* tighten space and size */
+@media (max-width: 280px) {
+  nav.lang-nav .lang-nav-horizontal a {
+    font-size: 0.8rem !important;
+    padding: 0.12rem 0.2rem !important;
+  }
+}
+
+/* hide one more lang; relax spacing */
+@media (max-width: 269px) {
   .lang-nav-horizontal li:nth-last-of-type(3) { display: none; }
   .lang-nav-expansion:focus-within .lang-nav-vertical 
     li:nth-last-of-type(2) { display: list-item; }
+
+  nav.lang-nav .lang-nav-horizontal a {
+    font-size: 0.9rem !important;
+    padding: 0.15rem 0.35rem !important;
+  }
 }
 
-@media (max-width: 275px) {
+/* tighten space and size */
+@media (max-width: 245px) {
+  nav.lang-nav .lang-nav-horizontal a {
+    font-size: 0.85rem !important;
+    padding: 0.12rem 0.2rem !important;
+  }
+}
+
+/* further tighten space and size */
+@media (max-width: 225px) {
+  nav.lang-nav .lang-nav-horizontal a {
+    font-size: 0.8rem !important;
+    padding: 0.12rem 0.18rem !important;
+  }
+}
+
+/* hide one more lang; relax spacing */
+@media (max-width: 216px) {
   .lang-nav-horizontal li:nth-last-of-type(4) { display: none; }
   .lang-nav-expansion:focus-within .lang-nav-vertical 
     li:nth-last-of-type(3) { display: list-item; }
+
+  nav.lang-nav .lang-nav-horizontal a {
+    font-size: 0.9rem !important;
+    padding: 0.15rem 0.35rem !important;
+  }
+}
+
+/* tighten space and size */
+@media (max-width: 198px) {
+  nav.lang-nav .lang-nav-horizontal a {
+    font-size: 0.85rem !important;
+    padding: 0.12rem 0.2rem !important;
+  }
+}
+
+/* further tighten space and size */
+@media (max-width: 184px) {
+  nav.lang-nav .lang-nav-horizontal a {
+    font-size: 0.8rem !important;
+    padding: 0.12rem 0.18rem !important;
+  }
 }
 
 /* 
-  when viewport is so narrow that the label itself wraps
-  - current lang list: hiding just one lang leaves just one horizontal item
-  - instead of one orphan-looking lang, hide hide all but the expansion wrapper
-    in the horizontal menu, and show all items in the vertical menu
-  - change label to "languages" icon and restyle to match
+  hide one more lang which leaves just one lang in the horizontal menu
+  - instead of one orphan-looking lang, hide all but the expansion wrapper
+  - change expansion label to "languages" icon and restyle to match
+  - move the languages icon to top left of the "screen" and position the vertical menu under it
 */
-@media (max-width: 220px) {
+@media (max-width: 178px) {
   .lang-nav-horizontal li:not(.lang-nav-expansion) { display: none; }
   .lang-nav-expansion:focus-within .lang-nav-vertical li { display: list-item; }
 
@@ -406,19 +484,37 @@ nav.lang-nav .lang-nav-horizontal {
     border-radius: 0px;              /* no pill background */
   }
 
-  /* center the vertical menu under the label */
-  .lang-nav-expansion .lang-nav-vertical {
-    left: 50%;
-    right: auto;
-    transform: translateX(-50%);
-  }
-
   .lang-nav-expansion-label:hover {
     outline: none;
   }
+
+  /* prevent wrapper <li> from collapsing weirdly: wrapper must NOT become the containing block */
+  .lang-nav-expansion {
+    position: static;
+  }
+
+  /* move label to top right of screen */
+  .lang-nav-expansion-label {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.25rem;
+    z-index: 9999;
+
+    margin: 0 !important;
+    padding: 0.25rem 0.4rem;
+  }
+
+  /* anchor vertical menu to the header, not the wrapper */
+  .lang-nav-expansion .lang-nav-vertical {
+    position: absolute;
+    top: calc(0.5rem + 1.4rem); /* label top + label height */
+    right: 0.25rem;             /* align right edge with the label's */
+    left: auto;
+    z-index: 9998;
+  }
 }
 
-/* --- Baseline content typography (Indic baseline) --- */
+/* Baseline content typography (Indic baseline) */
 :where(p, div, li, dd, dt, blockquote, table, td, th){
   margin: 0 0 0.9rem 0;
   font-size: 1rem;          /* baseline for Indic scripts */
@@ -430,9 +526,7 @@ nav.lang-nav .lang-nav-horizontal {
 table{ border-collapse: collapse; width: 100%; margin-bottom: 0.9rem; }
 td, th{ padding: 0.35rem 0.5rem; vertical-align: top; text-align: left; }
 
-/* TOC: interaction + title emphasis + mobile stacked cards (default combo) */
-
-/* Interaction affordance: hover + keyboard focus */
+/* Interaction: hover + keyboard focus */
 tbody tr { transition: background .15s ease, transform .08s ease; }
 tbody tr:hover { background: rgba(0,0,0,0.04); }
 tbody tr:focus-within { background: rgba(0,0,0,0.06); outline: none; }
