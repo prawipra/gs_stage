@@ -4,17 +4,91 @@
    Language-driven styling via lang attribute
    ========================= */
 
+/* Color-scheme management */
+:root {
+  color-scheme: light dark; /* tell UA both light and dark schemes are supported */
+
+  /* setup tokens for light and dark mode properties */
+  --bg-light: #ffffff;
+  --bg-emphasis-light: #e6e6e6;
+  --text-light: #000000;
+  --border-light-light: rgba(0,0,0,0.1);
+  --border-strong-light: rgba(0,0,0,0.25);
+  --focus-light: #000000;
+
+  --bg-dark: #0f0f0f;
+  --bg-emphasis-dark: #2a2a2a;
+  --text-dark: #ffffff;
+  --border-light-dark: rgba(255,255,255,0.15);
+  --border-strong-dark: rgba(255,255,255,0.35);
+  --focus-dark: #ffffff;
+
+  /* light mode by default */
+  --bg: var(--bg-light);
+  --bg-emphasis: var(--bg-emphasis-light);
+  --text: var(--text-light);
+  --border-color-light: var(--border-light-light);
+  --border-color-strong: var(--border-strong-light);
+  --focus-color: var(--focus-light);
+}
+
+/* switch token values if system preference is dark */
+
+/*
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: var(--bg-dark);
+    --bg-emphasis: var(--bg-emphasis-dark);
+    --text: var(--text-dark);
+    --border-color-light: var(--border-light-dark);
+    --border-color-strong: var(--border-strong-dark);
+    --focus-color: var(--focus-dark);
+  }
+}
+*/
+
+/* dark-mode toggle is made in JS when user overrides; not dark mode means light mode */
+html.dark-mode {
+  --bg: var(--bg-dark);
+  --bg-emphasis: var(--bg-emphasis-dark);
+  --text: var(--text-dark);
+  --border-color-light: var(--border-light-dark);
+  --border-color-strong: var(--border-strong-dark);
+  --focus-color: var(--focus-dark);
+}
+
+/* style color-scheme controls */
+#colorSchemeControls {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+#colorSchemeControls button {
+  all: unset;
+  cursor: pointer;
+  font-size: 0.85rem;
+  text-decoration: underline;
+}
+
+#colorSchemeControls button:hover {
+  text-decoration: none;
+}
+
+#colorSchemeStatus {
+  font-size: 0.85rem;
+}
+
+#colorSchemeControls .pipe {
+  margin: 0 0.25rem;
+  color: inherit;
+}
+
+/* --- end of color-scheme management */
+
+
 /* --- Root variables --- */
 :root{
-  --bg: #ffffff;
-  --bg-emphasis: #e6e6e6;   /* distinguish from --bg */
-  --text: #000000;
-
-  --border-color-light: rgba(0,0,0,0.1);
-  --border-color-strong: rgba(0,0,0,0.25);
-  
-  --focus-color: #000000;
-
   --max-width: 980px;
   --pad: 1rem;
   --measure: 70ch;
@@ -48,29 +122,6 @@
   --h3-weight: 600;
   --h4-weight: 600;
   --h5-weight: 500;
-}
-
-/* Dark mode override */
-body.dark-mode{
-  --bg: #0f0f0f;
-  --bg-emphasis: #2a2a2a;
-  --text: #ffffff;
-
-  --border-color-light: rgba(255,255,255,0.15);
-  --border-color-strong: rgba(255,255,255,0.35);
-
-  --focus-color: #ffffff;
-}
-
-/* Dark-mode toggle */
-.toggle-dark{
-  background: transparent;
-  color: var(--text);
-  border: 1px solid currentColor;
-  padding: 0.35rem 0.6rem;
-  font: inherit;
-  cursor: pointer;
-  border-radius: 4px;
 }
 
 /* border box throughout */
@@ -627,6 +678,7 @@ a.chapter-nav-btn {
 }
 
 
+
 /* --- Language-driven rules (no .lang-eng required) --- */
 /* English: set family and line-height; scale non-heading content via :not(:is(...))
    so headings are controlled by per-heading rules (below). */
@@ -758,32 +810,7 @@ a:focus, button:focus, input:focus, textarea:focus{
 }
 
 
-/* Display mode management */
-#displayModeControls {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-}
 
-#displayModeControls button {
-  all: unset;
-  cursor: pointer;
-  font-size: 0.85rem;
-  text-decoration: underline;
-}
-
-#displayModeControls button:hover {
-  text-decoration: none;
-}
-
-#modeStatus {
-  font-size: 0.85rem;
-}
-
-#displayModeControls .pipe {
-  margin: 0 0.25rem;
-  color: inherit;
-}
 
 
 /* --- utilities --- */

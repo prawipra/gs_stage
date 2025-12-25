@@ -69,7 +69,48 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff" id="meta-theme-color">
   <title>{{ site_title }}{% if page_title %} – {{ page_title }}{% endif %}</title>
+
+  {% comment %} inject into window object shared read-only string literals needed in multiple places {% endcomment %}
+  <script>
+  Object.defineProperty(window, '__GEETAA_SAMEEKSHAA_COLOR_SCHEME', {
+    value: Object.freeze({
+      STORAGE_KEY: 'geetaasameekshaa.in-color-scheme',
+      NAME_DARK: 'Dark',
+      NAME_LIGHT: 'Light',
+      NAME_SYSTEM: 'System',
+      MQ_QUERY: '(prefers-color-scheme: dark)',
+      DARK_MODE_CLASS: 'dark-mode'
+    }),
+    writable: false,
+    configurable: false,
+    enumerable: false
+  });
+  </script>
+  
+  {% comment %} set theme class before stylesheet loads: prevent FOUC (flash of unstyled content) {% endcomment %}
+  <script>
+  (function(){
+    try {
+      const cfg = window.__GEETAA_SAMEEKSHAA_COLOR_SCHEME;
+      if (!cfg) return;
+
+      const stored = localStorage.getItem(cfg.STORAGE_KEY);
+      let effectiveDark = false;
+
+      if (stored === cfg.NAME_DARK) effectiveDark = true;
+      else if (stored === cfg.NAME_LIGHT) effectiveDark = false;
+      else {
+        const mq = window.matchMedia && window.matchMedia(cfg.MQ_QUERY);
+        if (mq) effectiveDark = mq.matches;
+      }
+
+      document.documentElement.classList.toggle(cfg.DARK_MODE_CLASS, effectiveDark);
+    } catch (e) { /* CSS default */ }
+  })();
+  </script>
+
   <link rel="stylesheet" href="../assets/css/main.css">
   <script src="../assets/js/main.js" defer></script>
 </head>
@@ -275,12 +316,12 @@
     </p>
     {% endif %}
 
-    <div id="displayModeControls">
-      <span id="modeStatus"></span>
+    <div id="colorSchemeControls">
+      <span id="colorSchemeStatus"></span>
       <span class="pipe">|</span>
-      <button id="modeSwitch"></button>
+      <button id="fixDarkModeOrToggleUserMode"></button>
       <span class="pipe">|</span>
-      <button id="modeSystem"></button>
+      <button id="fixLightModeOrFollowSystem"></button>
     </div>
     
   </footer>
