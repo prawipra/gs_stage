@@ -483,7 +483,7 @@ nav.lang-nav .lang-nav-horizontal {
 }
 
 /* hide one lang, show expansion label; no space to relax due to margin-left of expansion label */
-@media (max-width: 295px) {
+@media (max-width: 296px) {
   .lang-nav-horizontal li:nth-last-of-type(2) { display: none; }
   .lang-nav-expansion:focus-within .lang-nav-vertical 
     li:nth-last-of-type(1) { display: list-item; }
