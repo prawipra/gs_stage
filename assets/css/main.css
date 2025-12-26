@@ -410,11 +410,37 @@ nav.lang-nav .lang-nav-horizontal {
 
   how much space to tighten and how many items to hide at each breakpoint is determined experimentally
   - used Edge Dev Tools Browser in VS Code; continuous "no wrap anywhere" result verified with Chrome dev tools
-  - review breakpoints when any of these change: lang list, lang order, spelling, font
+  - initially use Edge Dev Tools browser in "Responsive", meticulously reducing vw and examining result at each pixel
+  - use a HD monitor (full or 720p) for calibration
+  - use the page with the widest lang name as current lang *and* some page in that lang as current lang: bolding matters
+  - fine tune with page in Chrome browser: open Inspection pane and slide down page width to ensure no wrapping at any point
+  - further fine tune in Chrome browser on a higher resolution monitor
+  - it is quite possible that an item wraps in one config and not the other
+  - net: the actual breakpoint needed to avoid wrapping on most screens can be 1-3 pixels earlier than it seems
+  
+  review breakpoints and actions when any of these change: lang list, lang order, spelling, font
 
-  nth-last-of-type(2) is the second-from-last item
-  - in horizontal menu, last item is expansion container: so start hiding from second-from-last item
+  NB 1: nth-last-of-type(2) is the second-from-last item
+  - in horizontal menu, last item is the expansion wrapper: so start hiding from second-from-last item
   - vertical menu contains no expansion label: so start showing from last item
+
+  NB 2: several alternative solutions exist to the current approach to adapting the lang menu, e.g.:
+  - a complete JS solution which at runtime adapts the menu based on container width and visible items
+    the approach can be made to scale to any number of langs without regard for lang list, lang order, font,...
+    but it is a whole new non-trivial project and also stresses the client device at run time
+  - in CSS, specify breakpoints in rem instead of px but rem depends on html font-size
+    to get rem divide px by font-size, which is usually 16 but the user can change it
+    dividing px by 16 (say) at dev time works until the user changes their browser setting
+  - in css, specify breakpoints in px (or rem with its caveats) in a container query instead of media query
+    lang menu adapts whenever nav container resizes for any reason: layout change regardless of vw
+    vw in px is easily obtained in devtools; getting container width requires inspecting container properties in devtools (not hard)
+  - container queries are not yet fully supported in all browsers: might need fallback media queries
+  - using rem instead of px (media or container) can be combined with some JS
+    requires CSS classes and queries for different size classes: small, medium, large; non-trivial dev effort
+  
+  Opinion: the current solution if fit for use, and it seems to be compatible with browser zoom level
+  - people are more likely to use zoom level than set font size in browser setting
+  - perfect is the enemy of good
 */
 
 /* tighten space and size */
@@ -466,7 +492,7 @@ nav.lang-nav .lang-nav-horizontal {
 }
 
 /* tighten space and size */
-@media (max-width: 278px) {
+@media (max-width: 280px) {
   nav.lang-nav .lang-nav-horizontal a {
     font-size: 0.8rem !important;
     padding: 0.12rem 0.2rem !important;
@@ -474,7 +500,7 @@ nav.lang-nav .lang-nav-horizontal {
 }
 
 /* hide one more lang; relax spacing */
-@media (max-width: 269px) {
+@media (max-width: 272px) {
   .lang-nav-horizontal li:nth-last-of-type(3) { display: none; }
   .lang-nav-expansion:focus-within .lang-nav-vertical 
     li:nth-last-of-type(2) { display: list-item; }
@@ -486,14 +512,14 @@ nav.lang-nav .lang-nav-horizontal {
 }
 
 /* tighten space and size */
-@media (max-width: 245px) {
+@media (max-width: 248px) {
   nav.lang-nav .lang-nav-horizontal a {
     font-size: 0.85rem !important;
     padding: 0.12rem 0.2rem !important;
   }
 }
 
-@media (max-width: 225px) {
+@media (max-width: 226px) {
   nav.lang-nav .lang-nav-horizontal a {
     font-size: 0.8rem !important;
     padding: 0.12rem 0.18rem !important;
@@ -501,7 +527,7 @@ nav.lang-nav .lang-nav-horizontal {
 }
 
 /* hide one more lang; relax spacing */
-@media (max-width: 216px) {
+@media (max-width: 218px) {
   .lang-nav-horizontal li:nth-last-of-type(4) { display: none; }
   .lang-nav-expansion:focus-within .lang-nav-vertical 
     li:nth-last-of-type(3) { display: list-item; }
@@ -513,14 +539,14 @@ nav.lang-nav .lang-nav-horizontal {
 }
 
 /* tighten space and size */
-@media (max-width: 198px) {
+@media (max-width: 200px) {
   nav.lang-nav .lang-nav-horizontal a {
     font-size: 0.85rem !important;
     padding: 0.12rem 0.2rem !important;
   }
 }
 
-@media (max-width: 184px) {
+@media (max-width: 186px) {
   nav.lang-nav .lang-nav-horizontal a {
     font-size: 0.8rem !important;
     padding: 0.12rem 0.18rem !important;
@@ -533,7 +559,7 @@ nav.lang-nav .lang-nav-horizontal {
   - change expansion label to "languages" icon and restyle to match
   - move the languages icon to top left of the "screen" and position the vertical menu under it
 */
-@media (max-width: 178px) {
+@media (max-width: 180px) {
   .lang-nav-horizontal li:not(.lang-nav-expansion) { display: none; }
   .lang-nav-expansion:focus-within .lang-nav-vertical li { display: list-item; }
 
