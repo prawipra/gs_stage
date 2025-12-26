@@ -71,23 +71,23 @@ function updateMetaThemeColorFromCSS() {
 }
 
 
-// manage color scheme: Dark, Light, System
+// manage color scheme: Dark, Light, OS
 function setupColorSchemeControls() {
   const cfg = window.__GEETAA_SAMEEKSHAA_COLOR_SCHEME; //injected already
   if (!cfg) return;
 
   const status = document.getElementById('colorSchemeStatus');
   const fixDarkModeOrToggleAppModeBtn = document.getElementById('fixDarkModeOrToggleAppMode');
-  const fixLightModeOrFollowSystemBtn = document.getElementById('fixLightModeOrFollowSystem');
-  if (!status || !fixDarkModeOrToggleAppModeBtn || !fixLightModeOrFollowSystemBtn) return;
+  const fixLightModeOrFollowOSBtn = document.getElementById('fixLightModeOrFollowOS');
+  if (!status || !fixDarkModeOrToggleAppModeBtn || !fixLightModeOrFollowOSBtn) return;
 
-  // read stored preference: 'Dark' | 'Light' (default = 'System')
+  // read stored preference: 'Dark' | 'Light' (default = 'OS')
   function readColorScheme() {
     try {
       const val = localStorage.getItem(cfg.STORAGE_KEY);
       if (val === cfg.NAME_DARK || val === cfg.NAME_LIGHT) return val;
     } catch (e) {}
-    return cfg.NAME_SYSTEM;
+    return cfg.NAME_OS;
   }
 
   // store preference if dark or light; otherwise remove any stored pref
@@ -101,31 +101,31 @@ function setupColorSchemeControls() {
      return false;
   }
 
-  // in-memory color-scheme preference: 'Dark' | 'Light' | 'System'
+  // in-memory color-scheme preference: 'Dark' | 'Light' | 'OS'
   let currentScheme = readColorScheme();
 
-  // listener for system color-scheme pref
+  // listener for OS color-scheme pref
   const mq = window.matchMedia && window.matchMedia(cfg.MQ_QUERY);
   
   // reflect currentScheme in DOM
-  const VALID_SCHEMES = new Set([cfg.NAME_DARK, cfg.NAME_LIGHT, cfg.NAME_SYSTEM]);
+  const VALID_SCHEMES = new Set([cfg.NAME_DARK, cfg.NAME_LIGHT, cfg.NAME_OS]);
   function applyToDOM() {
     if (!VALID_SCHEMES.has(currentScheme)) return; //early return if bad scheme (check because value comes from localstorage)
 
-    const systemScheme = (mq?.matches ?? false) ? cfg.NAME_DARK : cfg.NAME_LIGHT; // light is default
-    const effectiveScheme = currentScheme === cfg.NAME_SYSTEM ? systemScheme : currentScheme;
+    const osScheme = (mq?.matches ?? false) ? cfg.NAME_DARK : cfg.NAME_LIGHT; // light is default
+    const effectiveScheme = currentScheme === cfg.NAME_OS ? osScheme : currentScheme;
 
     document.documentElement.classList.toggle(cfg.DARK_MODE_CLASS, effectiveScheme === cfg.NAME_DARK);
     updateMetaThemeColorFromCSS();
 
-    if (currentScheme === cfg.NAME_SYSTEM) { // following system, show: Fix Dark | Fix Light
-      status.textContent = `In ${systemScheme} Mode (${cfg.NAME_SYSTEM})`;
+    if (currentScheme === cfg.NAME_OS) { // following OS, show: Fix Dark | Fix Light
+      status.textContent = `In ${osScheme} Mode (${cfg.NAME_OS})`;
       fixDarkModeOrToggleAppModeBtn.textContent = `Fix ${cfg.NAME_DARK}`;
-      fixLightModeOrFollowSystemBtn.textContent = `Fix ${cfg.NAME_LIGHT}`;
-    } else { // not following system, show: Switch to [Dark/Light, opposite of current] | Follow System
+      fixLightModeOrFollowOSBtn.textContent = `Fix ${cfg.NAME_LIGHT}`;
+    } else { // not following OS, show: Fix [Dark/Light, opposite of current] | Follow OS
       status.textContent = `In ${currentScheme} Mode`;
-      fixDarkModeOrToggleAppModeBtn.textContent = `Switch to ${currentScheme === cfg.NAME_DARK ? cfg.NAME_LIGHT : cfg.NAME_DARK}`;
-      fixLightModeOrFollowSystemBtn.textContent = `Follow ${cfg.NAME_SYSTEM} (${systemScheme})`;
+      fixDarkModeOrToggleAppModeBtn.textContent = `Fix ${currentScheme === cfg.NAME_DARK ? cfg.NAME_LIGHT : cfg.NAME_DARK}`;
+      fixLightModeOrFollowOSBtn.textContent = `Follow ${cfg.NAME_OS} (${osScheme})`;
     }
   }
 
@@ -144,7 +144,7 @@ function setupColorSchemeControls() {
       if (e?.key !== cfg.STORAGE_KEY) return; // some other key changed
 
       const raw = e.newValue; // string or null (null if key removed)
-      const newScheme = (raw === null) ? cfg.NAME_SYSTEM : raw;
+      const newScheme = (raw === null) ? cfg.NAME_OS : raw;
       if (newScheme === currentScheme) return; // no actual change
 
       currentScheme = newScheme;
@@ -154,30 +154,30 @@ function setupColorSchemeControls() {
   window.addEventListener('storage', onStorage);
     
   
-  // fixDarkModeOrToggleAppModeBtn: if following system, make the dark mode permanent
-  // if not following system, toggle current mode: dark to light; light to dark
+  // fixDarkModeOrToggleAppModeBtn: if following OS, make the dark mode permanent
+  // if not following OS, toggle current mode: dark to light; light to dark
   fixDarkModeOrToggleAppModeBtn.onclick = () => {
     const storedScheme = readColorScheme();
 
     let newScheme;
-    if (storedScheme === cfg.NAME_SYSTEM) newScheme = cfg.NAME_DARK;                   // following system: fix dark mode as app mode
-    else newScheme = storedScheme === cfg.NAME_DARK ? cfg.NAME_LIGHT : cfg.NAME_DARK;  // not following system: toggle app mode
+    if (storedScheme === cfg.NAME_OS) newScheme = cfg.NAME_DARK;                   // following OS: fix dark mode as app mode
+    else newScheme = storedScheme === cfg.NAME_DARK ? cfg.NAME_LIGHT : cfg.NAME_DARK;  // not following OS: toggle app mode
 
-    // store new pref; remove system-pref listener; reflect in DOM if successfully stored
+    // store new pref; remove OS-pref listener; reflect in DOM if successfully stored
     if (storeColorScheme(newScheme)) {
       currentScheme = newScheme;
       applyToDOM();
     }
   };
 
-  // fixLightModeOrFollowSystemBtn: if following system, make the light mode permanent
-  // if not following system, subscribe to system pref
-  fixLightModeOrFollowSystemBtn.onclick = () => {
+  // fixLightModeOrFollowOSBtn: if following OS, make the light mode permanent
+  // if not following OS, subscribe to OS pref
+  fixLightModeOrFollowOSBtn.onclick = () => {
     const storedScheme = readColorScheme();
 
     let newScheme;
-    if (storedScheme === cfg.NAME_SYSTEM) newScheme = cfg.NAME_LIGHT; // following system: fix light mode as app mode
-    else newScheme = cfg.NAME_SYSTEM;                                 // not following system: follow system
+    if (storedScheme === cfg.NAME_OS) newScheme = cfg.NAME_LIGHT; // following OS: fix light mode as app mode
+    else newScheme = cfg.NAME_OS;                                 // not following OS: follow OS
     
     if (storeColorScheme(newScheme)) {
       currentScheme = newScheme;
