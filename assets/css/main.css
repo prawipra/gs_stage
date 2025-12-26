@@ -402,48 +402,61 @@ nav.lang-nav .lang-nav-horizontal {
 
 
 /* 
-  progressively hide and show language items by DOM position
-  - at each breakpoint hide one or more items visible at end of horizontal menu
+  progressively tighten space and hide horizontal lang items by DOM position
+  - when hiding, hide one or more items still visible at end of horizontal menu
     and show the corresponding items in the vertical menu
+  - show the expansion label when the first horizontal item is removed
+  - goal is to show as many horizontal nav items as possible while being readable
 
-  how many items to hide at each breakpoint is determined experimentally
+  how much space to tighten and how many items to hide at each breakpoint is determined experimentally
+  - used Edge Dev Tools Browser in VS Code; continuous "no wrap anywhere" result verified with Chrome dev tools
   - review breakpoints when any of these change: lang list, lang order, spelling, font
 
   nth-last-of-type(2) is the second-from-last item
   - in horizontal menu, last item is expansion container: so start hiding from second-from-last item
   - vertical menu contains no expansion label: so start showing from last item
-
-  show the expansion label when the first horizontal item is removed
-
-  Also adjust horizontal items' size, spacing, etc. so the narrower space is used well
-  - the goal is to show as many horizontal nav items as possible while being readable
 */
 
 /* tighten space and size */
-@media (max-width: 350px) {
+@media (max-width: 365px) {
   nav.lang-nav .lang-nav-horizontal a {
     font-size: 0.9rem !important;
+    padding: 0.15rem 0.45rem !important;
+  }
+}
+
+@media (max-width: 346px) {
+  nav.lang-nav .lang-nav-horizontal a {
     padding: 0.15rem 0.35rem !important;
   }
 }
 
-/* further tighten space and size */
-@media (max-width: 335px) {
+@media (max-width: 330px) {
   nav.lang-nav .lang-nav-horizontal a {
-    font-size: 0.9rem !important;
     padding: 0.12rem 0.3rem !important;
   }
 }
 
-/* even further tighten space and size */
-@media (max-width: 319px) {
+@media (max-width: 322px) {
   nav.lang-nav .lang-nav-horizontal a {
     font-size: 0.85rem !important;
+  }
+}
+
+@media (max-width: 311px) {
+  nav.lang-nav .lang-nav-horizontal a {
+    font-size: 0.85rem !important;
+    padding: 0.12rem 0.25rem !important;
+  }
+}
+
+@media (max-width: 303px) {
+  nav.lang-nav .lang-nav-horizontal a {
     padding: 0.12rem 0.2rem !important;
   }
 }
 
-/* hide one lang, show expansion label; there is no space to relax */
+/* hide one lang, show expansion label; no space to relax due to margin-left of expansion label */
 @media (max-width: 295px) {
   .lang-nav-horizontal li:nth-last-of-type(2) { display: none; }
   .lang-nav-expansion:focus-within .lang-nav-vertical 
@@ -453,7 +466,7 @@ nav.lang-nav .lang-nav-horizontal {
 }
 
 /* tighten space and size */
-@media (max-width: 280px) {
+@media (max-width: 278px) {
   nav.lang-nav .lang-nav-horizontal a {
     font-size: 0.8rem !important;
     padding: 0.12rem 0.2rem !important;
@@ -480,7 +493,6 @@ nav.lang-nav .lang-nav-horizontal {
   }
 }
 
-/* further tighten space and size */
 @media (max-width: 225px) {
   nav.lang-nav .lang-nav-horizontal a {
     font-size: 0.8rem !important;
@@ -508,7 +520,6 @@ nav.lang-nav .lang-nav-horizontal {
   }
 }
 
-/* further tighten space and size */
 @media (max-width: 184px) {
   nav.lang-nav .lang-nav-horizontal a {
     font-size: 0.8rem !important;
