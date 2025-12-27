@@ -400,47 +400,42 @@ nav.lang-nav .lang-nav-horizontal {
   display: flex;
 }
 
+/*
+  Lang nav adaption:
 
-/* 
-  progressively tighten space and hide horizontal lang items by DOM position
-  - when hiding, hide one or more items still visible at end of horizontal menu
-    and show the corresponding items in the vertical menu
-  - show the expansion label when the first horizontal item is removed
-  - goal is to show as many horizontal nav items as possible while being readable
+  Summary
+  - Goal: show as many horizontal language items as fit without wrapping; overflow the rest
+    into the vertical menu and reveal the expansion label when any horizontal item is removed.
+  - Strategy: progressively tighten available width at experimental breakpoints and hide
+    horizontal items by DOM position (nth-last-of-type), showing corresponding items in the
+    vertical list. Keep visual and keyboard order consistent.
 
-  how much space to tighten and how many items to hide at each breakpoint is determined experimentally
-  - used Edge Dev Tools Browser in VS Code; continuous "no wrap anywhere" result verified with Chrome dev tools
-  - initially use Edge Dev Tools browser in "Responsive", meticulously reducing vw and examining result at each pixel
-  - use a HD monitor (full or 720p) for calibration
-  - use the page with the widest lang name as current lang *and* some page in that lang as current lang: bolding matters
-  - fine tune with page in Chrome browser: open Inspection pane and slide down page width to ensure no wrapping at any point
-  - further fine tune in Chrome browser on a higher resolution monitor
-  - it is quite possible that an item wraps in one config and not the other
-  - net: the actual breakpoint needed to avoid wrapping on most screens can be 1-3 pixels earlier than it seems
-  
-  review breakpoints and actions when any of these change: lang list, lang order, spelling, font
+  Measurement & tuning
+  - Calibrate using the page variant with the widest language label as the active/current item
+    (bolding affects width)
+  - Measure nav inline width in DevTools (Computed → width) at the viewport widths where wrapping
+    first appears. Expect a 1–3px safety margin earlier than the apparent wrap point.
+  - Use DevTools Responsive mode with monitors of different resolutions: 720p, 1080, 1280. 
+    Also check in Chrome browseer by sliding the page width with "Inspect" window open.
+  - Recheck whenever any of these change: language list, language order, spelling, font, or header template.
 
-  NB 1: nth-last-of-type(2) is the second-from-last item
-  - in horizontal menu, last item is the expansion wrapper: so start hiding from second-from-last item
-  - vertical menu contains no expansion label: so start showing from last item
+  Implementation details & invariants
+  - Horizontal last element is the expansion wrapper; hide starting from nth-last-of-type(2).
+  - Vertical menu contains no expansion wrapper; show starting from last item.
+  - Prefer DOM moves (or server‑rendered fallback + JS enhancement) so tab order and semantics remain intact.
+  - Keep px comments next to rem values if you convert units.
 
-  NB 2: several alternative solutions exist to the current approach to adapting the lang menu, e.g.:
-  - a complete JS solution which at runtime adapts the menu based on container width and visible items
-    the approach can be made to scale to any number of langs without regard for lang list, lang order, font,...
-    but it is a whole new non-trivial project and also stresses the client device at run time
-  - in CSS, specify breakpoints in rem instead of px but rem depends on html font-size
-    to get rem divide px by font-size, which is usually 16 but the user can change it
-    dividing px by 16 (say) at dev time works until the user changes their browser setting
-  - in css, specify breakpoints in px (or rem with its caveats) in a container query instead of media query
-    lang menu adapts whenever nav container resizes for any reason: layout change regardless of vw
-    vw in px is easily obtained in devtools; getting container width requires inspecting container properties in devtools (not hard)
-  - container queries are not yet fully supported in all browsers: might need fallback media queries
-  - using rem instead of px (media or container) can be combined with some JS
-    requires CSS classes and queries for different size classes: small, medium, large; non-trivial dev effort
-  
-  Opinion: the current solution if fit for use, and it seems to be compatible with browser zoom level
-  - people are more likely to use zoom level than set font size in browser setting
-  - perfect is the enemy of good
+  Alternatives (tradeoffs)
+  - Full JS runtime solution: robust to content changes, but non‑trivial to build/test; also adds runtime cost.
+  - rem breakpoints instead of px: scales with root font-size (accessibility), but requires conversion at dev time
+    and shifts if users change root size.
+  - Container queries instead of media queries: best for component‑level breakpoints; measure container width
+    instead of viewport (which is more work than getting vw width). May need fallbacks for older browsers.
+  - Hybrid: small JS to detect root font-size or to toggle precomputed CSS classes for a few common root sizes.
+
+  Recommendation
+  - Current CSS approach witn px measurements of viewport has minimal runtime complexity and provides adequate runtime
+    behavior because the collapsing lang nav is used in just one header template.
 */
 
 /* tighten space and size */
