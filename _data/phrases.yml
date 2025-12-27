@@ -1,20 +1,12 @@
 # for each translation key, record a transcription/translation in different languages
 
-number:
-  kan: ಸಂಖ್ಯೆ
-  eng: Number
-  hin: संख्या
-  tam: எண்
-  tel: సంఖ్య
-  mal: നമ്പർ
-
-title:
-  kan: ಶೀರ್ಷಿಕೆ
-  eng: Title
-  hin: शीर्षक
-  tam: தலைப்பு
-  tel: శీర్షిక
-  mal: തലക്കെട്ട്
+languages:
+  kan: ಭಾಷೆಗಳು
+  eng: Languages
+  hin: भाषाएँ
+  tam: மொழிகள்
+  tel: భాషలు
+  mal: ഭാഷകൾ
 
 chapter:
   kan: ಅಧ್ಯಾಯ
@@ -55,22 +47,6 @@ iti:
   tam: இதி
   tel: ఇతి
   mal: ഇതി
-
-previous_chapter:  
-  kan: "ಹಿಂದಿನ ಅಧ್ಯಾಯ"
-  eng: "Previous chapter"
-  hin: "पिछला अध्याय"
-  tam: "முந்தைய அத்தியாயம்"
-  tel: "మునుపటి అధ్యాయం"
-  mal: "മുൻ അധ്യായം"
-
-next_chapter:  
-  kan: "ಮುಂದಿನ ಅಧ್ಯಾಯ "
-  eng: "Next chapter"
-  hin: "अगला अध्याय"
-  tam: "அடுத்த அத்தியாயம்"
-  tel: "తదుపరి అధ్యాయం"
-  mal: "അടുത്ത അധ്യായം"
 
 # localized message to show on root redirector
 # The localized message should correspond to the eng message
