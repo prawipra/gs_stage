@@ -1,6 +1,6 @@
 # for each translation key, record a transcription/translation in different languages
 
-languages:
+languages:          # shown as title of lang-nav expansion label
   kan: ಭಾಷೆಗಳು
   eng: Languages
   hin: भाषाएँ
@@ -8,7 +8,7 @@ languages:
   tel: భాషలు
   mal: ഭാഷകൾ
 
-chapter:
+chapter:            # shown in chapter index and as title of chapter/page nave buttons
   kan: ಅಧ್ಯಾಯ
   eng: Chapter
   hin: अध्याय
@@ -16,7 +16,7 @@ chapter:
   tel: అధ్యాయం
   mal: അദ്ധ്യായം
 
-shlokas:
+shlokas:            # shown in chapter index
   kan: ಶ್ಲೋಕಗಳು
   eng: Verses
   hin: छंदों
@@ -24,7 +24,7 @@ shlokas:
   tel: శ్లోకాలు
   mal: വാക്യങ്ങൾ
 
-uwacha:
+uwacha:             # shown in chapter content
   kan: ಉವಾಚ
   eng: uvāca
   hin: उवाच
@@ -32,7 +32,7 @@ uwacha:
   tel: ఉవాచ
   mal: ഉവാച
 
-atha:
+atha:               # shown at start of chapter content
   kan: ಅಥ
   eng: atha
   hin: अथ
@@ -40,7 +40,7 @@ atha:
   tel: అథ
   mal: അഥ
 
-iti:
+iti:                # shown at end of chapter content
   kan: ಇತಿ
   eng: iti
   hin: इति
