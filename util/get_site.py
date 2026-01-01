@@ -95,9 +95,10 @@ def print_response_summary(heading, resp):
     print(f"{heading} headers:", 
             {k:v for k,v in resp.headers.items() if k.lower() in ("location","www-authenticate","content-type","content-length")}
         )
-    try:
+    content_type = resp.headers.get("Content-Type")
+    if "json" in content_type:
         print(f"{heading} JSON body:", resp.json())
-    except:
+    elif "text" in content_type:
         print(f"{heading} Text body:", resp.text[:1000])
 
 
@@ -113,11 +114,13 @@ def download_artifact(source_url, output_file_path = "", timeout=15):
     
     try:
         initial_resp = requests.get(source_url, headers=headers, allow_redirects=False, timeout=timeout)
+        print_response_summary("Intial", initial_resp)
+
         if initial_resp.status_code == 200:
             return write_file_from_response(initial_resp)
         
         if initial_resp.status_code == 302:
-            redirect_url = headers.get("Location")
+            redirect_url = initial_resp.headers.get("Location")
             if not redirect_url:
                 print(f"Download redirected but no new location provided")
                 return False, "", temp_output_file
@@ -127,6 +130,8 @@ def download_artifact(source_url, output_file_path = "", timeout=15):
             remove_authorization_header(headers)
             try:
                 redirect_resp = requests.get(redirect_url, allow_redirects=False, stream=True, timeout=timeout)
+                print_response_summary("Redirect", redirect_resp)
+
                 if redirect_resp.status_code == 200:
                     return write_file_from_response(redirect_resp)
                 
@@ -138,12 +143,10 @@ def download_artifact(source_url, output_file_path = "", timeout=15):
             
             except Exception as re:
                 print(f"Error downloading from redirected url {redirect_url}", re)
-                print_response_summary("Redirect", redirect_resp)
                 return False, "", temp_output_file
 
         # initial status other than 200 or 302
         print(f"Artifact download failed with status {initial_resp.status_code}")
-        print_response_summary("Initial", initial_resp)
         return False, "", temp_output_file
 
     except Exception as e:
@@ -303,6 +306,7 @@ def get_latest_artifact_url(repo_owner, repo, timeout=15):
             print(f"Artifact {artifact.get("id")} for run_id {run_id} is missing field 'archive_download_url'")
             return ""
 
+    print(f"URL for the first artifact is {url}")
     return url
 
 
