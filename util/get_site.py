@@ -197,6 +197,25 @@ def unzip_all(zip_file_path, output_dir, exist_ok=True):
     return True
 
 
+def extract_tarball(tar_path, extract_dir):
+    import tarfile
+    
+    try:
+        with tarfile.open(tar_path, "r:*") as t:
+            # Basic ZipSlip‑style safety: ensure members stay inside extract_dir
+            base_dir = pathlib.Path(extract_dir).resolve()
+            for member in t.getmembers():
+                member_path = (base_dir / member.name).resolve()
+                if base_dir not in member_path.parents and member_path != base_dir:
+                    print(f"Unsafe path in tar member {member.name}")
+                    return False
+            t.extractall(extract_dir)
+        return True
+    except Exception as e:
+        print(f"Error extracting tarball {tar_path}", e)
+        return False
+
+
 # get url of the first artifact for the most recent successful run
 # return "" if url could not be obtained (for any reason) or if no artifact exists
 # GH workflow runs REST API doc: https://docs.github.com/en/rest/actions/workflow-runs
@@ -309,6 +328,55 @@ def get_latest_artifact_url(repo_owner, repo, timeout=15):
     print(f"URL for the first artifact is {url}")
     return url
 
+# Recursively expand any .zip files found under root_dir.
+# Each nested zip is extracted into a directory named after the zip file.
+def unzip_recursive(root_dir):
+
+    def handle_zip(zip_path, dirpath, name):
+        extract_dir = os.path.join(dirpath, name[:-4])  # strip .zip
+
+        print(f"Expanding nested zip: {zip_path} -> {extract_dir}")
+        if not unzip_all(zip_path, extract_dir, exist_ok=True):
+            print(f"Failed to expand nested zip {zip_path}")
+            return
+
+        try:
+            os.remove(zip_path)
+        except Exception as e:
+            print(f"Warning: could not remove nested zip {zip_path}", e)
+
+        unzip_recursive(extract_dir)
+
+
+    def handle_tar(tar_path, dirpath, name):
+        lower = name.lower()
+        for suffix in [".tar.gz", ".tgz", ".tar.bz2", ".tar"]:
+            if lower.endswith(suffix):
+                extract_dir = os.path.join(dirpath, name[:-len(suffix)])
+                break
+
+        print(f"Expanding nested tarball: {tar_path} -> {extract_dir}")
+        if not extract_tarball(tar_path, extract_dir):
+            print(f"Failed to expand nested tarball {tar_path}")
+            return
+
+        try:
+            os.remove(tar_path)
+        except Exception as e:
+            print(f"Warning: could not remove nested tarball {tar_path}", e)
+
+        unzip_recursive(extract_dir)
+
+    for dirpath, _, filenames in os.walk(root_dir):
+        for name in filenames:
+            lower = name.lower()
+            if lower.endswith(".zip"):
+                zip_path = os.path.join(dirpath, name)
+                handle_zip(zip_path, dirpath, name)
+            elif lower.endswith(".tar") or lower.endswith(".tar.gz") or lower.endswith(".tgz") or lower.endswith(".tar.bz2"):
+                tar_path = os.path.join(dirpath, name)
+                handle_tar(tar_path, dirpath, name)
+
 
 # download the most recent artifact for the specified repo to the specified o/p dir
 # if artifact_file_path is None or empty, downloads to a temp file and removes temp file before returning
@@ -336,10 +404,12 @@ def get_latest_artifact(repo_owner, repo, output_dir, artifact_file_path="", rem
         return # download failed
 
     # extract artifact: no exception possible
+    print(f"Extracting artifact content to {output_dir}")
     if unzip_all(artifact_file_path, output_dir):
-        print(f"Successfully downloaded site files to {output_dir}")
+        print(f"Recursively extracting contained archive files")
+        unzip_recursive(output_dir)
     else:
-        print(f"Failed to download site files")
+        print(f"Failed to download site artifact")
 
     # if temp_artifact_file, remove it if asked to: do this regardless of site download status
     if temp_artifact_file and remove_temp_artifact_file and artifact_file_path != "":
