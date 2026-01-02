@@ -1,7 +1,6 @@
 import os
 import argparse
 import requests
-import zipfile
 import tempfile
 import pathlib
 
@@ -157,25 +156,27 @@ def download_artifact(source_url, output_file_path = "", timeout=15):
 # extract the complete content of a zip file to the specified o/p dir
 # performs basic ZipSlip check: quite possible it is insufficient
 # ZipSlip: https://research.jfrog.com/model-threats/zipslip/
-def unzip_all(zip_file_path, output_dir, exist_ok=True):
-    if os.path.isdir(output_dir):
+def extract_zipfile(zip_file_path, extract_dir, exist_ok=True):
+    import zipfile
+
+    if os.path.isdir(extract_dir):
         if exist_ok:
-            print(f"Info: output dir {output_dir} exists")
+            print(f"Info: output dir {extract_dir} exists")
         else:
-            print(f"Error: output dir {output_dir} already exists")
+            print(f"Error: output dir {extract_dir} already exists")
             return False
         
     try:
-        os.makedirs(output_dir, exist_ok=exist_ok)
+        os.makedirs(extract_dir, exist_ok=exist_ok)
     except Exception as e:
-        print(f"Error establishing output dir {output_dir}", e)
+        print(f"Error establishing output dir {extract_dir}", e)
         return False
     
     try:
         with zipfile.ZipFile(zip_file_path, "r") as z:
             # possibly barebones check for ZipSlip: ignore empty names and dir names
             # is the continue of endswith("/") problematic if the name is just "/"?
-            base_dir = pathlib.Path(output_dir).resolve()
+            base_dir = pathlib.Path(extract_dir).resolve()
             for member in z.namelist():
                 if not member or member.endswith("/"):
                     continue
@@ -185,21 +186,34 @@ def unzip_all(zip_file_path, output_dir, exist_ok=True):
                     return False
             
             # no ZipSlip, we think
-            z.extractall(output_dir)
+            z.extractall(extract_dir)
     except zipfile.BadZipFile:
         print(f"Invalid ZIP file {zip_file_path}")
         return False
     except Exception as e:
-        print(f"Error extracting ZIP file {zip_file_path}; some files may have been extracted to output directory {output_dir}", e)
+        print(f"Error extracting ZIP file {zip_file_path}; some files may have been extracted to output directory {extract_dir}", e)
         return False
     
-    print(f"Extracted ZIP file {zip_file_path} to {output_dir}")
+    print(f"Extracted ZIP file {zip_file_path} to {extract_dir}")
     return True
 
 
-def extract_tarball(tar_path, extract_dir):
+def extract_tarball(tar_path, extract_dir, exist_ok=True):
     import tarfile
     
+    if os.path.isdir(extract_dir):
+        if exist_ok:
+            print(f"Info: output dir {extract_dir} exists")
+        else:
+            print(f"Error: output dir {extract_dir} already exists")
+            return False
+        
+    try:
+        os.makedirs(extract_dir, exist_ok=exist_ok)
+    except Exception as e:
+        print(f"Error establishing output dir {extract_dir}", e)
+        return False
+
     try:
         with tarfile.open(tar_path, "r:*") as t:
             # Basic ZipSlip‑style safety: ensure members stay inside extract_dir
@@ -209,7 +223,7 @@ def extract_tarball(tar_path, extract_dir):
                 if base_dir not in member_path.parents and member_path != base_dir:
                     print(f"Unsafe path in tar member {member.name}")
                     return False
-            t.extractall(extract_dir)
+            t.extractall(extract_dir, filter="data") # safe filter
         return True
     except Exception as e:
         print(f"Error extracting tarball {tar_path}", e)
@@ -328,15 +342,13 @@ def get_latest_artifact_url(repo_owner, repo, timeout=15):
     print(f"URL for the first artifact is {url}")
     return url
 
-# Recursively expand any .zip files found under root_dir.
-# Each nested zip is extracted into a directory named after the zip file.
-def unzip_recursive(root_dir):
+# extract contents of archive files: only and zip files and tarballs handled
+# param recurse determines if nested archives are also extracted
+def extract_archive(root_dir, recurse=False):
 
-    def handle_zip(zip_path, dirpath, name):
-        extract_dir = os.path.join(dirpath, name[:-4])  # strip .zip
-
-        print(f"Expanding nested zip: {zip_path} -> {extract_dir}")
-        if not unzip_all(zip_path, extract_dir, exist_ok=True):
+    def handle_zip(zip_path, dirpath):
+        print(f"Expanding nested zip: {zip_path} -> {dirpath}")
+        if not extract_zipfile(zip_path, dirpath, exist_ok=True):
             print(f"Failed to expand nested zip {zip_path}")
             return
 
@@ -345,18 +357,13 @@ def unzip_recursive(root_dir):
         except Exception as e:
             print(f"Warning: could not remove nested zip {zip_path}", e)
 
-        unzip_recursive(extract_dir)
+        if recurse:
+            extract_archive(dirpath, recurse)
 
 
-    def handle_tar(tar_path, dirpath, name):
-        lower = name.lower()
-        for suffix in [".tar.gz", ".tgz", ".tar.bz2", ".tar"]:
-            if lower.endswith(suffix):
-                extract_dir = os.path.join(dirpath, name[:-len(suffix)])
-                break
-
-        print(f"Expanding nested tarball: {tar_path} -> {extract_dir}")
-        if not extract_tarball(tar_path, extract_dir):
+    def handle_tar(tar_path, dirpath):
+        print(f"Expanding nested tarball: {tar_path} -> {dirpath}")
+        if not extract_tarball(tar_path, dirpath):
             print(f"Failed to expand nested tarball {tar_path}")
             return
 
@@ -365,17 +372,19 @@ def unzip_recursive(root_dir):
         except Exception as e:
             print(f"Warning: could not remove nested tarball {tar_path}", e)
 
-        unzip_recursive(extract_dir)
+        if recurse:
+            extract_archive(dirpath, recurse)
+
 
     for dirpath, _, filenames in os.walk(root_dir):
         for name in filenames:
             lower = name.lower()
             if lower.endswith(".zip"):
                 zip_path = os.path.join(dirpath, name)
-                handle_zip(zip_path, dirpath, name)
+                handle_zip(zip_path, dirpath)
             elif lower.endswith(".tar") or lower.endswith(".tar.gz") or lower.endswith(".tgz") or lower.endswith(".tar.bz2"):
                 tar_path = os.path.join(dirpath, name)
-                handle_tar(tar_path, dirpath, name)
+                handle_tar(tar_path, dirpath)
 
 
 # download the most recent artifact for the specified repo to the specified o/p dir
@@ -405,9 +414,9 @@ def get_latest_artifact(repo_owner, repo, output_dir, artifact_file_path="", rem
 
     # extract artifact: no exception possible
     print(f"Extracting artifact content to {output_dir}")
-    if unzip_all(artifact_file_path, output_dir):
+    if extract_zipfile(artifact_file_path, output_dir):
         print(f"Recursively extracting contained archive files")
-        unzip_recursive(output_dir)
+        extract_archive(output_dir, True)
     else:
         print(f"Failed to download site artifact")
 
