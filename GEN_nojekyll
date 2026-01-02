@@ -1,0 +1,5 @@
+---
+# This file generates a .nojekyll file in root dir: see notes in config file
+layout: none
+permalink: /.nojekyll
+---

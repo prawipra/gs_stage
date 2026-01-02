@@ -59,3 +59,7 @@ exclude:
   - README.md       # expected in root
   - "**/README.md"  # in any subdir: lang dirs may have own readme
   - "util"          # util contains useful scripts and such for site prep, etc.
+
+#tell Jekyll it is OK to generate .nojekyll file 
+#need the file in the generated site so that GH pages does not process generated site again
+include: [".nojekyll"]
