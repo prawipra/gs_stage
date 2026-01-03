@@ -1,0 +1,6 @@
+---
+# This file generates a CNAME file in root dir: see notes in config file
+layout: none
+permalink: /CNAME
+---
+{% if site.custom_domain %}{{ site.custom_domain }}{% endif %}

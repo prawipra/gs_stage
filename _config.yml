@@ -7,6 +7,14 @@ theme: [] # disable default injected theme: we do all the styling ourselves
 
 baseurl: ""   # site deployed to a domain/sub-domain
 
+# custom domain to show in the CNAME file for the generated site
+# remove the entry altogether to mean the generated site has no custom domain 
+# NB: only one GH repo anywhere can have the same custom domain
+# the staging site (output of Jekyll sitegen) should itself have no custom domain or have a different domain than the prod site
+# i.e., the staging site should not have a CNAME file or have a different domain name than what is shown here
+# NB NB: avoid setting custom domain in GH Pages settings: that will overwrite CNAME file; best to set/remove custom domain only here
+# custom_domain: geetaa.sameekshaa.in
+
 # default language: used to rewrite links for missing pages
 # language codes are described in _data/languages.yml
 # can't be used to define default frontmatter `lang`
@@ -63,3 +71,4 @@ exclude:
 #tell Jekyll it is OK to generate .nojekyll file 
 #need the file in the generated site so that GH pages does not process generated site again
 include: [".nojekyll"]
+
