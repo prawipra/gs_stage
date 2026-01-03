@@ -66,6 +66,7 @@ exclude:
   - LICENSE.md      # expected only in root
   - README.md       # expected in root
   - "**/README.md"  # in any subdir: lang dirs may have own readme
+  - CNAME           # file used for site's custom domain; nothing to process there
   - "util"          # util contains useful scripts and such for site prep, etc.
 
 #tell Jekyll it is OK to generate .nojekyll file 
