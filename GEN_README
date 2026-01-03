@@ -1,0 +1,17 @@
+---
+# This file generates a README.md file in root dir
+layout: none
+permalink: /README.md
+---
+# {{ site.data.about.site_title.eng }}
+
+{{ site.data.about.site_description.eng }}.
+Initial Kannada translation by {{ site.data.about.sura.eng }}.
+Translations from Kannada to other languages by others.
+
+{{ site.data.about.website_lead.eng }}: {{ site.data.about.prawipra.eng }}
+
+See the [about page](./eng/about.html) for details.
+
+---
+Last updated: {{ "now" | date: "%Y-%m-%d %H:%M" }} UTC
