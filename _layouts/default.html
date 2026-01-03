@@ -68,10 +68,51 @@
 <html lang="{{ html_lang }}">
 <head>
   <meta charset="utf-8">
+  
+  <meta name="robots" content="index, follow, noai, noimageai, notdm">{% comment %}trad search index/follow OK; no AI/LLM/mining use of any kind{% endcomment %}
+  <meta name="tdm-reservation" content="1">{% comment %}disallow mining: EU Digital Single Market Directive (Article 4){% endcomment %}
+
+  {% comment %}
+    Classification metadata, including license info, used by search engines, archives, and SEO
+    JSON-LD: https://json-ld.org/
+    LSON-LD enhancements (properties): https://schema.org/CreativeWork
+  {% endcomment %}
+  <!--
+    Licensing metadata:
+    - Site design (HTML/CSS/JS) is licensed under CC‑BY‑NC‑SA 4.0.
+    - Embedded content is licensed under CC‑BY‑ND 4.0.
+    - Embedded content is classified as CreativeWork (not Dataset) because it is not
+      traditional "structured data" and does not fit the Dataset schema category.
+
+    Using JSON-LD instead of <link rel="license"...> to express the dual license
+    cleanly and to avoid confusion or misrepresentation in machine-readable metadata.
+
+    TODO: add categorization metadata
+  -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@graph": [
+      {
+        "@id": "#design",
+        "@type": "CreativeWork",
+        "name": "Site Design",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "@id": "#data",
+        "@type": "CreativeWork",
+        "name": "Embedded Content",
+        "license": "https://creativecommons.org/licenses/by-nd/4.0/"
+      }
+    ]
+  }
+  </script>
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#ffffff" id="meta-theme-color">
-  <title>{{ site_title }}{% if page_title %} – {{ page_title }}{% endif %}</title>
 
+  <title>{{ site_title }}{% if page_title %} – {{ page_title }}{% endif %}</title>
   {% comment %} inject into window object shared read-only string literals needed in multiple places {% endcomment %}
   <script>
   Object.defineProperty(window, '__GEETAA_SAMEEKSHAA_COLOR_SCHEME', {
