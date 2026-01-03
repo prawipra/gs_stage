@@ -1,0 +1,66 @@
+---
+# This file generates robots.txt in the root dir
+layout: none
+permalink: /robots.txt
+---
+# Allow selected traditional search engines (see table at end)
+# search engines are selected based on their reach: global and geo/lang specific
+
+# Google Search (global)
+User-agent: Googlebot
+Disallow: /assets/
+
+# Bing Search (global; also powers DuckDuckGo, Yahoo, Ecosia, Swisscows)
+User-agent: Bingbot
+Disallow: /assets/
+
+# Russia
+User-agent: YandexBot
+Disallow: /assets/
+
+# France
+User-agent: Qwantify
+Disallow: /assets/
+
+# Germany
+User-agent: MetaGer
+Disallow: /assets/
+User-agent: metagerbot
+Disallow: /assets/
+
+# UK (independent index)
+User-agent: MojeekBot
+Disallow: /assets/
+
+# Global but privacy-focused (growing in EU)
+User-agent: Bravebot
+Disallow: /assets/
+
+# Preview/thumbnail fetchers
+User-agent: DuckDuckBot
+Disallow: /assets/
+
+# Default rule — block all other crawlers
+User-agent: *               # wildcard rule
+Disallow: /wip/             # iykyk
+Disallow: /                 # block everything else
+
+# TODO: manage sitemap entries
+
+
+# TRADITIONAL SEARCH ENGINE CRAWLERS (REFERENCE TABLE)
+# Search Engine      | Crawler Name   | Notes
+# -------------------|----------------|--------------------------------
+# Google             | Googlebot      | Primary global search engine
+# Bing               | Bingbot        | Powers Bing, DuckDuckGo, Yahoo
+# Yandex             | YandexBot      | Russian search engine
+# Qwant              | Qwantify       | French privacy-focused engine
+# MetaGer (DE)       | MetaGer        | German privacy-focused engine
+# MetaGer (DE)       | metagerbot     | Alternate crawler identifier
+# Mojeek             | MojeekBot      | Independent UK search engine
+# Brave Search       | Bravebot       | Privacy-focused search engine
+# DuckDuckGo         | DuckDuckBot    | Fetches thumbnails/previews
+# -------------------|----------------|--------------------------------
+# Baidu              | Baiduspider    | Chinese search engine; aggressive
+# Naver              | NaverBot       | Korean search engine
+# Seznam             | SeznamBot      | Czech search engine
