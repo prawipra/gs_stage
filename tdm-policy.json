@@ -11,6 +11,7 @@
 # - NB: tdm:research and tdm:nonresearch are loosely defined; spec says they're experimental
 #
 layout: none
+permalink: tdm-policy.json
 ---
 {% assign site_url = site.url | default: site.github.url %}
 

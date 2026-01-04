@@ -11,6 +11,7 @@
 # detailed comments, and critically, document the /wip honeypot path
 #
 layout: none
+permalink: robots.txt
 ---
 User-agent: Googlebot
 Disallow: /assets/
