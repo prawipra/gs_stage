@@ -71,10 +71,20 @@
   
   {% comment %}
     OK for traditional search crawlers to index content and follow links, but no AI/LLM/mining use of any kind
-    tdm-reservation: disallow mining per EU Digital Single Market Directive (Article 4)
+    - Googlebot defines max-snippet (# of chars to show in search results) and max-image-preview (disallow image preview of page)
+    - https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag
   {% endcomment %}
-  <meta name="robots" content="index, follow, noai, noimageai, notdm">
-  <meta name="tdm-reservation" content="1">
+  <meta name="robots" content="index, follow, max-snippet:250, max-image-preview:none, noai, noimageai, notdm">
+
+  {% comment %}
+    Text and Data Mining opt out: https://www.w3.org/2022/tdmrep/
+    tdm-reservation: disallow mining per EU Digital Single Market Directive (Article 4)
+    tdm-policy: location of machine-readable policy
+    - for crawlers that don't process the "well-known" `tdmrep.json` file but do process this meta tag
+    - per spec, these tags override what the .json says but we want the values here to match the file
+  {% endcomment %}
+  <meta name="tdm-reservation" content="{{ page.tdm_reservation }}">
+  <meta name="tdm-policy" content="{{ page.tdm_policy_json_path }}">
 
   {% comment %}
     Classification metadata, including license info: used by search engines, archives, SEO

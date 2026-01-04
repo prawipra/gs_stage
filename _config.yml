@@ -31,6 +31,8 @@ defaults:
       lang: kan                         # can't use default_lang config's value from above
       layout: default                   # default layout for all pages
       permalink: /:path/:basename.html  # one html per md in the dir where the md is
+      tdm_reservation: 1                # yes, opt out of TDM; see .well-knowm/tdmrep.json
+      tdm_policy_json_path: "../tdm-policy.json" # location of machine-readable policy 
 
   # default value for `lang` key for pages in lang dirs: no need to include `lang` again in frontmatter
   # no need to specify anything for kan files because the only customization lang is already the default
@@ -69,7 +71,9 @@ exclude:
   - CNAME           # file used for site's custom domain; nothing to process there
   - "util"          # util contains useful scripts and such for site prep, etc.
 
-#tell Jekyll it is OK to generate .nojekyll file 
-#need the file in the generated site so that GH pages does not process generated site again
-include: [".nojekyll"]
-
+#tell Jekyll it is OK to generate ".nojekyll" file and the ".well-known" dir
+#need .nojekyll file in the generated site so that GH pages does not process the generated site again
+#dir .well-known is needed to declare TDM opt out
+include:
+  - ".nojekyll"
+  - ".well-known"

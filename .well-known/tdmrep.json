@@ -1,0 +1,21 @@
+---
+# Goal: communicate to machines ("tdm agents") an opt out from Text and Data Mining (TDM)
+# - applies to content served in EU, which is pretty much any public open-access WWW content
+# - many (most?) crawlers don't (yet) process this file, though all in EU context are required to
+# - tdm-reservation and tdm-policy meta tags in page head are fallbacks (and overrides), 
+#   but crawlers don't necessarily process that either
+#
+# TDM Reservation Protocol: https://www.w3.org/2022/tdmrep/
+#
+# This file declares TDM opt out for all content ("/") in the site. The core declaration is from
+# Example 1 of the spec. The tdm-policy part (path to machine-readable policy) is from Example 2 
+#
+layout: none
+---
+[
+  {
+    "location": "/",
+    "tdm-reservation": {{ page.tdm_reservation }},
+    "tdm-policy": "{{ page.tdm_policy_json_path }}"
+  }
+]

@@ -1,0 +1,60 @@
+---
+# Goal: communicate to machines ("tdm agents") the Text and Data Mining (TDM) policy
+#
+# TDM Reservation Protocol: https://www.w3.org/2022/tdmrep/
+#
+# This policy draws from Examples 18 and 19 of the spec. Briefly:
+# - Policy's `uid`` is a URI: does not have to resolve; the path component `id` shows it is an ID 
+# - Assigner details are on the English about page (it is in all langs but pointing to eng page here)
+# - Mining for non-research purpose requires consent and compensation
+# - Mining for research purpose requires consent
+# - NB: tdm:research and tdm:nonresearch are loosely defined; spec says they're experimental
+#
+layout: none
+---
+{% assign site_url = site.url | default: site.github.url %}
+
+{
+    "@context": [
+      "http://www.w3.org/ns/odrl.jsonld",
+      "http://www.w3.org/ns/tdmrep.jsonld"
+  ],
+
+  "@type": "Offer",
+  "profile": "http://www.w3.org/ns/tdmrep",
+  "uid": "{{ site_url }}/id/policies/1",
+  "assigner": {
+    "uid": "{{ site_url }}",
+    "vcard:hasURL": "{{ site_url }}/eng/about.html"
+  },
+  "permission": [{
+      "action": "tdm:mine",
+      "duty": [{ 
+        "action": "obtainConsent"
+        },
+        { 
+        "action": "compensate"
+        }
+      ],
+      "constraint": [{
+        "leftOperand": "purpose",
+        "operator": "eq",
+        "rightOperand": "tdm:non-research"
+        }
+      ]
+    },
+    {
+      "action": "tdm:mine",
+      "duty": [{ 
+        "action": "obtainConsent"
+        }
+      ],
+      "constraint": [{
+        "leftOperand": "purpose",
+        "operator": "eq",
+        "rightOperand": "tdm:research"
+        }
+      ]
+    }    
+  ]
+}
