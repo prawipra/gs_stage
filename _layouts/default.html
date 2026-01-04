@@ -69,26 +69,26 @@
 <head>
   <meta charset="utf-8">
   
-  <meta name="robots" content="index, follow, noai, noimageai, notdm">{% comment %}trad search index/follow OK; no AI/LLM/mining use of any kind{% endcomment %}
-  <meta name="tdm-reservation" content="1">{% comment %}disallow mining: EU Digital Single Market Directive (Article 4){% endcomment %}
+  {% comment %}
+    OK for traditional search crawlers to index content and follow links, but no AI/LLM/mining use of any kind
+    tdm-reservation: disallow mining per EU Digital Single Market Directive (Article 4)
+  {% endcomment %}
+  <meta name="robots" content="index, follow, noai, noimageai, notdm">
+  <meta name="tdm-reservation" content="1">
 
   {% comment %}
-    Classification metadata, including license info, used by search engines, archives, and SEO
+    Classification metadata, including license info: used by search engines, archives, SEO
+    Using JSON-LD instead of <link rel="license"...> to unambiguously express dual licenses
+    and avoid confusion or misrepresentation in machine-readable metadata.
+
     JSON-LD: https://json-ld.org/
     LSON-LD enhancements (properties): https://schema.org/CreativeWork
-  {% endcomment %}
-  <!--
-    Licensing metadata:
-    - Site design (HTML/CSS/JS) is licensed under CC‑BY‑NC‑SA 4.0.
-    - Embedded content is licensed under CC‑BY‑ND 4.0.
-    - Embedded content is classified as CreativeWork (not Dataset) because it is not
-      traditional "structured data" and does not fit the Dataset schema category.
-
-    Using JSON-LD instead of <link rel="license"...> to express the dual license
-    cleanly and to avoid confusion or misrepresentation in machine-readable metadata.
+    
+    Embedded content is classified as CreativeWork (not Dataset) because it is not
+    traditional "structured data" and does not fit the Dataset schema category.
 
     TODO: add categorization metadata
-  -->
+  {% endcomment %}
   <script type="application/ld+json">
   {
     "@context": "https://schema.org/",
@@ -148,7 +148,7 @@
       }
 
       document.documentElement.classList.toggle(cfg.DARK_MODE_CLASS, effectiveDark);
-    } catch (e) { /* CSS default */ }
+    } catch (e) { /* fallback to CSS */ }
   })();
   </script>
 
@@ -202,7 +202,6 @@
 
     <div class="header-bottom"> 
       {% if page_lang_active != false %}
-      <!-- site nav -->
       <nav class="site-nav" aria-label="Main navigation">
         <ul>
           {% assign current_path_no_baseurl = page.url | remove: site.baseurl %}
@@ -242,7 +241,6 @@
       </nav>
       {% endif %}
 
-      <!-- languages nav -->
       {% comment %} 
         Add lang-nav only if more than one active lang
         TODO: fix active_langs filter; as is, it includes inactive langs; for now using a conditional continue inside for loop

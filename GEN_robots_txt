@@ -1,66 +1,62 @@
 ---
 # This file generates robots.txt in the root dir
+#
+# Allow selected traditional search engines; block all other crawlers
+# search engines selected based on their reach: global and geos/langs of interest; see table at end of file
+# 
+# The default rule (must be at end as shown) blocks all crawlers not already identified
+# The disallow on /wip is honeypot: together with /wip/index.html, helps identify and understand patterns of misbehaving bots
+#
+# TODO: manage sitemap entries
+#
 layout: none
 permalink: /robots.txt
 ---
-# Allow selected traditional search engines (see table at end)
-# search engines are selected based on their reach: global and geo/lang specific
-
-# Google Search (global)
 User-agent: Googlebot
 Disallow: /assets/
 
-# Bing Search (global; also powers DuckDuckGo, Yahoo, Ecosia, Swisscows)
 User-agent: Bingbot
 Disallow: /assets/
 
-# Russia
 User-agent: YandexBot
 Disallow: /assets/
 
-# France
 User-agent: Qwantify
 Disallow: /assets/
 
-# Germany
 User-agent: MetaGer
 Disallow: /assets/
 User-agent: metagerbot
 Disallow: /assets/
 
-# UK (independent index)
 User-agent: MojeekBot
 Disallow: /assets/
 
-# Global but privacy-focused (growing in EU)
 User-agent: Bravebot
 Disallow: /assets/
 
-# Preview/thumbnail fetchers
 User-agent: DuckDuckBot
 Disallow: /assets/
 
-# Default rule — block all other crawlers
-User-agent: *               # wildcard rule
-Disallow: /wip/             # iykyk
-Disallow: /                 # block everything else
+User-agent: *
+Disallow: /wip/
+Disallow: /
 
-# TODO: manage sitemap entries
-
-
-# TRADITIONAL SEARCH ENGINE CRAWLERS (REFERENCE TABLE)
-# Search Engine      | Crawler Name   | Notes
-# -------------------|----------------|--------------------------------
-# Google             | Googlebot      | Primary global search engine
-# Bing               | Bingbot        | Powers Bing, DuckDuckGo, Yahoo
-# Yandex             | YandexBot      | Russian search engine
-# Qwant              | Qwantify       | French privacy-focused engine
-# MetaGer (DE)       | MetaGer        | German privacy-focused engine
-# MetaGer (DE)       | metagerbot     | Alternate crawler identifier
-# Mojeek             | MojeekBot      | Independent UK search engine
-# Brave Search       | Bravebot       | Privacy-focused search engine
-# DuckDuckGo         | DuckDuckBot    | Fetches thumbnails/previews
-# -------------------|----------------|--------------------------------
-# Baidu              | Baiduspider    | Chinese search engine; aggressive
-# Naver              | NaverBot       | Korean search engine
-# Seznam             | SeznamBot      | Czech search engine
+{% comment %}
+TRADITIONAL SEARCH ENGINE CRAWLERS (REFERENCE TABLE)
+Search Engine      | Crawler Name   | Notes
+-------------------|----------------|----------------------------------------------------------
+Google             | Googlebot      | Primary global search engine
+Bing               | Bingbot        | Global; powers Bing, DuckDuckGo, Yahoo, Ecosia, Swisscows
+Yandex             | YandexBot      | Russian search engine
+Qwant              | Qwantify       | French privacy-focused engine
+MetaGer (DE)       | MetaGer        | German privacy-focused engine
+MetaGer (DE)       | metagerbot     | Alternate crawler identifier
+Mojeek             | MojeekBot      | Independent UK search engine
+Brave Search       | Bravebot       | Global but growing un EU; privacy-focused search engine
+DuckDuckGo         | DuckDuckBot    | Fetches thumbnails/previews used in search results
+-------------------|----------------|----------------------------------------------------------
+Baidu              | Baiduspider    | Chinese search engine; aggressive
+Naver              | NaverBot       | Korean search engine
+Seznam             | SeznamBot      | Czech search engine
+{% endcomment %}
