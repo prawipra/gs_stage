@@ -1,6 +1,4 @@
 ---
-# This file generates robots.txt in the root dir
-#
 # Allow selected traditional search engines; block all other crawlers
 # search engines selected based on their reach: global and geos/langs of interest; see table at end of file
 # 
@@ -9,8 +7,10 @@
 #
 # TODO: manage sitemap entries
 #
+# NB: this file could directly be a txt file without frontmatter, but choosing to have it be Jekyll-processed to maintain
+# detailed comments, and critically, document the /wip honeypot path
+#
 layout: none
-permalink: /robots.txt
 ---
 User-agent: Googlebot
 Disallow: /assets/
@@ -56,6 +56,7 @@ Mojeek             | MojeekBot      | Independent UK search engine
 Brave Search       | Bravebot       | Global but growing un EU; privacy-focused search engine
 DuckDuckGo         | DuckDuckBot    | Fetches thumbnails/previews used in search results
 -------------------|----------------|----------------------------------------------------------
+SEARCH ENGINES CRAWLERS NOT RELEVANT TO THIS PROJECT: NO NEED TO ENTERTAIN THEIR LOAD
 Baidu              | Baiduspider    | Chinese search engine; aggressive
 Naver              | NaverBot       | Korean search engine
 Seznam             | SeznamBot      | Czech search engine
