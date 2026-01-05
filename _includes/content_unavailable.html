@@ -13,7 +13,7 @@
 {% endcomment %}
 
 {% assign lang = include.lang %}
-{% assign localized_msg = site.data.phrases.content_unavailable[lang] %}
+{% assign localized_msg = site.data.phrases.content_unavailable_msg[lang] %}
 
 {% if localized_msg != empty %}
   {% assign this_lang_data = site.data.languages[lang] %}

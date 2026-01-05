@@ -59,10 +59,19 @@ click_if_not_auto_directed:
   tel: స్వయంచాలకంగా దారి మళ్లించబడకపోతే, పైన ఉన్న లింక్‌ను క్లిక్ చేయండి
   mal: സ്വയമേവ റീഡയറക്‌ട് ചെയ്‌തില്ലെങ്കിൽ, മുകളിലുള്ള ലിങ്കിൽ ക്ലിക്കുചെയ്യുക
 
-# localized message to show when a lang page is unavailable
-# The localized message should correspond to the eng message
+# localized message to show when content is unavailable
+# The localized title message should correspond to the eng message
+
+content_unavailable_title:
+  kan: ವಿಷಯ ಅಲಭ್ಯ
+  eng: Content Unavailable
+  hin: सूचना अनुपलब्ध
+  tam: உள்ளடக்கம் கிடைக்கவில்லை
+  tel: విషయం అందుబాటులో లేదు
+  mal: ഉള്ളടക്കം ലഭ്യമല്ല
+
 # do NOT include a terminating period: it is automatically included when message is shown
-content_unavailable:
+content_unavailable_msg:
   kan: ಈ ವಿಷಯ ಕನ್ನಡದಲ್ಲಿ ಲಭ್ಯವಿಲ್ಲ
   eng: This content is unavailable in English
   hin: इस सूचना हिंदी में उप्लब्ध नही

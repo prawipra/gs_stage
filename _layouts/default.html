@@ -35,8 +35,8 @@
   page title: prefer frontmatter; else chapter page title shows chapter number; nav-linked non-chapter pages show nav label
 {% endcomment %}
 
-{% if page_lang_active == false %}
-  {% comment %} nothing to do {% endcomment %}
+{% if page_lang_active == false or page.content_unavailable == true %}
+  {% assign default_page_title = site.data.phrases.content_unavailable_title[page_lang] | site.data.phrases.content_unavailable_title.eng | default: 'Content Unavailable' %}
 {% elsif chapter_number > 0 %}
   {% assign primary_lang = "mul" %}
   {% capture default_page_title %}
@@ -55,14 +55,10 @@
   {% capture html_lang %}{{ primary_lang }}-{{ page_lang_data.script }}-{{ page_lang_data.region }}{% endcapture %}
 {% endif %}
 
-{% if page_lang_active == false %}
-  {% assign page_title = "Content Unavailable" %}
-{% else %}
-  {% assign page_title = page.title | default: default_page_title | default: page_basename %}
-  {% capture page_lang_attr %}{{ page_lang }}-{{ page_lang_data.script }}-{{ page_lang_data.region }}{% endcapture %}
-  {% capture eng_lang_attr %}eng-{{ eng_lang_data.script }}-{{ eng_lang_data.region }}{% endcapture %}
-  {% capture iso_lang_attr %}san-{{ san_lang_data.script }}-{{ san_lang_data.region }}-x-{{ eng_lang_data.xlit_extension }}{% endcapture %}
-{% endif %}
+{% assign page_title = page.title | default: default_page_title | default: page_basename %}
+{% capture page_lang_attr %}{{ page_lang }}-{{ page_lang_data.script }}-{{ page_lang_data.region }}{% endcapture %}
+{% capture eng_lang_attr %}eng-{{ eng_lang_data.script }}-{{ eng_lang_data.region }}{% endcapture %}
+{% capture iso_lang_attr %}san-{{ san_lang_data.script }}-{{ san_lang_data.region }}-x-{{ eng_lang_data.xlit_extension }}{% endcapture %}
 
 <!DOCTYPE html>
 <html lang="{{ html_lang }}">
@@ -307,9 +303,9 @@
       Assume one include file for each page type and a fixed include file for all pages with chapter content
       - index.html for index.md, preface.html for preface.md,... 
 
-      Include an info page if page_lang is inactive. Might replace with a redirect in future,
-      probably to site.default_lang. However, not redirecting makes code simpler, reduces user
-      surprise and still permits user to choose the alternative lang to in which to view this page.
+      Include an info page if page_lang is inactive or page's content is unavailalbe (page.content_unavailable is true).
+      Might replace or augment with a redirect in future, probably to site.default_lang. However, not redirecting makes
+      code simpler, reduces user surprise and still permits user to choose the alternative lang to in which to view this page.
 
       Note: It is better to not generate pages for inactive langs but showing the info page is still
       useful for when the lang is to be made inactive without removing lang content.
@@ -321,7 +317,7 @@
       Using include syntax as defined here: https://jekyllrb.com/docs/includes/
     {% endcomment %}
 
-    {% if page_lang_active == false %}
+    {% if page_lang_active == false or page.content_unavailable == true %}
       {% include content_unavailable.html lang=page_lang title=page_title %}
     {% else %}
       {% if not_index_page %}
