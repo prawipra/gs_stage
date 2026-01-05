@@ -4,17 +4,36 @@
 # TDM Reservation Protocol: https://www.w3.org/2022/tdmrep/
 #
 # This policy draws from Examples 18 and 19 of the spec. Briefly:
-# - Policy's `uid`` is a URI: does not have to resolve; the path component `id` shows it is an ID 
-# - Assigner details are on the English about page (it is in all langs but pointing to eng page here)
 # - Mining for non-research purpose requires consent and compensation
 # - Mining for research purpose requires consent
-# - NB: tdm:research and tdm:nonresearch are loosely defined; spec says they're experimental
+#
+# - TDMRep spec says tdm:research and tdm:non-research are "experimental" and defines them loosely.
+#   We assume "research" is perpetually non-commercial: no commercial application ever. That is,
+#   research with commercial potential is non-research in this context. Bottomline, rights reserved.
+#
+# - uid value is a URI: does not have to resolve; `id` component in the value shows it is an ID
+#   URI does not have to match the site's deployed domain: OK if dev/staging site uses prod site's
+#   domain. We prefer the URI on prod site use the prod domain and thus use site.custom_domain 
+#   though that means URIs on the dev/staging site uses.
+# 
+# - hasURL value is a URL, it can be relative, and it must resolve. It does not have to resolve within
+#   the current site, but we prefer it does for testing and integrity reason. Thus, we intentionally
+#   make its value a relative URL to ensure it resolves in any deployment config and that it resolves
+#   within the site.
+#
+#   NB: site.custom_domain (a domain name) can't end in slash; site.url and site.githib.url can and 
+#   thus need to be checked for a terminal slash.
 #
 layout: none
-permalink: tdm-policy.json
+permalink: /tdm-policy.json
 ---
-{% assign site_url = site.url | default: site.github.url %}
-
+{%- if site.custom_domain -%}
+  {%- assign site_url = site.custom_domain | prepend: "https://" -%}
+{%- else -%}
+  {%- assign site_url = site.url | default: site.github.url -%}
+  {%- assign last_url_char = site_url | slice: -1 -%}
+  {%- if last_url_char == "/" -%}{%- assign site_url = site_url | remove_last: "/" -%}{%- endif -%}
+{%- endif -%}
 {
     "@context": [
       "http://www.w3.org/ns/odrl.jsonld",
@@ -25,8 +44,8 @@ permalink: tdm-policy.json
   "profile": "http://www.w3.org/ns/tdmrep",
   "uid": "{{ site_url }}/id/policies/1",
   "assigner": {
-    "uid": "{{ site_url }}",
-    "vcard:hasURL": "{{ site_url }}/eng/about.html"
+    "uid": "{{ site_url }}/id/assigner/1",
+    "vcard:hasURL": "eng/about.html"
   },
   "permission": [{
       "action": "tdm:mine",
