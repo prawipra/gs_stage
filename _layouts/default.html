@@ -67,10 +67,21 @@
   
   {% comment %}
     OK for traditional search crawlers to index content and follow links, but no AI/LLM/mining use of any kind
-    - Googlebot defines max-snippet (# of chars to show in search results) and max-image-preview (disallow image preview of page)
+    - Googlebot defines max-snippet (# of chars to show in search results)
+    - Googlebot also defines max-image-preview (index image content but no preview), noimageindex (don't index images)
     - https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag
+    - This site has almost no images but adding those in advance
+    - Bing and other bots also support the Googlebot-led directives to different degrees: so worth adding the directives
+
+    max-snippet size for English/Latin pages to 160 (SEO standard); 400 for other (Indic) langs because Unicode
   {% endcomment %}
-  <meta name="robots" content="index, follow, max-snippet:250, max-image-preview:none, noai, noimageai, notdm">
+  {%- assign lower_html_lang = html_lang | downcase -%}
+  {%- if lower_html_lang contains 'eng-' or lower_html_lang contains '-latn-' -%}
+    {%- assign max_snippet_size = 160 -%}
+  {%- else -%}
+    {%- assign max_snippet_size = 400 -%}
+  {%- endif -%}
+  <meta name="robots" content="index, follow, max-snippet:{{ max_snippet_size }}, max-image-preview:none, noimageindex, noai, noimageai, notdm">
 
   {% comment %}
     Text and Data Mining opt out: https://www.w3.org/2022/tdmrep/
