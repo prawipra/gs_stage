@@ -36,7 +36,7 @@
 {% endcomment %}
 
 {% if page_lang_active == false or page.content_unavailable == true %}
-  {% assign default_page_title = site.data.phrases.content_unavailable_title[page_lang] | site.data.phrases.content_unavailable_title.eng | default: 'Content Unavailable' %}
+  {% assign default_page_title = site.data.phrases.content_unavailable_title[page_lang] | default: site.data.phrases.content_unavailable_title.eng | default: 'Content Unavailable' %}
 {% elsif chapter_number > 0 %}
   {% assign primary_lang = "mul" %}
   {% capture default_page_title %}
