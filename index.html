@@ -1,7 +1,7 @@
 ---
 layout:
 ---
-{%- assign redirect_url = "{{ page.lang }}/index.html" -%}
+{%- assign redirect_url = {{ page.lang }} | append: "/index.html" -%}
 
 {%- comment -%}
   Make the page title a pipe-delimited string of site titles in all active langs
