@@ -73,13 +73,13 @@
     - This site has almost no images but adding those in advance
     - Bing and other bots also support the Googlebot-led directives to different degrees: so worth adding the directives
 
-    max-snippet size for English/Latin pages to 160 (SEO standard); 400 for other (Indic) langs because Unicode
+    set max-snippet size for English/Latin pages to 150 (160 is SEO standard); 350 for other (Indic) langs due to encoding
   {% endcomment %}
   {%- assign lower_html_lang = html_lang | downcase -%}
   {%- if lower_html_lang contains 'eng-' or lower_html_lang contains '-latn-' -%}
-    {%- assign max_snippet_size = 160 -%}
+    {%- assign max_snippet_size = 150 -%}
   {%- else -%}
-    {%- assign max_snippet_size = 400 -%}
+    {%- assign max_snippet_size = 350 -%}
   {%- endif -%}
   <meta name="robots" content="index, follow, max-snippet:{{ max_snippet_size }}, max-image-preview:none, noimageindex, noai, noimageai, notdm">
 
