@@ -1,10 +1,9 @@
 ---
 layout:
 ---
+{%- assign redirect_url = "{{ page.lang }}/index.html" -%}
 
-{% assign redirect_url = "kan/index.html" %}
-
-{% comment %}
+{%- comment -%}
   Make the page title a pipe-delimited string of site titles in all active langs
   - apps that create a page thumbnail will likely show this string in the thumbnail, which is
     more meaningful for the app user than showing "Redirecting..."
@@ -13,25 +12,28 @@ layout:
   Join the final array of active titles to get the required pipe-delimited string.
   Look up langs from site.data.languaages in site.data.about.site_title because
   looking up the other way somehow fails to detect inactive langs
-{% endcomment %}
-{% assign active_titles_array = "" | split: "," %}
+{%- endcomment -%}
+{%- assign active_titles_array = "" | split: "," -%}
 
-{% for lang in site.data.languages %}
-  {% assign lang_code = lang[0] %}
-  {% assign lang_data = lang[1] %}
+{%- for lang in site.data.languages -%}
+  {%- assign lang_code = lang[0] -%}
+  {%- assign lang_data = lang[1] -%}
 
-  {%if lang_data.active != false %}
-    {% assign title = site.data.about.site_title[lang_code] | default: "" %}
-    {% if title != "" %}
-      {% assign active_titles_array = active_titles_array | push: title %}
-    {% endif %}
-  {% endif %}
-{% endfor %}
-
+  {%-if lang_data.active != false -%}
+    {%- assign title = site.data.about.site_title[lang_code] | default: "" -%}
+    {%- if title != "" -%}
+      {%- assign active_titles_array = active_titles_array | push: title -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
 <!DOCTYPE html>
 <html lang="mul">
 <head>
   <meta charset="utf-8">
+  {%- comment -%}direct robots to follow links but not to index or make snippets (nothing to snip){%- endcomment -%}
+  <meta name="robots" content="follow, noindex, max-snippet:0, max-image-preview:none, noimageindex, noai, noimageai, notdm">
+  <meta name="tdm-reservation" content="{{ page.tdm_reservation }}">
+  <meta name="tdm-policy" content="{{ page.tdm_policy_json_path }}">
   <meta http-equiv="refresh" content="0; url={{ redirect_url }}">
   <title>{{ active_titles_array | join: " | " }}</title>
   <link rel="canonical" href="{{ redirect_url }}">
@@ -41,18 +43,18 @@ layout:
     Redirecting to: <a href="{{ redirect_url }}">{{ redirect_url }}</a>
   </p>
   <p>
-  {% comment %} message to click if auto redirection fails {% endcomment %}
-  {% for lang in site.data.languages %}
-    {% assign lang_code = lang[0] %}
-    {% assign lang_data = lang[1] %}
+  {%- comment -%} message to click if auto redirection fails {%- endcomment -%}
+  {%- for lang in site.data.languages -%}
+    {%- assign lang_code = lang[0] -%}
+    {%- assign lang_data = lang[1] -%}
 
-    {%if lang_data.active != false %}
-      {% assign msg = site.data.phrases.click_if_not_auto_directed[lang_code] | default: "" %}
-      {% if msg != "" %}
+    {%-if lang_data.active != false -%}
+      {%- assign msg = site.data.phrases.click_if_not_auto_directed[lang_code] | default: "" -%}
+      {%- if msg != "" -%}
         <div lang="">{{ msg }}</div>
-      {% endif %}
-    {% endif %}
-  {% endfor %}
+      {%- endif -%}
+    {%- endif -%}
+  {%- endfor -%}
   </p>
 </body>
 </html>
