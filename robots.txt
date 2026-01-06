@@ -1,49 +1,55 @@
 ---
 # Allow selected traditional search engines; block all other crawlers
-# search engines selected based on their reach: global and geos/langs of interest; see table at end of file
+# search engines selected based on their reach: global and geos/langs
+# of interest; see table at end of file
 # 
-# The default rule (must be at end as shown) blocks all crawlers not already identified
-# The disallow on /wip is honeypot: together with /wip/index.html, helps identify and understand patterns of misbehaving bots
+# Inform each named crawler they are allowed to crawl all of the site
+# except contents of /assets dir and certain files in root dir
+# The empty line at the end of for loop is intentional
 #
-# TODO: manage sitemap entries
+# The default rule (must be at end as shown) blocks all crawlers not
+# already identified. The disallow on /wip is honeypot: together with
+# /wip/index.html, helps identify and understand patterns of errant
+# bots
 #
-# NB: this file could directly be a txt file without frontmatter, but choosing to have it be Jekyll-processed to maintain
-# detailed comments, and critically, document the /wip honeypot path
+# NB: crawler/bot name in a rule is case-sensitive
+#
+# TODO: establish need for sitemap; create if beneficial
 #
 layout: none
 permalink: /robots.txt
 ---
-User-agent: Googlebot
-Disallow: /assets/
+{%- capture crawler_list -%}
+  Googlebot,
+  Bingbot,
+  YandexBot,
+  Qwantify,
+  MetaGer,
+  metagerbot,
+  MojeekBot,
+  Bravebot,
+  DuckDuckBot,
+  Applebot
+{%- endcapture -%}
+{%- assign crawlers = crawler_list | strip_newlines | split: "," -%}
 
-User-agent: Bingbot
+{%- comment -%} make a rule for each named crawler {%- endcomment -%}
+{%- for crawler in crawlers -%}
+User-agent: {{ crawler | strip }}
+Disallow: /.nojekyll
+Disallow: /CNAME
+Disallow: /*.md
 Disallow: /assets/
+{% comment %}comment without white space suppression to cause empty line between crawler entries{% endcomment %}
+{%- endfor -%}
 
-User-agent: YandexBot
-Disallow: /assets/
-
-User-agent: Qwantify
-Disallow: /assets/
-
-User-agent: MetaGer
-Disallow: /assets/
-User-agent: metagerbot
-Disallow: /assets/
-
-User-agent: MojeekBot
-Disallow: /assets/
-
-User-agent: Bravebot
-Disallow: /assets/
-
-User-agent: DuckDuckBot
-Disallow: /assets/
-
+{%- comment -%} default rule {%- endcomment -%}
 User-agent: *
 Disallow: /wip/
 Disallow: /
 
-{% comment %}
+
+{%- comment -%}
 TRADITIONAL SEARCH ENGINE CRAWLERS (REFERENCE TABLE)
 Search Engine      | Crawler Name   | Notes
 -------------------|----------------|----------------------------------------------------------
@@ -55,10 +61,11 @@ MetaGer (DE)       | MetaGer        | German privacy-focused engine
 MetaGer (DE)       | metagerbot     | Alternate crawler identifier
 Mojeek             | MojeekBot      | Independent UK search engine
 Brave Search       | Bravebot       | Global but growing un EU; privacy-focused search engine
-DuckDuckGo         | DuckDuckBot    | Fetches thumbnails/previews used in search results
+DuckDuckGo         | DuckDuckBot    | Verification; also fetching thumbnails/previews for search results
+Apple              | Applebot       | Used for Siri, Spotlight, and Apple services
 -------------------|----------------|----------------------------------------------------------
 SEARCH ENGINES CRAWLERS NOT RELEVANT TO THIS PROJECT: NO NEED TO ENTERTAIN THEIR LOAD
 Baidu              | Baiduspider    | Chinese search engine; aggressive
 Naver              | NaverBot       | Korean search engine
 Seznam             | SeznamBot      | Czech search engine
-{% endcomment %}
+{%- endcomment -%}
