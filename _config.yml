@@ -15,12 +15,6 @@ baseurl: ""   # site deployed to a domain/sub-domain
 # NB NB: avoid setting custom domain in GH Pages settings: that will overwrite CNAME file; best to set/remove custom domain only here
 # custom_domain: geetaa.sameekshaa.in
 
-# default language: used to rewrite links for missing pages
-# language codes are described in _data/languages.yml
-# can't be used to define default frontmatter `lang`
-default_lang: kan
-
-
 # default frontmatter: each lang's content is in dir /lang as in /kan, /eng, /hin, ...
 defaults:
   # defaults for all pages
@@ -28,7 +22,7 @@ defaults:
       path: ""
       type: pages
     values:
-      lang: kan                         # can't use default_lang config's value from above
+      lang: kan                         # default lang for all pages
       layout: default                   # default layout for all pages
       permalink: /:path/:basename.html  # one html per md in the dir where the md is
       tdm_reservation: 1                # yes, opt out of TDM; see .well-knowm/tdmrep.json
