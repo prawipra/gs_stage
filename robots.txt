@@ -33,6 +33,9 @@ permalink: /robots.txt
 {%- endcapture -%}
 {%- assign crawlers = crawler_list | strip_newlines | split: "," -%}
 
+{%- capture empty_line -%}
+{%- endcapture -%}
+
 {%- comment -%} make a rule for each named crawler; write empty line after each rule {%- endcomment -%}
 {%- for crawler in crawlers -%}
 User-agent: {{ crawler | strip }}
@@ -40,7 +43,7 @@ Disallow: /.nojekyll
 Disallow: /CNAME
 Disallow: /*.md
 Disallow: /assets/
-{{ "" }}
+{{ empty_line }}
 {%- endfor -%}
 
 {%- comment -%} default rule {%- endcomment -%}
