@@ -33,14 +33,14 @@ permalink: /robots.txt
 {%- endcapture -%}
 {%- assign crawlers = crawler_list | strip_newlines | split: "," -%}
 
-{%- comment -%} make a rule for each named crawler {%- endcomment -%}
+{%- comment -%} make a rule for each named crawler; write empty line after each rule {%- endcomment -%}
 {%- for crawler in crawlers -%}
 User-agent: {{ crawler | strip }}
 Disallow: /.nojekyll
 Disallow: /CNAME
 Disallow: /*.md
 Disallow: /assets/
-{% comment %}comment without white space suppression to cause empty line between crawler entries{% endcomment %}
+{{ "" }}
 {%- endfor -%}
 
 {%- comment -%} default rule {%- endcomment -%}
