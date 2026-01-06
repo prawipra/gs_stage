@@ -3,7 +3,7 @@ name: geetaasameekshaa
 title: gītāsamīkṣā   
 description: The Bhagavad Gita in the Bhishma Book of Sri Veda Vyasa's Mahabharata
 
-theme: "" # disable default injected theme: we do all the styling ourselves
+theme: # disable default injected theme: we do all the styling ourselves
 
 baseurl: ""   # site deployed to a domain/sub-domain
 
