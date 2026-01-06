@@ -33,8 +33,8 @@ permalink: /robots.txt
 {%- endcapture -%}
 {%- assign crawlers = crawler_list | strip_newlines | split: "," -%}
 
-{%- capture empty_line -%}
-{%- endcapture -%}
+{%- assign empty_line = "
+" -%}
 
 {%- comment -%} make a rule for each named crawler; write empty line after each rule {%- endcomment -%}
 {%- for crawler in crawlers -%}
