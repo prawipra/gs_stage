@@ -1,4 +1,6 @@
 ---
+# root redirector: redirect to default lang's home page
+#
 layout:
 ---
 {%- assign redirect_url = page.lang | append: "/index.html" -%}
@@ -30,14 +32,14 @@ layout:
 <html lang="mul">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="refresh" content="0; url={{ redirect_url }}">
   {%- comment -%}
     direct robots to follow links but not to index or make snippets (nothing to snip)
     tdm-policy meta tag can't use page.tdm_policy_json_path var because that file is in root dir
   {%- endcomment -%}
   <meta name="robots" content="follow, noindex, max-snippet:0, max-image-preview:none, noimageindex, noai, noimageai, notdm">
   <meta name="tdm-reservation" content="{{ page.tdm_reservation }}">
-  <meta name="tdm-policy" content="tdm_policy.json">
-  <meta http-equiv="refresh" content="0; url={{ redirect_url }}">
+  <meta name="tdm-policy" content="./tdm_policy.json">
   <title>{{ active_titles_array | join: " | " }}</title>
   <link rel="canonical" href="{{ redirect_url }}">
 </head>
