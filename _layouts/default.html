@@ -2,12 +2,6 @@
 {% assign page_lang_data = site.data.languages[page_lang] %}
 {% assign page_lang_active = page_lang_data.active %}
 
-{%- if page.content_unavailable == "true" -%}
-  {%- assign page_content_unavailable = true -%}
-{%- else -%}
-  {%- assign page_content_unavailable = false -%}
-{%- endif -%}
-
 {% assign eng_lang_data = site.data.languages.eng %}
 {% assign san_lang_data = site.data.languages.san %}
 
@@ -41,7 +35,7 @@
   page title: prefer frontmatter; else chapter page title shows chapter number; nav-linked non-chapter pages show nav label
 {% endcomment %}
 
-{% if page_lang_active == false or page_content_unavailable %}
+{% if page_lang_active == false or page.content_unavailable %}
   {% assign default_page_title = site.data.phrases.content_unavailable_title[page_lang] | default: site.data.phrases.content_unavailable_title.eng | default: 'Content Unavailable' %}
 {% elsif chapter_number > 0 %}
   {% assign primary_lang = "mul" %}
@@ -334,7 +328,7 @@
       Using include syntax as defined here: https://jekyllrb.com/docs/includes/
     {% endcomment %}
 
-    {% if page_lang_active == false or page_content_unavailable %}
+    {% if page_lang_active == false or page.content_unavailable%}
       {% include content_unavailable.html lang=page_lang title=page_title %}
     {% else %}
       {% if not_index_page %}
