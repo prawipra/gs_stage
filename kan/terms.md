@@ -20,9 +20,9 @@ title: ಬಳಕೆ ನಿಬಂಧನೆಗಳು
 
 ### ಮಾನವೋದ್ದೇಶಿತ ಪರವಾನಗಿಯ ಸಾರಾಂಶ
 
-{% include license.html lang=page_lang artifact="website" owner="prawipra" %}
+{% include license.html lang=page.lang artifact="website" owner="prawipra" %}
 
-{% include license.html lang=page_lang artifact="translations" owner="sura" %}
+{% include license.html lang=page.lang artifact="translations" owner="sura" %}
 
 ಇದು ತ್ವರಿತ ಓದಿಗಾಗಿ ಮಾತ್ರ ಕೊಟ್ಟ ಸಂಕ್ಷಿಪ್ತ ಸಾರಾಂಶ. ಸಂಪೂರ್ಣ ವಿವರಗಳಿಗಾಗಿ ಈ ಮೇಲಿನ [ಅವಲೋಕನೆ](#overview)
 ಮತ್ತು [ಸಂಪೂರ್ಣ ನಿಬಂಧನೆಗಳ ದಾಖಲೆಯನ್ನು](../eng/terms.html) ಪರಾಮರ್ಶಿಸಿ.
