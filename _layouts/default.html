@@ -353,8 +353,8 @@
   </main>
 
    <footer class="center" style="margin-top: 1rem;">
-    {% comment %} add copyright info to all but the about page  {% endcomment %}
-    {% if page_basename != "about" %}
+    {% comment %} add copyright info to all but the terms page or if content unavailable  {% endcomment %}
+    {% if page_basename != "terms" or page_lang_active == false or page.content_unavailable %}
     <p>
         {% capture href_path %}/{{ page_lang }}/about.html#notice{% endcapture %}
 
