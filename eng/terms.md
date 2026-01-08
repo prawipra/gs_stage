@@ -4,14 +4,17 @@ title: Terms of Use
 
 ## General
 
-© 2026. All rights reserved. Accessing this page constitutes agreement to these terms of use.
-Automated access constitutes agreement by the people or organizations responsible for the
-automaton.
+© 2026. All rights reserved. See ownership details later in this document.
+
+Accessing this page constitutes agreement to these terms of use. Automated access constitutes
+agreement by the people or organizations responsible for the automaton.
 
 This site is intended for human consumption. It is *not* intended for machine consumption except
 for the specific purposes outlined later in these terms. Explicit prior consent is required to use
 any part of this site for mining, creating derivatives, summarizing, model training, or other
 similar activities.
+
+These terms are subject to revision.
 
 ### TL;DR license for humans
 
@@ -68,7 +71,7 @@ site itself presents.
 "Search engines" may use this site's content for indexing, excerpting, caching, and other operations
 intended to direct traffic to this site. They may present snippets to their users so users can assess
 the relevance of a page to their needs. Any snippets presented must be true excerpts—not summaries,
-variations, or judgments—and must be no larger than permitted by applicable "fair use" laws.
+variations, or judgments—and must comply with all applicable "fair use" laws.
 
 Only crawlers permitted via `robots.txt` may access this site, and only in accordance with the
 directives there, and only for the purposes permitted in these terms. Using information obtained
