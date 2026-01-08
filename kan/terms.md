@@ -18,7 +18,7 @@ title: ಬಳಕೆ ನಿಬಂಧನೆಗಳು
 
 ಈ ನಿಬಂಧನೆಗಳು ಪರಿಷ್ಕರಣೆಗೆ ಒಳಗಾಗಬಹುದು.
 
-### ಮಾನವೋದ್ದೇಶಿತ ಪರವಾನಗಿಯ ಸಾರಾಂಶ
+## ಮಾನವೋದ್ದೇಶಿತ ಪರವಾನಗಿಯ ಸಾರಾಂಶ
 
 {% include license.html lang=page.lang artifact="website" owner="prawipra" %}
 
