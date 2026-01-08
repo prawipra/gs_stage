@@ -1,4 +1,4 @@
 ---
-title: ಬಳಕೆ ನಿಯಮಗಳು
+title: ಬಳಕೆ ನಿಬಂಧನೆಗಳು
 content_unavailable: true
 ---
