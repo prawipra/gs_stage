@@ -2,16 +2,17 @@
 title: Terms of Use
 ---
 
-## General
+## Overview
 
 © 2026. All rights reserved. See ownership details later in this document.
 
 Accessing this page constitutes agreement to these terms of use. Automated access constitutes
-agreement by the people or organizations responsible for the automaton.
+agreement by the people or organizations responsible for the automaton. If you do not agree,
+please discontinue use of the site immediately.
 
 This site is intended for human consumption. It is *not* intended for machine consumption except
-for the specific purposes outlined later in these terms. Explicit prior consent is required to use
-any part of this site for mining, creating derivatives, summarizing, model training, or other
+for the specific purposes outlined (later) in these terms. Explicit prior consent is required to
+use any part of this site for mining, creating derivatives, summarizing, model training, or other
 similar activities.
 
 These terms are subject to revision.
@@ -26,7 +27,8 @@ Translations © 2026 Dr. Shatavadhani Udupi Ramanatha Acharya. All rights reserv
 Distribution license: CC BY-NC-ND 4.0  
 Attribution required. No commercial use. No distribution of derivatives.
 
-Full terms follow.
+This is a brief summary for quick reading. Please consult the overview (above) and the full terms
+(below) for complete details.
 
 ## License to humans
 
@@ -38,8 +40,9 @@ These licenses are *not* granted to automated processes ("machines").
 
 Humans may examine, adapt, and distribute adaptations of this site's code, which consists of HTML
 markup, style sheets (CSS), and scripts (JavaScript). The term "HTML markup" refers to structure
-and techniques, not to the textual data being marked up. Naturally, humans may use programs such as
-editors, compilers, and other tools that are routine and incidental to reading and adapting the code.
+and techniques, not to the textual data that is marked up. Naturally, humans may use programs such
+as editors, compilers, and other tools that are routine and incidental to reading and adapting the
+code.
 
 All distributions of the code, with or without adaptations, must be made under these same terms and
 must include the following marking or a marking to this effect:
@@ -54,11 +57,11 @@ readers and other services that improve accessibility; and routine, incidental t
 bookmarking and note taking. They may also use *in situ* language translation services, but must
 treat any generated translations as adaptations subject to this data license.
 
-Any adaptations or derivatives created may *not* be distributed, including translations, whether
-machine-made or otherwise.
+Adaptations or derivatives may *not* be distributed, including translations, whether or not they
+are machine-made.
 
-The data presented may be distributed *exactly as presented* and only under these terms, and must
-include the following marking or a marking to this effect:
+The data this site presents may be distributed *exactly as original presented* and only under these
+terms, and must include the following marking or a marking to this effect:
 
 > Translations © 2026 Dr. Shatavadhani Udupi Ramanatha Acharya. All rights reserved. CC BY-NC-ND 4.0
 
@@ -70,12 +73,13 @@ site itself presents.
 
 "Search engines" may use this site's content for indexing, excerpting, caching, and other operations
 intended to direct traffic to this site. They may present snippets to their users so users can assess
-the relevance of a page to their needs. Any snippets presented must be true excerpts—not summaries,
-variations, or judgments—and must comply with all applicable "fair use" laws.
+the relevance of a page to their needs. Snippets presented must be true excerpts—not summaries,
+variations, or judgments—and they must comply with all applicable "fair use" laws.
 
-Only crawlers permitted via `robots.txt` may access this site, and only in accordance with the
-directives there, and only for the purposes permitted in these terms. Using information obtained
-through crawling for any purpose other than directing traffic to this site is *not* permitted.
+Only crawlers permitted via the well-known `robots.txt` file may access this site, and only in
+accordance with the directives there, and only for the purposes permitted in these terms. Using
+information obtained through crawling for any purpose other than directing traffic to this site
+is *not* permitted.
 
 All other automated uses—including but not limited to mining, creating derivatives, summarizing, and
 model training—require explicit prior consent as outlined in the [TDM policy](#text-and-data-mining-tdm-policy).
@@ -93,7 +97,7 @@ This site supports responsible Text and Data Mining (TDM) practices:
 * Mining for non-research purposes requires prior consent and compensation.
 * Consent must be obtained *before* any mining activity begins.
 
-We provide a [machine-readable policy](/tdm-policy.json) for automated agents.
+A [machine-readable policy](/tdm-policy.json) is included for automated agents.
 
 ### Definitions
 
