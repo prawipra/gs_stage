@@ -2,7 +2,7 @@
 title: Terms of Use
 ---
 
-## TL;DR license to humans for personal use
+### TL;DR license to humans for personal use
 
 {% include license.html lang=page.lang artifact="website" owner="prawipra" %}
 
@@ -10,7 +10,7 @@ title: Terms of Use
 
 This is a brief summary for quick reading. Please consult the full terms below for complete details.
 
-## Overview
+### Overview
 
 &copy; {{ site.time | date: "%Y" }}
   {{ site.data.about.sura.eng }}, {{ site.data.about.prawipra.eng }} (together "Licensor").
@@ -30,13 +30,13 @@ These terms are subject to revision. License grants are subject to revocation.
 A summary of these terms is published in other languages as well on this site, but for logistical
 reasons, only this version (in English) is authoritative.
 
-## License to humans
+### License to humans
 
 This site's design and implementation ("code"), as well as the translations and other textual
 content ("data") are distributed to *humans* ("Licensee"), and *only for personal use*, under
 Creative Commons licenses. These licenses are *not* granted to automated processes ("machines").
 
-### Code license to humans
+#### Code license to humans
 
 Humans may examine, adapt, and distribute adaptations of this site's code, which consists of HTML
 markup, style sheets (CSS), and scripts (JavaScript). The term "HTML markup" refers to structure and
@@ -48,7 +48,7 @@ must include the following marking or a marking to this effect:
 
 > Website design and implementation. © 2026 Praana Witala Prakaashana. All rights reserved. CC BY-NC-SA 4.0
 
-### Data license to humans
+#### Data license to humans
 
 The data this site contains and presents, including all aspects of the site not included under
 "code", is intended for human consumption. When interacting with the site, humans may use automated
@@ -69,7 +69,7 @@ The best way to distribute data is to share direct links to the relevant parts o
 share faithful reproductions of those parts, such as hard copies or PDF replicas of the data the
 site itself presents.
 
-## Automated access
+### Automated access
 
 "Search engines" ("Licensee") may use this site's content for indexing, excerpting, caching, and
 other operations intended to direct traffic to this site. They may present snippets to their users
@@ -100,7 +100,7 @@ This site supports responsible Text and Data Mining (TDM) practices:
 
 A [machine-readable policy](/tdm-policy.json) is included for automated agents.
 
-### Definitions
+#### Definitions
 
 The terms "research" and "non-research" are based on the
 [W3C TDM Reservation Protocol](https://www.w3.org/2022/tdmrep/). Those terms are defined loosely and
@@ -108,7 +108,7 @@ labeled "experimental" in the protocol, but for the purposes of this policy, "re
 to be non‑commercial. Any activity, research or otherwise, requires prior consent and depending on the
 specifics may also require compensation.
 
-## License revocation
+### License revocation
 
 Licenses granted are revocable at Licensor's sole discretion upon notice, without reason or for reasons
 including but not limited to violation of one or more of these terms. Upon revocation, Licensee must
@@ -119,7 +119,7 @@ example, court orders, regulatory retention) may supersede deletion; in such cas
 notify Licensor and limit retained data to the minimum required by law. Failure to comply constitutes
 material breach and entitles Licensor to injunctive relief and damages.
 
-## Contact
+### Contact
 
 The [About page](./about.html) includes contact information for consent requests or licensing
 inquiries.
