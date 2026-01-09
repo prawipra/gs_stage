@@ -17,15 +17,14 @@ similar activities.
 
 These terms are subject to revision.
 
+**Note:** A summary of these terms is published in other languages as well on this site, but for
+logistical reasons, only this version (in English) is authoritative.
+
 ### TL;DR license for humans
 
-Website design and implementation. © 2026 Praana Witala Prakaashana. All rights reserved.  
-Distribution license: CC BY-NC-SA 4.0  
-Attribution required. No commercial use. Distribute under same terms.
+{% include license.html lang=page.lang artifact="website" owner="prawipra" %}
 
-Translations © 2026 Dr. Shatavadhani Udupi Ramanatha Acharya. All rights reserved.  
-Distribution license: CC BY-NC-ND 4.0  
-Attribution required. No commercial use. No distribution of derivatives.
+{% include license.html lang=page.lang artifact="translations" owner="sura" %}
 
 This is a brief summary for quick reading. Please consult the overview (above) and the full terms
 (below) for complete details.
