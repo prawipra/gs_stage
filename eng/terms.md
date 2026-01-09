@@ -127,6 +127,3 @@ inquiries.
 **Note:** We support academic research, but we are unable to provide advance blanket consent to
 all automated uses of the data without full context. Please contact us with details of your need
 so we can determine the best course of action.
-
----
-{{ "now" | date: "%Y-%m-%d" }} UTC
