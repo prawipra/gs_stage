@@ -22,8 +22,8 @@ please discontinue use of the site immediately.
 
 This site is intended for human consumption. It is *not* intended for machine consumption except
 for the specific purposes outlined (later) in these terms. Explicit prior consent is required to
-use any part of this site for mining, creating derivatives, summarizing, model training, or other
-similar activities.
+use any part of this site for "mining" which includes making associations, creating derivatives,
+summarizing, model training, or other similar activities.
 
 These terms are subject to revision. License grants are subject to revocation.
 
@@ -36,7 +36,7 @@ This site's design and implementation ("code"), as well as the translations and 
 content ("data") are distributed to *humans* ("Licensee"), and *only for personal use*, under
 Creative Commons licenses. These licenses are *not* granted to automated processes ("machines").
 
-### Code license for humans
+### Code license to humans
 
 Humans may examine, adapt, and distribute adaptations of this site's code, which consists of HTML
 markup, style sheets (CSS), and scripts (JavaScript). The term "HTML markup" refers to structure and
@@ -48,7 +48,7 @@ must include the following marking or a marking to this effect:
 
 > Website design and implementation. © 2026 Praana Witala Prakaashana. All rights reserved. CC BY-NC-SA 4.0
 
-### Data license for humans
+### Data license to humans
 
 The data this site contains and presents, including all aspects of the site not included under
 "code", is intended for human consumption. When interacting with the site, humans may use automated
@@ -105,16 +105,16 @@ A [machine-readable policy](/tdm-policy.json) is included for automated agents.
 The terms "research" and "non-research" are based on the
 [W3C TDM Reservation Protocol](https://www.w3.org/2022/tdmrep/). Those terms are defined loosely and
 labeled "experimental" in the protocol, but for the purposes of this policy, "research" is understood
-to be non‑commercial. Any activity—research or otherwise—requires prior consent and, depending on the
-specifics, may also require compensation.
+to be non‑commercial. Any activity, research or otherwise, requires prior consent and depending on the
+specifics may also require compensation.
 
 ## License revocation
 
-Licenses granted are revocable at Licensor's sole discretion upon notice, for reasons including but
-not limited to violation of one or more of these terms. Upon revocation, Licensee must immediately
-cease all access, delete all copies of Licensor data and any derivatives in Licensee’s possession
-or control, and provide a written certification of deletion within 7 days. Licensor may require
-independent verification or audit. Licensee acknowledges that certain legal obligations (for
+Licenses granted are revocable at Licensor's sole discretion upon notice, without reason or for reasons
+including but not limited to violation of one or more of these terms. Upon revocation, Licensee must
+immediately cease all access, delete all copies of Licensor data and any derivatives in Licensee’s
+possession or control, and provide a written certification of deletion within 7 days. Licensor may
+require independent verification or audit. Licensee acknowledges that certain legal obligations (for
 example, court orders, regulatory retention) may supersede deletion; in such cases Licensee must
 notify Licensor and limit retained data to the minimum required by law. Failure to comply constitutes
 material breach and entitles Licensor to injunctive relief and damages.
