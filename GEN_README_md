@@ -14,4 +14,4 @@ Translations from Kannada to other languages by others.
 See the [about page](./eng/about.html) for details.
 
 ---
-Last updated: {{ "now" | date: "%Y-%m-%d %H:%M" }} UTC
+{{ "now" | date: "%Y-%m-%d %H:%M" }} UTC
