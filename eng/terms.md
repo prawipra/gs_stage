@@ -2,13 +2,13 @@
 title: Terms of Use
 ---
 
-### TL;DR license to humans for personal use
+### TL;DR License for manual, personal use
+
+This is a brief informal license summary. Please consult the full terms below for complete details.
 
 {% include license.html lang=page.lang artifact="website" owner="prawipra" %}
 
 {% include license.html lang=page.lang artifact="translations" owner="sura" %}
-
-This is a brief summary for quick reading. Please consult the full terms below for complete details.
 
 ### Overview
 
@@ -20,9 +20,9 @@ Accessing this page constitutes agreement to these terms of use. Automated acces
 agreement by the people or organizations responsible for the automaton. If you do not agree,
 please discontinue use of the site immediately.
 
-This site is intended for human consumption. It is *not* intended for machine consumption except
-for the specific purposes outlined (later) in these terms. Explicit prior consent is required to
-use any part of this site for "mining" which includes making associations, creating derivatives,
+This site is intended for manual human consumption. It is *not* intended for machine  consumption
+except for the specific purposes outlined (later) in these terms. Explicit prior consent is required
+to use any part of this site for "mining" which includes making associations, creating derivatives,
 summarizing, model training, or other similar activities.
 
 These terms are subject to revision. License grants are subject to revocation.
@@ -30,17 +30,17 @@ These terms are subject to revision. License grants are subject to revocation.
 A summary of these terms is published in other languages as well on this site, but for logistical
 reasons, only this version (in English) is authoritative.
 
-### License to humans
+### License for manual access
 
 This site's design and implementation ("code"), as well as the translations and other textual
 content ("data") are distributed to *humans* ("Licensee"), and *only for personal use*, under
 Creative Commons licenses. These licenses are *not* granted to automated processes ("machines").
 
-#### Code license to humans
+#### Code license for manual access
 
-Humans may examine, adapt, and distribute adaptations of this site's code, which consists of HTML
-markup, style sheets (CSS), and scripts (JavaScript). The term "HTML markup" refers to structure and
-techniques, not to the textual data that is marked up. Naturally, humans may use programs such as
+Humans may manually examine, adapt, and distribute adaptations of this site's code, which consists
+of HTML markup, style sheets (CSS), and scripts (JavaScript). The term "HTML markup" refers to
+structure and techniques, not to the textual data that is marked up. Humans may use programs such as
 editors, compilers, and other tools that are routine and incidental to reading and adapting the code.
 
 All distributions of the code, with or without adaptations, must be made under these same terms and
@@ -48,17 +48,17 @@ must include the following marking or a marking to this effect:
 
 > Website design and implementation. © 2026 Praana Witala Prakaashana. All rights reserved. CC BY-NC-SA 4.0
 
-#### Data license to humans
+#### Data license for manual access
 
 The data this site contains and presents, including all aspects of the site not included under
-"code", is intended for human consumption. When interacting with the site, humans may use automated
-processes incidental to ordinary web browsing; screen readers and other services that improve
-accessibility as understood in common usage of that term; and routine, incidental tools for personal
-bookmarking and note taking. They may also use *in situ* language translation services, but must
-treat any generated translations as adaptations subject to this data license.
+"code", is intended for manual human consumption. When interacting with the site, humans may use
+automated processes incidental to ordinary web browsing; screen readers and similar services that
+improve accessibility as understood in common usage of that term; and routine, incidental tools for
+personal bookmarking and note taking. They may also use *in situ* language translation services,
+but must treat any generated translations as adaptations subject to this data license.
 
-Adaptations or derivatives may *not* be distributed, including translations, whether or not they
-are machine-made.
+Adaptations or derivatives may *not* be distributed, including translations, regardless of the
+process used to create the adaptations.
 
 Data may be distributed *exactly as original presented* and only under these terms, and must include
 the following marking or a marking to this effect:
@@ -75,12 +75,12 @@ site itself presents.
 other operations intended to direct traffic to this site. They may present snippets to their users
 so users can assess the relevance of a page to their needs. Snippets presented must be true
 excerpts—not summaries, variations, or judgments—and they must comply with all applicable "fair use"
-laws.
+laws. Every snippet presented must include a navigable link to the origin page on this site.
 
-Only crawlers permitted via the well-known `robots.txt` file may access this site, and only in
-accordance with the directives there, and only for the purposes permitted in these terms. Using
-information obtained through crawling for any purpose other than directing traffic to this site
-is *not* permitted.
+Only crawlers permitted via the well-known `robots.txt` file included on this site may access this
+site, and only in accordance with the directives there, and only for the purposes permitted in these
+terms. Using any information obtained through crawling for any purpose other than directing traffic
+to this site is *not* permitted.
 
 All other automated uses—including but not limited to mining, creating derivatives, summarizing, and
 model training—require explicit prior consent as outlined in the [TDM policy](#text-and-data-mining-tdm-policy).
@@ -112,7 +112,7 @@ specifics may also require compensation.
 
 Licenses granted are revocable at Licensor's sole discretion upon notice, without reason or for reasons
 including but not limited to violation of one or more of these terms. Upon revocation, Licensee must
-immediately cease all access, delete all copies of Licensor data and any derivatives in Licensee’s
+immediately cease all access, delete all copies of licensed content and any derivatives in Licensee’s
 possession or control, and provide a written certification of deletion within 7 days. Licensor may
 require independent verification or audit. Licensee acknowledges that certain legal obligations (for
 example, court orders, regulatory retention) may supersede deletion; in such cases Licensee must
