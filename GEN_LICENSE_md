@@ -3,7 +3,7 @@
 layout: none
 permalink: /LICENSE.md
 ---
-&copy; {{ site.time | date: "%Y" }} {{ site.data.about.sura.eng }}, {{ site.data.about.prawipra.eng }}. All rights reserved.
+© {{ site.time | date: "%Y" }} {{ site.data.about.sura.eng }}, {{ site.data.about.prawipra.eng }}. All rights reserved.
 
 **License summary:**
 - This repository is intended to serve a web site for manual, personal use by humans
