@@ -18,17 +18,17 @@ This is a brief informal license summary. Please consult the full terms below fo
 
 Accessing this page constitutes agreement to these terms of use. Automated access constitutes
 agreement by the people or organizations responsible for the automaton. If you do not agree,
-please discontinue use of the site immediately.
+please discontinue use of this site immediately.
 
-This site is intended for manual human consumption. It is *not* intended for machine  consumption
+This site is intended for manual human consumption. It is *not* intended for automated consumption
 except for the specific purposes outlined (later) in these terms. Explicit prior consent is required
-to use any part of this site for "mining" which includes making associations, creating derivatives,
-summarizing, model training, or other similar activities.
+to use any part of this site for "mining" which includes making associations, forming patterns,
+creating derivatives, summarizing, model training, and other similar activities.
 
 These terms are subject to revision. License grants are subject to revocation.
 
-A summary of these terms is published in other languages as well on this site, but for logistical
-reasons, only this version (in English) is authoritative.
+A summary of these terms is published in other languages as well on this site, but only this version
+(in English) is binding.
 
 ### License for manual access
 
@@ -75,20 +75,20 @@ site itself presents.
 other operations intended to direct traffic to this site. They may present snippets to their users
 so users can assess the relevance of a page to their needs. Snippets presented must be true
 excerpts—not summaries, variations, or judgments—and they must comply with all applicable "fair use"
-laws. Every snippet presented must include a navigable link to the origin page on this site.
+laws. Every snippet presented must include a navigable link to the snippet's origin page on this
+site.
 
 Only crawlers permitted via the well-known `robots.txt` file included on this site may access this
 site, and only in accordance with the directives there, and only for the purposes permitted in these
 terms. Using any information obtained through crawling for any purpose other than directing traffic
 to this site is *not* permitted.
 
-All other automated uses—including but not limited to mining, creating derivatives, summarizing, and
-model training—require explicit prior consent as outlined in the [TDM policy](#text-and-data-mining-tdm-policy).
+All other automated uses including but not limited to "mining" as defined earlier in these terms
+require explicit prior consent as outlined in the [TDM policy](#text-and-data-mining-tdm-policy).
 
 This site may be archived at the Internet Archive and at legal deposits such as national libraries
 solely for the purpose of preservation. Archival does *not* grant any person, entity, or automaton
-permission for mining, derivative creation, summarizing, model training, or any similar activity
-without explicit prior consent as outlined in the TDM policy.
+permission for "mining" without explicit prior consent as outlined in the TDM policy.
 
 ### Text and Data Mining (TDM) Policy
 
