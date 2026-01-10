@@ -1,0 +1,17 @@
+---
+# This file generates a LICENSE.md file in root dir
+layout: none
+permalink: /LICENSE.md
+---
+&copy; {{ site.time | date: "%Y" }} {{ site.data.about.sura.eng }}, {{ site.data.about.prawipra.eng }}. All rights reserved.
+
+**License summary:**
+- This repository is intended to serve a web site for manual, personal use by humans
+- Limited automated access permitted
+- Text and data minining (TDM) of any kind, for any purpose, requires explicit prior content
+- Machine-readable TDM policy is included
+
+See [Terms of Use](./eng/terms.html) for details.
+
+---
+Last updated: {{ "now" | date: "%Y-%m-%d %H:%M" }} UTC
