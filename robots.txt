@@ -39,20 +39,17 @@ permalink: /robots.txt
 {%- endcapture -%}
 {%- assign crawlers = crawler_list | strip_newlines | split: "," -%}
 
-{%- assign empty_line = "
-" -%}
-
-{%- comment -%} make a rule for each named crawler; write empty line after each rule {%- endcomment -%}
+{%- comment -%} make a rule for each named crawler; write empty line after each crawler {%- endcomment -%}
 {%- for crawler in crawlers -%}
 User-agent: {{ crawler | strip }}
 Disallow: /.nojekyll
 Disallow: /CNAME
 Disallow: /*.md
-{%- unless crawler == "ia_archiver" or crawler == "archive.org_bot" -%}
+{%- unless crawler contains "ia_archiver" or crawler contains "archive.org_bot" %}
 Disallow: /assets/
-{%- endunless -%}
-{{ empty_line }}
-{%- endfor -%}
+{%- endunless %}
+
+{% endfor -%}
 
 {%- comment -%} default rule {%- endcomment -%}
 User-agent: *
