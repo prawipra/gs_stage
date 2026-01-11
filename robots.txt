@@ -39,10 +39,7 @@ permalink: /robots.txt
 {%- endcapture -%}
 {%- assign crawlers = crawler_list | strip_newlines | split: "," -%}
 
-{%- comment -%} 
-  make a ruleset for each named crawler
-  cause an empty line after each crawler by adjusting whitespace suppression in Liquid templates
-{%- endcomment -%}
+{%- comment -%} make a ruleset for each named crawler; write empty line after each crawler {%- endcomment -%}
 {%- for crawler in crawlers -%}
 User-agent: {{ crawler | strip }}
 Disallow: /.nojekyll
@@ -50,7 +47,8 @@ Disallow: /CNAME
 Disallow: /*.md
 {%- unless crawler contains "ia_archiver" or crawler contains "archive.org_bot" %}
 Disallow: /assets/
-{% endunless %}
+{%- endunless %}
+
 {% endfor -%}
 
 {%- comment -%} default rule {%- endcomment -%}
