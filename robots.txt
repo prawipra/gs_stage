@@ -50,7 +50,7 @@ Disallow: /CNAME
 Disallow: /*.md
 {%- unless crawler contains "ia_archiver" or crawler contains "archive.org_bot" %}
 Disallow: /assets/
-{%- endunless %}
+{% endunless %}
 {% endfor -%}
 
 {%- comment -%} default rule {%- endcomment -%}
