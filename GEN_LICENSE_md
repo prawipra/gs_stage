@@ -3,13 +3,13 @@
 layout: none
 permalink: /LICENSE.md
 ---
-© {{ site.time | date: "%Y" }} {{ site.data.about.sura.eng }}, {{ site.data.about.prawipra.eng }}. All rights reserved.
+© {{ "now" | date: "%Y" }} {{ site.data.about.sura.eng }}, {{ site.data.about.prawipra.eng }}. All rights reserved.
 
 Informal summary:
 - Repository content is intended to serve a website
 - Website is for manual, personal use by humans
 - Limited automated access permitted for search-engine crawlers
-- Text and data minining of any kind, for any purpose, requires explicit prior content
+- Text and data mining of any kind, for any purpose, requires explicit prior content
 
 See [Terms of Use](./eng/terms.html) for details.
 
