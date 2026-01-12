@@ -42,10 +42,12 @@
 
 {%- comment -%}
   only eng should have page content; other langs should not; but write it in case there is
-  then write date stamp as human-friendly version info
+  for eng page, write date stamp as human-friendly version info
 {%- endcomment -%}
 
 {{ content }}
 
+{%- if terms_lang == "eng" -%}
 <hr/>
 {{ "now" | date: "%Y-%m-%d %H:%M" }} UTC
+{%- endif -%}
