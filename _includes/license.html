@@ -16,16 +16,16 @@
   // --------------------------------------------------------------------------
 {% endcomment %}
 
-{% assign lang = include.lang %}
+{% assign license_lang = include.lang %}
 {% assign artifact = include.artifact %}
 {% assign terms_data = site.data.terms %}
 
 <p style="margin-top: 1rem; margin-bottom: 0.25rem;">
-    {{ terms_data[artifact][lang] }} &copy; {{ "now" | date: "%Y" }}
-    {{ site.data.about[include.owner][lang] }}. {{ terms_data.all_rights_reserved[lang] }}.
+    {{ terms_data[artifact][license_lang] }} &copy; {{ "now" | date: "%Y" }}
+    {{ site.data.about[include.owner][license_lang] }}. {{ terms_data.all_rights_reserved[license_lang] }}.
 
     <div style="display: flex; align-items: center; margin-bottom: 0.25rem;">
-        {{ terms_data.distribution_license[lang] }}:&nbsp;
+        {{ terms_data.distribution_license[license_lang] }}:&nbsp;
         <a href="{{ terms_data.grants[artifact].license_url }}">
             {{ terms_data.grants[artifact].license }}
         </a>
@@ -43,13 +43,15 @@
         {% for term in terms_data.grants[artifact].cc_terms %}
             {% assign cc_term = terms_data.cc_terms[term] %}
             {% if cc_term.enumerate != false %}
-                {{ cc_term.description[lang] }}.&nbsp;
+                {{ cc_term.description[license_lang] }}.&nbsp;
             {% endif %}
         {% endfor %}
     </div>
 </p>
 
-{% comment %}
+{%- comment -%}
+Sample output for the two kinds of artifacts expected:
+
 Translations © 2025 Dr. Shatavadhani Udupi Ramanatha Acharya. All rights reserved.
 Distribution license: CC BY-NC-ND 4.0 [icons]
 Attribution required.  No commerical use.  No distributing derivatives. 
@@ -57,4 +59,5 @@ Attribution required.  No commerical use.  No distributing derivatives.
 Website © 2025 Praana Witala Prakaashana. All rights reserved.
 Distribution license: CC BY-NC-SA 4.0 [icons]
 Attribution required.  No commerical use.  Distribute under same terms. 
-{% endcomment %}
+
+{%- endcomment -%}
