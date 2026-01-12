@@ -1,0 +1,98 @@
+all_rights_reserved:
+  kan:
+    - ಎಲ್ಲಾ ಹಕ್ಕುಗಳು ಮೀಸಲಾಗಿವೆ
+  eng:
+    - All rights reserved
+  hin:
+    - सभी अधिकार सुरक्षित
+  tam:
+    - அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை
+  tel:
+    - అన్ని హక్కులు నిల్వ చేయబడ్డవి
+  mal:
+    - എല്ലാ അവകാശങ്ങളും സംരക്ഷിച്ചിരിക്കുന്നു
+
+translations:
+  kan: ಅನುವಾದಗಳು
+  eng: Translations
+  hin: अनुवादों
+  tam: மொழிபெயர்ப்புகள்
+  tel: అనువాదాలు
+  mal: വിവർത്തനങ്ങൾ
+
+website:
+  kan: ವೆಬ್‌ಸೈಟ್
+  eng: Website
+  hin: वेबसाइट
+  tam: வலைத்தள
+  tel: వెబ్‌సైట్
+  mal: വെബ്‌സൈറ്റ്
+
+distribution_license:
+  kan: ವಿತರಣಾ ಪರವಾನಗಿ
+  eng: Distribution license
+  hin: वितरण परवाना
+  tam: விநியோக அனுமதி
+  tel: పంపిణీ అనుమతి
+  mal: വിതരണ അനുമതി
+
+grants:
+  translations:
+    license: CC BY-NC-ND 4.0
+    license_url: https://creativecommons.org/licenses/by-nc-nd/4.0/
+    cc_terms: [cc, by, nc, nd]
+  website:
+    license: CC BY-NC-SA 4.0
+    license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/
+    cc_terms: [cc, by, nc, sa]
+
+cc_terms:
+  img_style: "max-width:1em; max-height:1em; margin-left:.2em;" # default img_style; override in any term if required
+  cc:
+    img_src: https://mirrors.creativecommons.org/presskit/icons/cc.svg
+#   img_style: # add img specific style to override default img_style
+    enumerate: false # false means omit description from list of term descriptions; no point to describing CC
+    description:
+      kan: ಸೃಜನಾ ಸಾಮೂಹಿಕ
+      eng: Creative Commons
+      hin: सर्जनात्मक सामूहिक
+      tam: படைப்பு கூட்டு
+      tel: సృజనా సమిష్టి
+      mal: സൃഷ്ടിപരം കൂട്ടായ
+  by: 
+    img_src: https://mirrors.creativecommons.org/presskit/icons/by.svg
+    description:
+      kan: ಕರ್ತೃ ಗುರುತು ಕಡ್ಡಾಯ
+      eng: Attribution required
+      hin: कर्ता उल्लेख आवश्यक
+      tam: உருவாக்குநரை குறிப்பிடுதல் கட்டாயம்
+      tel: కర్త గుర్తింపు తప్పనిసరి
+      mal: സൃഷ്ടിച്ച വ്യക്തിയെ തിരിച്ചറിവ്
+  nc: 
+    img_src: https://mirrors.creativecommons.org/presskit/icons/nc.svg
+    description:
+      kan: ವಾಣಿಜ್ಯಕ್ಕಲ್ಲ
+      eng: No commerical use
+      hin: व्यावसायिक उपयोग वर्जित
+      tam: வணிகத்திற்கு அல்ல
+      tel: వాణిజ్యానికి కాదు
+      mal: വാണിജ്യപരമായതല്ല
+  nd: 
+    img_src: https://mirrors.creativecommons.org/presskit/icons/nd.svg
+    description:
+      kan: ಪರಿವರ್ತನೆ ವಿತರಿಸುವಂತಿಲ್ಲ
+      eng: No distributing derivatives
+      hin: परिवर्तनों का वितरण निषेध
+      tam: மாற்றங்களை பகிரக்கூடாது
+      tel: పరివర్తనాల పంపిణీ నిషేధం
+      mal: പരിവർത്തനങ്ങൾ പങ്കുവെക്കരുത്
+  sa: 
+    img_src: https://mirrors.creativecommons.org/presskit/icons/sa.svg
+    description:
+      kan: ಇದೇ ಶರತ್ತುಗಳಲ್ಲಿ ವಿತರಣೆ
+      eng: Distribute under same terms
+      hin: इन्हीं शर्तों पर वितरण
+      tam: இதே நிபந்தனைகளில் பகிர்வு
+      tel: ఇదే నిబంధనల్లో పంపిణీ
+      mal: ഇതേ നിബന്ധനകളിൽ വിതരണം
+  
