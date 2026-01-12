@@ -3,7 +3,7 @@
   // include.lang:      (String) The language code (e.g., 'eng', 'kan') used for text lookup.
   //                    (Passed from: lang=page.lang)
   //
-  // include.artifact:  (String) The about.yaml key for the artifact whose info to print.
+  // include.artifact:  (String) The terms.yaml key for the artifact whose info to print.
   //                    (Passed from: artifact="translations" or artifact="website")
   //
   // include.owner:     (String) The about.yaml key for the artifact owner.
@@ -12,39 +12,38 @@
   // USAGE EXAMPLE:
   // {% include license.html lang=page.lang artifact="translations" owner="sura" %}
   //
-  // Data for this page comes from about.yml
+  // Data for this page comes mostly from terms.yml and about.yml (only "owner" name).
   // --------------------------------------------------------------------------
 {% endcomment %}
 
 {% assign lang = include.lang %}
 {% assign artifact = include.artifact %}
-{% assign owner = include.owner %}
-{% assign about_data = site.data.about %}
+{% assign terms_data = site.data.terms %}
 
 <p style="margin-top: 1rem; margin-bottom: 0.25rem;">
-    {{ about_data[artifact][lang] }} &copy; {{ site.time | date: "%Y" }}
-    {{ about_data[owner][lang] }}. {{ about_data.all_rights_reserved[lang] }}.
+    {{ terms_data[artifact][lang] }} &copy; {{ "now" | date: "%Y" }}
+    {{ site.data.about[include.owner][lang] }}. {{ terms_data.all_rights_reserved[lang] }}.
 
     <div style="display: flex; align-items: center; margin-bottom: 0.25rem;">
-        {{ about_data.distribution_license[lang] }}:&nbsp;
-        <a href="{{ about_data.grants[artifact].license_url }}">
-            {{ about_data.grants[artifact].license }}
+        {{ terms_data.distribution_license[lang] }}:&nbsp;
+        <a href="{{ terms_data.grants[artifact].license_url }}">
+            {{ terms_data.grants[artifact].license }}
         </a>
         &nbsp;
 
-        {% assign default_img_style = about_data.cc_terms.img_style %}
-        {% for term in about_data.grants[artifact].cc_terms %}
-            <img src="{{ about_data.cc_terms[term].img_src }}" 
-                 style="{{ about_data.cc_terms[term].img_style | default: default_img_style }}"
-                 title="{{ about_data.cc_terms[term].description.eng }}">
+        {% assign default_img_style = terms_data.cc_terms.img_style %}
+        {% for term in terms_data.grants[artifact].cc_terms %}
+            <img src="{{ terms_data.cc_terms[term].img_src }}" 
+                 style="{{ terms_data.cc_terms[term].img_style | default: default_img_style }}"
+                 title="{{ terms_data.cc_terms[term].description.eng }}">
         {% endfor %}
     </div>
 
     <div>
-        {% for term in about_data.grants[artifact].cc_terms %}
-            {% assign term_data = about_data.cc_terms[term] %}
-            {% if term_data.enumerate != false %}
-                {{ term_data.description[lang] }}.&nbsp;
+        {% for term in terms_data.grants[artifact].cc_terms %}
+            {% assign cc_term = terms_data.cc_terms[term] %}
+            {% if cc_term.enumerate != false %}
+                {{ cc_term.description[lang] }}.&nbsp;
             {% endif %}
         {% endfor %}
     </div>
@@ -52,10 +51,10 @@
 
 {% comment %}
 Translations © 2025 Dr. Shatavadhani Udupi Ramanatha Acharya. All rights reserved.
-Distribution license: CC BY-NC-ND 4.0
+Distribution license: CC BY-NC-ND 4.0 [icons]
 Attribution required.  No commerical use.  No distributing derivatives. 
 
 Website © 2025 Praana Witala Prakaashana. All rights reserved.
-Distribution license: CC BY-NC-SA 4.0
+Distribution license: CC BY-NC-SA 4.0 [icons]
 Attribution required.  No commerical use.  Distribute under same terms. 
 {% endcomment %}
