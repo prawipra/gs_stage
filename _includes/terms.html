@@ -13,6 +13,39 @@
   // --------------------------------------------------------------------------
 {% endcomment %}
 
+{% assign terms_lang = include.lang %}
+{% assign terms_data = site.data.terms %}
+
+<h3>
+  {{ terms.heading_manual_personal_use_license[terms_lang] | default: terms.heading_manual_personal_use_license.eng }}
+</h3>
+
+{{ terms.text_manual_personal_use_license[terms_lang] | default: text_manual_personal_use_license.eng }}
+
+{% include license.html lang=terms_lang artifact="website" owner="prawipra" %}
+
+{% include license.html lang=terms_lang artifact="translations" owner="sura" %}
+
+{%- if terms_lang != "eng" -%}
+<h3>
+  {{ terms.heading_full_terms[terms_lang] | default: terms.heading_full_terms.eng }}
+</h3>
+
+{{ terms.text_full_terms[terms_lang] | default: terms.text_full_terms.eng }}
+
+<div>
+  <a href="./eng/terms.html" hreflang="eng-Latn-US">
+    {{ site.data.languages.eng.name[terms_lang] }} {{ terms_data.version[terms_lang] }}
+  </a>
+</div>
+
+{%- endif %}
+
+{%- comment -%}
+  only eng should have page content; other langs should not; but write it in case there is
+  then write date stamp as human-friendly version info
+{%- endcomment -%}
+
 {{ content }}
 
 <hr/>

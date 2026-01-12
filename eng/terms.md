@@ -2,14 +2,6 @@
 title: Terms of Use
 ---
 
-### TL;DR License for manual, personal use
-
-This is a brief informal license summary. Please consult the full terms below for complete details.
-
-{% include license.html lang=page.lang artifact="website" owner="prawipra" %}
-
-{% include license.html lang=page.lang artifact="translations" owner="sura" %}
-
 ### Overview
 
 &copy; {{ site.time | date: "%Y" }}
