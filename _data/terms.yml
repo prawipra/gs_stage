@@ -95,4 +95,62 @@ cc_terms:
       tam: இதே நிபந்தனைகளில் பகிர்வு
       tel: ఇదే నిబంధనల్లో పంపిణీ
       mal: ഇതേ നിബന്ധനകളിൽ വിതരണം
-  
+
+heading_manual_personal_use_license:
+    kan: ಹಸ್ತಚಾಲಿತ ವೈಯಕ್ತಿಕ ಬಳಕೆ ಪರವಾನಗಿ
+    eng: License for manual, personal use
+    hin: मैन्युअल व्यक्तिगत उपयोग परवाना
+    tam: கைமுறை தனிப்பட்ட பயன்பாட்டு அனுமதி
+    tel: మాన్యువల్ వ్యక్తిగత వినియోగ అనుమతి
+    mal: മാനുവൽ വ്യക്തിഗത ഉപയോഗ അനുമതി
+
+# TODO: fill in other langs
+# eng version: second sentence is intentionally different than other lang text
+text_manual_personal_use_license:
+    kan: |-
+      ಇದು ತ್ವರಿತ ಓದಿಗಾಗಿ ಮಾತ್ರ ಕೊಟ್ಟ ಅನೌಪಚಾರಿಕ ಸಾರಾಂಶ.
+      ಅಧಿಕೃತ ವಿವರಗಳಿಗೆ ಸಂಪೂರ್ಣ ನಿಬಂಧನೆಗಳನ್ನು ಓದಿ.
+    eng: |-
+      This is an informal license summary.
+      Please consult the full terms below for complete details.
+    hin:
+    tam:
+    tel:
+    mal:
+
+# eng heading is presently unused, but is filled in for completness and guidance
+heading_full_terms:
+    kan: ಸಂಪೂರ್ಣ ನಿಬಂಧನೆಗಳು
+    eng: Complete Terms
+    hin: सम्पूर्ण शर्तें
+    tam: முழுமையான விதிமுறைகள்
+    tel: సంపూర్ణ నిబంధనలు
+    mal: പൂർണ്ണ നിബന്ധനകൾ
+
+# eng text is presently unused, but is filled in for completness and guidance
+text_full_terms:
+    kan: |-
+      ವ್ಯವಸ್ಥಾಪನಾ ಕಾರಣಗಳಿಗಾಗಿ ಸಂಪೂರ್ಣ ನಿಬಂಧನೆಗಳನ್ನು ಇಂಗ್ಲಿಷ್ನಲ್ಲಿ ಪ್ರಕಟಿಸಿದೆ.
+      ಇಂಗ್ಲಿಷ್ ಆವೃತ್ತಿಯೇ ಬದ್ಧ.
+    eng: |-
+      For logistics, the complete terms are published in English.
+      Only the English version is binding.
+    hin: |-
+      पूरे शर्तें अंग्रेज़ी में प्रकटण किए गए हैं। केवल अंग्रेजी संस्करण लागू है।
+    tam: |-
+      நிர்வாக காரணங்களுக்காக, முழு விதிமுறைகளும் ஆங்கிலத்தில் வெளியிடப்பட்டுள்ளன.
+      ஆங்கிலப் பதிப்பு பிணைக்கப்பட்டுள்ளது.
+    tel: |-
+      పరిపాలనా కారణాల దృష్ట్యా, మొత్తం నిబంధనలు ఆంగ్లంలో ప్రచురించబడ్డాయి.
+      ఆంగ్ల వెర్షన్ కట్టుబడి ఉంటుంది.
+    mal: |-
+      ഭരണപരമായ കാരണങ്ങളാൽ, മുഴുവൻ നിയന്ത്രണങ്ങളും ഇംഗ്ലീഷിലാണ്
+      പ്രസിദ്ധീകരിച്ചിരിക്കുന്നത്. ഇംഗ്ലീഷ് പതിപ്പ് ബാധകമാണ്.
+
+version:
+  kan: ಆವೃತ್ತಿ
+  eng: Version
+  hin: संस्करण
+  tam: பதிப்பு
+  tel: వెర్షన్
+  mal: പതിപ്പ്
