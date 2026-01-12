@@ -22,9 +22,8 @@
 
 {{ terms_data.text_manual_personal_use_license[terms_lang] | default: terms_data.text_manual_personal_use_license.eng }}
 
-{% include license.html lang=terms_lang artifact="website" owner="prawipra" %}
-
 {% include license.html lang=terms_lang artifact="translations" owner="sura" %}
+{% include license.html lang=terms_lang artifact="website" owner="prawipra" %}
 
 {%- if terms_lang != "eng" -%}
 <h3>
