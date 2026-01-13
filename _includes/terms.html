@@ -42,12 +42,15 @@
 
 {%- comment -%}
   only eng should have page content; other langs should not; but write it in case there is
-  for eng page, write date stamp as human-friendly version info
+  for eng page, write a "fingerprint" composed of date, content size, and content word count
 {%- endcomment -%}
 
 {{ content }}
 
 {%- if terms_lang == "eng" -%}
 <hr/>
-{{ "now" | date: "%Y-%m-%d %H:%M" }} UTC
+{%- assign content_size = content | size -%}
+{%- assign content_word_count = content | number_of_words -%}
+{%- assign date_ymd = "now" | date: "%y%m%d" -%}
+{{ date_ymd }}-{{ content_size }}w{{ content_word_count }}
 {%- endif -%}
