@@ -108,7 +108,7 @@ heading_manual_personal_use_license:
 # eng version: second sentence is intentionally different than other lang text
 text_manual_personal_use_license:
     kan: |-
-      ಇದು ತ್ವರಿತ ಓದಿಗಾಗಿ ಮಾತ್ರ ಕೊಟ್ಟ ಅನೌಪಚಾರಿಕ ಸಾರಾಂಶ.
+      ಇದು ತ್ವರಿತ ಓದಿಗಾಗಿ ಮಾತ್ರ ಕೊಟ್ಟ ಸಾರಾಂಶ.
       ಅಧಿಕೃತ ವಿವರಗಳಿಗೆ ಸಂಪೂರ್ಣ ನಿಬಂಧನೆಗಳನ್ನು ಓದಿ.
     eng: |-
       This is an informal license summary.
@@ -136,7 +136,7 @@ text_full_terms:
       For logistics, the complete terms are published in English.
       Only the English version is binding.
     hin: |-
-      पूरे शर्तें अंग्रेज़ी में प्रकटण किए गए हैं। केवल अंग्रेजी बाध्यकारी है।
+      पूरे शर्तें अंग्रेज़ी में प्रकटण किए गए हैं। केवल अंग्रेजी संस्करण बाध्यकारी है।
     tam: |-
       நிர்வாக காரணங்களுக்காக, முழு விதிமுறைகளும் ஆங்கிலத்தில் வெளியிடப்பட்டுள்ளன.
       ஆங்கிலப் பதிப்பு மட்டுமே பிணைக்கப்பட்டுள்ளது.
