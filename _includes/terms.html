@@ -51,6 +51,6 @@
 <hr/>
 {%- assign content_size = content | size -%}
 {%- assign content_word_count = content | number_of_words -%}
-{%- assign date_ymd = "now" | date: "%y%m%d" -%}
-{{ date_ymd }}-{{ content_size }}w{{ content_word_count }}
+{%- assign date_ymdhm = "now" | date: "%Y%m%d%H%M" -%}
+{{ date_ymdhm }}-{{ content_size }}w{{ content_word_count }}
 {%- endif -%}
