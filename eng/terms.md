@@ -90,7 +90,7 @@ This site supports responsible Text and Data Mining (TDM) practices:
 * Mining for non-research purposes requires prior consent and compensation.
 * Consent must be obtained *before* any mining activity begins.
 
-A [machine-readable policy](/tdm-policy.json) is included for automated agents.
+A [machine-readable policy](../tdm-policy.json) is included for automated agents.
 
 #### Definitions
 
